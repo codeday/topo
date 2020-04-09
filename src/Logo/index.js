@@ -18,8 +18,8 @@ const WithText = ({ text, ...props }) => {
         fontWeight="bold"
         fontFamily={fonts.heading}
         verticalAlign="middle"
-        marginTop="3"
-        marginLeft="2"
+        paddingTop="1"
+        paddingLeft="2"
       >
         {text}
       </Text>

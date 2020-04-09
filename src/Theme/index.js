@@ -14,10 +14,14 @@ export const codedayTheme = {
   fonts,
 };
 
+const customCss = css`
+  @import url(https://f1.srnd.org/topo/fonts/all.css);
+`;
+
 const Provider = ({ children }) => (
   <ThemeProvider theme={codedayTheme}>
     <CSSReset config={(theme) => theme.colors.modes} />
-    <Global styles={css`@import url(https://f1.srnd.org/topo/fonts/all.css);`} />
+    <Global styles={customCss} />
     {children}
   </ThemeProvider>
 );
