@@ -1,0 +1,17 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import CognitoForm from './index';
+
+<Meta title="CognitoForm" component={CognitoForm} />
+
+# Cognito Forms
+
+Cognito Forms is our form provider of choice, and this component will let you quickly embed a hosted form!
+
+- You can pass in `showTitle={false}` if you'd like to hide the form title.
+- You can prefill forms by passing a `prefill` prop with `key: value` pairs for each field you want to fill.
+
+<Preview>
+  <Story name="CognitoForm">
+    <CognitoForm id={61} showTitle={false} />
+  </Story>
+</Preview>

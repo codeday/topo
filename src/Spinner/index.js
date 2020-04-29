@@ -10,11 +10,10 @@ const smilSupport = () => (typeof window === 'undefined'
     .indexOf('SVG') > -1);
 
 export default forwardRef((_, ref) => (
-  <Box w="100%" textAlign="center">
-    <img
-      ref={ref}
-      src={`https://f1.srnd.org/topo/loading.${smilSupport() ? 'svg' : 'gif'}`}
-      alt="(loading...)"
-    />
-  </Box>
+  <img
+    ref={ref}
+    src={`https://f1.srnd.org/topo/loading.${smilSupport() ? 'svg' : 'gif'}`}
+    alt="(loading...)"
+    style={{ display: 'inline-block' }}
+  />
 ));

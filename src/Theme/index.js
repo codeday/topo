@@ -12,6 +12,10 @@ export const codedayTheme = {
   ...originalTheme,
   colors,
   fonts,
+  cognito: {
+    // eslint-disable-next-line no-secrets/no-secrets
+    id: '7hYXr3TPxk6yIpJxjqVoFQ',
+  },
 };
 
 const customCss = css`
