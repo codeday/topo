@@ -32,7 +32,7 @@ const SizeBox = forwardRef(({
 
   useEffect(() => {
     changeSize();
-  }, [ref]);
+  }, [ref, typeof window]);
 
   useEffect(() => {
     window.addEventListener('resize', windowChangeSize, false);

@@ -26,6 +26,9 @@ const Deck = forwardRef(({ src, allowDownload }, ref) => {
   const navigate = (amount) => setPageNumber(Math.min(totalPages, Math.max(1, (amount + pageNumber))));
   const filter = 'drop-shadow( 0 0 1px rgba(0, 0, 0, .7))';
 
+  // This will throw an error server-side.
+  if (typeof window === 'undefined') return <></>;
+
   return (
     <>
       <SizeBox
