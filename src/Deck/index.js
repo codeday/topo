@@ -30,13 +30,12 @@ const Deck = forwardRef(({ src, allowDownload }, ref) => {
   if (typeof window === 'undefined') return <></>;
 
   return (
-    <>
+    <Box position="relative">
       <SizeBox
         onWidthChanged={setWidth}
         borderWidth="1px"
         borderColor="gray.100"
         borderRadius={allowDownload ? `${theme.radii.md} ${theme.radii.md} 0 ${theme.radii.md}` : 'md'}
-        position="relative"
         aria-hidden
       >
         <Document
@@ -124,7 +123,7 @@ const Deck = forwardRef(({ src, allowDownload }, ref) => {
           <Download />&nbsp;Download PDF
         </Button>
       </Box>
-    </>
+    </Box>
   );
 });
 Deck.propTypes = {
