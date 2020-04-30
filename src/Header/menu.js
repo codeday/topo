@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Box from '../Box';
+import { reactChildrenMapRecursive } from '../utils';
 
 export default function Menu({ darkBackground, children, ...props }) {
   const darkColor = 'whiteAlpha.800';
@@ -29,7 +30,7 @@ export default function Menu({ darkBackground, children, ...props }) {
 
   return (
     <Box {...props}>
-      {React.Children.map(children, (child) => React.cloneElement(child, {
+      {reactChildrenMapRecursive(children, (child) => React.cloneElement(child, {
         marginLeft: '5',
         textDecoration: 'none',
         transition: 'all 0.5s ease-in-out',

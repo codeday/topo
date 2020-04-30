@@ -24,7 +24,7 @@ const Header = ({
       >
         <Grid templateColumns="1fr 3fr">
           {Logo}
-          <Box textAlign="right" paddingTop={1}>
+          <Box textAlign="right">
             {Menu}
           </Box>
         </Grid>

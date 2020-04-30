@@ -27,7 +27,7 @@ CognitoForm.propTypes = {
 };
 CognitoForm.defaultProps = {
   prefill: {},
-  showTitle: true,
+  showTitle: false,
 };
 
 export default CognitoForm;
