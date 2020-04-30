@@ -33,6 +33,7 @@ const Deck = forwardRef(({ src, allowDownload }, ref) => {
         borderWidth="1px"
         borderColor="gray.100"
         borderRadius={allowDownload ? `${theme.radii.md} ${theme.radii.md} 0 ${theme.radii.md}` : 'md'}
+        position="relative"
         aria-hidden
       >
         <Document
