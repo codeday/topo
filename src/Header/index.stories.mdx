@@ -1,0 +1,69 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Header, { SiteLogo, Menu } from './index';
+import Box, { Content } from '../Box';
+import Text, { Link, Heading } from '../Text';
+import Button from '../Button';
+import { CodeDay } from '../Logo';
+
+<Meta title="Header" component={Header} />
+
+# Header
+
+This represents a "full" header which can be used on our websites. It takes the following props:
+
+- `darkBackground`
+- `underscore`
+
+<Preview>
+  <Story name="Header">
+    <Box padding={2} borderWidth="1px" borderColor="gray.100">
+      <Header underscore>
+        <SiteLogo>
+          <CodeDay />
+        </SiteLogo>
+        <Menu>
+          <Link href="https://example.com" target="_blank">About</Link>
+          <Link href="https://example.com" target="_blank">Contact</Link>
+          <Button as="a" href="https://example.com" variantColor="green" target="_blank">Register Now</Button>
+        </Menu>
+      </Header>
+      <Content>
+        <Heading>Welcome to ZomboCom</Heading>
+        <Text>The impossible is unknown at ZomboCom</Text>
+      </Content>
+    </Box>
+  </Story>
+</Preview>
+
+## Dark Backgrounds
+
+If you set `darkBackground`, the header will attempt to recolor itself to support dark backgrounds. It can automatically
+re-color only the following Topo components:
+
+- `<Logo />`
+- `<Link />`
+- `<Button />` (but it will not do so if a `variantColor` is set)
+
+_This is separate from Topo's regular support for dark mode, and is intended solely for use when something is guaranteed
+to be a dark background, such as when displaying the menu on top of a hero cover image._
+
+<Preview>
+  <Story name="Dark Header">
+    <Box bg="gray.900" padding={2}>
+      <Header darkBackground underscore>
+        <SiteLogo>
+          <CodeDay />
+        </SiteLogo>
+        <Menu>
+          <Link href="https://example.com" target="_blank">About</Link>
+          <Link href="https://example.com" target="_blank">Contact</Link>
+          <Button as="a" href="https://example.com" target="_blank">Register Now</Button>
+        </Menu>
+      </Header>
+      <Content>
+        <Heading color="white">Welcome to ZomboCom</Heading>
+        <Text color="white">The impossible is unknown at ZomboCom</Text>
+      </Content>
+    </Box>
+  </Story>
+</Preview>

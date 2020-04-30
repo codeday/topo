@@ -27,6 +27,7 @@ TextCompose.defaultProps = {
 const LinkCompose = (props) => (
   <Link textDecoration="underline" {...props} />
 );
+LinkCompose.displayName = 'Link';
 LinkCompose.propTypes = Link.propTypes;
 LinkCompose.defaultProps = Link.defaultProps;
 

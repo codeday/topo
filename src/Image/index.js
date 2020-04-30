@@ -1,1 +1,2 @@
-export { default } from '@chakra-ui/core/dist/Image';
+export { default } from './image';
+export { default as Slideshow } from './slideshow';

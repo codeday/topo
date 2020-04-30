@@ -7,10 +7,9 @@ export const dereferenceDottedString = (str, obj) => str.split('.').reduce((o, i
 
 export const debounce = (func, wait, immediate) => {
   let timeout;
-  return () => {
-    const context = this; const
-      args = arguments;
-    const later = function () {
+  return (...args) => {
+    const context = this;
+    const later = () => {
       timeout = null;
       if (!immediate) func.apply(context, args);
     };

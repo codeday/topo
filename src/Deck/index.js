@@ -14,7 +14,7 @@ import { useTheme } from '../utils';
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
-const Deck = forwardRef(({ url, allowDownload }, ref) => {
+const Deck = forwardRef(({ src, allowDownload }, ref) => {
   const [width, setWidth] = useState(300);
   const [height, setHeight] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
@@ -36,7 +36,7 @@ const Deck = forwardRef(({ url, allowDownload }, ref) => {
         aria-hidden
       >
         <Document
-          file={url}
+          file={src}
           inputRef={myRef}
           loading={loading}
           onLoadSuccess={({ numPages }) => setTotalPages(numPages)}
@@ -111,7 +111,7 @@ const Deck = forwardRef(({ url, allowDownload }, ref) => {
           size="sm"
           variant="outline"
           as="a"
-          href={url}
+          href={src}
           target="_blank"
           borderRadius={`0 0 ${theme.radii.md} ${theme.radii.md}`}
           borderTop="none"
@@ -124,7 +124,7 @@ const Deck = forwardRef(({ url, allowDownload }, ref) => {
   );
 });
 Deck.propTypes = {
-  url: PropTypes.string.isRequired,
+  src: PropTypes.string.isRequired,
   allowDownload: PropTypes.bool,
 };
 Deck.defaultProps = {
