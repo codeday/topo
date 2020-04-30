@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '../Box';
 
 const Slideshow = forwardRef(({
-  duration, transitionDuration, srcs, resize, ...props
+  duration, transitionDuration, srcs, resize, children, ...props
 }, ref) => {
   const [visibleIndex, nextSlide] = useReducer((lastIndex) => (lastIndex + 1) % srcs.length, 0);
 
@@ -14,6 +14,7 @@ const Slideshow = forwardRef(({
 
   return (
     <Box position="relative" overflow="hidden" ref={ref} {...props}>
+      <Box position="absolute" top="0" left="0" bottom="0" right="0" zIndex="100">{children}</Box>
       {srcs.map((src, index) => (
         <Box
           key={src}
@@ -38,11 +39,13 @@ Slideshow.propTypes = {
   srcs: PropTypes.arrayOf(PropTypes.string).isRequired,
   duration: PropTypes.number,
   transitionDuration: PropTypes.number,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]),
   resize: PropTypes.string,
 };
 Slideshow.defaultProps = {
   duration: 15,
   transitionDuration: 1,
   resize: 'cover',
+  children: null,
 };
 export default Slideshow;

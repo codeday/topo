@@ -11,7 +11,7 @@ export default function SiteLogo({ darkBackground, children, ...props }) {
 }
 SiteLogo.displayName = 'SiteLogo';
 SiteLogo.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   darkBackground: PropTypes.bool,
 };
 SiteLogo.defaultProps = {

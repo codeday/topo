@@ -40,7 +40,7 @@ export default function Menu({ darkBackground, children, ...props }) {
 }
 Menu.displayName = 'Menu';
 Menu.propTypes = {
-  children: PropTypes.arrayOf(PropTypes.element).isRequired,
+  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   darkBackground: PropTypes.bool,
 };
 Menu.defaultProps = {
