@@ -1,5 +1,12 @@
 import originalTheme from '@chakra-ui/core/dist/theme';
 
+const linearGrad = (from, to, deg) => `linear-gradient(${deg}deg, ${from} 0%, ${to} 100%)`;
+const linearGrads = (from, to) => (
+  [0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 240, 270, 300, 330]
+    .map((deg) => ({ [deg]: linearGrad(from, to, deg) }))
+    .reduce((accum, obj) => ({ ...accum, ...obj }), {})
+);
+
 const colors = {
   ...(originalTheme.colors),
   black: '#252222',
@@ -138,6 +145,22 @@ const colors = {
     900: '#672a4a',
   },
 };
+colors.success = {
+  border: colors.green[100],
+  bg: colors.green[500],
+  text: colors.green[900],
+};
+colors.failure = {
+  border: colors.red[100],
+  bg: colors.red[500],
+  text: colors.red[900],
+};
+colors.grad = {
+  twilight: linearGrads(colors.red[500], colors.indigo[500]),
+  lemonLime: linearGrads(colors.cyan[500], colors.green[500]),
+  peachy: linearGrads(colors.red[500], colors.orange[500]),
+  taffy: linearGrads(colors.yellow[500], colors.pink[500]),
+};
 colors.modes = {
   light: {
     color: colors.black,
@@ -146,7 +169,9 @@ colors.modes = {
     background: colors.white,
     primary: colors.brand,
     borderColor: colors.gray[200],
+    border: colors.gray[200],
     placeholderColor: colors.gray[400],
+    placeholder: colors.gray[400],
   },
   dark: {
     color: colors.whiteAlpha[900],
@@ -154,8 +179,10 @@ colors.modes = {
     bg: colors.gray[800],
     primary: colors.whiteAlpha[900],
     background: colors.gray[800],
+    border: colors.whiteAlpha[300],
     borderColor: colors.whiteAlpha[300],
     placeholderColor: colors.whiteAlpha[400],
+    placeholder: colors.whiteAlpha[400],
   },
 };
 colors.current = () => colors.modes.light; // Todo: change this later

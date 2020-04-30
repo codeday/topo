@@ -1,5 +1,4 @@
 import React, { forwardRef } from 'react';
-import Box from '../Box';
 
 const smilSupport = () => (typeof window === 'undefined'
   ? true

@@ -19,7 +19,7 @@ export const codedayTheme = {
 };
 
 const customCss = css`
-  @import url(https://f1.srnd.org/topo/fonts/all.css);
+  @import url(https://f1.srnd.org/topo/fonts/all.css?v2);
 `;
 
 const Provider = ({ children }) => (
