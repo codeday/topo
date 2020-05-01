@@ -14,7 +14,6 @@ const Slideshow = forwardRef(({
 
   return (
     <Box position="relative" overflow="hidden" ref={ref} {...props}>
-      <Box position="absolute" top="0" left="0" bottom="0" right="0" zIndex="100">{children}</Box>
       {srcs.map((src, index) => (
         <Box
           key={src}
@@ -31,6 +30,7 @@ const Slideshow = forwardRef(({
           style={{ opacity: index === visibleIndex ? 1 : 0 }}
         />
       ))}
+      <Box position="absolute" top="0" left="0" bottom="0" right="0">{children}</Box>
     </Box>
   );
 });
