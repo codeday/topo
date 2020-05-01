@@ -21,6 +21,10 @@ export default (theme) => `
     font-size: ${theme.fontSizes.md} !important;
   }
 
+  ${selectors.fields.html}${selectors.fields.editor} {
+    font-size: ${theme.fontSizes.md} !important;
+  }
+
   ${selectors.confirmation} {
     padding: 0 !important;
     text-align: center !important;

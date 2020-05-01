@@ -69,13 +69,13 @@ export default (theme) => `
 
   /* Navigation buttons */
   ${selectors.pages.page} span {
-    font-size: ${theme.fontSizes.sm} !important;
+    font-size: ${theme.fontSizes.md} !important;
     font-weight: 400 !important;
     color: ${theme.colors.gray[500]} !important;
   }
 
   ${selectors.pages.page} a:before {
-    font-size: ${theme.fontSizes.xs} !important;
+    font-size: ${theme.fontSizes.sm} !important;
     color: ${theme.colors.gray[500]} !important;
     background-color: ${theme.colors.current().bg} !important;
     border-color: ${theme.colors.current().borderColor} !important;

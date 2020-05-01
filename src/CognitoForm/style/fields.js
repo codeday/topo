@@ -9,6 +9,10 @@ export default (theme) => `
     background-color: ${theme.colors.gray[50]} !important;
   }
 
+  ${selectors.fields.likert} tbody th {
+    font-size: ${theme.fontSizes.md} !important;
+  }
+
   /* Text */
 
   ${selectors.input.text}, ${selectors.input.dropdown} {
@@ -17,7 +21,7 @@ export default (theme) => `
     border-radius: ${theme.radii.sm} !important;
     outline: none !important;
     font-weight: 400 !important;
-    font-size: ${theme.fontSizes.sm} !important;
+    font-size: ${theme.fontSizes.md} !important;
   }
 
   ${selectors.input.dropdown} select {
@@ -35,13 +39,7 @@ export default (theme) => `
 
   ${selectors.fields.choice.radio} label, ${selectors.fields.choice.checkboxes} label,
   ${selectors.fields.yesNo.radio} label, ${selectors.fields.yesNo.checkbox} label {
-    font-size: ${theme.fontSizes.sm} !important;
-  }
-
-  /* HTML */
-
-  ${selectors.fields.editor}${selectors.fields.html} {
-    font-size: ${theme.fontSizes.sm} !important;
+    font-size: ${theme.fontSizes.md} !important;
   }
 
   /* Upload */

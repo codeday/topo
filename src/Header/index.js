@@ -19,6 +19,7 @@ const Header = ({
         ((darkBackground && gradAmount !== false) || gradAmount)
         && `${darkBackground ? 'darken' : 'lighten'}.${gradAmount || 'sm'}.180`
       }
+      {...props}
     >
       <Box
         margin="0 auto"
@@ -33,7 +34,6 @@ const Header = ({
           paddingBottom={4}
           borderBottomColor={darkBackground ? 'whiteAlpha.300' : 'gray.200'}
           borderBottomWidth={underscore ? '1px' : 0}
-          {...props}
         >
           <Grid templateColumns="1fr 3fr">
             {Logo}
