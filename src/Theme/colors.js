@@ -160,6 +160,14 @@ colors.grad = {
   lemonLime: linearGrads(colors.cyan[500], colors.green[500]),
   peachy: linearGrads(colors.red[500], colors.orange[500]),
   taffy: linearGrads(colors.yellow[500], colors.pink[500]),
+  darken: {
+    sm: linearGrads(colors.blackAlpha[300], 'rgba(0,0,0,0)'),
+    lg: linearGrads(colors.blackAlpha[700], 'rgba(0,0,0,0)'),
+  },
+  lighten: {
+    sm: linearGrads(colors.whiteAlpha[300], 'rgba(255, 255, 255 ,0)'),
+    lg: linearGrads(colors.whiteAlpha[700], 'rgba(255, 255, 255 ,0)'),
+  },
 };
 colors.modes = {
   light: {
