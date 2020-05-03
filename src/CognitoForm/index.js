@@ -21,7 +21,7 @@ const CognitoForm = ({ id, prefill, showTitle }) => {
   );
 };
 CognitoForm.propTypes = {
-  id: PropTypes.number.isRequired,
+  id: PropTypes.oneOf(PropTypes.number, PropTypes.string).isRequired,
   prefill: PropTypes.object,
   showTitle: PropTypes.bool,
 };

@@ -11,7 +11,6 @@ const colors = {
   ...(originalTheme.colors),
   black: '#252222',
   white: '#ffffff',
-  brand: '#ff686b',
   gray: {
     50: '#faf9f9',
     100: '#f1ecec',
@@ -145,6 +144,7 @@ const colors = {
     900: '#672a4a',
   },
 };
+colors.brand = colors.red;
 colors.success = {
   border: colors.green[100],
   bg: colors.green[500],

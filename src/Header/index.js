@@ -50,7 +50,7 @@ Header.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   darkBackground: PropTypes.bool,
   underscore: PropTypes.bool,
-  gradAmount: PropTypes.number,
+  gradAmount: PropTypes.string,
 };
 Header.defaultProps = {
   darkBackground: false,
