@@ -18,7 +18,7 @@ export default function Chatra({ chatraId }) {
     };
   }, [typeof window, colors]);
 
-  if (!id) return <></>;
+  if (!chatraId) return <></>;
 
   return <Script url="https://www.srnd.org/chatra.js" />;
 }
