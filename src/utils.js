@@ -4,7 +4,7 @@ export { default as useToast } from '@chakra-ui/core/dist/Toast';
 export { default as useClipboard } from '@chakra-ui/core/dist/useClipboard';
 export { default as useDisclosure } from '@chakra-ui/core/dist/useDisclosure';
 export { useTheme } from '@chakra-ui/core/dist/ThemeProvider';
-export { useAnalytics } from './Theme/_analytics';
+export { useFathom as useAnalytics } from 'fathom-react';
 
 export const dereferenceDottedString = (str, obj) => str.split('.').reduce((o, i) => o[i], obj);
 

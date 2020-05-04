@@ -12,7 +12,7 @@ const WithText = ({
 
   return (
     <Box style={{ ...style, whiteSpace: 'nowrap' }} {...props}>
-      <Heart color={color || colors.current().primary} style={{ height: fontSizes['4xl'] }} />
+      <Heart color={color || colors.red[600]} style={{ height: fontSizes['4xl'] }} />
       <Text
         color={color || colors.current().text}
         d="inline"

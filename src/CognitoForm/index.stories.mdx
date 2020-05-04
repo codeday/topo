@@ -5,13 +5,17 @@ import CognitoForm from './index';
 
 # Cognito Forms
 
-Cognito Forms is our form provider of choice, and this component will let you quickly embed a hosted form!
+Cognito Forms is our form provider of choice, and this component will let you quickly embed a hosted form! It takes the
+following props:
 
-- You can pass in `showTitle` if you'd like to show the form title, which is hidden by default.
-- You can prefill forms by passing a `prefill` prop with `key: value` pairs for each field you want to fill.
+- `showTitle`: Shows the built-in form title. (Default is to hide it.)
+- `prefill`: Object (of `{FieldName: value, FieldName: value}`) to prefill the form with.
+- `onSubmit`: Function to run when the form is submitted.
+- `onPageChange`: Function to run when the page changes.
+- `onFirstPageChange`: Function to run on the first page change (analytics signal that the user has started the form).
 
 <Preview>
   <Story name="CognitoForm">
-    <CognitoForm id={61} showTitle={false} />
+    <CognitoForm formId={61} showTitle={false} />
   </Story>
 </Preview>

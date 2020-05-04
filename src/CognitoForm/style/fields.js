@@ -15,7 +15,7 @@ export default (theme) => `
 
   /* Text */
 
-  ${selectors.input.text}, ${selectors.input.dropdown} {
+  ${selectors.input.text}, ${selectors.input.dropdown}, ${selectors.input.textarea} {
     padding: ${theme.space[3]} !important;
     border: 1px solid ${theme.colors.current().borderColor} !important;
     border-radius: ${theme.radii.sm} !important;
@@ -85,5 +85,15 @@ export default (theme) => `
 
   :checked + ${selectors.fields.yesNo.toggleContainer} {
     background-color: ${theme.colors.green[500]} !important;
+  }
+
+  /* Signature */
+  ${selectors.fields.signature} ${selectors.fields.editor} > div {
+    border: 1px solid ${theme.colors.current().borderColor} !important;
+    border-radius: ${theme.radii.sm} !important;
+  }
+
+  ${selectors.icons.signature}::after {
+    color: ${theme.colors.current().border} !important;
   }
 `;

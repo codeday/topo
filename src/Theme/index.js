@@ -5,10 +5,10 @@ import { Global, css } from '@emotion/core';
 import ThemeProvider from '@chakra-ui/core/dist/ThemeProvider';
 import CSSReset from '@chakra-ui/core/dist/CSSReset';
 import originalTheme from '@chakra-ui/core/dist/theme';
+import Fathom from 'fathom-react';
 import colors from './colors';
 import fonts from './fonts';
-import Analytics from './_analytics';
-import Chatra from './_chatra';
+import Chatra from './ComponentProviders/Chatra';
 
 export const codedayTheme = {
   ...originalTheme,
@@ -17,12 +17,6 @@ export const codedayTheme = {
   cognito: {
     // eslint-disable-next-line no-secrets/no-secrets
     id: '7hYXr3TPxk6yIpJxjqVoFQ',
-  },
-  chatra: {
-    id: '5wsfeENwi3WqHrn3n',
-  },
-  analytics: {
-    base: 'https://polarbear.codeday.org',
   },
 };
 
@@ -36,15 +30,15 @@ const Provider = ({
   <ThemeProvider
     theme={{
       ...codedayTheme,
-      analytics: { ...codedayTheme.analytics, siteId: analyticsId },
       colors: { ...colors, brand: codedayTheme.colors[brandColor] || colors.brand },
     }}
   >
     <CSSReset config={(theme) => theme.colors.modes} />
     <Global styles={customCss} />
-    { withChat && <Chatra /> }
-    { analyticsId && <Analytics /> }
-    {children}
+    { withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" /> }
+    <Fathom customDomain="polarbear.codeday.org" siteId={analyticsId}>
+      {children}
+    </Fathom>
   </ThemeProvider>
 );
 Provider.propTypes = {

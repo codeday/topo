@@ -1,14 +1,15 @@
 /* eslint-disable no-undef */
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Script from 'react-load-script';
-import { useTheme } from '../utils';
+import { useTheme } from '../../../utils';
 
-export default () => {
-  const { colors, chatra } = useTheme();
+export default function Chatra({ chatraId }) {
+  const { colors } = useTheme();
 
   useEffect(() => {
     if (typeof (window) === 'undefined') return;
-    window.ChatraID = chatra.id;
+    window.ChatraID = chatraId;
     window.ChatraSetup = {
       colors: {
         buttonText: colors.gray[400],
@@ -17,5 +18,14 @@ export default () => {
     };
   }, [typeof window, colors]);
 
+  if (!id) return <></>;
+
   return <Script url="https://www.srnd.org/chatra.js" />;
+}
+Chatra.displayName = 'Chatra';
+Chatra.propTypes = {
+  chatraId: PropTypes.string,
+};
+Chatra.defaultProps = {
+  chatraId: null,
 };

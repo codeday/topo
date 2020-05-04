@@ -25,6 +25,7 @@ export default {
   confirmationPage: `.c-forms-confirmation`,
   input: {
     text: `.cognito input[type=text]`,
+    textarea: `.cognito textarea`,
     dropdown: `.c-dropdown`,
   },
   field: `.c-field`,
@@ -71,5 +72,6 @@ export default {
   },
   icons: {
     remove: `.remove-icon`,
+    signature: `.c-signature-glyph`,
   },
 };

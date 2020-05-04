@@ -8,7 +8,7 @@ addParameters({
 
 
 addDecorator(story => (
-  <Theme lang="en" brandColor="red">
+  <Theme lang="en" brandColor="red" analyticsId="AAAAAA">
     {story()}
   </Theme>
 ))
