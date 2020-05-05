@@ -10,12 +10,14 @@
   },
   "dependencies": {
     "@chakra-ui/core": "^0.7.0",
+    "@storybook/addon-a11y": "^5.3.18",
     "@tylermenezes/cognitoforms-react": "^1.1.0",
     "fathom-react": "^1.0.1",
     "react-load-script": "^0.0.6",
     "react-pdf": "^4.1.0",
     "react-syntax-highlighter": "^12.2.1",
-    "react-uid": "^2.2.0"
+    "react-uid": "^2.2.0",
+    "recompose": "^0.30.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",
@@ -29,7 +31,10 @@
     "@storybook/addon-links": "^6.0.0-alpha.45",
     "@storybook/addons": "^6.0.0-alpha.45",
     "@storybook/react": "^6.0.0-alpha.45",
+    "@svgr/cli": "^5.4.0",
     "babel-loader": "^8.1.0",
+    "babel-plugin-module-resolver": "^4.0.0",
+    "create-index": "^2.5.0",
     "eslint": "^6.8.0",
     "react-is": "^16.13.1",
     "storybook": "6.0.0-alpha.45"

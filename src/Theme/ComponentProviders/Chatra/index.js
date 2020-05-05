@@ -2,7 +2,7 @@
 import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Script from 'react-load-script';
-import { useTheme } from '../../../utils';
+import { useTheme } from 'topo/utils';
 
 export default function Chatra({ chatraId }) {
   const { colors } = useTheme();

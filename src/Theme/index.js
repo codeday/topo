@@ -6,18 +6,12 @@ import ThemeProvider from '@chakra-ui/core/dist/ThemeProvider';
 import CSSReset from '@chakra-ui/core/dist/CSSReset';
 import originalTheme from '@chakra-ui/core/dist/theme';
 import Fathom from 'fathom-react';
-import colors from './colors';
-import fonts from './fonts';
+import vars from './vars';
 import Chatra from './ComponentProviders/Chatra';
 
 export const codedayTheme = {
   ...originalTheme,
-  colors,
-  fonts,
-  cognito: {
-    // eslint-disable-next-line no-secrets/no-secrets
-    id: '7hYXr3TPxk6yIpJxjqVoFQ',
-  },
+  ...vars,
 };
 
 const customCss = css`
@@ -30,7 +24,7 @@ const Provider = ({
   <ThemeProvider
     theme={{
       ...codedayTheme,
-      colors: { ...colors, brand: codedayTheme.colors[brandColor] || colors.brand },
+      colors: { ...codedayTheme.colors, brand: codedayTheme.colors[brandColor] || colors.brand },
     }}
   >
     <CSSReset config={(theme) => theme.colors.modes} />

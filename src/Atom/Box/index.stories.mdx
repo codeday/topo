@@ -1,0 +1,48 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Box from 'topo/Atom/Box';
+
+<Meta title="Atom/Box" component={Box} />
+
+# Box
+
+Don't think out of the box, because pretty much everything is a box in Topo.
+
+<Preview>
+  <Story name="Standard Everyday Box">
+    <Box>I am a box.</Box>
+  </Story>
+</Preview>
+
+Boxes can actually be everything else, if you want, by setting `as` to the name of an html element:
+
+<Preview>
+  <Story name="The as prop">
+    <Box as="a" href="http://example.com/" target="_blank">I am a box... a?</Box>
+  </Story>
+</Preview>
+
+(Note that when you make a box something else, it keeps the formatting of a standard box. Most of the time you should
+use another display component.)
+
+## Boxes Have Props
+
+It's a good thing that everything's a box, because all boxes take a ton of standard options, like:
+
+- `bg` (aka `backgroundColor`)
+- `w` (aka `width`)
+- `p` (aka `padding`)
+- `color`
+- `rounded`
+- `grad`
+- [a bunch more](https://styled-system.com/api)
+
+All these properties can use shorthand from the theme. For example, `color` could be set to `red.500`. That makes
+it super easy to make useful boxes with minimal code:
+
+<Preview>
+  <Story name="Fancy Box">
+    <Box grad="taffy.60" color="green.700" p={8} rounded="full">i Am ThE PaRtY bOx</Box>
+  </Story>
+</Preview>
+
+(Or not-so-useful boxes, if you're so inclined.)

@@ -1,0 +1,33 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import IconBox, { HeaderIcon, HeaderText, Body } from 'topo/Molecule/IconBox';
+import Text from 'topo/Atom/Text';
+import { CodeDay } from 'topo/Atom/Logo';
+
+<Meta title="Molecule/IconBox" component={IconBox} />
+
+# IconBox
+
+A rounded box showing an icon, header, and body content.
+
+It takes no props, but takes the following children:
+
+- `IconBox/HeaderIcon` - Container holding the icon to display.
+- `IconBox/HeaderText` - Container holding the title to display.
+- `IconBox/Body` - Container holding the text to display.
+
+Any of the children can be styled how you wish, however default styling (font, color, size) will be applied if you
+do not provide any.
+
+## Default Styling
+
+If you provide no custom styling, the box will be drawn as follows:
+
+<Preview>
+  <Story name="Default Styling">
+    <IconBox maxWidth={64}>
+      <HeaderIcon><CodeDay /></HeaderIcon>
+      <HeaderText>CodeDay</HeaderText>
+      <Body>February 30-31, 2030, galaxy-wide. The best CodeDay yet.</Body>
+    </IconBox>
+  </Story>
+</Preview>
