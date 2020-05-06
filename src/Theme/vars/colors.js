@@ -169,22 +169,25 @@ colors.grad = {
     sm: linearGrads(colors.whiteAlpha[300], 'rgba(255, 255, 255 ,0)'),
     lg: linearGrads(colors.whiteAlpha[700], 'rgba(255, 255, 255 ,0)'),
   },
+  skelly: `linear-gradient(270deg, ${colors.gray[300]} 0, ${colors.gray[100]} 50%, ${colors.gray[300]} 100%)`,
 };
 colors.modes = {
   light: {
     color: colors.black,
     text: colors.black,
+    textLight: colors.gray[700],
     bg: colors.white,
     background: colors.white,
     primary: colors.brand,
     borderColor: colors.gray[200],
     border: colors.gray[200],
-    placeholderColor: colors.gray[400],
-    placeholder: colors.gray[400],
+    placeholderColor: colors.gray[600],
+    placeholder: colors.gray[600],
   },
   dark: {
     color: colors.whiteAlpha[900],
     text: colors.whiteAlpha[900],
+    textLight: colors.whiteAlpha[500],
     bg: colors.gray[800],
     primary: colors.whiteAlpha[900],
     background: colors.gray[800],

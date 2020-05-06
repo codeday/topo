@@ -81,12 +81,13 @@ export default (theme) => `
   }
 
   ${selectors.pages.selectedPage} span {
-    color: ${theme.colors.red[600]} !important;
+    color: ${theme.colors.current.primary} !important;
+    font-weight: bold !important;
   }
 
   ${selectors.pages.selectedPage} a:before {
     color: ${theme.colors.white} !important;
-    background-color: ${theme.colors.red[500]} !important;
-    border-color: ${theme.colors.red[500]} !important;
+    background-color: ${theme.colors.current.primary} !important;
+    border-color: ${theme.colors.current.primary} !important;
   }
 `;

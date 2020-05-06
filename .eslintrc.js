@@ -1,5 +1,6 @@
 module.exports = {
   extends: '@codeday',
+  globals: { fetch: false },
 
   rules: {
     'import/no-missing-require': ['off'],

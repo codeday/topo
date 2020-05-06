@@ -1,0 +1,36 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Skelly from 'topo/Atom/Skelly'
+
+<Meta title="Atom/Skelly" component={Skelly} />
+
+# Skelly
+
+![](https://f1.srnd.org/topo/stylebook/doot.gif)
+
+Doot doot Mr. Skeltal.
+
+## Loading Text
+
+By default Skelly will render a single full-width box at text-height. By stacking a few, we've got a paragraph:
+
+<Preview>
+  <Story name="Loading Text">
+    <>
+      <Skelly />
+      <Skelly />
+      <Skelly />
+      <Skelly />
+    </>
+  </Story>
+</Preview>
+
+## Customizing Skelly
+
+Skelly composes Box, so you can pass it Box properties to make it fit your needs:
+
+<Preview>
+  <Story name="Loading an Avatar">
+    <Skelly width={16} height={16} borderRadius="full" />
+  </Story>
+</Preview>
+

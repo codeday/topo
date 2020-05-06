@@ -1,0 +1,28 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Slides from 'topo/Molecule/Slides'
+import Image from 'topo/Atom/Image';
+
+<Meta title="Molecule/Slides" component={Slides} />
+
+## Slides
+
+You can use the Slideshow component to automatically transition between a bunch of photos or other elements. It takes:
+
+- `duration` - The duration to show an image.
+- `transitionDuration` - The duration the fade lasts between images.
+- `resize` - The resizing method to use to normalize the image size, either `'cover'` or `'contain'`.
+- (and, as always, all the normal Box props)
+
+
+<Preview>
+  <Story name="Slider">
+    <Slides
+      width={256}
+      height={256}
+      duration={5}
+    >
+      <Image src="https://placekitten.com/256/256" />
+      <Image src="https://picsum.photos/256/256" />
+    </Slides>
+  </Story>
+</Preview>

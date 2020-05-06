@@ -21,6 +21,8 @@ const CognitoForm = ({
       css={style(theme, { showTitle })}
       loading={<Box textAlign="center"><Spinner /></Box>}
       onSubmit={onSubmit}
+      marginLeft="-3px"
+      marginRight="-3px"
       onPageChange={(e) => {
         onPageChange(e);
         if (!hasFirstPageChange) {

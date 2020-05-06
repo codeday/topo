@@ -3,8 +3,8 @@ import selectors from './selectors';
 export default (theme) => `
   ${selectors.wrapper} {
     max-width: none !important;
-    margin-right: -7px;
-    margin-left: -8px;
+    margin-right: -4px;
+    margin-left: -5px;
   }
 
   ${selectors.confirmationPage} {

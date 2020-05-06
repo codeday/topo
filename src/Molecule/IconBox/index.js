@@ -1,16 +1,15 @@
 import React from 'react';
 import Box from 'topo/Atom/Box';
 import {
-  makePureBox, childrenOfType, wrapHtml, setChildProps,
+  makePureBox, childrenOfType, wrapHtml, setChildProps, pureRef,
 } from 'topo/_utils';
-import { pure } from 'recompose';
 
 export const HeaderIcon = makePureBox('HeaderIcon');
 export const HeaderText = makePureBox('HeaderText');
 export const Body = makePureBox('Body');
 
 
-const IconBox = makePureBox('IconBox', pure(({ children, ...props }) => {
+const IconBox = makePureBox('IconBox', pureRef(({ children, ...props }) => {
   const headerIcon = childrenOfType(children, HeaderIcon);
   const headerText = childrenOfType(children, HeaderText);
   const body = childrenOfType(children, Body);

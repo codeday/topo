@@ -1,0 +1,23 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import StatusDot from 'topo/Atom/StatusDot'
+
+<Meta title="Atom/StatusDot" component={StatusDot} />
+
+# Status Dot
+
+Represents the status of a resource. Takes the following props:
+
+- `size` -- The size, a number or string which could be passed to Box's `height` prop. Defaults to 3.
+- `online`, `away`/`pending`, and `offline` -- Turns the status green, yellow, or red, respectively.
+
+It is recommended that you also provide a tooltip for color-blindness accessibility.
+
+<Preview>
+  <Story name="All Availabilities">
+    <>
+      <StatusDot online />{' '}
+      <StatusDot away />{' '}
+      <StatusDot offline />
+    </>
+  </Story>
+</Preview>

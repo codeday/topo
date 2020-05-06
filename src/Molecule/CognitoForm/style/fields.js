@@ -1,6 +1,11 @@
 import selectors from './selectors';
 
 export default (theme) => `
+  ${selectors.placeholder} {
+    color: ${theme.colors.current.placeholder} !important;
+    opacity: 1 !important;
+  }
+
   input:focus, ${selectors.fields.yesNo.toggle} .c-toggle:focus-within {
     box-shadow: ${theme.shadows.outline} !important;
   }

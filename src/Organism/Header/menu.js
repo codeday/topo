@@ -1,6 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Box from 'topo/Atom/Box';
+import { Link } from 'topo/Atom/Text';
+import Button from 'topo/Atom/Button';
 import { reactChildrenMapRecursive } from 'topo/_utils';
 
 export default function Menu({ darkBackground, children, ...props }) {
@@ -9,14 +11,14 @@ export default function Menu({ darkBackground, children, ...props }) {
   const getDarkProps = (child) => {
     if (!darkBackground) return {};
 
-    if (child.type.displayName === 'Link'
-    || (child.type.displayName === 'Button' && ['link', 'ghost'].includes(child.props.variant))) {
+    if (child.type === Link
+    || (child.type === Button && ['link', 'ghost'].includes(child.props.variant))) {
       return {
         color: darkColor,
       };
     }
 
-    if (child.type.displayName === 'Button' && !child.props.variantColor) {
+    if (child.type === Button && !child.props.variantColor) {
       return {
         variant: 'outline',
         variantColor: 'white',

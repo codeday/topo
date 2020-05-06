@@ -1,6 +1,5 @@
 import React, { useMemo, forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { pure } from 'recompose';
 import Box from 'topo/Atom/Box';
 
 export const dereferenceDottedString = (str, obj) => str.split('.').reduce((o, i) => o[i], obj);
@@ -44,7 +43,7 @@ export const setChildProps = (props, defaultProps, derivedProps) => (child) => R
 export const wrapHtml = (nodes) => (Array.isArray(nodes) ? React.Children.toArray(nodes) : [nodes])
   .map((e) => (typeof e === 'string' || !e.prototype || !e.prototype.isReactComponent ? <Box>{e}</Box> : e));
 
-export const pureRef = (Component) => pure(forwardRef(Component));
+export const pureRef = (Component) => forwardRef((props, ref) => useMemo(() => Component(props, ref), [props, ref]));
 
 export const makePureBox = (name, Component) => {
   const DerivedBox = pureRef(({ children, ...props }, ref) => (

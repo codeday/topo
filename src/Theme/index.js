@@ -6,8 +6,13 @@ import ThemeProvider from '@chakra-ui/core/dist/ThemeProvider';
 import CSSReset from '@chakra-ui/core/dist/CSSReset';
 import originalTheme from '@chakra-ui/core/dist/theme';
 import Fathom from 'fathom-react';
+import { Elements } from '@stripe/react-stripe-js';
+import { loadStripe } from '@stripe/stripe-js';
 import vars from './vars';
 import Chatra from './ComponentProviders/Chatra';
+
+// eslint-disable-next-line no-secrets/no-secrets
+const stripePromise = loadStripe('pk_v0AIOIy377403GN0FKltGR9gOAAUe');
 
 export const codedayTheme = {
   ...originalTheme,
@@ -31,7 +36,9 @@ const Provider = ({
     <Global styles={customCss} />
     { withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" /> }
     <Fathom customDomain="polarbear.codeday.org" siteId={analyticsId}>
-      {children}
+      <Elements stripe={stripePromise}>
+        {children}
+      </Elements>
     </Fathom>
   </ThemeProvider>
 );

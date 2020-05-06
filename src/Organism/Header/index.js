@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Box from 'topo/Atom/Box';
+import Content from 'topo/Molecule/Content';
 import { childrenOfType, setChildProps } from 'topo/_utils';
-
 import SiteLogo from './site-logo';
 import Menu from './menu';
 
@@ -21,13 +21,10 @@ const Header = ({
       }
       {...props}
     >
-      <Box
-        margin="0 auto"
+      <Content
         padding={3}
         paddingTop={6}
         paddingBottom={4}
-        maxWidth="containers.lg"
-        width="100%"
       >
         <Box
           marginBottom={6}
@@ -43,7 +40,7 @@ const Header = ({
           </Box>
           <Box style={{ clear: 'both' }} />
         </Box>
-      </Box>
+      </Content>
     </Box>
   );
 };

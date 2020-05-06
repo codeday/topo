@@ -38,7 +38,7 @@ export default (theme) => `
   }
 
   ${selectors.helpText} {
-    color: ${theme.colors.gray[400]} !important;
+    color: ${theme.colors.current.textLight} !important;
     font-size: ${theme.fontSizes.sm} !important;
   }
 
