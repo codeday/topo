@@ -5,7 +5,6 @@ RUN yarn global add webserver
 
 RUN mkdir /build
 COPY package.json /build
-COPY yarn.lock /build
 
 WORKDIR /build
 RUN yarn install --production=false && mkdir /app
