@@ -1,5 +1,6 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import Box from 'topo/Atom/Box';
+import { Code } from 'topo/Atom/Text';
 
 <Meta title="Atom/Box" component={Box} />
 
@@ -13,31 +14,10 @@ Don't think out of the box, because pretty much everything is a box in Topo.
   </Story>
 </Preview>
 
-Boxes can actually be everything else, if you want, by setting `as` to the name of an html element:
-
-<Preview>
-  <Story name="The as prop">
-    <Box as="a" href="http://example.com/" target="_blank">I am a box... a?</Box>
-  </Story>
-</Preview>
-
-(Note that when you make a box something else, it keeps the formatting of a standard box. Most of the time you should
-use another display component.)
-
 ## Boxes Have Props
 
-It's a good thing that everything's a box, because all boxes take a ton of standard options, like:
-
-- `bg` (aka `backgroundColor`)
-- `w` (aka `width`)
-- `p` (aka `padding`)
-- `color`
-- `rounded`
-- `grad`
-- [a bunch more](https://styled-system.com/api)
-
-All these properties can use shorthand from the theme. For example, `color` could be set to `red.500`. That makes
-it super easy to make useful boxes with minimal code:
+It's a good thing that everything's a box, because all boxes take all the standard Styled System props. (See the
+documentation page on Styled System for more info.)
 
 <Preview>
   <Story name="Fancy Box">
@@ -45,7 +25,21 @@ it super easy to make useful boxes with minimal code:
   </Story>
 </Preview>
 
-(Or not-so-useful boxes, if you're so inclined.)
+## Boxes Can Be Anything
+
+Boxes can actually render as any HTML element (or other React component) you prefer. Simply set `as` to the component
+you'd like to register:
+
+<Preview>
+  <Story name="Box As">
+    <Box as="a" href="http://example.com/" target="_blank">I am a box... <Code>&lt;a /&gt;</Code>?</Box>
+  </Story>
+</Preview>
+
+Note that everything is CSS-reset, so when you make a box something else, it retains a complete lack of formatting.
+Usually you'll want to use another component directly. (This can be useful in components that compose Box, however.
+For example you could set `as={GatsbyLink}` on a `Link` component.)
+
 
 ## More Helpful Boxes
 

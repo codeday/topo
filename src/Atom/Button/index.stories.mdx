@@ -1,0 +1,57 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Button from 'topo/Atom/Button';
+
+<Meta title="Atom/Button" />
+
+# Button
+
+When you want something to be clickable, use a button! It takes the following props:
+
+- `variant` -- One of `"solid"` (default), `"outline"`, or `"ghost"`
+- `variantColor` -- Any brand color, without the shade (e.g. `green`, but not `green.500`). Default is gray.
+- `size` -- One of `"xs"`, `"sm"`, `"md"` (default), `"lg"`.
+
+## Variants
+
+<Preview>
+  <Story name="Button Variants">
+    <>
+      <Button variant="solid" variantColor="brand">solid</Button>{' '}
+      <Button variant="outline" variantColor="brand">outline</Button>{' '}
+      <Button variant="ghost" variantColor="brand">ghost</Button>{' '}
+    </>
+  </Story>
+</Preview>
+
+## Colors
+
+<Preview>
+  <Story name="Button Colors">
+    <>
+      <Button variant="solid" variantColor="gray">gray</Button>{' '}
+      <Button variant="solid" variantColor="red">red</Button>{' '}
+      <Button variant="solid" variantColor="orange">orange</Button>{' '}
+      <Button variant="solid" variantColor="yellow">yellow</Button>{' '}
+      <Button variant="solid" variantColor="green">green</Button>{' '}
+      <Button variant="solid" variantColor="teal">teal</Button>{' '}
+      <Button variant="solid" variantColor="cyan">cyan</Button>{' '}
+      <Button variant="solid" variantColor="blue">blue</Button>{' '}
+      <Button variant="solid" variantColor="indigo">indigo</Button>{' '}
+      <Button variant="solid" variantColor="purple">purple</Button>{' '}
+      <Button variant="solid" variantColor="pink">pink</Button>{' '}
+    </>
+  </Story>
+</Preview>
+
+## Sizes
+
+<Preview>
+  <Story name="Button Sizes">
+    <>
+      <Button size="xs">xs</Button>{' '}
+      <Button size="sm">sm</Button>{' '}
+      <Button size="md">md</Button>{' '}
+      <Button size="lg">lg</Button>{' '}
+    </>
+  </Story>
+</Preview>

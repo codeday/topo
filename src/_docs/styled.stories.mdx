@@ -1,0 +1,174 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Docs from './Components/Docs';
+
+<Meta title="Styled System" component={Docs} />
+
+# Styled System
+
+All components can be configured using [styled-system](https://styled-system.com/) props.
+
+## Responsive Design
+
+All styled-system props can respond to viewport widths by setting its value to a width:
+
+```jsx
+  <Grid
+    templateColumns={{
+      base: "1fr",
+      sm: "repeat(1fr, 2)",
+      md: "repeat(1fr, 3)",
+      lg: "repeat(1fr, 4)",
+      xl: "repeat(1fr, 6)",
+    }}
+  />
+```
+
+You may omit breakpoints, in which case the breakpoint will be configured by the next specified breakpoint.
+
+(The exact breakpoint widths are set in the `breakpoints` theme var.)
+
+## All Supported Props
+
+### Spacing
+
+| Prop                        | CSS Property                    | Theme Prop      |
+| --------------------------- | ------------------------------- | --------------- |
+| `margin`, `m`               | margin                          | space           |
+| `marginTop`, `mt`           | margin-top                      | space           |
+| `marginRight`, `mr`         | margin-right                    | space           |
+| `marginBottom`, `mb`        | margin-bottom                   | space           |
+| `marginLeft`, `ml`          | margin-left                     | space           |
+| `marginX`, `mx`             | margin-left and margin-right    | space           |
+| `marginY`, `my`             | margin-top and margin-bottom    | space           |
+| `padding`, `p`              | padding                         | space           |
+| `paddingTop`, `pt`          | padding-top                     | space           |
+| `paddingRight`, `pr`        | padding-right                   | space           |
+| `paddingBottom`, `pb`       | padding-bottom                  | space           |
+| `paddingLeft`, `pl`         | padding-left                    | space           |
+| `paddingX`, `px`            | padding-left and padding-right  | space           |
+| `paddingY`, `py`            | padding-top and padding-bottom  | space           |
+
+### Color and Backgrounds
+
+| Prop                        | CSS Property                    | Theme Prop      |
+| --------------------------- | ------------------------------- | --------------- |
+| `borderLeft`                | border-left-color               | colors          |
+| `textColor`, `color`        | text-color                      | colors          |
+| `bg`, `backgroundColor`     | background-color                | colors          |
+| `grad`                      | background-image: url(...)      | colors.grad     |
+| `backgroundImage`           | background-image                |                 |
+| `backgroundSize`            | background-size                 |                 |
+| `backgroundPosition`        | background-position             |                 |
+| `backgroundRepeat`          | background-repeat               |                 |
+| `opacity`                   | opacity                         | opacities       |
+
+### Borders
+
+| Prop                        | CSS Property                    | Theme Prop      |
+| --------------------------- | ------------------------------- | --------------- |
+| `border`                    | border                          |                 |
+| `borderX`                   | border-left and border-right    |                 |
+| `borderY`                   | border-top and border-bottom    |                 |
+| `borderTop`                 | border-top                      |                 |
+| `borderRight`               | border-right                    |                 |
+| `borderBottom`              | border-bottom                   |                 |
+| `borderLeft`                | border-left                     |                 |
+| `borderWidth`               | border-width                    | borders         |
+| `borderTopWidth`            | border-top-width                | borders         |
+| `borderRightWidth`          | border-right-width              | borders         |
+| `borderBottomWidth`         | border-bottom-width             | borders         |
+| `borderLeftWidth`           | border-left-width               | borders         |
+| `borderColor`               | border-color                    | colors          |
+| `borderTopColor`            | border-bottom-color             | colors          |
+| `borderRight`               | border-right-color              | colors          |
+| `borderBottom`              | border-bottom-color             | colors          |
+| `borderRadius`, `rounded`   | border-radius                   | radii           |
+| `borderTopRightRadius`      | border-top-right-radius         | radii           |
+| `borderBottomRightRadius`   | border-bottom-right-radius      | radii           |
+| `borderBottomLeftRadius`    | border-bottom-left-radius       | radii           |
+| `borderTopLeftRadius`       | border-top-left-radius          | radii           |
+
+### Typography
+
+| Prop                        | CSS Property                    | Theme Prop      |
+| --------------------------- | ------------------------------- | --------------- |
+| `fontFamily`                | font-family                     | font            |
+| `fontSize`                  | font-size                       | fontSizes       |
+| `fontWeight`                | font-weight                     | fontWeights     |
+| `fontSize`                  | font-size                       | fontSizes       |
+| `fontStyle`                 | font-style                      |                 |
+| `textDecoration`            | text-decoration                 |                 |
+| `lineHeight`                | line-height                     | lineHeights     |
+| `letterSpacing`             | letter-spacing                  | letterSpacings  |
+
+### Layout
+
+| Prop                        | CSS Property                    | Theme Prop      |
+| --------------------------- | ------------------------------- | --------------- |
+| `width`, `w`                | width                           | sizes           |
+| `minWidth`                  | min-width                       | sizes           |
+| `maxWidth`                  | max-width                       | sizes           |
+| `height`, `h`               | height                          | sizes           |
+| `minHeight`                 | min-height                      | sizes           |
+| `maxHeight`                 | max-height                      | sizes           |
+| `size`                      | width and height                | sizes           |
+| `overflow`                  | overflow                        |                 |
+| `overflowX`                 | overflow-x                      |                 |
+| `overflowY`                 | overflow-y                      |                 |
+
+### Flexbox
+
+| Prop                        | CSS Property                    | Theme Prop      |
+| --------------------------- | ------------------------------- | --------------- |
+| `alignItems`                | align-items                     |                 |
+| `alignContent`              | align-content                   |                 |
+| `justifyContent`            | justify-content                 |                 |
+| `flexWrap`                  | flex-wrap                       |                 |
+| `flexBasis`                 | flex-basis                      |                 |
+| `flexDirection`             | flex-direction                  |                 |
+| `flex`                      | flex                            |                 |
+| `justifySelf`               | justify-self                    |                 |
+| `alignSelf`                 | align-self                      |                 |
+| `order`                     | order                           |                 |
+
+### Grid
+
+| Prop                                      | CSS Property                    | Theme Prop      |
+| ----------------------------------------- | ------------------------------- | --------------- |
+| `gridGap`, `gap`                          | grid-gap                        | space           |
+| `gridColumnGap`                           | grid-column-gap                 | space           |
+| `gridRowGap`                              | grid-row-gap                    | space           |
+| `gridColumn`                              | grid-column                     |                 |
+| `gridRow`                                 | grid-row                        |                 |
+| `gridAutoFlow`                            | grid-auto-flow                  |                 |
+| `gridAutoColumns`                         | grid-auto-columns               |                 |
+| `gridAutoRows`                            | grid-auto-rows                  |                 |
+| `gridTemplateColumns`, `templateColumns`  | grid-template-columns           |                 |
+| `gridTemplateRows`, `templateRows`        | grid-template-rows              |                 |
+| `gridTemplateAreas`                       | grid-template-areas             |                 |
+| `gridArea`                                | grid-area                       |                 |
+
+### Layout
+
+| Prop                        | CSS Property                    | Theme Prop      |
+| --------------------------- | ------------------------------- | --------------- |
+| `position`                  | position                        |                 |
+| `zIndex`                    | z-index                         | zIndices        |
+| `top`                       | top                             |                 |
+| `right`                     | right                           |                 |
+| `bottom`                    | bottom                          |                 |
+| `left`                      | left                            |                 |
+
+### Shadows
+
+| Prop                        | CSS Property                    | Theme Prop      |
+| --------------------------- | ------------------------------- | --------------- |
+| `textShadow`                | text-shadow                     | shadows         |
+| `boxShadow`                 | box-shadow                      | shadows         |
+
+
+<Preview>
+  <Story name="Styled System">
+    <Docs />
+  </Story>
+</Preview>

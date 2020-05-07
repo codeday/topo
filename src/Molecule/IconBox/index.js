@@ -26,7 +26,7 @@ const IconBox = makePureBox('IconBox', pureRef(({ children, ...props }) => {
         fontSize: '3xl',
         marginBottom: 2,
       }))}
-      {React.Children.map(wrapHtml(body), setChildProps(null, { color: 'gray.500' }))}
+      {React.Children.map(wrapHtml(body), setChildProps(null, { color: 'current.textLight' }))}
     </Box>
   );
 }));

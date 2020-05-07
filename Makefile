@@ -11,5 +11,5 @@ main: svgs
 	@rm -rf "$(PWD)/dist/" && yarn run build && cp $(PWD)/package.json $(PWD)/dist
 
 .PHONY: publish
-publish: make
+publish: main
 	@cd $(PWD)/dist && npm publish

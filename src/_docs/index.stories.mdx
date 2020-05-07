@@ -1,6 +1,7 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Docs from './Components/Docs';
 
-<Meta title="Introduction" />
+<Meta title="Introduction" component={Docs} />
 
 # Welcome to Topo
 
@@ -29,3 +30,11 @@ Pangram Pangram has a great diagram summarizing the difference:
 ![](https://f1.srnd.org/topo/stylebook/pangram-atomic-design.png)
 
 Atomic design also includes two more levels: templates, and pages. Topo doesn't provide these, that's up to you!
+
+
+
+<Preview>
+  <Story name="Introduction">
+    <Docs />
+  </Story>
+</Preview>

@@ -7,10 +7,11 @@ const Content = pureRef(({ wide, full, ...props }, ref) => (
   <Box
     paddingLeft={3}
     paddingRight={3}
-    margin="0 auto"
+    marginLeft="auto"
+    marginRight="auto"
+    marginBottom={6}
     maxWidth={(full && 'none') || (wide && 'containers.xl') || 'containers.lg'}
     width="100%"
-    marginBottom={3}
     ref={ref}
     {...props}
   />
