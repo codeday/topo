@@ -7,7 +7,13 @@ import { dereferenceDottedString } from 'topo/_utils';
 
 const Box = forwardRef(({ grad, ...props }, ref) => {
   const theme = useTheme();
-  return <ComposedBox ref={ref} bgImg={grad && dereferenceDottedString(grad, theme.colors.grad)} {...props} />;
+  return (
+    <ComposedBox
+      bgImg={grad && dereferenceDottedString(grad, theme.colors.grad)}
+      {...props}
+      ref={ref}
+    />
+  );
 });
 Box.propTypes = {
   grad: PropTypes.string,

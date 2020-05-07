@@ -16,24 +16,24 @@ export default (theme) => `
   }
   /* Secondary buttons */
   ${selectors.buttons.addItem}, ${selectors.buttons.previous} {
-    background-color: ${theme.colors.current.bg} !important;
-    color: ${theme.colors.current.text} !important;
+    background-color: ${theme.colors.bg} !important;
+    color: ${theme.colors.text} !important;
     border-width: 1px !important;
-    border-color: ${theme.colors.current.borderColor} !important;
+    border-color: ${theme.colors.border} !important;
   }
 
   ${selectors.buttons.upload} {
-    background-color: ${theme.colors.current.borderColor} !important;
-    color: ${theme.colors.current.text} !important;
+    background-color: ${theme.colors.border} !important;
+    color: ${theme.colors.text} !important;
     font-size: ${theme.fontSizes.sm} !important;
     padding: ${theme.space[1]};
     height: auto;
     border-width: 1px !important;
-    border-color: ${theme.colors.current.borderColor} !important;
+    border-color: ${theme.colors.border} !important;
   }
 
   ${selectors.buttons.addItem}:hover, ${selectors.buttons.previous}:hover {
-    background-color: ${theme.colors.gray[100]} !important;
+    background-color: ${theme.colors.border} !important;
   }
 
   /* Primary buttons */
@@ -53,17 +53,21 @@ export default (theme) => `
 
   /* Small buttons */
   ${selectors.icons.remove} circle {
-    fill: ${theme.colors.current.bg} !important;
-    stroke: ${theme.colors.current.borderColor} !important;
+    fill: ${theme.colors.bg} !important;
+    stroke: ${theme.colors.border} !important;
     paint-order: stroke !important;
   }
 
   ${selectors.icons.remove}:hover circle {
-    fill: ${theme.colors.gray[100]} !important;
+    fill: ${theme.colors.border} !important;
   }
 
   ${selectors.icons.remove} line {
-    stroke: ${theme.colors.current.text} !important;
+    stroke: ${theme.colors.text} !important;
+  }
+
+  ${selectors.icons.calendar} {
+    color: ${theme.colors.text} !important;
   }
 
   /* Navigation buttons */
@@ -76,18 +80,18 @@ export default (theme) => `
   ${selectors.pages.page} a:before {
     font-size: ${theme.fontSizes.sm} !important;
     color: ${theme.colors.gray[500]} !important;
-    background-color: ${theme.colors.current.bg} !important;
-    border-color: ${theme.colors.current.borderColor} !important;
+    background-color: ${theme.colors.bg} !important;
+    border-color: ${theme.colors.border} !important;
   }
 
   ${selectors.pages.selectedPage} span {
-    color: ${theme.colors.current.primary} !important;
+    color: ${theme.colors.primary} !important;
     font-weight: bold !important;
   }
 
   ${selectors.pages.selectedPage} a:before {
-    color: ${theme.colors.white} !important;
-    background-color: ${theme.colors.current.primary} !important;
-    border-color: ${theme.colors.current.primary} !important;
+    color: ${theme.colors.primaryInverse} !important;
+    background-color: ${theme.colors.primary} !important;
+    border-color: ${theme.colors.primary} !important;
   }
 `;

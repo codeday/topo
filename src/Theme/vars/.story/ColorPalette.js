@@ -2,11 +2,21 @@ import React from 'react';
 import Box from 'topo/Atom/Box';
 import { useTheme } from 'topo/utils';
 
+const renderColors = (colors, prefix) => {
+  return Object.keys(colors).map((subKey) => {
+    if (typeof colors[subKey] !== 'string') {
+      return renderColors(colors[subKey], `${prefix}${subKey}.`)
+    }
+    return (
+      <Box bg={`${prefix}${subKey}`} color={Number.isInteger(subKey) && subKey >= 500 ? 'white' : 'black'}>
+        {prefix.replace('_.', '')}{subKey}&thinsp;&mdash;&thinsp;{colors[subKey]}
+      </Box>
+    );
+  });
+
+}
+
 export default ({ color }) => {
   const { colors } = useTheme();
-  return [50,100,200,300,400,500,600,700,800,900].map((shade) => (
-    <Box bg={`${color}.${shade}`} color={shade >= 500 ? 'white' : 'black'}>
-      {color}.{shade}&thinsp;&mdash;&thinsp;{colors[color][shade]}
-    </Box>
-  ));
+  return renderColors(colors[color], `${color}.`);
 }

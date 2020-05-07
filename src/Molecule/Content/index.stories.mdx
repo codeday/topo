@@ -1,5 +1,6 @@
 import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
 import Header, { SiteLogo, Menu } from 'topo/Organism/Header';
+import Text from 'topo/Atom/Text';
 import Button from 'topo/Atom/Button';
 import { Clear } from 'topo/Atom/Logo';
 import Content from 'topo/Molecule/Content';
@@ -28,7 +29,7 @@ Most of your content should be in a `Content` box, which sets a standard width a
         </Text>
       </Content>
       <Content wide>
-          This is a wider box, for emphasis.
+          <Text>This is a wider box, for emphasis.</Text>
       </Content>
     </>
   </Story>

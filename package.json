@@ -19,7 +19,8 @@
     "react-pdf": "^4.1.0",
     "react-syntax-highlighter": "^12.2.1",
     "react-uid": "^2.2.0",
-    "recompose": "^0.30.0"
+    "recompose": "^0.30.0",
+    "styled-system-dark-mode": "^1.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

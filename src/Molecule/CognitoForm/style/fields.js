@@ -2,7 +2,7 @@ import selectors from './selectors';
 
 export default (theme) => `
   ${selectors.placeholder} {
-    color: ${theme.colors.current.placeholder} !important;
+    color: ${theme.colors.placeholder} !important;
     opacity: 1 !important;
   }
 
@@ -11,28 +11,39 @@ export default (theme) => `
   }
 
   ${selectors.fields.likert} tbody:nth-child(2n), ${selectors.fields.repeatingSection}:nth-child(2n+1) {
-    background-color: ${theme.colors.gray[50]} !important;
+    background-color: ${theme.colors.border} !important;
+    color: ${theme.colors.text} !important;
   }
 
   ${selectors.fields.likert} tbody th {
     font-size: ${theme.fontSizes.md} !important;
+    color: ${theme.colors.text} !important;
+  }
+
+  ${selectors.fields.likert} thead th {
+    font-size: ${theme.fontSizes.sm} !important;
+    color: ${theme.colors.text} !important;
   }
 
   /* Text */
 
   ${selectors.input.text}, ${selectors.input.dropdown}, ${selectors.input.textarea} {
     padding: ${theme.space[3]} !important;
-    border: 1px solid ${theme.colors.current.borderColor} !important;
+    border: 1px solid ${theme.colors.border} !important;
     border-radius: ${theme.radii.sm} !important;
     outline: none !important;
     font-weight: 400 !important;
     font-size: ${theme.fontSizes.md} !important;
+    color: ${theme.colors.text} !important;
+    background-color: ${theme.colors.bg} !important;
   }
 
   ${selectors.input.dropdown} select {
     padding-top: calc(${theme.space[3]} - 0.075rem) !important;
     padding-bottom: calc(${theme.space[3]} - 0.05rem) !important;
     border: none !important;
+    color: ${theme.colors.text} !important;
+    background-color: ${theme.colors.bg} !important;
   }
 
   ${selectors.input.dropdown} {
@@ -45,18 +56,20 @@ export default (theme) => `
   ${selectors.fields.choice.radio} label, ${selectors.fields.choice.checkboxes} label,
   ${selectors.fields.yesNo.radio} label, ${selectors.fields.yesNo.checkbox} label {
     font-size: ${theme.fontSizes.md} !important;
+    color: ${theme.colors.text} !important;
   }
 
   /* Upload */
 
   ${selectors.fields.upload} > div:first-child {
     padding: ${theme.space[3]} !important;
-    border: 1px solid ${theme.colors.current.borderColor} !important;
+    border: 1px solid ${theme.colors.border} !important;
     border-radius: ${theme.radii.sm} !important;
     outline: none !important;
     font-weight: 400 !important;
     font-size: ${theme.fontSizes.sm} !important;
     background-color: transparent !important;
+    color: ${theme.colors.text} !important;
   }
 
   /* Toggle */
@@ -94,11 +107,11 @@ export default (theme) => `
 
   /* Signature */
   ${selectors.fields.signature} ${selectors.fields.editor} > div {
-    border: 1px solid ${theme.colors.current.borderColor} !important;
+    border: 1px solid ${theme.colors.border} !important;
     border-radius: ${theme.radii.sm} !important;
   }
 
   ${selectors.icons.signature}::after {
-    color: ${theme.colors.current.border} !important;
+    color: ${theme.colors.border} !important;
   }
 `;

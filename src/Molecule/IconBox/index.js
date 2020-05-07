@@ -14,19 +14,20 @@ const IconBox = makePureBox('IconBox', pureRef(({ children, ...props }) => {
   const headerText = childrenOfType(children, HeaderText);
   const body = childrenOfType(children, Body);
   return (
-    <Box borderColor="current.border" borderWidth={1} borderRadius={3} padding={4} {...props}>
+    <Box borderColor="border" borderWidth={1} borderRadius={3} padding={4} {...props}>
       {React.Children.map(wrapHtml(headerIcon), setChildProps(null, {
         fontSize: '5xl',
         marginBottom: 1,
-        color: 'current.primary',
+        color: 'primary',
         lineHeight: 0,
       }))}
       {React.Children.map(wrapHtml(headerText), setChildProps(null, {
         fontFamily: 'accent',
+        color: 'text',
         fontSize: '3xl',
         marginBottom: 2,
       }))}
-      {React.Children.map(wrapHtml(body), setChildProps(null, { color: 'current.textLight' }))}
+      {React.Children.map(wrapHtml(body), setChildProps(null, { color: 'textLight' }))}
     </Box>
   );
 }));

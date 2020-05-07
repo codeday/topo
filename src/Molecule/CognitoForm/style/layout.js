@@ -1,6 +1,10 @@
 import selectors from './selectors';
 
 export default (theme) => `
+  html, body, ${selectors.bg} {
+    background-color: ${theme.colors.bg} !important;
+  }
+
   ${selectors.wrapper} {
     max-width: none !important;
     margin-right: -4px;

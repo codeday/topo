@@ -13,8 +13,8 @@ const Lockup = pureRef(({
   logo, text, logoColor, textColor, color, ...props
 }, ref) => (
   <Box d="inline" style={{ textDecoration: 'none' }} {...props} ref={ref}>
-    <Box color={logoColor || color || 'current.primary'} height="1.1em" d="inline">{logo}</Box>
-    <Box color={textColor || color || 'current.text'} height="1em" d="inline">{text}</Box>
+    <Box color={logoColor || color || 'primary'} height="1.1em" d="inline">{logo}</Box>
+    <Box color={textColor || color || 'text'} height="1em" d="inline">{text}</Box>
   </Box>
 ));
 Lockup.displayName = 'Lockup';

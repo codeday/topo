@@ -10,6 +10,7 @@ const Code = withProps({
   display: 'inline',
   bg: 'gray.50',
   borderColor: 'gray.100',
+  color: 'black',
   borderWidth: 1,
   fontSize: '0.9em',
 })(Text);

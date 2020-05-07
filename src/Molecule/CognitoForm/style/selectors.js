@@ -1,5 +1,6 @@
 export default {
   wrapper: `.cognito:not(.c-forms-actionBar)`,
+  bg: `div.c-forms-form`,
   title: `.c-forms-heading h2`,
   titleSection: `.c-forms-form-title`,
   pageNumber: `.c-page-numbering`,
@@ -73,5 +74,6 @@ export default {
   icons: {
     remove: `.remove-icon`,
     signature: `.c-signature-glyph`,
+    calendar: `.icon-calendar`,
   },
 };

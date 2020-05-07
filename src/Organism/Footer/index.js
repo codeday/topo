@@ -45,7 +45,7 @@ const Footer = pureRef(({ children }, ref) => {
 
   return (
     <Content ref={ref}>
-      <Grid templateColumns={{ base: '1fr', md: '6fr 3fr 3fr' }} color="current.textLight">
+      <Grid templateColumns={{ base: '1fr', md: '6fr 3fr 3fr' }} color="textLight">
         <Box gridRow={{ base: 3, md: 1 }} marginTop={{ base: 6, md: 0 }}>
           <Box>
             { customText.length > 0 ? customText : (

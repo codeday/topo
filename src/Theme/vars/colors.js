@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import originalTheme from '@chakra-ui/core/dist/theme';
 
 const linearGrad = (from, to, deg) => `linear-gradient(${deg}deg, ${from} 0%, ${to} 100%)`;
@@ -144,8 +145,9 @@ const colors = {
     900: '#672a4a',
   },
 };
-// eslint-disable-next-line prefer-destructuring
-colors.brand = colors.red[600];
+colors.brand = colors.red;
+colors.primary = colors.red[600];
+colors.primaryInverse = colors.white;
 colors.success = {
   border: colors.green[100],
   bg: colors.green[500],
@@ -169,7 +171,6 @@ colors.grad = {
     sm: linearGrads(colors.whiteAlpha[300], 'rgba(255, 255, 255 ,0)'),
     lg: linearGrads(colors.whiteAlpha[700], 'rgba(255, 255, 255 ,0)'),
   },
-  skelly: `linear-gradient(270deg, ${colors.gray[300]} 0, ${colors.gray[100]} 50%, ${colors.gray[300]} 100%)`,
 };
 colors.modes = {
   light: {
@@ -178,25 +179,24 @@ colors.modes = {
     textLight: colors.gray[700],
     bg: colors.white,
     background: colors.white,
-    primary: colors.brand,
-    borderColor: colors.gray[200],
     border: colors.gray[200],
-    placeholderColor: colors.gray[600],
     placeholder: colors.gray[600],
+    grad: {
+      skelly: `linear-gradient(270deg, ${colors.gray[300]} 0, ${colors.gray[100]} 50%, ${colors.gray[300]} 100%)`,
+    },
   },
   dark: {
     color: colors.whiteAlpha[900],
     text: colors.whiteAlpha[900],
     textLight: colors.whiteAlpha[500],
-    bg: colors.gray[800],
-    primary: colors.whiteAlpha[900],
-    background: colors.gray[800],
+    bg: colors.gray[900],
+    background: colors.gray[900],
     border: colors.whiteAlpha[300],
-    borderColor: colors.whiteAlpha[300],
-    placeholderColor: colors.whiteAlpha[400],
     placeholder: colors.whiteAlpha[400],
+    grad: {
+      skelly: `linear-gradient(270deg, ${colors.gray[800]} 0, ${colors.gray[700]} 50%, ${colors.gray[800]} 100%)`,
+    },
   },
 };
-colors.current = colors.modes.light; // Todo: change this later
 
 export default colors;
