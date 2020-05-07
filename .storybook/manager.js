@@ -1,5 +1,13 @@
 import { addons } from '@storybook/addons';
 import topoTheme from './topoTheme';
+import { STORY_MISSING } from "@storybook/core-events";
+
+addons.register("codeday/startup", api => {
+  window.a = api;
+  api.on(STORY_MISSING, (kind, story) => {
+    api.selectStory("introduction--introduction");
+  });
+});
 
 addons.setConfig({
   previewTabs: {
