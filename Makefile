@@ -12,4 +12,5 @@ main: svgs
 
 .PHONY: publish
 publish: main
+	@npm version minor --no-git-tag-version
 	@cd $(PWD)/dist && npm publish

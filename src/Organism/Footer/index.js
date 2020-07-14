@@ -1,28 +1,42 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import useSwr from 'swr';
 import List, { Item } from 'topo/Atom/List';
 import Box, { Grid } from 'topo/Atom/Box';
 import Skelly from 'topo/Atom/Skelly';
 import Text, { Heading, Link, CopyText } from 'topo/Atom/Text';
 import Content from 'topo/Molecule/Content';
 import { childrenOfType, makePureBox, pureRef } from 'topo/_utils';
-import { useTheme } from 'topo/utils';
+import { useTheme, useString } from 'topo/utils';
 
 export const CustomLinks = makePureBox('Custom Links');
 export const CustomText = makePureBox('CustomText');
 
-const StandardLinks = () => {
-  const { contentful } = useTheme();
-  const [links, setLinks] = useState(null);
-  useEffect(() => {
-    if (!contentful) return;
-    const base = `https://cdn.contentful.com/spaces/${contentful.spaceId}/environments/master`;
-    const endpoint = `/entries?content_type=site&access_token=${contentful.token}`;
+const query = `{
+  cms {
+    sites(where: { type: "Public", display_contains_all: "Footer" }) {
+      items {
+        sys {
+          id
+        }
+        title
+        link
+      }
+    }
+  }
+}`;
 
-    (async () => {
-      const json = await (await fetch(`${base}${endpoint}`)).json();
-      setLinks(json.items.map((i) => i.fields).filter((i) => i.type === 'Public' && i.display.includes('Footer')));
-    })();
-  }, [contentful]);
+const StandardLinks = () => {
+  const { apiFetch } = useTheme();
+  const { data, error } = useSwr(
+    query,
+    apiFetch,
+    {
+      revalidateOnFocus: false,
+      revalidateOnReconnect: false,
+    }
+  );
+  const links = data?.cms?.sites?.items;
+  console.log(links);
 
   return (
     <List>
@@ -32,14 +46,17 @@ const StandardLinks = () => {
           <Item><Skelly /></Item>
           <Item><Skelly /></Item>
         </>
-      ) : links.map(({ title, link }) => (
-        <Item><Link href={link} target="_blank" key={link}>{title}</Link></Item>
+      ) : links.map(({ title, link, sys }) => (
+        <Item key={sys.id}><Link href={link} target="_blank" key={link}>{title}</Link></Item>
       ))}
     </List>
   );
 };
 
 const Footer = pureRef(({ children }, ref) => {
+  const cookiesLink = useString('legal.cookies', <Skelly />);
+  const ccpaLink = useString('legal.ccpa', <Skelly />);
+
   const customLinks = childrenOfType(children, CustomLinks);
   const customText = childrenOfType(children, CustomText);
 
@@ -57,10 +74,8 @@ const Footer = pureRef(({ children }, ref) => {
             )}
           </Box>
           <Box marginTop={4}>
-            <Link href="https://www.srnd.org/privacy">Privacy &amp; Cookies</Link><br />
-            <Link href="https://www.srnd.org/privacy/controls" target="_blank">
-              Do Not Sell My Personal Information
-            </Link>
+            <Link href="https://www.srnd.org/privacy">{cookiesLink}</Link><br />
+            <Link href="https://www.srnd.org/privacy/controls" target="_blank">{ccpaLink}</Link>
           </Box>
         </Box>
         <Box gridRow={{ base: 2, md: 1 }} marginTop={{ base: customLinks.length > 0 && 6, md: 0 }}>

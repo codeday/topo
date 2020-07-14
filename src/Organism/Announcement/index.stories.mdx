@@ -1,0 +1,45 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Announcement from 'topo/Organism/Announcement';
+import Button from 'topo/Atom/Button';
+
+<Meta title="Organism/Announcement" component={Announcement} />
+
+# Announcement
+
+Automagically shows the latest currently applicable announcement.
+
+## Default Display
+
+<Preview>
+  <Story name="Normal Announcement">
+    <>
+      <Announcement />
+      <Button onClick={() => window.localStorage.setItem('topoDismissedAnnouncements', '[]')}>Reset Dismissed</Button>
+    </>
+  </Story>
+</Preview>
+
+
+## Dark Announcement
+
+You can set the `dark` property to render the banner for use on a dark page (or with a dark header).
+
+<Preview>
+  <Story name="Dark Announcement">
+    <>
+      <Announcement dark />
+      <Button onClick={() => window.localStorage.setItem('topoDismissedAnnouncements', '[]')}>Reset Dismissed</Button>
+    </>
+  </Story>
+</Preview>
+
+
+## Box
+
+You can set the `box` prop to make the announcement a box, for use in a sidebar etc.
+
+<Preview>
+  <Story name="Box">
+    <Announcement box maxWidth="sm" />
+  </Story>
+</Preview>
