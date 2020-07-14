@@ -8,7 +8,7 @@ import Box, { Grid } from 'topo/Atom/Box';
 import Button from 'topo/Atom/Button';
 import Content from 'topo/Molecule/Content';
 import Text, { Link } from 'topo/Atom/Text';
-import { useLocalStorage } from 'topo/utils';
+import { useLocalStorage, apiFetch } from 'topo/utils';
 
 const query = (date, visibility) => `{
   cms {
@@ -44,7 +44,7 @@ const query = (date, visibility) => `{
 const getDate = () => moment().tz('America/Los_Angeles').startOf('day').toISOString();
 
 export default function Announcement({ dark, box, ...props }) {
-  const { apiFetch, visibility, programWebname } = useTheme();
+  const { visibility, programWebname } = useTheme();
   const [date, updateDate] = useReducer(getDate, getDate());
   const { data } = useSwr(query(date, visibility), apiFetch);
   const [dismissedMessages, setDismissedMessages] = useLocalStorage('topoDismissedAnnouncements', []);

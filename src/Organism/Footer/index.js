@@ -6,7 +6,7 @@ import Skelly from 'topo/Atom/Skelly';
 import Text, { Heading, Link, CopyText } from 'topo/Atom/Text';
 import Content from 'topo/Molecule/Content';
 import { childrenOfType, makePureBox, pureRef } from 'topo/_utils';
-import { useTheme, useString } from 'topo/utils';
+import { useString, apiFetch } from 'topo/utils';
 
 export const CustomLinks = makePureBox('Custom Links');
 export const CustomText = makePureBox('CustomText');
@@ -26,7 +26,6 @@ const query = `{
 }`;
 
 const StandardLinks = () => {
-  const { apiFetch } = useTheme();
   const { data, error } = useSwr(
     query,
     apiFetch,

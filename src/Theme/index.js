@@ -2,13 +2,14 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/core';
+import useSwr from 'swr';
 import ThemeProvider from '@chakra-ui/core/dist/ThemeProvider';
 import CSSReset from '@chakra-ui/core/dist/CSSReset';
 import originalTheme from '@chakra-ui/core/dist/theme';
 import Fathom from 'fathom-react';
 import { Elements } from '@stripe/react-stripe-js';
 import { loadStripe } from '@stripe/stripe-js';
-import useSwr from 'swr';
+import { apiFetch } from 'topo/utils';
 import vars from './vars';
 import Chatra from './ComponentProviders/Chatra';
 
@@ -43,7 +44,7 @@ function Provider({
   // Fetch translation strings
   const { data } = useSwr(
     query,
-    codedayTheme.apiFetch,
+    apiFetch,
     {
       revalidateOnFocus: false,
       revalidateOnReconnect: false,
