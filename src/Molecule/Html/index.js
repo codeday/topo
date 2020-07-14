@@ -65,8 +65,6 @@ export default function Html({ children, ...props }) {
     }
   `;
 
-  console.log(children);
-
   return (
     <Box {...props}>
       <StyledBox>

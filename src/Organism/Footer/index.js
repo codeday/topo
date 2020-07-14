@@ -35,7 +35,6 @@ const StandardLinks = () => {
     }
   );
   const links = data?.cms?.sites?.items;
-  console.log(links);
 
   return (
     <List>
