@@ -50,6 +50,25 @@ export default function Html({ children, ...props }) {
       border-width: 1px;
       display: block;
     }
+    figure {
+      margin-bottom: 1em;
+      text-align: center;
+    }
+    figure > * {
+      display: inline-block;
+    }
+    figure > figcaption {
+      display: block;
+      font-style: italic;
+      color: ${t.colors.gray[500]};
+      font-size: ${t.fontSizes.sm};
+    }
+    hr {
+      opacity: 0.6;
+      border-bottom-color: ${t.colors.gray[200]};
+      margin-bottom: ${t.space[16]};
+      margin-top: ${t.space[16]};
+    }
     /* Wordpress Specific */
     .alignright {
       float: right;

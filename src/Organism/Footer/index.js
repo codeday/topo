@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { forwardRef } from 'react';
 import useSwr from 'swr';
 import List, { Item } from 'topo/Atom/List';
 import Box, { Grid } from 'topo/Atom/Box';
 import Skelly from 'topo/Atom/Skelly';
 import Text, { Heading, Link, CopyText } from 'topo/Atom/Text';
 import Content from 'topo/Molecule/Content';
-import { childrenOfType, makePureBox, pureRef } from 'topo/_utils';
+import { childrenOfType, makePureBox } from 'topo/_utils';
 import { useString, apiFetch } from 'topo/utils';
 
 export const CustomLinks = makePureBox('Custom Links');
@@ -51,7 +51,7 @@ const StandardLinks = () => {
   );
 };
 
-const Footer = pureRef(({ children }, ref) => {
+const Footer = forwardRef(({ children }, ref) => {
   const cookiesLink = useString('legal.cookies', <Skelly />);
   const ccpaLink = useString('legal.ccpa', <Skelly />);
 

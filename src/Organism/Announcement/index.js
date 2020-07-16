@@ -166,7 +166,7 @@ export default function Announcement({ dark, box, ...props }) {
 }
 Announcement.propTypes = {
   dark: PropTypes.bool,
-  box: PropTypes.box,
+  box: PropTypes.bool,
 };
 Announcement.defaultProps = {
   dark: false,
