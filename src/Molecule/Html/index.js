@@ -69,6 +69,11 @@ export default function Html({ children, ...props }) {
       margin-bottom: ${t.space[16]};
       margin-top: ${t.space[16]};
     }
+    blockquote {
+      margin-left: ${t.space[4]};
+      padding-left: ${t.space[4]};
+      border-left: 1px solid ${t.colors.gray[200]};
+    }
     /* Wordpress Specific */
     .alignright {
       float: right;
