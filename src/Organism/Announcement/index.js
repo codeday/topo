@@ -1,7 +1,6 @@
 import React, { useEffect, useReducer } from 'react';
 import PropTypes from 'prop-types';
 import useSwr from 'swr';
-import moment from 'moment-timezone';
 import X from '@codeday/topocons/Icon/UiX';
 import { useTheme } from 'topo/utils';
 import Box, { Grid } from 'topo/Atom/Box';
@@ -41,7 +40,16 @@ const query = (date, visibility) => `{
   }
 }`;
 
-const getDate = () => moment().tz('America/Los_Angeles').startOf('day').toISOString();
+const getDate = () => {
+  const d = new Date();
+  d.setUTCHours(d.getUTCHours() - 7);
+  return d.toISOString();
+}
+
+const fromIso = (s) => {
+  var b = s.split(/\D+/);
+  return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
+}
 
 export default function Announcement({ dark, box, ...props }) {
   const { visibility, programWebname } = useTheme();
@@ -61,7 +69,7 @@ export default function Announcement({ dark, box, ...props }) {
           return -1;
         }
 
-        return moment(a.displayAt).diff(moment(b.displayAt));
+        return fromIso(a.displayAt) > fromIso(b.displayAt) ? -1 : 1;
       })
   );
 

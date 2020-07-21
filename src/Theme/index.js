@@ -13,9 +13,6 @@ import { apiFetch } from 'topo/utils';
 import vars from './vars';
 import Chatra from './ComponentProviders/Chatra';
 
-// eslint-disable-next-line no-secrets/no-secrets
-const stripePromise = loadStripe('pk_v0AIOIy377403GN0FKltGR9gOAAUe');
-
 export const codedayTheme = {
   ...originalTheme,
   ...vars,
@@ -37,9 +34,13 @@ const query = `{
 }`
 
 function Provider({
-  analyticsId, brandColor, withChat, programWebname, visibility, children,
+  analyticsId, brandColor, withChat, withPayments, programWebname, visibility, children,
 }) {
   const FathomComponent = analyticsId ? Fathom : Fragment;
+  const StripeComponent = withPayments ? Elements : Fragment;
+
+  // eslint-disable-next-line no-secrets/no-secrets
+  const stripePromise = withPayments && loadStripe('pk_v0AIOIy377403GN0FKltGR9gOAAUe');
 
   // Fetch translation strings
   const { data } = useSwr(
@@ -68,10 +69,10 @@ function Provider({
       <CSSReset config={(theme) => theme.colors.modes} />
       <Global styles={customCss} />
       { withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" /> }
-      <FathomComponent customDomain="polarbear.codeday.org" siteId={analyticsId}>
-        <Elements stripe={stripePromise}>
+      <FathomComponent {...(analyticsId && {customDomain: "polarbear.codeday.org", siteId: analyticsId })}>
+        <StripeComponent {...(withPayments && {stripe: stripePromise})}>
           {children}
-        </Elements>
+        </StripeComponent>
       </FathomComponent>
     </ThemeProvider>
   );
@@ -81,6 +82,7 @@ Provider.propTypes = {
   analyticsId: PropTypes.string,
   brandColor: PropTypes.string,
   withChat: PropTypes.bool,
+  withPayments: PropTypes.bool,
   programWebname: PropTypes.string,
   visibility: PropTypes.string,
 };
@@ -88,6 +90,7 @@ Provider.defaultProps = {
   analyticsId: null,
   brandColor: null,
   withChat: false,
+  withPayments: false,
   programWebname: '',
   visibility: 'Public',
 };

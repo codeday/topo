@@ -175,7 +175,7 @@ colors.modes = {
   light: {
     color: colors.black,
     text: colors.black,
-    textLight: colors.gray[700],
+    textLight: colors.gray[800],
     bg: colors.white,
     background: colors.white,
     primary: colors.brand,

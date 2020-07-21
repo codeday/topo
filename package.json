@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "2.7.0",
+  "version": "2.10.0",
   "main": "index.js",
   "license": "Artistic-2.0",
   "scripts": {
@@ -9,6 +9,7 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@accessible/use-id": "^1.1.1",
     "@chakra-ui/core": "^0.7.0",
     "@storybook/addon-a11y": "^5.3.18",
     "@stripe/react-stripe-js": "^1.1.2",
@@ -16,7 +17,6 @@
     "@tylermenezes/cognitoforms-react": "^1.1.0",
     "fathom-react": "^1.0.1",
     "graphql-request": "^2.0.0",
-    "moment-timezone": "^0.5.31",
     "react-load-script": "^0.0.6",
     "react-pdf": "^4.1.0",
     "react-syntax-highlighter": "^12.2.1",

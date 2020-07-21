@@ -66,7 +66,7 @@ const Footer = forwardRef(({ children }, ref) => {
             { customText.length > 0 ? customText : (
               <Text>
                 Copyright &copy; 2009 &ndash; {(new Date()).getFullYear()} CodeDay.<br />
-                A 501(c)(3) nonprofit. EIN: <CopyText>26-4742589</CopyText>.<br />
+                A 501(c)(3) nonprofit. <CopyText label="EIN: ">26-4742589</CopyText>.<br />
                 <Link href="tel:18886077763">(888) 607-7763</Link>
               </Text>
             )}
