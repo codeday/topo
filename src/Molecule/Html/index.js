@@ -21,7 +21,7 @@ export default function Html({ children, ...props }) {
     h6 { font-size: ${t.fontSizes.sm} }
     a {
       text-decoration: underline;
-      color: ${t.colors.blue[700]}
+      color: ${t.colors.blue[800]}
     }
     p, ul, ol, blockquote {
       margin-bottom: 1em;
