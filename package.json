@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "2.11.0",
+  "version": "3.0.0",
   "main": "index.js",
   "license": "Artistic-2.0",
   "scripts": {
@@ -17,8 +17,6 @@
     "fathom-react": "^1.0.1",
     "graphql-request": "^2.0.0",
     "react-load-script": "^0.0.6",
-    "react-pdf": "^4.1.0",
-    "react-syntax-highlighter": "^12.2.1",
     "react-uid": "^2.2.0",
     "recompose": "^0.30.0",
     "swr": "^0.2.3"
@@ -31,10 +29,10 @@
     "@babel/preset-react": "^7.0.0",
     "@codeday/eslint-config": "^1.3.0",
     "@codeday/topocons": "^1.3.0",
+    "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addon-actions": "^6.0.0-alpha.45",
     "@storybook/addon-docs": "^6.0.0-alpha.45",
     "@storybook/addon-links": "^6.0.0-alpha.45",
-    "@storybook/addon-a11y": "^5.3.18",
     "@storybook/addons": "^6.0.0-alpha.45",
     "@storybook/react": "^6.0.0-alpha.45",
     "@svgr/cli": "^5.4.0",
@@ -53,5 +51,9 @@
     "prop-types": "^15.x",
     "react": ">= 16.8",
     "react-dom": ">= 16.8"
+  },
+  "optionalDependencies": {
+    "react-pdf": "^4.2.0",
+    "react-syntax-highlighter": "^13.2.1"
   }
 }

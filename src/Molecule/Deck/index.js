@@ -1,8 +1,9 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, {
   forwardRef, useState, useMemo, useRef,
 } from 'react';
 import PropTypes from 'prop-types';
-import { Document, Page, pdfjs } from 'react-pdf';
 import ArrowLeft from '@codeday/topocons/Icon/UiArrowLeft';
 import ArrowRight from '@codeday/topocons/Icon/UiArrowRight';
 import Download from '@codeday/topocons/Icon/UiDownload';
@@ -11,6 +12,13 @@ import Button from 'topo/Atom/Button';
 import Spinner from 'topo/Atom/Spinner';
 import { useTheme } from 'topo/utils';
 
+let Document;
+let Page;
+let pdfjs;
+try {
+  ({ Document, Page, pdfjs } = require('react-pdf'));
+// eslint-disable-next-line no-empty
+} catch (ex) {}
 
 pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
@@ -28,6 +36,15 @@ const Deck = forwardRef(({ src, allowDownload }, ref) => {
 
   // This will throw an error server-side.
   if (typeof window === 'undefined') return <></>;
+
+  // react-pdf is an optional dependency.
+  if (typeof pdfjs === 'undefined') {
+    return (
+      <Box bg="red.500" color="white" fontWeight="bold" p={2}>
+        Optional dependency react-pdf must be installed to use Deck.
+      </Box>
+    );
+  }
 
   return (
     <Box position="relative">

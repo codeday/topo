@@ -1,11 +1,28 @@
+/* eslint-disable global-require */
+/* eslint-disable import/no-extraneous-dependencies */
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import { LightAsync as SyntaxHighlighter } from 'react-syntax-highlighter';
+import Box from 'topo/Atom/Box';
 import { useTheme } from 'topo/utils';
 import makeStyle from './make-style';
 
+let SyntaxHighlighter;
+try {
+  ({ LightAsync: SyntaxHighlighter } = require('react-syntax-highlighter'));
+// eslint-disable-next-line no-empty
+} catch (ex) {}
+
 const SH = forwardRef(({ lang, numbers, ...props }, ref) => {
   const theme = useTheme();
+
+  if (typeof SyntaxHighlighter === 'undefined') {
+    return (
+      <Box bg="red.500" color="white" fontWeight="bold" p={2}>
+        Optional dependency react-syntax-highlighter must be installed to use CodeBlock.
+      </Box>
+    );
+  }
+
   return (
     <SyntaxHighlighter
       ref={ref}
