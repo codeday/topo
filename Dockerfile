@@ -1,13 +1,21 @@
 FROM node:12-alpine
+ENV NODE_ENV=development
+WORKDIR /build
 
-ENV NODE_ENV=production
-RUN yarn global add webserver; mkdir /build; mkdir /app
+COPY package.json /build
+RUN yarn install --production=false
 
 COPY . /build
-WORKDIR /build
-RUN NODE_ENV=development yarn install --production=false \
-  && yarn run build-storybook -o /app --quiet \
-  && rm -rf /build
+RUN yarn run build-storybook -o /app --quiet
+
+
+
+FROM node:12-alpine
+ENV NODE_ENV=production
+WORKDIR /app
+
+COPY --from=0 /app /app
+RUN yarn global add webserver
 
 WORKDIR /app
 CMD npx webserver 80
