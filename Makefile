@@ -13,9 +13,11 @@ main: svgs
 .PHONY: publish
 publish: main
 	@npm version minor --no-git-tag-version
+	@cp $(PWD)/package.json $(PWD)/dist/package.json
 	@cd $(PWD)/dist && npm publish
 
-.PHONY: publish-major
-publish-major: main
+.PHONY: publish-breaking
+publish-breaking: main
 	@npm version major --no-git-tag-version
+	@cp $(PWD)/package.json $(PWD)/dist/package.json
 	@cd $(PWD)/dist && npm publish

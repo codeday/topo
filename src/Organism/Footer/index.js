@@ -45,7 +45,7 @@ const StandardLinks = () => {
           <Item><Skelly /></Item>
         </>
       ) : links.map(({ title, link, sys }) => (
-        <Item key={sys.id}><Link href={link} target="_blank" key={link}>{title}</Link></Item>
+        <Item key={sys.id}><Link href={link} target="_blank" rel="noopener" key={link}>{title}</Link></Item>
       ))}
     </List>
   );
@@ -72,8 +72,8 @@ const Footer = forwardRef(({ children }, ref) => {
             )}
           </Box>
           <Box marginTop={4}>
-            <Link href="https://www.srnd.org/privacy">{cookiesLink}</Link><br />
-            <Link href="https://www.srnd.org/privacy/controls" target="_blank">{ccpaLink}</Link>
+            <Link href="https://www.srnd.org/privacy" rel="noopener">{cookiesLink}</Link><br />
+            <Link href="https://www.srnd.org/privacy/controls" rel="noopener" target="_blank">{ccpaLink}</Link>
           </Box>
         </Box>
         <Box gridRow={{ base: 2, md: 1 }} marginTop={{ base: customLinks.length > 0 && 6, md: 0 }}>
