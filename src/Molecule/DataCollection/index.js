@@ -24,7 +24,7 @@ export default function DataCollection({ message }) {
     <Box color="gray.500">
       <Grid templateColumns={{ base: '1fr', md: `${fontSizes['2xl']} 1fr` }} gap={4} alignItems="center">
         <Box d={{ base: 'none', md: 'block' }} fontSize="2xl">
-          <MessageIcon style={{ position: 'relative', top: '-2px' }} />
+          <MessageIcon style={{ position: 'relative', top: '-2px', fill: 'currentColor' }} />
         </Box>
         <Box fontSize="sm">
           {renderedText}{' '}
