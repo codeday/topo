@@ -21,7 +21,7 @@ export default function DataCollection({ message }) {
   const MessageIcon = MessageIcons[message] || InfoIcon;
 
   return (
-    <Box color="gray.500">
+    <Box color="current.textLight">
       <Grid templateColumns={{ base: '1fr', md: `${fontSizes['2xl']} 1fr` }} gap={4} alignItems="center">
         <Box d={{ base: 'none', md: 'block' }} fontSize="2xl">
           <MessageIcon style={{ position: 'relative', top: '-2px', fill: 'currentColor' }} />

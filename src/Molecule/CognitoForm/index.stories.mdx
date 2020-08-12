@@ -21,7 +21,7 @@ import CognitoForm from `@codeday/topo/Molecule/CognitoForm`
 
 export default () => (
   <MyPage>
-    <CognitoForm id={13} />
+    <CognitoForm id={13} fallback />
   </MyPage>
 )
 ```
@@ -32,6 +32,6 @@ Below you can see an example of a Cognito Form with all the element types Cognit
 
 <Preview>
   <Story name="All Elements">
-    <CognitoForm formId={61} showTitle={false} />
+    <CognitoForm formId={61} showTitle={false} fallback />
   </Story>
 </Preview>

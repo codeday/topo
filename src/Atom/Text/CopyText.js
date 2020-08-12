@@ -27,6 +27,7 @@ const CopyText = forwardRef(({ children, label, ...props }, ref) => {
         type="text"
         value={children}
         width={`${width}px`}
+        bg="transparent"
         readOnly
         onClick={(e) => {
           e.target.select();
