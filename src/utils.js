@@ -10,9 +10,8 @@ export { default as useDisclosure } from '@chakra-ui/core/dist/useDisclosure';
 export { useFathom as useAnalytics } from 'fathom-react';
 export { useTheme };
 
-
 export const api = 'https://graph.codeday.org/';
-export const apiFetch = (query) => request('https://graph.codeday.org/', query);
+export const apiFetch = (query, variables) => request('https://graph.codeday.org/', query, variables);
 
 export function useString(key, initialValue) {
   const { strings } = useTheme();
