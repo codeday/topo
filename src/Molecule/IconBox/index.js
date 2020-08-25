@@ -8,13 +8,12 @@ export const HeaderIcon = makePureBox('HeaderIcon');
 export const HeaderText = makePureBox('HeaderText');
 export const Body = makePureBox('Body');
 
-
-const IconBox = makePureBox('IconBox', pureRef(({ children, ...props }) => {
+const IconBox = pureRef(({ children, ...props }, ref) => {
   const headerIcon = childrenOfType(children, HeaderIcon);
   const headerText = childrenOfType(children, HeaderText);
   const body = childrenOfType(children, Body);
   return (
-    <Box borderColor="current.border" borderWidth={1} borderRadius={3} padding={4} {...props}>
+    <Box borderColor="current.border" borderWidth={1} borderRadius={3} padding={4} ref={ref} {...props}>
       {React.Children.map(wrapHtml(headerIcon), setChildProps(null, {
         fontSize: '5xl',
         marginBottom: 1,
@@ -29,5 +28,5 @@ const IconBox = makePureBox('IconBox', pureRef(({ children, ...props }) => {
       {React.Children.map(wrapHtml(body), setChildProps(null, { color: 'current.textLight' }))}
     </Box>
   );
-}));
+});
 export default IconBox;
