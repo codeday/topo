@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import UiMenu from '@codeday/topocons/Icon/UiMenu';
+import UiX from '@codeday/topocons/Icon/UiX';
 import Box from 'topo/Atom/Box';
 import Content from 'topo/Molecule/Content';
 import { childrenOfType, setChildProps } from 'topo/_utils';
@@ -9,39 +11,89 @@ import Menu from './menu';
 const Header = ({
   darkBackground, underscore, children, gradAmount, ...props
 }) => {
+  const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const childrenWithProps = React.Children.map(children, setChildProps({ darkBackground }));
   const logo = childrenOfType(childrenWithProps, SiteLogo);
   const menu = childrenOfType(childrenWithProps, Menu);
 
   return (
-    <Box
-      grad={
-        ((darkBackground && gradAmount !== false) || gradAmount)
-        && `${darkBackground ? 'darken' : 'lighten'}.${gradAmount || 'sm'}.180`
-      }
-      {...props}
-    >
-      <Content
-        padding={3}
-        paddingTop={6}
-        paddingBottom={4}
+    <>
+      <Box
+        grad={
+          ((darkBackground && gradAmount !== false) || gradAmount)
+          && `${darkBackground ? 'darken' : 'lighten'}.${gradAmount || 'sm'}.180`
+        }
+        {...props}
       >
-        <Box
-          marginBottom={6}
+        <Content
+          padding={3}
+          paddingTop={6}
           paddingBottom={4}
-          borderBottomColor={darkBackground ? 'whiteAlpha.300' : 'gray.200'}
-          borderBottomWidth={underscore ? '1px' : 0}
         >
-          <Box float="left">
-            {logo}
+          <Box
+            marginBottom={6}
+            paddingBottom={4}
+            borderBottomColor={darkBackground ? 'whiteAlpha.300' : 'gray.200'}
+            borderBottomWidth={underscore ? '1px' : 0}
+          >
+            <Box float="left">
+              {logo}
+            </Box>
+            <Box float="right" textAlign="right" d={{ base: 'none', lg: 'block' }}>
+              {menu}
+            </Box>
+            <Box
+              float="right"
+              textAlign="right"
+              d={{ base: 'block', lg: 'none' }}
+              fontSize="xl"
+              color={darkBackground ? 'whiteAlpha.800' : 'current.textColor'}
+            >
+              <UiMenu
+                style={{ color: 'currentColor', cursor: 'pointer', display: 'inline-block' }}
+                onClick={() => setHamburgerOpen(!hamburgerOpen)}
+              />
+            </Box>
+            <Box style={{ clear: 'both' }} />
           </Box>
-          <Box float="right" textAlign="right">
-            {menu}
-          </Box>
-          <Box style={{ clear: 'both' }} />
+        </Content>
+      </Box>
+
+      {/* Hamburger Menu */}
+      <Box
+        d={hamburgerOpen ? 'block' : 'none'}
+        position="fixed"
+        top="0"
+        right="0"
+        bottom="0"
+        left="0"
+        bg="current.bg"
+        zIndex="9000"
+      >
+        <Box textAlign="right" p={8} fontSize="xl" onClick={() => setHamburgerOpen(false)} cursor="pointer">
+          <UiX />
         </Box>
-      </Content>
-    </Box>
+        <Box textAlign="center" p={4}>
+          {React.Children.map(menu[0]?.props?.children, (c, i) => (
+            <Box
+              pb={4}
+              mb={4}
+              borderBottomWidth={i+1 === menu[0].props.children.length ? 0 : 1}
+              borderBottomColor="current.border"
+            >
+              {
+                React.cloneElement(c, {
+                  fontSize: 'xl',
+                  d: 'block',
+                  float: 'none',
+                  p: 2,
+                })
+              }
+            </Box>
+          ))}
+        </Box>
+      </Box>
+    </>
   );
 };
 Header.propTypes = {
