@@ -3,16 +3,28 @@ import {
 } from 'react';
 import { request } from 'graphql-request';
 import { useTheme } from '@chakra-ui/core/dist/ThemeProvider';
+import { useToasts as useToastsNative } from 'react-toast-notifications';
 
 export { default as useToast } from '@chakra-ui/core/dist/Toast';
 export { default as useClipboard } from '@chakra-ui/core/dist/useClipboard';
 export { default as useDisclosure } from '@chakra-ui/core/dist/useDisclosure';
 export { useFathom as useAnalytics } from 'fathom-react';
-export { useToasts } from 'react-toast-notifications';
 export { useTheme };
 
 export const api = 'https://graph.codeday.org/';
 export const apiFetch = (query, variables) => request('https://graph.codeday.org/', query, variables);
+
+export function useToasts() {
+  const { addToast, ...builtins } = useToastsNative();
+  return {
+    addToast,
+    info: (children, opts) => addToast(children, { appearance: 'info', ...opts }),
+    success: (children, opts) => addToast(children, { appearance: 'success', ...opts }),
+    warning: (children, opts) => addToast(children, { appearance: 'warning', ...opts }),
+    error: (children, opts) => addToast(children, { appearance: 'error', ...opts }),
+    ...builtins,
+  };
+}
 
 export function useString(key, initialValue) {
   const { strings } = useTheme();

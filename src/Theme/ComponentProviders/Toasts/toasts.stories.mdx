@@ -17,10 +17,10 @@ import Demo from 'topo/Theme/ComponentProviders/Toasts/Demo';
 import { useToasts } from 'topo/utils';
 
 export default () => {
-  const { addToast } = useToasts();
+  const { addToast, success, error } = useToasts();
   addToast('Hello, world.');
-  addToast('Your order was processed', { appearance: 'success' });
+  success('Your order was processed');
+  error('Critical error', { autoDismiss: false });
   addToast('Don\'t forget to like and subscribe', { appearance: 'warning' });
-  addToast('Critical error', { appearance: 'error', autoDismiss: false });
 }
 ```

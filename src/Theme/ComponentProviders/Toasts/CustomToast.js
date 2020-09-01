@@ -23,13 +23,12 @@ export default function CustomToast({
     info: UiInfo,
   }[appearance || 'info'] || UiInfo;
 
-  console.log(transitionState);
-
   return (
     <Box
       rounded="md"
       boxShadow="lg"
       borderWidth={1}
+      borderColor="current.border"
       mb={4}
       position="relative"
       onClick={onDismiss}
