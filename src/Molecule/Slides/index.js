@@ -24,6 +24,7 @@ const Slides = forwardRef(({
           bottom="0"
           transition={`all ${transitionDuration || 1}s ease-in-out`}
           style={{ opacity: index === visibleIndex ? 1 : 0 }}
+          aria-hidden={index !== visibleIndex}
         >
           {child}
         </Box>
