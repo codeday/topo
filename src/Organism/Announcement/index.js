@@ -124,7 +124,7 @@ export default function Announcement({ dark, box, ...props }) {
         return false;
       }}
     >
-      <X />
+      <X aria-label="Close" />
     </Box>
   );
 
@@ -138,6 +138,7 @@ export default function Announcement({ dark, box, ...props }) {
       as={item.link ? 'a' : 'div'}
       href={item.link}
       target={item.link ? '_blank' : null}
+      aria-label="Announcement"
       {...props}
     >
       <Content wide mb={0}>

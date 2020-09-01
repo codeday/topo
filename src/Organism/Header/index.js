@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, Children, cloneElement } from 'react';
 import PropTypes from 'prop-types';
 import UiMenu from '@codeday/topocons/Icon/UiMenu';
 import UiX from '@codeday/topocons/Icon/UiX';
@@ -13,8 +13,14 @@ const Header = ({
 }) => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const childrenWithProps = React.Children.map(children, setChildProps({ darkBackground }));
-  const logo = childrenOfType(childrenWithProps, SiteLogo);
-  const menu = childrenOfType(childrenWithProps, Menu);
+  const logo = Children.map(
+    childrenOfType(childrenWithProps, SiteLogo),
+    (c) => cloneElement(c, { role: 'menuitem' })
+  );
+  const menu = Children.map(
+    childrenOfType(childrenWithProps, Menu),
+    (c) => cloneElement(c, { role: 'menuitem' })
+  );
 
   return (
     <>
@@ -23,6 +29,7 @@ const Header = ({
           ((darkBackground && gradAmount !== false) || gradAmount)
           && `${darkBackground ? 'darken' : 'lighten'}.${gradAmount || 'sm'}.180`
         }
+        role="navigation"
         {...props}
       >
         <Content
@@ -52,6 +59,7 @@ const Header = ({
               <UiMenu
                 style={{ color: 'currentColor', cursor: 'pointer', display: 'inline-block' }}
                 onClick={() => setHamburgerOpen(!hamburgerOpen)}
+                aria-label="Open Menu"
               />
             </Box>
             <Box style={{ clear: 'both' }} />
@@ -69,27 +77,47 @@ const Header = ({
         left="0"
         bg="current.bg"
         zIndex="9000"
+        overflowY="auto"
       >
         <Box textAlign="right" p={8} fontSize="xl" onClick={() => setHamburgerOpen(false)} cursor="pointer">
-          <UiX />
+          <UiX aria-label="Close Menu" />
         </Box>
         <Box textAlign="center" p={4}>
-          {React.Children.map(menu[0]?.props?.children, (c, i) => (
-            <Box
-              pb={4}
-              mb={4}
-              borderBottomWidth={i+1 === menu[0].props.children.length ? 0 : 1}
-              borderBottomColor="current.border"
-            >
-              {
-                React.cloneElement(c, {
-                  fontSize: 'xl',
-                  d: 'block',
-                  float: 'none',
-                  p: 2,
-                })
-              }
-            </Box>
+          <Box
+            pb={4}
+            mb={4}
+            borderBottomWidth={1}
+            borderBottomColor="current.border"
+          >
+            {Children.map(logo[0]?.props?.children, (c) =>
+              cloneElement(c, {
+                fontSize: '3xl',
+                d: 'block',
+                float: 'none',
+                p: 2,
+                role: 'menuitem',
+              })
+            )}
+          </Box>
+          {Children.map(
+            menu[0]?.props?.children,
+            (c, i) => (
+              <Box
+                pb={4}
+                mb={4}
+                borderBottomWidth={i+1 === menu[0].props.children.length ? 0 : 1}
+                borderBottomColor="current.border"
+              >
+                {
+                  cloneElement(c, {
+                    fontSize: 'xl',
+                    d: 'block',
+                    float: 'none',
+                    p: 2,
+                    role: 'menuitem',
+                  })
+                }
+              </Box>
           ))}
         </Box>
       </Box>

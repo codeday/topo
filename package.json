@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "3.12.0",
+  "version": "3.13.0",
   "main": "index.js",
   "license": "Artistic-2.0",
   "scripts": {
@@ -17,6 +17,7 @@
     "fathom-react": "^1.0.1",
     "graphql-request": "^2.0.0",
     "react-load-script": "^0.0.6",
+    "react-toast-notifications": "^2.4.0",
     "react-uid": "^2.2.0",
     "recompose": "^0.30.0",
     "swr": "^0.2.3"

@@ -10,6 +10,7 @@ import Fathom from 'fathom-react';
 import { apiFetch } from 'topo/utils';
 import vars from './vars';
 import Chatra from './ComponentProviders/Chatra';
+import Toasts from './ComponentProviders/Toasts';
 
 export const codedayTheme = {
   ...originalTheme,
@@ -50,11 +51,19 @@ function Provider({
     strings = data.cms.strings.items.reduce((accum, node) => ({...accum, [node.key]: node.value}), {});
   }
 
+  if (brandColor in codedayTheme.colors) {
+    codedayTheme.colors.brand = codedayTheme.colors[brandColor];
+    codedayTheme.colors.black = codedayTheme.colors.brand[1000];
+    codedayTheme.colors.modes.light.color = codedayTheme.colors.black;
+    codedayTheme.colors.modes.light.text = codedayTheme.colors.black;
+    codedayTheme.colors.modes.light.textLight = codedayTheme.colors.brand[900];
+  }
+
   return (
     <ThemeProvider
       theme={{
         ...codedayTheme,
-        colors: { ...codedayTheme.colors, brand: codedayTheme.colors[brandColor] || colors.brand },
+        colors: codedayTheme.colors,
         programWebname,
         visibility,
         strings,
@@ -64,7 +73,9 @@ function Provider({
       <Global styles={customCss} />
       { withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" /> }
       <FathomComponent {...(analyticsId && {customDomain: "polarbear.codeday.org", siteId: analyticsId })}>
-        {children}
+        <Toasts>
+          {children}
+        </Toasts>
       </FathomComponent>
     </ThemeProvider>
   );

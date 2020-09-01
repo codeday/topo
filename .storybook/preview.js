@@ -9,15 +9,15 @@ addParameters({
   options: {
     theme: topoTheme,
     storySort: (a, b) => {
-      if (a[1].kind === 'Introduction') {
+      if (a[1]?.kind === 'Introduction') {
         return 0;
-      } else if (a[1].kind === 'Introduction') {
+      } else if (a[1]?.kind === 'Introduction') {
         return 1;
       }
 
-      if (a[1].parameters.storySource.source === '<Docs />') {
+      if (a[1]?.parameters?.storySource?.source === '<Docs />') {
         return 0;
-      } else if (a[1].parameters.storySource.source === '<Docs />') {
+      } else if (a[1]?.parameters?.storySource?.source === '<Docs />') {
         return 1;
       }
 

@@ -8,7 +8,6 @@ import * as Svgs from './svgs';
 
 const upperFirst = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-
 const Lockup = pureRef(({
   logo, text, logoColor, textColor, color, ...props
 }, ref) => (
@@ -73,10 +72,10 @@ Logo.defaultProps = {
 };
 export default Logo;
 
-export const CodeDay = withProps({ program: 'codeday' })(Logo);
-export const Labs = withProps({ program: 'labs' })(Logo);
-export const CsFest = withProps({ program: 'csfest' })(Logo);
-export const Evangelist = withProps({ program: 'evangelist' })(Logo);
-export const Clear = withProps({ program: 'clear' })(Logo);
-export const CodeCup = withProps({ program: 'codecup' })(Logo);
-export const Community = withProps({ program: 'community' })(Logo);
+export const CodeDay = withProps({ program: 'codeday', 'aria-label': 'CodeDay' })(Logo);
+export const Labs = withProps({ program: 'labs', 'aria-label': 'CodeDay Labs' })(Logo);
+export const CsFest = withProps({ program: 'csfest', 'aria-label': 'CodeDay CS Fest' })(Logo);
+export const Evangelist = withProps({ program: 'evangelist', 'aria-label': 'Code Evangelist' })(Logo);
+export const Clear = withProps({ program: 'clear', 'aria-label': 'Clear' })(Logo);
+export const CodeCup = withProps({ program: 'codecup', 'aria-label': 'CodeCup' })(Logo);
+export const Community = withProps({ program: 'community', 'aria-label': 'Community' })(Logo);

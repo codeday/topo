@@ -45,9 +45,11 @@ export const wrapHtml = (nodes) => (Array.isArray(nodes) ? React.Children.toArra
 
 export const pureRef = (Component) => forwardRef((props, ref) => useMemo(() => Component(props, ref), [props, ref]));
 
-export const makePureBox = (name, Component) => {
+export const makePureBox = (name, defaultProps, Component) => {
   const DerivedBox = pureRef(({ children, ...props }, ref) => (
-    <Box {...props} ref={ref}>{Component ? <Component>{children}</Component> : children}</Box>
+    <Box {...[defaultProps || {}, props]} ref={ref}>
+      {Component ? <Component>{children}</Component> : children}
+    </Box>
   ));
   DerivedBox.displayName = name;
   DerivedBox.propTypes = {

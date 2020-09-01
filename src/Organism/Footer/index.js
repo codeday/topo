@@ -59,7 +59,7 @@ const Footer = forwardRef(({ children }, ref) => {
   const customText = childrenOfType(children, CustomText);
 
   return (
-    <Content ref={ref}>
+    <Content ref={ref} role="contentinfo">
       <Grid templateColumns={{ base: '1fr', md: '6fr 3fr 3fr' }} color="current.textLight">
         <Box gridRow={{ base: 3, md: 1 }} marginTop={{ base: 6, md: 0 }}>
           <Box>

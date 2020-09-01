@@ -1,0 +1,26 @@
+import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import Demo from 'topo/Theme/ComponentProviders/Toasts/Demo';
+
+<Meta title="Molecule/Toasts" />
+
+# Send a Toast
+
+<Preview>
+  <Story name="Toast">
+    <Demo />
+  </Story>
+</Preview>
+
+## Usage
+
+```jsx
+import { useToasts } from 'topo/utils';
+
+export default () => {
+  const { addToast } = useToasts();
+  addToast('Hello, world.');
+  addToast('Your order was processed', { appearance: 'success' });
+  addToast('Don\'t forget to like and subscribe', { appearance: 'warning' });
+  addToast('Critical error', { appearance: 'error', autoDismiss: false });
+}
+```
