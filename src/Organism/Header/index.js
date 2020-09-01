@@ -13,14 +13,8 @@ const Header = ({
 }) => {
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const childrenWithProps = React.Children.map(children, setChildProps({ darkBackground }));
-  const logo = Children.map(
-    childrenOfType(childrenWithProps, SiteLogo),
-    (c) => cloneElement(c, { role: 'menuitem' })
-  );
-  const menu = Children.map(
-    childrenOfType(childrenWithProps, Menu),
-    (c) => cloneElement(c, { role: 'menuitem' })
-  );
+  const logo = childrenOfType(childrenWithProps, SiteLogo);
+  const menu = childrenOfType(childrenWithProps, Menu);
 
   return (
     <>
@@ -29,7 +23,7 @@ const Header = ({
           ((darkBackground && gradAmount !== false) || gradAmount)
           && `${darkBackground ? 'darken' : 'lighten'}.${gradAmount || 'sm'}.180`
         }
-        role="navigation"
+        as="nav"
         {...props}
       >
         <Content
@@ -69,6 +63,7 @@ const Header = ({
 
       {/* Hamburger Menu */}
       <Box
+        as="nav"
         d={hamburgerOpen ? 'block' : 'none'}
         position="fixed"
         top="0"

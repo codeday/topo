@@ -22,7 +22,7 @@ export default (theme) => `
 
   ${selectors.input.text}, ${selectors.input.dropdown}, ${selectors.input.textarea} {
     padding: ${theme.space[3]} !important;
-    border: 1px solid ${theme.colors.current.borderColor} !important;
+    border: 1px solid ${theme.colors.current.border} !important;
     border-radius: ${theme.radii.sm} !important;
     outline: none !important;
     font-weight: 400 !important;
@@ -51,7 +51,7 @@ export default (theme) => `
 
   ${selectors.fields.upload} > div:first-child {
     padding: ${theme.space[3]} !important;
-    border: 1px solid ${theme.colors.current.borderColor} !important;
+    border: 1px solid ${theme.colors.current.border} !important;
     border-radius: ${theme.radii.sm} !important;
     outline: none !important;
     font-weight: 400 !important;
@@ -94,7 +94,7 @@ export default (theme) => `
 
   /* Signature */
   ${selectors.fields.signature} ${selectors.fields.editor} > div {
-    border: 1px solid ${theme.colors.current.borderColor} !important;
+    border: 1px solid ${theme.colors.current.border} !important;
     border-radius: ${theme.radii.sm} !important;
   }
 

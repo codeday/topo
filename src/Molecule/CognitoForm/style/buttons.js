@@ -19,17 +19,17 @@ export default (theme) => `
     background-color: ${theme.colors.current.bg} !important;
     color: ${theme.colors.current.text} !important;
     border-width: 1px !important;
-    border-color: ${theme.colors.current.borderColor} !important;
+    border-color: ${theme.colors.current.border} !important;
   }
 
   ${selectors.buttons.upload} {
-    background-color: ${theme.colors.current.borderColor} !important;
+    background-color: ${theme.colors.current.border} !important;
     color: ${theme.colors.current.text} !important;
     font-size: ${theme.fontSizes.sm} !important;
     padding: ${theme.space[1]};
     height: auto;
     border-width: 1px !important;
-    border-color: ${theme.colors.current.borderColor} !important;
+    border-color: ${theme.colors.current.border} !important;
   }
 
   ${selectors.buttons.addItem}:hover, ${selectors.buttons.previous}:hover {
@@ -54,7 +54,7 @@ export default (theme) => `
   /* Small buttons */
   ${selectors.icons.remove} circle {
     fill: ${theme.colors.current.bg} !important;
-    stroke: ${theme.colors.current.borderColor} !important;
+    stroke: ${theme.colors.current.border} !important;
     paint-order: stroke !important;
   }
 
@@ -77,7 +77,7 @@ export default (theme) => `
     font-size: ${theme.fontSizes.sm} !important;
     color: ${theme.colors.gray[500]} !important;
     background-color: ${theme.colors.current.bg} !important;
-    border-color: ${theme.colors.current.borderColor} !important;
+    border-color: ${theme.colors.current.border} !important;
   }
 
   ${selectors.pages.selectedPage} span {

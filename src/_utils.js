@@ -47,7 +47,7 @@ export const pureRef = (Component) => forwardRef((props, ref) => useMemo(() => C
 
 export const makePureBox = (name, defaultProps, Component) => {
   const DerivedBox = pureRef(({ children, ...props }, ref) => (
-    <Box {...[defaultProps || {}, props]} ref={ref}>
+    <Box {...defaultProps} {...props} ref={ref}>
       {Component ? <Component>{children}</Component> : children}
     </Box>
   ));

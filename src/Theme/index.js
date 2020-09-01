@@ -56,7 +56,9 @@ function Provider({
     codedayTheme.colors.black = codedayTheme.colors.brand[1000];
     codedayTheme.colors.modes.light.color = codedayTheme.colors.black;
     codedayTheme.colors.modes.light.text = codedayTheme.colors.black;
-    codedayTheme.colors.modes.light.textLight = codedayTheme.colors.brand[900];
+    codedayTheme.colors.modes.light.textLight = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[800];
+    codedayTheme.colors.modes.light.placeholder = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[600];
+    codedayTheme.colors.modes.light.border = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[200];
   }
 
   return (

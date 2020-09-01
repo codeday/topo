@@ -36,6 +36,11 @@ const colors = {
     800: '#b4494d',
     900: '#6a2b2d',
     1000: '#311c1c',
+    desaturated: {
+      800: '#8c7374',
+      600: '#bca9aa',
+      200: '#f0e5e6',
+    },
   },
   orange: {
     50: '#fff8f2',
@@ -190,9 +195,7 @@ colors.modes = {
     bg: colors.white,
     background: colors.white,
     primary: colors.brand,
-    borderColor: colors.gray[200],
     border: colors.gray[200],
-    placeholderColor: colors.gray[600],
     placeholder: colors.gray[600],
   },
   dark: {
@@ -203,8 +206,6 @@ colors.modes = {
     primary: colors.whiteAlpha[900],
     background: colors.gray[800],
     border: colors.whiteAlpha[300],
-    borderColor: colors.whiteAlpha[300],
-    placeholderColor: colors.whiteAlpha[400],
     placeholder: colors.whiteAlpha[400],
   },
 };
