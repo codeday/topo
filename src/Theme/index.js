@@ -59,6 +59,7 @@ function Provider({
     codedayTheme.colors.modes.light.textLight = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[800];
     codedayTheme.colors.modes.light.placeholder = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[600];
     codedayTheme.colors.modes.light.border = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[200];
+    codedayTheme.colors.modes.light.borderColor = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[200];
   }
 
   return (

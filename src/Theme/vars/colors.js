@@ -196,6 +196,7 @@ colors.modes = {
     background: colors.white,
     primary: colors.brand,
     border: colors.gray[200],
+    borderColor: colors.gray[200],
     placeholder: colors.gray[600],
   },
   dark: {
@@ -206,6 +207,7 @@ colors.modes = {
     primary: colors.whiteAlpha[900],
     background: colors.gray[800],
     border: colors.whiteAlpha[300],
+    borderColor: colors.whiteAlpha[300],
     placeholder: colors.whiteAlpha[400],
   },
 };

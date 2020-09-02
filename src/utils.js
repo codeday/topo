@@ -5,7 +5,6 @@ import { request } from 'graphql-request';
 import { useTheme } from '@chakra-ui/core/dist/ThemeProvider';
 import { useToasts as useToastsNative } from 'react-toast-notifications';
 
-export { default as useToast } from '@chakra-ui/core/dist/Toast';
 export { default as useClipboard } from '@chakra-ui/core/dist/useClipboard';
 export { default as useDisclosure } from '@chakra-ui/core/dist/useDisclosure';
 export { useFathom as useAnalytics } from 'fathom-react';

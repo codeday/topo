@@ -72,8 +72,8 @@ const Footer = forwardRef(({ children }, ref) => {
             )}
           </Box>
           <Box marginTop={4}>
-            <Link href="https://www.srnd.org/privacy" rel="noopener">{cookiesLink}</Link><br />
-            <Link href="https://www.srnd.org/privacy/controls" rel="noopener" target="_blank">{ccpaLink}</Link>
+            <Link href="https://www.codeday.org/privacy" rel="noopener">{cookiesLink}</Link><br />
+            <Link href="https://www.codeday.org/privacy/controls" rel="noopener" target="_blank">{ccpaLink}</Link>
           </Box>
         </Box>
         <Box gridRow={{ base: 2, md: 1 }} marginTop={{ base: customLinks.length > 0 && 6, md: 0 }}>
