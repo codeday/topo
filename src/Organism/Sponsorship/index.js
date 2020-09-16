@@ -33,7 +33,15 @@ const SponsorTable = () => {
   console.log(sponsorData);
 
   return (
-    <Text>Sponsorship table</Text>
+    <Text>
+      <Heading as="h1">Virtual CodeDay Sponsorships</Heading>
+      <Heading as="h4">{(new Date()).getFullYear()}-{(new Date()).getFullYear()+1} School Year</Heading>
+    </Text>
+
+
+
+
+
     /*
     <List>
       {!sponsorData ? (
@@ -55,9 +63,7 @@ const Sponsorship = forwardRef(({ children }, ref) => {
 
   return (
     <Content ref={ref} role="contentinfo">
-      <Grid templateColumns={{ base: '1fr', md: '6fr 3fr 3fr' }} color="current.textLight">
-        <SponsorTable />
-      </Grid>
+      <SponsorTable />
     </Content>
   );
 });
