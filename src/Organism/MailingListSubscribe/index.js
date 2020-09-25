@@ -12,8 +12,7 @@ async function submitEmail(list, email) {
   form.append('name', email);
   form.append('email', email);
   form.append('list', list);
-  const result = await fetch('https://email.srnd.org/subscribe', { method: 'POST', body: form });
-  console.log(result);
+  return fetch('https://email.srnd.org/subscribe', { method: 'POST', body: form });
 }
 
 export default function MailingListSubscribe({
@@ -38,17 +37,20 @@ export default function MailingListSubscribe({
           variant={variant || 'solid'}
           variantColor={variantColor || 'green'}
           isLoading={isSubmitting}
-          onClick={async () => {
+          onClick={() => {
             // TODO: Support for phone lists
             setIsSubmitting(true);
-            try {
-              await submitEmail(emailList, input);
-              success(`You're subscribed!`);
-              setInput('');
-            } catch (ex) {
-              error(`Sorry, we couldn't complete your subscription, please try again.`);
-            }
-            setIsSubmitting(false);
+            submitEmail(emailList, input)
+              .then(() => {
+                success(`You're subscribed!`);
+                setInput('');
+              })
+              .catch(() => {
+                error(`Sorry, we couldn't complete your subscription, please try again.`);
+              })
+              .finally(() => {
+                setIsSubmitting(false);
+              });
           }}
           borderTopLeftRadius={0}
           borderBottomLeftRadius={0}
