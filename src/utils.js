@@ -1,7 +1,7 @@
 import {
   useState, useEffect, useCallback,
 } from 'react';
-import { request } from 'graphql-request';
+import { GraphQLClient } from 'graphql-request';
 import { useTheme } from '@chakra-ui/core/dist/ThemeProvider';
 import { useToasts as useToastsNative } from 'react-toast-notifications';
 
@@ -11,7 +11,10 @@ export { useFathom as useAnalytics } from 'fathom-react';
 export { useTheme };
 
 export const api = 'https://graph.codeday.org/';
-export const apiFetch = (query, variables) => request('https://graph.codeday.org/', query, variables);
+export const apiFetch = (query, variables, headers) => {
+  const client = new GraphQLClient(api, { headers });
+  return client.request(query, variables);
+};
 
 export function useToasts() {
   const { addToast, ...builtins } = useToastsNative();

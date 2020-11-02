@@ -5,6 +5,7 @@ import Box, { Grid } from 'topo/Atom/Box';
 import Skelly from 'topo/Atom/Skelly';
 import Text, { Heading, Link, CopyText } from 'topo/Atom/Text';
 import Content from 'topo/Molecule/Content';
+import Eco from '@codeday/topocons/Icon/Eco';
 import { childrenOfType, makePureBox } from 'topo/_utils';
 import { useString, apiFetch } from 'topo/utils';
 
@@ -54,6 +55,7 @@ const StandardLinks = () => {
 const Footer = forwardRef(({ children }, ref) => {
   const cookiesLink = useString('legal.cookies', <Skelly />);
   const ccpaLink = useString('legal.ccpa', <Skelly />);
+  const ecoLink = useString('eco.link', <Skelly />);
 
   const customLinks = childrenOfType(children, CustomLinks);
   const customText = childrenOfType(children, CustomText);
@@ -72,6 +74,7 @@ const Footer = forwardRef(({ children }, ref) => {
             )}
           </Box>
           <Box marginTop={4}>
+            <Link href="https://www.codeday.org/eco" rel="noopener" target="_blank"><Eco /> {ecoLink}</Link><br />
             <Link href="https://www.codeday.org/privacy" rel="noopener">{cookiesLink}</Link><br />
             <Link href="https://www.codeday.org/privacy/controls" rel="noopener" target="_blank">{ccpaLink}</Link>
           </Box>
