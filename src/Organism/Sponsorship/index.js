@@ -21,8 +21,6 @@ const query = `{
   }
 }`;
 
-
-
 const SponsorTable = () => {
 
   // Pull data from GraphQL Query from above
@@ -46,9 +44,25 @@ const SponsorTable = () => {
     LevelsList.push({name: l.name});
   }*/
 
+  // Each level will have certain attributes like 
+  var LevelsList = [];
   if (levels) {
     Object.keys(levels).map(function(key, index) {
-      console.log(levels[key].name);
+      var singleObject = {};
+
+      // Individual Level attributes
+      singleObject['name'] = levels[key].name;
+      singleObject['description'] = levels[key].description;
+      singleObject['amount'] = levels[key].amount;
+      singleObject['amountInterval'] = levels[key].amountInterval;
+
+      // Level text for each section (ex: Promotion, Swag, and Direct Engagement)
+      for (var perk in perkGroups) {
+        console.log(perkGroups[0].name);
+      }
+
+      LevelsList.push(singleObject);
+      //console.log(levels[key].name);
     });
   }
 
