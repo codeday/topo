@@ -3,7 +3,7 @@ import useSwr from 'swr';
 import List, { Item } from 'topo/Atom/List';
 import Box from 'topo/Atom/Box';
 import Divider from 'topo/Atom/Divider';
-import { Flex } from "@chakra-ui/core"
+import { Flex, Icon } from "@chakra-ui/core"
 import Skelly from 'topo/Atom/Skelly';
 import Text, { Heading, Link, CopyText } from 'topo/Atom/Text';
 import Content from 'topo/Molecule/Content';
@@ -88,6 +88,7 @@ const SponsorTable = () => {
           ) : Object.keys(levels).map((key, index) => <SponsorBox level={levels[key]}></SponsorBox> )}
         </Flex>
       </List>
+      <Text>&sup1; Available on first-come basis.<br/>&sup2; We'll handle fulfillment. Large swag items are only sent to the first 2,000 registrants.</Text>
 
     </Box>
   );
@@ -101,19 +102,19 @@ const SponsorTable = () => {
 function SponsorBox({ level }) {
   return (
   <Box marginRight={3} w="275px">
-      <Item  key={level.name}>
-        <Box borderWidth="2px" rounded="lg"  h="200px">
-          <Box borderWidth="2px" p={3} w="100%" roundedTopLeft="lg" roundedTopRight="lg" backgroundColor="#F0E5E6">
+      <Item key={level.name}>
+        <Box borderWidth="2px" borderColor={level.borderColor} rounded="lg"  h="200px">
+          <Box borderWidth="2px" p={3} w="100%" borderColor={level.boxColor} roundedTopLeft="lg" roundedTopRight="lg" color={level.titleColor} backgroundColor={level.boxColor}>
             {level.name}
           </Box>
-          <Box p={3} w="100%">
+          <Box backgroundColor={level.boxTint} p={3} w="100%">
             <strong>${level.amount}/{level.amountInterval}</strong><br></br>
             {level.description}
           </Box>
         </Box>
       </Item> 
     
-    <PerksGroups items={level.perks} isfirst={level.isFirst}></PerksGroups>
+    <PerksGroups items={level.perks} isFirst={level.isFirst}></PerksGroups>
   </Box>
   );
 }
@@ -121,15 +122,17 @@ function SponsorBox({ level }) {
 /*
  * method PerksGroups
  * description: takes an array of perks from a given level and outputs their respective perks
- * params: perks is a given levels perk list
+ * params: 
+ * @items is the actual list of perks to be rendered. is passed later on to PerksList
+ * @isFirst simple boolean to check if item is the first in list
 */
-function PerksGroups({ items, isfirst }) {
+function PerksGroups({ items, isFirst }) {
   return Object.keys(items).map((key, index) => 
-    <Box>
-      {isfirst ? (<strong>{items[key].name}</strong>)
-      :
-      <strong></strong>}
-      <Divider h="20px" m="auto" w="90%"></Divider>
+    <Box marginTop={5}>
+      {isFirst ? (<Text h="12px" fontWeight={1000}>{items[key].name}</Text>)
+      : (<Text h="12px"></Text>)}
+        
+      <Box h="2px" w="90%" backgroundColor="#E7E7E5"></Box>
       <PerksList perks={items[key]}/>
     </Box>
   );
@@ -145,7 +148,10 @@ function PerksList({ perks }) {
   return (
     <List>
       {perks ? (perks.items.map((perk) => (
-        <Item h="60px" w="80%">{perk.text}</Item>
+        <Flex size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="nowrap">
+          <Icon name="check" size="24px" marginRight="3" color="red.500" />
+          <Text h="50px">{perk.text}</Text>
+        </Flex>
       ))) : (
         <>
           <Item><Skelly/></Item>
@@ -153,7 +159,10 @@ function PerksList({ perks }) {
         </>
       )}
       {perks ? (perks.noItems.map((noPerk) => (
-        <Item h="60px" w="80%">{noPerk.text}</Item>
+          <Flex size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="nowrap">
+            <Icon name="small-close" size="24px" marginRight="3" color="#A29899" />
+            <Text h="50px">{noPerk.text}</Text>
+          </Flex>
       ))) : (
         <>
         <Item><Skelly/></Item>
