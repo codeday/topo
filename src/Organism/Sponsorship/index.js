@@ -85,10 +85,7 @@ const SponsorTable = () => {
             <Item><Skelly /></Item>
             <Item><Skelly /></Item>
           </>
-        ) : Object.keys(levels).map((key, index) =>
-        <SponsorBox level={levels[key]}></SponsorBox>
-
-        )}
+        ) : Object.keys(levels).map((key, index) => <SponsorBox level={levels[key]}></SponsorBox> )}
         </Flex>
       </List>
     </Box>
@@ -101,10 +98,11 @@ const SponsorTable = () => {
  * params: perks is a given levels perk list
 */
 function PerksList({ perks }) {
+  console.log(perks);
   return (
     <List>
-      {perks ? (perks.map((perk) => (
-        <Item>{perk.name}</Item>
+      {perks ? (perks.items.map((perk) => (
+        <Item>{perk.text}</Item>
       ))) : (
         <>
           <Item><Skelly/></Item>
@@ -121,8 +119,10 @@ function PerksList({ perks }) {
  * params: perks is a given levels perk list
 */
 function PerksGroups({ items }) {
+  console.log(items);
   return Object.keys(items).map((key, index) => 
     <Box>
+      {console.log(items[key].name)}
       <strong>{items[key].name}</strong>
       <Divider m="auto" w="90%"></Divider>
       <PerksList perks={items[key]}/>
@@ -140,7 +140,7 @@ function SponsorBox({ level }) {
   return (
   <Box>
       <Item key={level.name}>
-        <Box borderWidth="2px" rounded="lg" m={2} h="200px">
+        <Box borderWidth="2px" rounded="lg" m={2} h="250px">
           <Box borderWidth="2px" p={3} w="100%" roundedTopLeft="lg" roundedTopRight="lg" backgroundColor="#F0E5E6">
             {level.name}
           </Box>
@@ -151,7 +151,7 @@ function SponsorBox({ level }) {
         </Box>
       </Item> 
     
-    <PerksGroups items={level}></PerksGroups>
+    <PerksGroups items={level.perks}></PerksGroups>
   </Box>
   );
 }
