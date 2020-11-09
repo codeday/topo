@@ -86,21 +86,8 @@ const SponsorTable = () => {
             <Item><Skelly /></Item>
           </>
         ) : Object.keys(levels).map((key, index) =>
-        <Item key={levels[key].name}>
-          <Box borderWidth="2px" rounded="lg" m={2} h="200px">
-            <Box borderWidth="2px" p={3} w="100%" roundedTopLeft="lg" roundedTopRight="lg" backgroundColor="#F0E5E6">
-              {levels[key].name}
-            </Box>
-            <Box p={3} w="100%">
-              <strong>${levels[key].amount}/{levels[key].amountInterval}</strong><br></br>
-              {levels[key].description}
-            </Box>
-          </Box>
-          
+        <SponsorBox level={levels[key]}></SponsorBox>
 
-          {displayPerks(levels[key].perks)}
-
-        </Item>
         )}
         </Flex>
       </List>
@@ -109,62 +96,71 @@ const SponsorTable = () => {
 };
 
 /*
- * method displayPerks
+ * method PerksList
  * description: takes an array of perks from a given level and outputs their respective perks
  * params: perks is a given levels perk list
 */
-function displayPerks(perks) {
+function PerksList({ perks }) {
   return (
-    <Box>
-      {!(perks) ? (
+    <List>
+      {perks ? (perks.map((perk) => (
+        <Item>{perk.name}</Item>
+      ))) : (
         <>
           <Item><Skelly/></Item>
           <Item><Skelly/></Item>
         </>
-      ) : Object.keys(perks).map((key, index) => 
-          <Box>
-            <strong>{perks[key].name}</strong>
-            <Divider m="auto" w="90%"></Divider>
-          </Box>
-    )}
-    </Box>
-  )}
-
-/*
- * method displayPerkItems
- * description: takes an array of perk items and displays them
- * params: items is a given levels perk list of items
-*/
-function displayPerkItems(items) {
-  return (
-    Object.keys(perks[key].items).map((itemKey, itemIndex) => {
-      <>
-        <p>{perks[key].items[itemKey].text}</p>
-      </>
-    })
-  )
+      )}
+    </List>
+  );
 }
 
 /*
- * method displayPerkNoItems
- * description: takes an array of perk noItems and displays them
- * params: noItems is a given levels perk list of noItems
+ * method PerksGroups
+ * description: takes an array of perks from a given level and outputs their respective perks
+ * params: perks is a given levels perk list
 */
-function displayPerkNoItems(noItems) {
+function PerksGroups({ items }) {
+  return Object.keys(items).map((key, index) => 
+    <Box>
+      <strong>{items[key].name}</strong>
+      <Divider m="auto" w="90%"></Divider>
+      <PerksList perks={items[key]}/>
+    </Box>
+  );
+}
+
+/*
+ * method SponsorBox
+ * description: takes an individual level and creates a box for that level
+ * params: @level is any given sponsor/level of sponsorship
+*/
+function SponsorBox({ level }) {
+  console.log(level.name);
   return (
-    Object.keys(perks[key].noItems).map((itemKey, itemIndex) => {
-      <>
-        <p>{perks[key].items[itemKey]}</p>
-      </>
-    })
-  )
+  <Box>
+      <Item key={level.name}>
+        <Box borderWidth="2px" rounded="lg" m={2} h="200px">
+          <Box borderWidth="2px" p={3} w="100%" roundedTopLeft="lg" roundedTopRight="lg" backgroundColor="#F0E5E6">
+            {level.name}
+          </Box>
+          <Box p={3} w="100%">
+            <strong>${level.amount}/{level.amountInterval}</strong><br></br>
+            {level.description}
+          </Box>
+        </Box>
+      </Item> 
+    
+    <PerksGroups items={level}></PerksGroups>
+  </Box>
+  );
 }
 
 // Actual Sponsorship Object that will be used in external pages
 const Sponsorship = forwardRef(({ children }, ref) => {
   return (
     <Content ref={ref} role="contentinfo">
-      <SponsorTable />
+      <SponsorTable/>
     </Content>
   );
 });
