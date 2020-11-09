@@ -34,8 +34,7 @@ const SponsorTable = () => {
   );
 
   // Let data be set equal to the variables levels and perkGroups respectively
-  const { levels, perkGroups } = data?.cms?.programs?.items[1]?.sponsorPerks || {};
-  const count = 0;
+  const { levels } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
   /*
   var LevelsList;
   for (var l in levels) {
@@ -45,6 +44,7 @@ const SponsorTable = () => {
   }*/
 
   // Each level will have certain attributes like 
+  /*
   var LevelsList = [];
   if (levels) {
     Object.keys(levels).map(function(key, index) {
@@ -64,12 +64,12 @@ const SponsorTable = () => {
       LevelsList.push(singleObject);
       //console.log(levels[key].name);
     });
-  }
+  }*/
 
 
   
   // DEBUG: Print straight to console to ensure data is being queried correctly
-  console.log(levels, perkGroups);
+  console.log(levels);
 
   // Return HTML
   return (
@@ -79,7 +79,7 @@ const SponsorTable = () => {
 
       <List>
         <Flex>
-        {!(levels && perkGroups) ? (
+        {!(levels) ? (
           <>
             <Item><Skelly /></Item>
             <Item><Skelly /></Item>
@@ -96,17 +96,69 @@ const SponsorTable = () => {
               {levels[key].description}
             </Box>
           </Box>
+          
 
-          <strong>Promotion</strong>
-          <Divider m="auto" w="90%"></Divider>
+          {displayPerks(levels[key].perks)}
+
         </Item>
-
         )}
         </Flex>
       </List>
     </Box>
   );
 };
+
+/*
+ * method displayPerks
+ * description: takes an array of perks from a given level and outputs their respective perks
+ * params: perks is a given levels perk list
+*/
+function displayPerks(perks) {
+  return (
+    <Box>
+      {!(perks) ? (
+        <>
+          <Item><Skelly/></Item>
+          <Item><Skelly/></Item>
+        </>
+      ) : Object.keys(perks).map((key, index) => 
+          <Box>
+            <strong>{perks[key].name}</strong>
+            <Divider m="auto" w="90%"></Divider>
+          </Box>
+    )}
+    </Box>
+  )}
+
+/*
+ * method displayPerkItems
+ * description: takes an array of perk items and displays them
+ * params: items is a given levels perk list of items
+*/
+function displayPerkItems(items) {
+  return (
+    Object.keys(perks[key].items).map((itemKey, itemIndex) => {
+      <>
+        <p>{perks[key].items[itemKey].text}</p>
+      </>
+    })
+  )
+}
+
+/*
+ * method displayPerkNoItems
+ * description: takes an array of perk noItems and displays them
+ * params: noItems is a given levels perk list of noItems
+*/
+function displayPerkNoItems(noItems) {
+  return (
+    Object.keys(perks[key].noItems).map((itemKey, itemIndex) => {
+      <>
+        <p>{perks[key].items[itemKey]}</p>
+      </>
+    })
+  )
+}
 
 // Actual Sponsorship Object that will be used in external pages
 const Sponsorship = forwardRef(({ children }, ref) => {
