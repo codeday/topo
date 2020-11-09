@@ -33,43 +33,11 @@ const SponsorTable = () => {
     }
   );
 
-  // Let data be set equal to the variables levels and perkGroups respectively
+  // Let pulled data from GraphQL be set equal to the levels variable
   const { levels } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
-  /*
-  var LevelsList;
-  for (var l in levels) {
-    var currentLevel = {};
-
-    LevelsList.push({name: l.name});
-  }*/
-
-  // Each level will have certain attributes like 
-  /*
-  var LevelsList = [];
-  if (levels) {
-    Object.keys(levels).map(function(key, index) {
-      var singleObject = {};
-
-      // Individual Level attributes
-      singleObject['name'] = levels[key].name;
-      singleObject['description'] = levels[key].description;
-      singleObject['amount'] = levels[key].amount;
-      singleObject['amountInterval'] = levels[key].amountInterval;
-
-      // Level text for each section (ex: Promotion, Swag, and Direct Engagement)
-      for (var perk in perkGroups) {
-        console.log(perkGroups[0].name);
-      }
-
-      LevelsList.push(singleObject);
-      //console.log(levels[key].name);
-    });
-  }*/
-
-
   
   // DEBUG: Print straight to console to ensure data is being queried correctly
-  console.log(levels);
+  // console.log(levels);
 
   // Return HTML
   return (
@@ -77,7 +45,7 @@ const SponsorTable = () => {
       <Heading as="h1">Virtual CodeDay Sponsorships</Heading>
       <Heading as="h4">{(new Date()).getFullYear()}-{(new Date()).getFullYear()+1} School Year</Heading>
 
-      <List>
+      <List marginTop={4}>
         <Flex size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="wrap">
           {!(levels) ? (
             <>
@@ -88,7 +56,7 @@ const SponsorTable = () => {
           ) : Object.keys(levels).map((key, index) => <SponsorBox level={levels[key]}></SponsorBox> )}
         </Flex>
       </List>
-      <Text>&sup1; Available on first-come basis.<br/>&sup2; We'll handle fulfillment. Large swag items are only sent to the first 2,000 registrants.</Text>
+      <Text as="i" marginTop={5}>&sup1; Available on first-come basis.<br/>&sup2; We'll handle fulfillment. Large swag items are only sent to the first 2,000 registrants.</Text>
 
     </Box>
   );
@@ -132,7 +100,7 @@ function PerksGroups({ items, isFirst }) {
       {isFirst ? (<Text h="12px" fontWeight={1000}>{items[key].name}</Text>)
       : (<Text h="12px"></Text>)}
         
-      <Box h="2px" w="90%" backgroundColor="#E7E7E5"></Box>
+      <Box marginBottom={2} h="2px" w="90%" backgroundColor="#E7E7E5"></Box>
       <PerksList perks={items[key]}/>
     </Box>
   );
