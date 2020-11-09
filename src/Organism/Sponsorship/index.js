@@ -109,6 +109,15 @@ function PerksList({ perks }) {
           <Item><Skelly/></Item>
         </>
       )}
+      {perks ? (perks.noItems.map((noPerk) => (
+        <Item>{noPerk.text}</Item>
+      ))) : (
+        <>
+        <Item><Skelly/></Item>
+        <Item><Skelly/></Item>
+      </>
+      )}
+      
     </List>
   );
 }
