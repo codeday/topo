@@ -1,7 +1,7 @@
 import React, { forwardRef } from 'react';
 import useSwr from 'swr';
 import List, { Item } from 'topo/Atom/List';
-import Box, { Grid } from 'topo/Atom/Box';
+import Box from 'topo/Atom/Box';
 import Divider from 'topo/Atom/Divider';
 import { Flex } from "@chakra-ui/core"
 import Skelly from 'topo/Atom/Skelly';
@@ -78,19 +78,63 @@ const SponsorTable = () => {
       <Heading as="h4">{(new Date()).getFullYear()}-{(new Date()).getFullYear()+1} School Year</Heading>
 
       <List>
-        <Flex>
-        {!(levels) ? (
-          <>
-            <Item><Skelly /></Item>
-            <Item><Skelly /></Item>
-            <Item><Skelly /></Item>
-          </>
-        ) : Object.keys(levels).map((key, index) => <SponsorBox level={levels[key]}></SponsorBox> )}
+        <Flex size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="wrap">
+          {!(levels) ? (
+            <>
+              <Item><Skelly /></Item>
+              <Item><Skelly /></Item>
+              <Item><Skelly /></Item>
+            </>
+          ) : Object.keys(levels).map((key, index) => <SponsorBox level={levels[key]}></SponsorBox> )}
         </Flex>
       </List>
+
     </Box>
   );
 };
+
+/*
+ * method SponsorBox
+ * description: takes an individual level and creates a box for that level
+ * params: @level is any given sponsor/level of sponsorship
+*/
+function SponsorBox({ level }) {
+  return (
+  <Box marginRight={3} w="275px">
+      <Item  key={level.name}>
+        <Box borderWidth="2px" rounded="lg"  h="200px">
+          <Box borderWidth="2px" p={3} w="100%" roundedTopLeft="lg" roundedTopRight="lg" backgroundColor="#F0E5E6">
+            {level.name}
+          </Box>
+          <Box p={3} w="100%">
+            <strong>${level.amount}/{level.amountInterval}</strong><br></br>
+            {level.description}
+          </Box>
+        </Box>
+      </Item> 
+    
+    <PerksGroups items={level.perks} isfirst={level.isFirst}></PerksGroups>
+  </Box>
+  );
+}
+
+/*
+ * method PerksGroups
+ * description: takes an array of perks from a given level and outputs their respective perks
+ * params: perks is a given levels perk list
+*/
+function PerksGroups({ items, isfirst }) {
+  return Object.keys(items).map((key, index) => 
+    <Box>
+      {isfirst ? (<strong>{items[key].name}</strong>)
+      :
+      <strong></strong>}
+      <Divider h="20px" m="auto" w="90%"></Divider>
+      <PerksList perks={items[key]}/>
+    </Box>
+  );
+}
+
 
 /*
  * method PerksList
@@ -98,11 +142,10 @@ const SponsorTable = () => {
  * params: perks is a given levels perk list
 */
 function PerksList({ perks }) {
-  console.log(perks);
   return (
     <List>
       {perks ? (perks.items.map((perk) => (
-        <Item>{perk.text}</Item>
+        <Item h="60px" w="80%">{perk.text}</Item>
       ))) : (
         <>
           <Item><Skelly/></Item>
@@ -110,7 +153,7 @@ function PerksList({ perks }) {
         </>
       )}
       {perks ? (perks.noItems.map((noPerk) => (
-        <Item>{noPerk.text}</Item>
+        <Item h="60px" w="80%">{noPerk.text}</Item>
       ))) : (
         <>
         <Item><Skelly/></Item>
@@ -122,48 +165,6 @@ function PerksList({ perks }) {
   );
 }
 
-/*
- * method PerksGroups
- * description: takes an array of perks from a given level and outputs their respective perks
- * params: perks is a given levels perk list
-*/
-function PerksGroups({ items }) {
-  console.log(items);
-  return Object.keys(items).map((key, index) => 
-    <Box>
-      {console.log(items[key].name)}
-      <strong>{items[key].name}</strong>
-      <Divider m="auto" w="90%"></Divider>
-      <PerksList perks={items[key]}/>
-    </Box>
-  );
-}
-
-/*
- * method SponsorBox
- * description: takes an individual level and creates a box for that level
- * params: @level is any given sponsor/level of sponsorship
-*/
-function SponsorBox({ level }) {
-  console.log(level.name);
-  return (
-  <Box>
-      <Item key={level.name}>
-        <Box borderWidth="2px" rounded="lg" m={2} h="250px">
-          <Box borderWidth="2px" p={3} w="100%" roundedTopLeft="lg" roundedTopRight="lg" backgroundColor="#F0E5E6">
-            {level.name}
-          </Box>
-          <Box p={3} w="100%">
-            <strong>${level.amount}/{level.amountInterval}</strong><br></br>
-            {level.description}
-          </Box>
-        </Box>
-      </Item> 
-    
-    <PerksGroups items={level.perks}></PerksGroups>
-  </Box>
-  );
-}
 
 // Actual Sponsorship Object that will be used in external pages
 const Sponsorship = forwardRef(({ children }, ref) => {
