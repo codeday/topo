@@ -53,7 +53,7 @@ const SponsorTable = () => {
               <Item><Skelly /></Item>
               <Item><Skelly /></Item>
             </>
-          ) : Object.keys(levels).map((key, index) => <SponsorBox level={levels[key]}></SponsorBox> )}
+          ) : Object.keys(levels).map((key, index) => <SponsorBox key={levels[key].name} level={levels[key]}></SponsorBox> )}
         </Flex>
       </List>
       <Text as="i" marginTop={5}>&sup1; Available on first-come basis.<br/>&sup2; We'll handle fulfillment. Large swag items are only sent to the first 2,000 registrants.</Text>
@@ -70,17 +70,15 @@ const SponsorTable = () => {
 function SponsorBox({ level }) {
   return (
   <Box marginRight={3} w="275px">
-      <Item key={level.name}>
-        <Box borderWidth="2px" borderColor={level.borderColor} rounded="lg"  h="200px">
-          <Box borderWidth="2px" p={3} w="100%" borderColor={level.boxColor} roundedTopLeft="lg" roundedTopRight="lg" color={level.titleColor} backgroundColor={level.boxColor}>
-            {level.name}
-          </Box>
+        <Box borderWidth="2px" p={3} w="100%" borderColor={level.boxColor} roundedTopLeft="lg" roundedTopRight="lg" color={level.titleColor} backgroundColor={level.boxColor}>
+          {level.name}
+        </Box>
+        <Box borderWidth="2px" borderColor={level.borderColor} roundedBottomLeft="lg" roundedBottomRight="lg">
           <Box backgroundColor={level.boxTint} p={3} w="100%">
             <strong>${level.amount}/{level.amountInterval}</strong><br></br>
             {level.description}
           </Box>
         </Box>
-      </Item> 
     
     <PerksGroups items={level.perks} isFirst={level.isFirst}></PerksGroups>
   </Box>
@@ -96,7 +94,7 @@ function SponsorBox({ level }) {
 */
 function PerksGroups({ items, isFirst }) {
   return Object.keys(items).map((key, index) => 
-    <Box marginTop={5}>
+    <Box key={items[key].name} marginTop={5}>
       {isFirst ? (<Text h="12px" fontWeight={1000}>{items[key].name}</Text>)
       : (<Text h="12px"></Text>)}
         
@@ -116,7 +114,7 @@ function PerksList({ perks }) {
   return (
     <List>
       {perks ? (perks.items.map((perk) => (
-        <Flex size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="nowrap">
+        <Flex key={perk.text} size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="nowrap">
           <Icon name="check" size="24px" marginRight="3" color="red.500" />
           <Text h="50px">{perk.text}</Text>
         </Flex>
@@ -127,7 +125,7 @@ function PerksList({ perks }) {
         </>
       )}
       {perks ? (perks.noItems.map((noPerk) => (
-          <Flex size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="nowrap">
+          <Flex key={noPerk.text} size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="nowrap">
             <Icon name="small-close" size="24px" marginRight="3" color="#A29899" />
             <Text h="50px">{noPerk.text}</Text>
           </Flex>
