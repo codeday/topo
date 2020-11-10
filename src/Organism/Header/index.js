@@ -84,7 +84,7 @@ const Header = ({
             borderBottomWidth={1}
             borderBottomColor="current.border"
           >
-            {Children.map(logo[0]?.props?.children, (c) =>
+            {Children.map(Children.toArray(logo[0]?.props?.children).filter((e) => e), (c) =>
               cloneElement(c, {
                 fontSize: '3xl',
                 d: 'block',
@@ -95,7 +95,7 @@ const Header = ({
             )}
           </Box>
           {Children.map(
-            menu[0]?.props?.children,
+            Children.toArray(menu[0]?.props?.children).filter((e) => e),
             (c, i) => (
               <Box
                 pb={4}
