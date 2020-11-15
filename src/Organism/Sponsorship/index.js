@@ -15,6 +15,7 @@ const query = (webname) => `{
   cms {
     programs (where: { webname: "${webname}" }, limit: 1) {
       items {
+        name
         sponsorPerks
       }
     }
@@ -34,11 +35,12 @@ const SponsorTable = () => {
   );
 
   // Let pulled data from GraphQL be set equal to the levels variable
-  const { levels, programName } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
+  const programName = data?.cms?.programs?.items[0]?.name || {};
+  const { levels } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
 
   // DEBUG: Print straight to console to ensure data is being queried correctly
   // console.log(levels);
-  // console.log(programName);
+  if (programName) console.log(programName);
   // Return HTML
   return (
     <Box>
@@ -46,7 +48,7 @@ const SponsorTable = () => {
           <>
             <Skelly></Skelly>
           </>
-        ) : <Heading as="h1">{programName}</Heading>
+        ) : <Heading as="h1">{programName} Sponsorships</Heading>
       }
 
       <List marginTop={4}>
