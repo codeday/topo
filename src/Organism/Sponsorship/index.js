@@ -11,9 +11,9 @@ import { childrenOfType, makePureBox } from 'topo/_utils';
 import { useString, apiFetch } from 'topo/utils';
 
 // GraphQL Query, pulls data from the sponsorship programs area
-const query = `{
+const query = (webname) => `{
   cms {
-    programs {
+    programs (where: { webname: "${webname}" }, limit: 1) {
       items {
         sponsorPerks
       }
@@ -25,7 +25,7 @@ const SponsorTable = () => {
 
   // Pull data from GraphQL Query from above
   const { data, error } = useSwr(
-    query,
+    query("virtual"),
     apiFetch,
     {
       revalidateOnFocus: false,
@@ -34,16 +34,20 @@ const SponsorTable = () => {
   );
 
   // Let pulled data from GraphQL be set equal to the levels variable
-  const { levels } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
-  
+  const { levels, programName } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
+
   // DEBUG: Print straight to console to ensure data is being queried correctly
   // console.log(levels);
-
+  // console.log(programName);
   // Return HTML
   return (
     <Box>
-      <Heading as="h1">Virtual CodeDay Sponsorships</Heading>
-      <Heading as="h4">{(new Date()).getFullYear()}-{(new Date()).getFullYear()+1} School Year</Heading>
+      {!(programName) ? (
+          <>
+            <Skelly></Skelly>
+          </>
+        ) : <Heading as="h1">{programName}</Heading>
+      }
 
       <List marginTop={4}>
         <Flex size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="wrap">
@@ -60,7 +64,7 @@ const SponsorTable = () => {
 
     </Box>
   );
-};
+}; 
 
 /*
  * method SponsorBox
