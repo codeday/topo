@@ -35,20 +35,20 @@ const SponsorTable = () => {
   );
 
   // Let pulled data from GraphQL be set equal to the levels variable
-  const programName = data?.cms?.programs?.items[0]?.name || {};
+  const { name } = data?.cms?.programs?.items[0] || {};
   const { levels } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
 
   // DEBUG: Print straight to console to ensure data is being queried correctly
-  // console.log(levels);
-  if (programName) console.log(programName);
+  // if (levels) console.log(levels);
+  // if (name) console.log(name);
   // Return HTML
   return (
     <Box>
-      {!(programName) ? (
+      {!(name) ? (
           <>
             <Skelly></Skelly>
           </>
-        ) : <Heading as="h1">{programName} Sponsorships</Heading>
+        ) : <Heading as="h1">{name} Sponsorships</Heading>
       }
 
       <List marginTop={4}>
