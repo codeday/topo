@@ -16,15 +16,13 @@ const query = (webname) => `{
   cms {
     programs (where: { webname: "${webname}" }, limit: 1) {
       items {
-        name
         sponsorPerks
       }
     }
   }
 }`;
 
-const SponsorTable = ({ webname }) => {
-
+const Sponsorship = forwardRef(({ children, webname, ...props }, ref) => {
   // Pull data from GraphQL Query from above
   const { data, error } = useSwr(
     query(webname),
@@ -36,7 +34,6 @@ const SponsorTable = ({ webname }) => {
   );
 
   // Let pulled data from GraphQL be set equal to the levels variable
-  const { name } = data?.cms?.programs?.items[0] || {};
   const { levels } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
 
   // DEBUG: Print straight to console to ensure data is being queried correctly
@@ -44,14 +41,7 @@ const SponsorTable = ({ webname }) => {
   // if (name) console.log(name);
   // Return HTML
   return (
-    <Box>
-      {!(name) ? (
-          <>
-            <Skelly></Skelly>
-          </>
-        ) : <Heading as="h1">{name} Sponsorships</Heading>
-      }
-
+    <Box {...props} ref={ref}>
       <List marginTop={4}>
         <Flex size="100%" justify="left" alignItems="left" flexDirection="row" flexWrap="wrap">
           {!(levels) ? (
@@ -67,7 +57,11 @@ const SponsorTable = ({ webname }) => {
 
     </Box>
   );
-};
+});
+Sponsorship.propTypes = {
+  webname: PropTypes.string.isRequired,
+}
+export default Sponsorship;
 
 /*
  * method SponsorBox
@@ -146,17 +140,3 @@ function PerksList({ perks }) {
     </List>
   );
 }
-
-
-// Actual Sponsorship Object that will be used in external pages
-const Sponsorship = forwardRef(({ children, webname }, ref) => {
-  return (
-    <Content ref={ref} role="contentinfo">
-      <SponsorTable webname={webname} />
-    </Content>
-  );
-});
-Sponsorship.propTypes = {
-  webname: PropTypes.string.isRequired,
-}
-export default Sponsorship;
