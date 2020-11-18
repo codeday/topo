@@ -1,4 +1,5 @@
 import React, { forwardRef } from 'react';
+import PropTypes from 'prop-types';
 import useSwr from 'swr';
 import List, { Item } from 'topo/Atom/List';
 import Box from 'topo/Atom/Box';
@@ -22,11 +23,11 @@ const query = (webname) => `{
   }
 }`;
 
-const SponsorTable = () => {
+const SponsorTable = ({ webname }) => {
 
   // Pull data from GraphQL Query from above
   const { data, error } = useSwr(
-    query("virtual"),
+    query(webname),
     apiFetch,
     {
       revalidateOnFocus: false,
@@ -66,7 +67,7 @@ const SponsorTable = () => {
 
     </Box>
   );
-}; 
+};
 
 /*
  * method SponsorBox
@@ -85,7 +86,7 @@ function SponsorBox({ level }) {
             {level.description}
           </Box>
         </Box>
-    
+
     <PerksGroups items={level.perks} isFirst={level.isFirst}></PerksGroups>
   </Box>
   );
@@ -94,16 +95,16 @@ function SponsorBox({ level }) {
 /*
  * method PerksGroups
  * description: takes an array of perks from a given level and outputs their respective perks
- * params: 
+ * params:
  * @items is the actual list of perks to be rendered. is passed later on to PerksList
  * @isFirst simple boolean to check if item is the first in list
 */
 function PerksGroups({ items, isFirst }) {
-  return Object.keys(items).map((key, index) => 
+  return Object.keys(items).map((key, index) =>
     <Box key={items[key].name} marginTop={5}>
       {isFirst ? (<Text h="12px" fontWeight={1000}>{items[key].name}</Text>)
       : (<Text h="12px"></Text>)}
-        
+
       <Box marginBottom={2} h="2px" w="90%" backgroundColor="#E7E7E5"></Box>
       <PerksList perks={items[key]}/>
     </Box>
@@ -141,19 +142,21 @@ function PerksList({ perks }) {
         <Item><Skelly/></Item>
       </>
       )}
-      
+
     </List>
   );
 }
 
 
 // Actual Sponsorship Object that will be used in external pages
-const Sponsorship = forwardRef(({ children }, ref) => {
+const Sponsorship = forwardRef(({ children, webname }, ref) => {
   return (
     <Content ref={ref} role="contentinfo">
-      <SponsorTable/>
+      <SponsorTable webname={webname} />
     </Content>
   );
 });
-
+Sponsorship.propTypes = {
+  webname: PropTypes.string.isRequired,
+}
 export default Sponsorship;
