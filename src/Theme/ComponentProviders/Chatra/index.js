@@ -20,7 +20,7 @@ export default function Chatra({ chatraId }) {
 
   if (!chatraId) return <></>;
 
-  return <Script url="https://www.srnd.org/chatra.js" />;
+  return <Script url="https://call.chatra.io/chatra.js" />;
 }
 Chatra.displayName = 'Chatra';
 Chatra.propTypes = {
