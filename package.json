@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "3.33.0",
+  "version": "3.34.0",
   "main": "index.js",
   "license": "Artistic-2.0",
   "scripts": {
@@ -16,7 +16,7 @@
     "@tylermenezes/cognitoforms-react": "^1.1.0",
     "fathom-react": "^1.0.1",
     "form-data": "^3.0.0",
-    "graphql-request": "^2.0.0",
+    "graphql-request": "^3.3.0",
     "react-load-script": "^0.0.6",
     "react-toast-notifications": "^2.4.0",
     "react-uid": "^2.2.0",
