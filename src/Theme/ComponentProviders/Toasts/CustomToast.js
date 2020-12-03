@@ -30,6 +30,7 @@ export default function CustomToast({
       borderWidth={1}
       borderColor="current.border"
       mb={4}
+      bg="current.bg"
       position="relative"
       onClick={onDismiss}
       cursor="pointer"
