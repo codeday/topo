@@ -1,4 +1,5 @@
-import originalTheme from '@chakra-ui/core/dist/theme';
+import { extendTheme } from "@chakra-ui/react";
+import originalColors from '@chakra-ui/theme/dist/esm/foundations/colors.js'
 
 const linearGrad = (from, to, deg) => `linear-gradient(${deg}deg, ${from} 0%, ${to} 100%)`;
 const linearGrads = (from, to) => (
@@ -8,7 +9,8 @@ const linearGrads = (from, to) => (
 );
 
 const colors = {
-  ...(originalTheme.colors),
+  // ...(extendTheme({}).colors),
+  ...originalColors,
   black: '#252222',
   white: '#ffffff',
   gray: {

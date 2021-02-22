@@ -1,7 +1,7 @@
-import originalTheme from '@chakra-ui/core/dist/theme';
+// import { extendTheme } from "@chakra-ui/react";
 
 export default {
-  ...(originalTheme.fonts),
+  // ...(extendTheme({}).colors),
   body: `Sofia Pro, Helvetica, Arial, sans-serif`,
   heading: `Sofia Pro, Helvetica, Arial, sans-serif`,
   accent: `Gosha Sans, Helvetica, Arial, sans-serif`,

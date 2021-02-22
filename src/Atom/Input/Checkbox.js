@@ -1,2 +1,1 @@
-export { default } from '@chakra-ui/core/dist/Checkbox';
-export { default as Group } from '@chakra-ui/core/dist/CheckboxGroup';
+export { Checkbox as default, CheckboxGroup as Group } from '@chakra-ui/react';

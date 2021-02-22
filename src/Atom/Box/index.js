@@ -1,8 +1,4 @@
 
-export { default as AspectRatio } from '@chakra-ui/core/dist/AspectRatioBox';
-export { default as Control } from '@chakra-ui/core/dist/ControlBox';
-export { default as Flex } from '@chakra-ui/core/dist/Flex';
-export { default as Grid } from '@chakra-ui/core/dist/Grid';
-export { default as Pseudo } from '@chakra-ui/core/dist/PseudoBox';
+export { AspectRatio, ControlBox as Control, Flex, Grid, Box as Pseudo } from '@chakra-ui/react';
 export { default as SizeBox } from './size';
 export { default } from './box';

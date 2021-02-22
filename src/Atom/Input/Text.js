@@ -1,1 +1,1 @@
-export { default } from '@chakra-ui/core/dist/Input';
+export { Input } from '@chakra-ui/react';

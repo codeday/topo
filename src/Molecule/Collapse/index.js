@@ -1,1 +1,1 @@
-export { default } from '@chakra-ui/core/dist/Collapse';
+export { Collapse } from '@chakra-ui/react';

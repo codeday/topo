@@ -4,7 +4,7 @@ import useSwr from 'swr';
 import List, { Item } from 'topo/Atom/List';
 import Box from 'topo/Atom/Box';
 import Divider from 'topo/Atom/Divider';
-import { Flex, Icon } from "@chakra-ui/core"
+import { Flex, Icon } from "@chakra-ui/react"
 import Skelly from 'topo/Atom/Skelly';
 import Text, { Heading, Link, CopyText } from 'topo/Atom/Text';
 import Content from 'topo/Molecule/Content';

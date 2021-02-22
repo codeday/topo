@@ -1,2 +1,2 @@
-export { default } from '@chakra-ui/core/dist/Button';
-export { default as Close } from '@chakra-ui/core/dist/CloseButton';
+export { Button as default, CloseButton } from '@chakra-ui/react';
+// export { CloseButton } from '@chakra-ui/react';
