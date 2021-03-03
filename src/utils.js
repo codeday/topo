@@ -9,6 +9,12 @@ export { useClipboard, useDisclosure } from '@chakra-ui/react';
 export { useFathom as useAnalytics } from 'fathom-react';
 export { useTheme };
 
+export function useSsr() {
+  const [isSsr, setIsSsr] = useState(true);
+  useEffect(() => setIsSsr(typeof window === 'undefined'), [typeof window]);
+  return isSsr;
+}
+
 export const api = 'https://graph.codeday.org/';
 export const apiFetch = (query, variables, headers) => {
   const client = new GraphQLClient(api, { headers });
