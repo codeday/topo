@@ -10,7 +10,7 @@ import Menu from './menu';
 import { useColorModeValue } from 'topo/Theme'
 
 const Header = ({ darkBackground, underscore, children, gradAmount, noPadding, ...props }) => {
-  // darkBackground = darkBackground === null ? useColorModeValue(false, true) : darkBackground;
+  darkBackground = darkBackground === null ? useColorModeValue(false, true) : darkBackground;
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const childrenWithProps = React.Children.map(children, setChildProps({ darkBackground }));
   const logo = childrenOfType(childrenWithProps, SiteLogo);
