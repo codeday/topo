@@ -1,4 +1,4 @@
-FROM node:12-alpine
+FROM node:14.8
 ENV NODE_ENV=development
 WORKDIR /build
 
@@ -10,7 +10,7 @@ RUN yarn run build-storybook -o /app --quiet
 
 
 
-FROM node:12-alpine
+FROM node:14.8
 ENV NODE_ENV=production
 WORKDIR /app
 
