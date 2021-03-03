@@ -1,5 +1,5 @@
 export {
   Editable,
   EditableInput as Input,
-  EditablePreview as Preview,
+  EditableCanvas as Canvas,
 } from '@chakra-ui/react';

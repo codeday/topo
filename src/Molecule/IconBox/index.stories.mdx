@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import IconBox, { HeaderIcon, HeaderText, Body } from 'topo/Molecule/IconBox';
 import Text from 'topo/Atom/Text';
 import { CodeDay } from 'topo/Atom/Logo';
@@ -22,7 +22,7 @@ do not provide any.
 
 If you provide no custom styling, the box will be drawn as follows:
 
-<Preview>
+<Canvas>
   <Story name="Default Styling">
     <IconBox maxWidth={64}>
       <HeaderIcon><CodeDay /></HeaderIcon>
@@ -30,4 +30,4 @@ If you provide no custom styling, the box will be drawn as follows:
       <Body>February 30-31, 2030, galaxy-wide. The best CodeDay yet.</Body>
     </IconBox>
   </Story>
-</Preview>
+</Canvas>

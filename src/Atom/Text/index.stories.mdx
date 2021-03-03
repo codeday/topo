@@ -1,14 +1,31 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
-import Text, { Code } from 'topo/Atom/Text';
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Box from "topo/Atom/Box";
+import Text, { Code } from "topo/Atom/Text";
 
 <Meta title="Atom/Text" component={Text} />
 
 # Text
 
+For some reason this won't work with switching themes:
+
+<Canvas>
+  <Story name="Code1">
+    <Text as="div">
+      You can pass the <Code>bg</Code> prop to boxes to change their background
+      color.
+    </Text>
+  </Story>
+</Canvas>
+
 For inline code, use the `<Code />` tag:
 
-<Preview>
+But this will:
+
+<Canvas>
   <Story name="Code">
-    <Text>You can pass the <Code>bg</Code> prop to boxes to change their background color.</Text>
+    <Text as="div">
+      You can pass the <Code>bg</Code> prop to boxes to change their background
+      color.
+    </Text>
   </Story>
-</Preview>
+</Canvas>

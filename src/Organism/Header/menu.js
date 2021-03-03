@@ -18,10 +18,10 @@ export default function Menu({ darkBackground, children, ...props }) {
       };
     }
 
-    if (child.type === Button && !child.props.variantColor) {
+    if (child.type === Button && !child.props.colorScheme) {
       return {
         variant: 'outline',
-        variantColor: 'white',
+        colorScheme: 'white',
         borderColor: darkColor,
         color: darkColor,
       };
@@ -33,7 +33,6 @@ export default function Menu({ darkBackground, children, ...props }) {
   return (
     <Box {...props}>
       {reactChildrenMapRecursive(children, (child) => React.cloneElement(child, {
-        marginLeft: '5',
         textDecoration: 'none',
         transition: 'all 0.5s ease-in-out',
         ...getDarkProps(child),

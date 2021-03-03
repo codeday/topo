@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Skelly from 'topo/Atom/Skelly'
 
 <Meta title="Atom/Skelly" component={Skelly} />
@@ -13,7 +13,7 @@ Doot doot Mr. Skeltal.
 
 By default Skelly will render a single full-width box at text-height. By stacking a few, we've got a paragraph:
 
-<Preview>
+<Canvas>
   <Story name="Loading Text">
     <>
       <Skelly />
@@ -22,15 +22,15 @@ By default Skelly will render a single full-width box at text-height. By stackin
       <Skelly />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ## Customizing Skelly
 
 Skelly composes Box, so you can pass it Box properties to make it fit your needs:
 
-<Preview>
+<Canvas>
   <Story name="Loading an Avatar">
     <Skelly width={16} height={16} borderRadius="full" />
   </Story>
-</Preview>
+</Canvas>
 

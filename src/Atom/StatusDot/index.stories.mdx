@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import StatusDot from 'topo/Atom/StatusDot'
 
 <Meta title="Atom/StatusDot" component={StatusDot} />
@@ -12,7 +12,7 @@ Represents the status of a resource. Takes the following props:
 
 It is recommended that you also provide a tooltip for color-blindness accessibility.
 
-<Preview>
+<Canvas>
   <Story name="All Availabilities">
     <>
       <StatusDot online />{' '}
@@ -20,4 +20,4 @@ It is recommended that you also provide a tooltip for color-blindness accessibil
       <StatusDot offline />
     </>
   </Story>
-</Preview>
+</Canvas>

@@ -1,1 +1,1 @@
-export { Input } from '@chakra-ui/react';
+export { Input as default } from '@chakra-ui/react';

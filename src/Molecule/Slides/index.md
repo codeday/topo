@@ -10,7 +10,7 @@ You can use the Slideshow component to automatically transition between a bunch 
 - `resize` - The resizing method to use to normalize the image size, either `'cover'` or `'contain'`.
 - (and, as always, all the normal Box props)
 
-<Preview>
+<Canvas>
   <Story name="Slideshow">
     <Slideshow
       width={256}
@@ -19,4 +19,4 @@ You can use the Slideshow component to automatically transition between a bunch 
       srcs={['https://placekitten.com/256/256', 'https://picsum.photos/256/256']}
     >Hi there</Slideshow>
   </Story>
-</Preview>
+</Canvas>

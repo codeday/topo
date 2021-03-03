@@ -15,4 +15,4 @@ ComposedLabel.defaultProps = FormLabel.defaultProps;
 
 export default ComposedFormControl;
 export { ComposedLabel as Label };
-export { FormErrorMessage as ErrorMessage, FormHelperText as HelpText } from '@chakra-ui/react'
+export { FormErrorMessage as ErrorMessage, FormHelperText as HelpText } from '@chakra-ui/react';

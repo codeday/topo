@@ -74,7 +74,7 @@ function SponsorBox({ level }) {
         <Box borderWidth="2px" p={3} w="100%" borderColor={level.boxColor} roundedTopLeft="lg" roundedTopRight="lg" color={level.titleColor} backgroundColor={level.boxColor}>
           {level.name}
         </Box>
-        <Box borderWidth="2px" borderColor={level.borderColor} roundedBottomLeft="lg" roundedBottomRight="lg">
+        <Box borderWidth="2px" borderColor="{level.borderColor}" roundedBottomLeft="lg" roundedBottomRight="lg">
           <Box backgroundColor={level.boxTint} p={3} w="100%">
             <strong>${level.amount}/{level.amountInterval}</strong><br></br>
             {level.description}

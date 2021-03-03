@@ -7,4 +7,4 @@ export {
   MenuDivider as Divider,
   MenuOptionGroup as OptionGroup,
   MenuItemOption as Option,
-} from "@chakra-ui/react";
+} from '@chakra-ui/react';

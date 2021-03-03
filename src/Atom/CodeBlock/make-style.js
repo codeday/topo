@@ -1,3 +1,5 @@
+import { useColorModeValue } from '@chakra-ui/react';
+
 export default ({
   space, colors, fonts, radii,
 }) => ({
@@ -6,12 +8,12 @@ export default ({
     overflowX: 'auto',
     padding: space[2],
     background: 'white',
-    color: colors.black,
+    color: useColorModeValue(colors.black, colors.gray[50]),
     fontFamily: fonts.mono,
-    backgroundColor: colors.gray[50],
+    backgroundColor: useColorModeValue(colors.gray[50], colors.gray[850]),
     borderRadius: radii.sm,
     borderWidth: '1px',
-    borderColor: colors.gray[100],
+    borderColor: useColorModeValue(colors.gray[100], colors.gray[800]),
   },
   'hljs-comment': {
     color: colors.gray[500],
@@ -41,13 +43,13 @@ export default ({
     color: colors.green[600],
   },
   'hljs-title': {
-    color: colors.red[800],
+    color: useColorModeValue(colors.red[800], colors.red[700]),
   },
   'hljs-section': {
-    color: colors.red[800],
+    color: useColorModeValue(colors.red[800], colors.red[700]),
   },
   'hljs-attribute': {
-    color: colors.red[800],
+    color: useColorModeValue(colors.red[800], colors.red[700]),
   },
   'hljs-literal': {
     color: colors.orange[600],
@@ -56,37 +58,37 @@ export default ({
     color: colors.orange[600],
   },
   'hljs-template-variable': {
-    color: colors.red[800],
+    color: useColorModeValue(colors.red[800], colors.red[700]),
   },
   'hljs-type': {
-    color: colors.red[800],
+    color: useColorModeValue(colors.red[800], colors.red[700]),
   },
   'hljs-addition': {
-    color: colors.red[800],
+    color: useColorModeValue(colors.red[800], colors.red[700]),
   },
   'hljs-deletion': {
-    color: colors.cyan[800],
+    color: useColorModeValue(colors.cyan[800], colors.cyan[500]),
   },
   'hljs-selector-attr': {
-    color: colors.cyan[800],
+    color: useColorModeValue(colors.cyan[800], colors.cyan[500]),
   },
   'hljs-selector-pseudo': {
-    color: colors.cyan[800],
+    color: useColorModeValue(colors.cyan[800], colors.cyan[500]),
   },
   'hljs-meta': {
-    color: colors.cyan[800],
+    color: useColorModeValue(colors.cyan[800], colors.cyan[500]),
   },
   'hljs-doctag': {
     color: colors.gray[800],
   },
   'hljs-attr': {
-    color: colors.red[800],
+    color: useColorModeValue(colors.red[800], colors.red[700]),
   },
   'hljs-symbol': {
-    color: colors.purple[800],
+    color: useColorModeValue(colors.purple[800], colors.purple[700]),
   },
   'hljs-bullet': {
-    color: colors.purple[800],
+    color: useColorModeValue(colors.purple[800], colors.purple[700]),
   },
   'hljs-link': {
     color: colors.blue[500],

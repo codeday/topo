@@ -35,7 +35,7 @@ export const reactChildrenMapRecursive = (children, fn) => React.Children.map(ch
 
 export const setChildProps = (props, defaultProps, derivedProps) => (child) => React.cloneElement(child, {
   ...(defaultProps || {}),
-  ...(child.props || {}),
+  ...(child ? child.props : {}),
   ...(props || {}),
   ...(derivedProps ? derivedProps(child) : []),
 });
