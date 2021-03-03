@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Footer, { CustomLinks, CustomText } from 'topo/Organism/Footer';
 import List, { Item } from 'topo/Atom/List';
 import { Link } from 'topo/Atom/Text';
@@ -10,15 +10,15 @@ import { Link } from 'topo/Atom/Text';
 
 ## Default Footer
 
-<Preview>
+<Canvas>
   <Story name="Default Footer">
     <Footer />
   </Story>
-</Preview>
+</Canvas>
 
 ## Customizing the Footer
 
-<Preview>
+<Canvas>
   <Story name="Footer With Links">
     <Footer>
       <CustomText>
@@ -33,4 +33,4 @@ import { Link } from 'topo/Atom/Text';
       </CustomLinks>
     </Footer>
   </Story>
-</Preview>
+</Canvas>

@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import IconBox, { HeaderIcon, HeaderText, Body } from 'topo/Molecule/IconBox';
 import Logo, { CodeDay, Labs, CsFest, CodeCup, Clear, Community, Evangelist } from 'topo/Atom/Logo';
 
@@ -19,7 +19,7 @@ respect `color`, and that the default display is `inline` (however this can be o
 
 ## Without Text
 
-<Preview>
+<Canvas>
   <Story name="Logo Without Text">
     <>
       <CodeDay fontSize="4xl" />
@@ -31,13 +31,13 @@ respect `color`, and that the default display is `inline` (however this can be o
       <Community fontSize="4xl" />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ## With Text
 
 If you set `withText`, you can get the full logo lockup:
 
-<Preview>
+<Canvas>
   <Story name="Logo With Text">
     <>
       <CodeDay fontSize="4xl" withText /><br />
@@ -49,7 +49,7 @@ If you set `withText`, you can get the full logo lockup:
       <Community fontSize="4xl" withText /><br />
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ## Custom Text
 
@@ -58,10 +58,10 @@ actual logos are in tightly-kerned Proxima Nova, so it won't really look right a
 
 Here's an example with custom color and text:
 
-<Preview>
+<Canvas>
   <Story name="Logo With Custom Text">
     <>
       <Community fontSize="4xl" text="Community" logoColor="green.500" />
     </>
   </Story>
-</Preview>
+</Canvas>

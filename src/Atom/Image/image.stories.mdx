@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Image from './index'
 
 <Meta title="Atom/Image" />
@@ -8,8 +8,8 @@ import Image from './index'
 This component draws a single image... however it also composes `<Box />`, so we can do neat boxy things like round
 the corners:
 
-<Preview>
+<Canvas>
   <Story name="Image">
     <Image src="https://placekitten.com/256/256" borderRadius="full" />
   </Story>
-</Preview>
+</Canvas>

@@ -1,6 +1,6 @@
 import React, { forwardRef } from 'react';
 import PropTypes from 'prop-types';
-import ComposedBox from '@chakra-ui/core/dist/PseudoBox';
+import { Box as ComposedBox } from '@chakra-ui/react';
 import { useTheme } from 'topo/utils';
 import { dereferenceDottedString } from 'topo/_utils';
 

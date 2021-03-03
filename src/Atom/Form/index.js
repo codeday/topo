@@ -8,11 +8,11 @@ ComposedFormControl.propTypes = FormControl.propTypes;
 ComposedFormControl.defaultProps = FormControl.defaultProps;
 
 const ComposedLabel = (props) => (
-  <Label fontWeight={600} {...props} />
+  <FormLabel fontWeight={600} {...props} />
 );
-ComposedLabel.propTypes = Label.propTypes;
-ComposedLabel.defaultProps = Label.defaultProps;
+ComposedLabel.propTypes = FormLabel.propTypes;
+ComposedLabel.defaultProps = FormLabel.defaultProps;
 
 export default ComposedFormControl;
 export { ComposedLabel as Label };
-export { FormHelperText as HelpText, FormErrorMessage as ErrorMessage } from '@chakra-ui/react';
+export { FormErrorMessage as ErrorMessage, FormHelperText as HelpText } from '@chakra-ui/react';

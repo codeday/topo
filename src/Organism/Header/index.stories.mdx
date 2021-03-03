@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Header, { SiteLogo, Menu } from 'topo/Organism/Header';
 import Box from 'topo/Atom/Box';
 import Content from 'topo/Molecule/Content';
@@ -45,7 +45,7 @@ export default () => (
 The default header is meant for use on light backgrounds. (If you have an image behind your header, you may want to use
 
 
-<Preview>
+<Canvas>
   <Story name="Light Background">
     <Box borderWidth="1px" borderColor="gray.100">
       <Header underscore>
@@ -57,7 +57,7 @@ The default header is meant for use on light backgrounds. (If you have an image 
         <Menu>
           <Link href="https://example.com" target="_blank">About</Link>
           <Link href="https://example.com" target="_blank">Contact</Link>
-          <Button as="a" href="https://example.com" variantColor="green" target="_blank">Register Now</Button>
+          <Button as="a" href="https://example.com" colorScheme="green" target="_blank">Register Now</Button>
         </Menu>
       </Header>
       <Content>
@@ -66,7 +66,7 @@ The default header is meant for use on light backgrounds. (If you have an image 
       </Content>
     </Box>
   </Story>
-</Preview>
+</Canvas>
 
 ## Dark Background
 
@@ -75,12 +75,12 @@ re-color only the following Topo components:
 
 - `<Logo />`
 - `<Link />`
-- `<Button />` (but it will not do so if a `variantColor` is set)
+- `<Button />` (but it will not do so if a `colorScheme` is set)
 
 _This is separate from Topo's regular support for dark mode, and is intended solely for use when something is guaranteed
 to be a dark background, such as when displaying the menu on top of a hero cover image._
 
-<Preview>
+<Canvas>
   <Story name="Dark Background">
     <Box bg="gray.900">
       <Header darkBackground underscore>
@@ -101,4 +101,4 @@ to be a dark background, such as when displaying the menu on top of a hero cover
       </Content>
     </Box>
   </Story>
-</Preview>
+</Canvas>

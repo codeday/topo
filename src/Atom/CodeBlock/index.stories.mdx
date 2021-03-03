@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import CodeBlock from 'topo/Atom/CodeBlock';
 
 <Meta title="Atom/CodeBlock" component={CodeBlock} />
@@ -7,7 +7,7 @@ import CodeBlock from 'topo/Atom/CodeBlock';
 
 You can render blocks of code with the `<CodeBlock />` tag:
 
-<Preview>
+<Canvas>
   <Story name="CodeBlock">
     <CodeBlock lang="python" numbers={true}>
       {`@requires_authorization
@@ -19,7 +19,7 @@ def somefunc(param1='', param2=0):
 somefunc('foo')`}
     </CodeBlock>
   </Story>
-</Preview>
+</Canvas>
 
 It takes two params:
 

@@ -16,7 +16,7 @@ async function submitEmail(list, email) {
 }
 
 export default function MailingListSubscribe({
-  emailList, textList, variant, variantColor, props,
+  emailList, textList, variant, colorScheme, props,
 }) {
   const { success, error } = useToasts();
   const [input, setInput] = useState(null);
@@ -35,7 +35,7 @@ export default function MailingListSubscribe({
         />
         <Button
           variant={variant || 'solid'}
-          variantColor={variantColor || 'green'}
+          colorScheme={colorScheme || 'green'}
           isLoading={isSubmitting}
           onClick={() => {
             // TODO: Support for phone lists
@@ -63,13 +63,13 @@ export default function MailingListSubscribe({
 }
 MailingListSubscribe.propTypes = {
   variant: PropTypes.string,
-  variantColor: PropTypes.string,
+  colorScheme: PropTypes.string,
   emailList: PropTypes.string,
   textList: PropTypes.string,
 };
 MailingListSubscribe.defaultProps = {
   variant: 'solid',
-  variantColor: 'green',
+  colorScheme: 'green',
   emailList: '',
   textList: '',
 };

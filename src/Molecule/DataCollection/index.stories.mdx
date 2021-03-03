@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import DataCollection from 'topo/Molecule/DataCollection';
 
 <Meta title="Molecule/DataCollection" component={DataCollection} />
@@ -7,24 +7,24 @@ import DataCollection from 'topo/Molecule/DataCollection';
 
 ## PII
 
-<Preview>
+<Canvas>
   <Story name="PII">
     <DataCollection message="pii" />
   </Story>
-</Preview>
+</Canvas>
 
 ## Payment
 
-<Preview>
+<Canvas>
   <Story name="Payment">
     <DataCollection message="payment" />
   </Story>
-</Preview>
+</Canvas>
 
 ## Custom
 
-<Preview>
+<Canvas>
   <Story name="Custom">
     <DataCollection message="This is a custom message." />
   </Story>
-</Preview>
+</Canvas>

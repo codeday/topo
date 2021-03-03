@@ -1,4 +1,5 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import Box from 'topo/Atom/Box';
 import Docs from './Components/Docs';
 
 <Meta title="Styled System" component={Docs} />
@@ -167,8 +168,10 @@ You may omit breakpoints, in which case the breakpoint will be configured by the
 | `boxShadow`                 | box-shadow                      | shadows         |
 
 
-<Preview>
+<Canvas>
   <Story name="Styled System">
-    <Docs />
+    <Box>
+      <Docs />
+    </Box>
   </Story>
-</Preview>
+</Canvas>

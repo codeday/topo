@@ -1,1 +1,1 @@
-export { default } from '@chakra-ui/core/dist/Textarea';
+export { Textarea as default } from '@chakra-ui/react';

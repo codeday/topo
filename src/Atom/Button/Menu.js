@@ -1,5 +1,5 @@
 export {
-  default,
+  Menu as default,
   MenuButton as Button,
   MenuList as List,
   MenuItem as Item,
@@ -7,4 +7,4 @@ export {
   MenuDivider as Divider,
   MenuOptionGroup as OptionGroup,
   MenuItemOption as Option,
-} from '@chakra-ui/core/dist/Menu';
+} from '@chakra-ui/react';

@@ -1,5 +1,7 @@
 import { create } from '@storybook/theming/create';
 
+export const test = create({base: "dark"})
+
 export default create({
   base: 'light',
 

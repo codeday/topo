@@ -4,7 +4,7 @@ import useSwr from 'swr';
 import List, { Item } from 'topo/Atom/List';
 import Box from 'topo/Atom/Box';
 import Divider from 'topo/Atom/Divider';
-import { Flex, Icon } from "@chakra-ui/core"
+import { Flex, Icon } from "@chakra-ui/react"
 import Skelly from 'topo/Atom/Skelly';
 import Text, { Heading, Link, CopyText } from 'topo/Atom/Text';
 import Content from 'topo/Molecule/Content';
@@ -74,7 +74,7 @@ function SponsorBox({ level }) {
         <Box borderWidth="2px" p={3} w="100%" borderColor={level.boxColor} roundedTopLeft="lg" roundedTopRight="lg" color={level.titleColor} backgroundColor={level.boxColor}>
           {level.name}
         </Box>
-        <Box borderWidth="2px" borderColor={level.borderColor} roundedBottomLeft="lg" roundedBottomRight="lg">
+        <Box borderWidth="2px" borderColor="{level.borderColor}" roundedBottomLeft="lg" roundedBottomRight="lg">
           <Box backgroundColor={level.boxTint} p={3} w="100%">
             <strong>${level.amount}/{level.amountInterval}</strong><br></br>
             {level.description}

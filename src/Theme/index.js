@@ -1,21 +1,18 @@
 /* eslint-disable no-undef */
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Global, css } from '@emotion/core';
+import { Global, css } from '@emotion/react';
 import useSwr from 'swr';
-import ThemeProvider from '@chakra-ui/core/dist/ThemeProvider';
-import CSSReset from '@chakra-ui/core/dist/CSSReset';
-import originalTheme from '@chakra-ui/core/dist/theme';
 import Fathom from 'fathom-react';
 import { apiFetch } from 'topo/utils';
+import { extendTheme, ChakraProvider, ColorModeScript } from '@chakra-ui/react';
 import vars from './vars';
 import Chatra from './ComponentProviders/Chatra';
 import Toasts from './ComponentProviders/Toasts';
 
-export const codedayTheme = {
-  ...originalTheme,
+export const codedayTheme = extendTheme({
   ...vars,
-};
+});
 
 const customCss = css`
   @import url(https://f1.srnd.org/topo/fonts/all.css);
@@ -30,11 +27,11 @@ const query = `{
       }
     }
   }
-}`
+}`;
 
-function Provider({
-  analyticsId, brandColor, withChat, programWebname, visibility, children,
-}) {
+const Provider = ({
+  analyticsId, brandColor, withChat, programWebname, visibility, initialColorMode, children,
+}) => {
   const FathomComponent = analyticsId ? Fathom : Fragment;
 
   // Fetch translation strings
@@ -48,7 +45,7 @@ function Provider({
   );
   let strings = {};
   if (data?.cms?.strings?.items) {
-    strings = data.cms.strings.items.reduce((accum, node) => ({...accum, [node.key]: node.value}), {});
+    strings = data.cms.strings.items.reduce((accum, node) => ({ ...accum, [node.key]: node.value }), {});
   }
 
   if (brandColor in codedayTheme.colors) {
@@ -61,28 +58,31 @@ function Provider({
     codedayTheme.colors.modes.light.border = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[200];
     codedayTheme.colors.modes.light.borderColor = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[200];
   }
-
+  codedayTheme.config.initialColorMode = initialColorMode ? initialColorMode : codedayTheme.config.initialColorMode
   return (
-    <ThemeProvider
-      theme={{
-        ...codedayTheme,
-        colors: codedayTheme.colors,
-        programWebname,
-        visibility,
-        strings,
-      }}
-    >
-      <CSSReset config={(theme) => theme.colors.modes} />
-      <Global styles={customCss} />
-      { withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" /> }
-      <FathomComponent {...(analyticsId && {customDomain: "polarbear.codeday.org", siteId: analyticsId })}>
-        <Toasts>
-          {children}
-        </Toasts>
-      </FathomComponent>
-    </ThemeProvider>
+    <>
+      <ColorModeScript initialColorMode={initialColorMode ? initialColorMode : codedayTheme.config.initialColorMode} />
+      <ChakraProvider
+        theme={{
+          ...codedayTheme,
+          colors: codedayTheme.colors,
+          programWebname,
+          visibility,
+          strings,
+        }}
+        resetCSS
+      >
+        <Global styles={customCss} />
+        {withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" />}
+        <FathomComponent {...(analyticsId && { customDomain: 'polarbear.codeday.org', siteId: analyticsId })}>
+          <Toasts>
+            {children}
+          </Toasts>
+        </FathomComponent>
+      </ChakraProvider>
+    </>
   );
-}
+};
 Provider.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element]).isRequired,
   analyticsId: PropTypes.string,
@@ -90,6 +90,7 @@ Provider.propTypes = {
   withChat: PropTypes.bool,
   programWebname: PropTypes.string,
   visibility: PropTypes.string,
+  initialColorMode: PropTypes.string,
 };
 Provider.defaultProps = {
   analyticsId: null,
@@ -97,5 +98,7 @@ Provider.defaultProps = {
   withChat: false,
   programWebname: '',
   visibility: 'Public',
+  initialColorMode: null,
 };
 export default Provider;
+export { useColorMode, useColorModeValue } from '@chakra-ui/react';

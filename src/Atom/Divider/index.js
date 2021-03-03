@@ -1,1 +1,1 @@
-export { default } from '@chakra-ui/core/dist/Divider';
+export { Divider as default } from '@chakra-ui/react';

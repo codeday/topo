@@ -104,7 +104,7 @@ export default function Announcement({ dark, box, ...props }) {
       >
         <Text fontFamily="accent" fontSize="4xl" lineHeight={1.2}>{item.title}</Text>
         <Text>{item.oneline}</Text>
-        <Button size="sm" variantColor={baseColor} mb={0}>Learn More</Button>
+        <Button size="sm" colorScheme={baseColor} mb={0}>Learn More</Button>
       </Box>
     )
   }
@@ -151,7 +151,7 @@ export default function Announcement({ dark, box, ...props }) {
               </Text>
             </Box>
             <Box textAlign="right">
-              <Button size="sm" variantColor={baseColor} mb={0}>Learn More</Button>
+              <Button size="sm" colorScheme={baseColor} mb={0}>Learn More</Button>
             </Box>
           </Grid>
         </Box>

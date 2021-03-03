@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Box from '@chakra-ui/core/dist/Box';
+import { Box } from '@chakra-ui/react';
 import { pureRef } from 'topo/_utils';
 
 const TextCompose = pureRef(({ as, bold, ...rest }, ref) => (

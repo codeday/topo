@@ -1,4 +1,4 @@
-import originalTheme from '@chakra-ui/core/dist/theme';
+import originalTheme from '@chakra-ui/theme';
 
 const linearGrad = (from, to, deg) => `linear-gradient(${deg}deg, ${from} 0%, ${to} 100%)`;
 const linearGrads = (from, to) => (
@@ -21,6 +21,7 @@ const colors = {
     600: '#ad9c9c',
     700: '#958686',
     800: '#756969',
+    850: '#504d4d',
     900: '#453e3e',
     1000: '#252222',
   },
@@ -186,6 +187,7 @@ colors.grad = {
     lg: linearGrads(colors.whiteAlpha[700], 'rgba(255, 255, 255 ,0)'),
   },
   skelly: `linear-gradient(270deg, ${colors.gray[300]} 0, ${colors.gray[100]} 50%, ${colors.gray[300]} 100%)`,
+  darkSkelly: `linear-gradient(270deg, ${colors.gray[800]} 0, ${colors.gray[700]} 50%, ${colors.gray[800]} 100%)`,
 };
 colors.modes = {
   light: {
@@ -203,9 +205,9 @@ colors.modes = {
     color: colors.whiteAlpha[900],
     text: colors.whiteAlpha[900],
     textLight: colors.whiteAlpha[500],
-    bg: colors.gray[800],
+    bg: colors.gray[900],
     primary: colors.whiteAlpha[900],
-    background: colors.gray[800],
+    background: colors.gray[900],
     border: colors.whiteAlpha[300],
     borderColor: colors.whiteAlpha[300],
     placeholder: colors.whiteAlpha[400],

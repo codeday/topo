@@ -1,5 +1,5 @@
 import { withProps } from 'recompose';
-import Link from '@chakra-ui/core/dist/Link';
+import { Link } from '@chakra-ui/react';
 
 export default withProps({
   textDecoration: 'underline',

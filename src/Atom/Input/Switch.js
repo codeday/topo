@@ -1,1 +1,1 @@
-export { default } from '@chakra-ui/core/dist/Switch';
+export { Switch as default } from '@chakra-ui/react';

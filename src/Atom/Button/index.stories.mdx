@@ -1,4 +1,4 @@
-import { Meta, Story, Preview } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
 import Button from 'topo/Atom/Button';
 
 <Meta title="Atom/Button" />
@@ -8,44 +8,44 @@ import Button from 'topo/Atom/Button';
 When you want something to be clickable, use a button! It takes the following props:
 
 - `variant` -- One of `"solid"` (default), `"outline"`, or `"ghost"`
-- `variantColor` -- Any brand color, without the shade (e.g. `green`, but not `green.500`). Default is gray.
+- `colorScheme` -- Any brand color, without the shade (e.g. `green`, but not `green.500`). Default is gray.
 - `size` -- One of `"xs"`, `"sm"`, `"md"` (default), `"lg"`.
 
 ## Variants
 
-<Preview>
+<Canvas>
   <Story name="Button Variants">
     <>
-      <Button variant="solid" variantColor="brand">solid</Button>{' '}
-      <Button variant="outline" variantColor="brand">outline</Button>{' '}
-      <Button variant="ghost" variantColor="brand">ghost</Button>{' '}
+      <Button variant="solid" colorScheme="brand">solid</Button>{' '}
+      <Button variant="outline" colorScheme="brand">outline</Button>{' '}
+      <Button variant="ghost" colorScheme="brand">ghost</Button>{' '}
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ## Colors
 
-<Preview>
+<Canvas>
   <Story name="Button Colors">
     <>
-      <Button variant="solid" variantColor="gray">gray</Button>{' '}
-      <Button variant="solid" variantColor="red">red</Button>{' '}
-      <Button variant="solid" variantColor="orange">orange</Button>{' '}
-      <Button variant="solid" variantColor="yellow">yellow</Button>{' '}
-      <Button variant="solid" variantColor="green">green</Button>{' '}
-      <Button variant="solid" variantColor="teal">teal</Button>{' '}
-      <Button variant="solid" variantColor="cyan">cyan</Button>{' '}
-      <Button variant="solid" variantColor="blue">blue</Button>{' '}
-      <Button variant="solid" variantColor="indigo">indigo</Button>{' '}
-      <Button variant="solid" variantColor="purple">purple</Button>{' '}
-      <Button variant="solid" variantColor="pink">pink</Button>{' '}
+      <Button variant="solid" colorScheme="gray">gray</Button>{' '}
+      <Button variant="solid" colorScheme="red">red</Button>{' '}
+      <Button variant="solid" colorScheme="orange">orange</Button>{' '}
+      <Button variant="solid" colorScheme="yellow">yellow</Button>{' '}
+      <Button variant="solid" colorScheme="green">green</Button>{' '}
+      <Button variant="solid" colorScheme="teal">teal</Button>{' '}
+      <Button variant="solid" colorScheme="cyan">cyan</Button>{' '}
+      <Button variant="solid" colorScheme="blue">blue</Button>{' '}
+      <Button variant="solid" colorScheme="indigo">indigo</Button>{' '}
+      <Button variant="solid" colorScheme="purple">purple</Button>{' '}
+      <Button variant="solid" colorScheme="pink">pink</Button>{' '}
     </>
   </Story>
-</Preview>
+</Canvas>
 
 ## Sizes
 
-<Preview>
+<Canvas>
   <Story name="Button Sizes">
     <>
       <Button size="xs">xs</Button>{' '}
@@ -54,4 +54,4 @@ When you want something to be clickable, use a button! It takes the following pr
       <Button size="lg">lg</Button>{' '}
     </>
   </Story>
-</Preview>
+</Canvas>

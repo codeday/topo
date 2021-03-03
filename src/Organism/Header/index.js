@@ -7,33 +7,33 @@ import Content from 'topo/Molecule/Content';
 import { childrenOfType, setChildProps } from 'topo/_utils';
 import SiteLogo from './site-logo';
 import Menu from './menu';
+import { useColorModeValue } from 'topo/Theme'
 
-const Header = ({
-  darkBackground, underscore, children, gradAmount, ...props
-}) => {
+const Header = ({ darkBackground, underscore, children, gradAmount, noPadding, ...props }) => {
+  // darkBackground = darkBackground === null ? useColorModeValue(false, true) : darkBackground;
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const childrenWithProps = React.Children.map(children, setChildProps({ darkBackground }));
   const logo = childrenOfType(childrenWithProps, SiteLogo);
   const menu = childrenOfType(childrenWithProps, Menu);
-
   return (
     <>
       <Box
         grad={
-          ((darkBackground && gradAmount !== false) || gradAmount)
+          ((darkBackground && gradAmount !== null) || gradAmount)
           && `${darkBackground ? 'darken' : 'lighten'}.${gradAmount || 'sm'}.180`
         }
         as="nav"
         {...props}
       >
         <Content
-          padding={3}
-          paddingTop={6}
-          paddingBottom={4}
+          padding={noPadding ? 0 : 3}
+          paddingTop={noPadding ? 0 : 6}
+          paddingBottom={noPadding ? 0 : 4}
+          marginBottom={noPadding ? 0 : 6}
         >
           <Box
-            marginBottom={6}
-            paddingBottom={4}
+            marginBottom={noPadding ? 0 : 6}
+            paddingBottom={noPadding ? 0 : 4}
             borderBottomColor={darkBackground ? 'whiteAlpha.300' : 'gray.200'}
             borderBottomWidth={underscore ? '1px' : 0}
           >
@@ -100,7 +100,7 @@ const Header = ({
               <Box
                 pb={4}
                 mb={4}
-                borderBottomWidth={i+1 === menu[0].props.children.length ? 0 : 1}
+                borderBottomWidth={i + 1 === menu[0].props.children.length ? 0 : 1}
                 borderBottomColor="current.border"
               >
                 {
@@ -113,7 +113,7 @@ const Header = ({
                   })
                 }
               </Box>
-          ))}
+            ))}
         </Box>
       </Box>
     </>
@@ -123,11 +123,13 @@ Header.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
   darkBackground: PropTypes.bool,
   underscore: PropTypes.bool,
+  noPadding: PropTypes.bool,
   gradAmount: PropTypes.string,
 };
 Header.defaultProps = {
-  darkBackground: false,
+  noPadding: false,
   underscore: false,
+  darkBackground: null,
   gradAmount: null,
 };
 export default Header;

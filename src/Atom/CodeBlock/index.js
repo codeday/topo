@@ -9,8 +9,8 @@ import makeStyle from './make-style';
 let SyntaxHighlighter;
 try {
   ({ LightAsync: SyntaxHighlighter } = require('react-syntax-highlighter'));
-// eslint-disable-next-line no-empty
-} catch (ex) {}
+  // eslint-disable-next-line no-empty
+} catch (ex) { }
 
 const SH = forwardRef(({ lang, numbers, ...props }, ref) => {
   const theme = useTheme();
