@@ -36,6 +36,25 @@ const Sponsorship = forwardRef(({ children, webname, ...props }, ref) => {
   // Let pulled data from GraphQL be set equal to the levels variable
   const { levels } = data?.cms?.programs?.items[0]?.sponsorPerks || {};
 
+  if (levels) {
+    var keys = Object.keys(levels).sort(function(k1, k2) {
+      if (levels[k1].id < levels[k2].id) return -1;
+      else if (levels[k1].id > levels[k2].id) return 1;
+      else return 0;
+    });
+
+    var after = {};
+    for (var i = 0; i < keys.length; i++) {
+      after[keys[i]] = levels[keys[i]];
+      delete levels[keys[i]];
+    }
+
+    for (var i = 0; i < keys.length; i++) {
+      levels[keys[i]] = after[keys[i]];
+    }
+  }
+
+
   // DEBUG: Print straight to console to ensure data is being queried correctly
   // if (levels) console.log(levels);
   // if (name) console.log(name);
