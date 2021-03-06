@@ -55,7 +55,7 @@ const withThemeProvider = (Story, context) => {
   // console.log(context.globals.theme)
   return (
     <Theme lang="en" brandColor="red" analyticsId="ZWJBGNNR" initialColorMode={context.globals.theme}>
-      <Box bg={context.globals.theme == "dark" ? "gray.900" : "white"}>
+      <Box bg={context.globals.theme == "dark" ? "gray.1100" : "white"}>
         <Story />
       </Box>
     </Theme >

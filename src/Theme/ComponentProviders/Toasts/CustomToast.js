@@ -5,6 +5,7 @@ import UiWarning from '@codeday/topocons/Icon/UiWarning';
 import UiError from '@codeday/topocons/Icon/UiError';
 import UiOk from '@codeday/topocons/Icon/UiOk';
 import Box, { Grid } from 'topo/Atom/Box';
+import { useStyleConfig } from '@chakra-ui/system';
 
 export default function CustomToast({
   appearance, children, transitionState, transitionDuration, onDismiss,
@@ -23,14 +24,14 @@ export default function CustomToast({
     info: UiInfo,
   }[appearance || 'info'] || UiInfo;
 
+  const styles = useStyleConfig("Toast")
+  
   return (
     <Box
       rounded="md"
       boxShadow="lg"
       borderWidth={1}
-      borderColor="current.border"
       mb={4}
-      bg="current.bg"
       position="relative"
       onClick={onDismiss}
       cursor="pointer"
@@ -38,6 +39,7 @@ export default function CustomToast({
       aria-label="Notification"
       opacity={['entered'].includes(transitionState) ? 1 : 0}
       transition={`all ${transitionDuration / 1000}s`}
+      sx={styles}
     >
       <Grid
         templateColumns="1fr 12fr"
