@@ -9,8 +9,8 @@ import SiteLogo from './site-logo';
 import Menu from './menu';
 import { useColorModeValue } from 'topo/Theme'
 
-const Header = ({ darkBackground, underscore, children, gradAmount, noPadding, ...props }) => {
-  darkBackground = darkBackground === null ? useColorModeValue(false, true) : darkBackground;
+const Header = ({ underscore, children, gradAmount, noPadding, ...props }) => {
+  const darkBackground = useColorModeValue(false, true)
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const childrenWithProps = React.Children.map(children, setChildProps({ darkBackground }));
   const logo = childrenOfType(childrenWithProps, SiteLogo);
@@ -82,7 +82,6 @@ const Header = ({ darkBackground, underscore, children, gradAmount, noPadding, .
             pb={4}
             mb={4}
             borderBottomWidth={1}
-            borderBottomColor="current.border"
           >
             {Children.map(Children.toArray(logo[0]?.props?.children).filter((e) => e), (c) =>
               cloneElement(c, {
@@ -101,7 +100,6 @@ const Header = ({ darkBackground, underscore, children, gradAmount, noPadding, .
                 pb={4}
                 mb={4}
                 borderBottomWidth={i + 1 === menu[0].props.children.length ? 0 : 1}
-                borderBottomColor="current.border"
               >
                 {
                   cloneElement(c, {
@@ -121,7 +119,6 @@ const Header = ({ darkBackground, underscore, children, gradAmount, noPadding, .
 };
 Header.propTypes = {
   children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.node), PropTypes.node]).isRequired,
-  darkBackground: PropTypes.bool,
   underscore: PropTypes.bool,
   noPadding: PropTypes.bool,
   gradAmount: PropTypes.string,
@@ -129,7 +126,6 @@ Header.propTypes = {
 Header.defaultProps = {
   noPadding: false,
   underscore: false,
-  darkBackground: null,
   gradAmount: null,
 };
 export default Header;

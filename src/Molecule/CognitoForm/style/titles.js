@@ -1,6 +1,6 @@
 import selectors from './selectors';
 
-export default (theme, { showTitle }) => `
+export default (theme, { showTitle, colorMode }) => `
   ${selectors.title} {
     font-family: ${theme.fonts.heading} !important;
   }

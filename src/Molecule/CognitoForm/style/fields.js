@@ -1,8 +1,8 @@
 import selectors from './selectors';
 
-export default (theme) => `
+export default (theme, { colorMode }) => `
   ${selectors.placeholder} {
-    color: ${theme.colors.current.placeholder} !important;
+    color: ${theme.colors.modes[colorMode].placeholder} !important;
     opacity: 1 !important;
   }
 
@@ -22,7 +22,7 @@ export default (theme) => `
 
   ${selectors.input.text}, ${selectors.input.dropdown}, ${selectors.input.textarea} {
     padding: ${theme.space[3]} !important;
-    border: 1px solid ${theme.colors.current.border} !important;
+    border: 1px solid ${theme.colors.modes[colorMode].border} !important;
     border-radius: ${theme.radii.sm} !important;
     outline: none !important;
     font-weight: 400 !important;
@@ -51,7 +51,7 @@ export default (theme) => `
 
   ${selectors.fields.upload} > div:first-child {
     padding: ${theme.space[3]} !important;
-    border: 1px solid ${theme.colors.current.border} !important;
+    border: 1px solid ${theme.colors.modes[colorMode].border} !important;
     border-radius: ${theme.radii.sm} !important;
     outline: none !important;
     font-weight: 400 !important;
@@ -94,11 +94,11 @@ export default (theme) => `
 
   /* Signature */
   ${selectors.fields.signature} ${selectors.fields.editor} > div {
-    border: 1px solid ${theme.colors.current.border} !important;
+    border: 1px solid ${theme.colors.modes[colorMode].border} !important;
     border-radius: ${theme.radii.sm} !important;
   }
 
   ${selectors.icons.signature}::after {
-    color: ${theme.colors.current.border} !important;
+    color: ${theme.colors.modes[colorMode].border} !important;
   }
 `;

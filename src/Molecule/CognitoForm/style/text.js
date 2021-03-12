@@ -1,8 +1,8 @@
 import selectors from './selectors';
 
-export default (theme) => `
+export default (theme, { colorMode }) => `
   html {
-    color: ${theme.colors.current.text} !important;
+    color: ${theme.colors.modes[colorMode].text} !important;
   }
 
   * {
@@ -33,12 +33,12 @@ export default (theme) => `
   }
 
   ${selectors.label} {
-    color: ${theme.colors.current.text} !important;
+    color: ${theme.colors.modes[colorMode].text} !important;
     font-size: ${theme.fontSizes.md} !important;
   }
 
   ${selectors.helpText} {
-    color: ${theme.colors.current.textLight} !important;
+    color: ${theme.colors.modes[colorMode].textLight} !important;
     font-size: ${theme.fontSizes.sm} !important;
   }
 

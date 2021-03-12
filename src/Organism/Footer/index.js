@@ -36,7 +36,7 @@ const StandardLinks = () => {
     }
   );
   const links = data?.cms?.sites?.items;
-
+  
   return (
     <List>
       {!links ? (

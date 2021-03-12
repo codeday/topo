@@ -1,5 +1,6 @@
+/* eslint-disable no-secrets/no-secrets */
 /* eslint-disable no-undef */
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import Form from '@tylermenezes/cognitoforms-react';
 import { useTheme } from 'topo/utils';
@@ -7,13 +8,29 @@ import Text, { Link } from 'topo/Atom/Text';
 import Box from 'topo/Atom/Box';
 import Spinner from 'topo/Atom/Spinner';
 import DataCollection from 'topo/Molecule/DataCollection';
+import { useColorMode } from 'topo/Theme';
 import style from './style/index';
 
 const CognitoForm = ({
   formId, prefill, showTitle, onSubmit, onPageChange, onFirstPageChange, payment, fallback, accountId, hidePrivacy,
 }) => {
   const theme = useTheme();
+  // theme.colors.current = currentColors;
   const [hasFirstPageChange, setHasFirstPageChange] = useState(false);
+  const { colorMode } = useColorMode();
+
+  useEffect(() => {
+    const script = document.createElement('script');
+
+    script.src = 'https://www.cognitoforms.com/scripts/embed.js';
+    script.async = true;
+    script.onload = () => { Cognito.setCss(''); };
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
 
   return (
     <>
@@ -21,17 +38,17 @@ const CognitoForm = ({
         accountId={accountId || theme.cognito.id}
         formId={formId}
         prefill={prefill}
-        css={style(theme, { showTitle })}
+        css={style(theme, { showTitle, colorMode })}
         loading={(
           <Box textAlign="center">
             <Spinner /><br />
             {fallback && (
-            <Text color="current.textLight">
-              Problems loading?{' '}
-              <Link href={`https://services.cognitoforms.com/f/${theme.cognito.id}?id=${formId}`} target="_blank">
-                Open in new tab.
-              </Link>
-            </Text>
+              <Text color="current.textLight">
+                Problems loading?{' '}
+                <Link href={`https://services.cognitoforms.com/f/${theme.cognito.id}?id=${formId}`} target="_blank">
+                  Open in new tab.
+                </Link>
+              </Text>
             )}
           </Box>
         )}
@@ -65,9 +82,9 @@ CognitoForm.propTypes = {
 CognitoForm.defaultProps = {
   prefill: {},
   showTitle: false,
-  onSubmit: () => {},
-  onPageChange: () => {},
-  onFirstPageChange: () => {},
+  onSubmit: () => { },
+  onPageChange: () => { },
+  onFirstPageChange: () => { },
   payment: false,
   fallback: false,
   hidePrivacy: false,
