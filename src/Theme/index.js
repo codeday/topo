@@ -66,13 +66,6 @@ const Provider = ({
     codedayTheme.colors.modes.light.borderColor = (codedayTheme.colors.brand.desaturated || codedayTheme.colors.brand)[200];
   }
   codedayTheme.config.initialColorMode = initialColorMode ? initialColorMode : codedayTheme.config.initialColorMode
-  // const [theme, setTheme] = useState({
-  //   ...codedayTheme,
-  //   colors: codedayTheme.colors,
-  //   programWebname,
-  //   visibility,
-  //   strings,
-  // })
   return (
     <>
       <ChakraProvider
@@ -90,7 +83,6 @@ const Provider = ({
             : localStorageManager
         }
       >
-        {/* <CurrentColorScript theme={theme} setTheme={setTheme} /> */}
         <Global styles={customCss} />
         {withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" />}
         <FathomComponent {...(analyticsId && { customDomain: 'polarbear.codeday.org', siteId: analyticsId })}>
@@ -120,8 +112,6 @@ Provider.defaultProps = {
   initialColorMode: null,
 };
 export default Provider;
-
-// TODO make work properly
 
 export {useColorMode, useColorModeValue}
 

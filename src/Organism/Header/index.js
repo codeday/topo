@@ -12,7 +12,7 @@ import { useColorModeValue } from 'topo/Theme'
 const Header = ({ underscore, children, gradAmount, noPadding, ...props }) => {
   const darkBackground = useColorModeValue(false, true)
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
-  const childrenWithProps = React.Children.map(children, setChildProps({ darkBackground }));
+  const childrenWithProps = React.Children.map(children, setChildProps({}));
   const logo = childrenOfType(childrenWithProps, SiteLogo);
   const menu = childrenOfType(childrenWithProps, Menu);
   return (
@@ -70,9 +70,9 @@ const Header = ({ underscore, children, gradAmount, noPadding, ...props }) => {
         right="0"
         bottom="0"
         left="0"
-        bg="current.bg"
         zIndex="9000"
         overflowY="auto"
+        background={useColorModeValue('white', 'gray.1100')}
       >
         <Box textAlign="right" p={8} fontSize="xl" onClick={() => setHamburgerOpen(false)} cursor="pointer">
           <UiX aria-label="Close Menu" />
