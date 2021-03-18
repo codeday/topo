@@ -15,22 +15,9 @@ const CognitoForm = ({
   formId, prefill, showTitle, onSubmit, onPageChange, onFirstPageChange, payment, fallback, accountId, hidePrivacy,
 }) => {
   const theme = useTheme();
-  // theme.colors.current = currentColors;
-  const [hasFirstPageChange, setHasFirstPageChange] = useState(false);
   const { colorMode } = useColorMode();
-
-  useEffect(() => {
-    const script = document.createElement('script');
-
-    script.src = 'https://www.cognitoforms.com/scripts/embed.js';
-    script.async = true;
-    script.onload = () => { Cognito.setCss(''); };
-    document.body.appendChild(script);
-
-    return () => {
-      document.body.removeChild(script);
-    };
-  }, []);
+  theme.colors.current = theme.colors.modes[colorMode];
+  const [hasFirstPageChange, setHasFirstPageChange] = useState(false);
 
   return (
     <>

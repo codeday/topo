@@ -1,6 +1,6 @@
 import selectors from './selectors';
 
-export default (theme, { colorMode }) => `
+export default (theme) => `
   /* All buttons */
   ${Object.values(selectors.buttons).join(', ')} {
     border-radius: ${theme.radii.sm} !important;
@@ -16,20 +16,20 @@ export default (theme, { colorMode }) => `
   }
   /* Secondary buttons */
   ${selectors.buttons.addItem}, ${selectors.buttons.previous} {
-    background-color: ${theme.colors.modes[colorMode].bg} !important;
-    color: ${theme.colors.modes[colorMode].text} !important;
+    background-color: ${theme.colors.current.bg} !important;
+    color: ${theme.colors.current.text} !important;
     border-width: 1px !important;
-    border-color: ${theme.colors.modes[colorMode].border} !important;
+    border-color: ${theme.colors.current.border} !important;
   }
 
   ${selectors.buttons.upload} {
-    background-color: ${theme.colors.modes[colorMode].border} !important;
-    color: ${theme.colors.modes[colorMode].text} !important;
+    background-color: ${theme.colors.current.border} !important;
+    color: ${theme.colors.current.text} !important;
     font-size: ${theme.fontSizes.sm} !important;
     padding: ${theme.space[1]};
     height: auto;
     border-width: 1px !important;
-    border-color: ${theme.colors.modes[colorMode].border} !important;
+    border-color: ${theme.colors.current.border} !important;
   }
 
   ${selectors.buttons.addItem}:hover, ${selectors.buttons.previous}:hover {
@@ -53,8 +53,8 @@ export default (theme, { colorMode }) => `
 
   /* Small buttons */
   ${selectors.icons.remove} circle {
-    fill: ${theme.colors.modes[colorMode].bg} !important;
-    stroke: ${theme.colors.modes[colorMode].border} !important;
+    fill: ${theme.colors.current.bg} !important;
+    stroke: ${theme.colors.current.border} !important;
     paint-order: stroke !important;
   }
 
@@ -63,7 +63,7 @@ export default (theme, { colorMode }) => `
   }
 
   ${selectors.icons.remove} line {
-    stroke: ${theme.colors.modes[colorMode].text} !important;
+    stroke: ${theme.colors.current.text} !important;
   }
 
   /* Navigation buttons */
@@ -76,18 +76,18 @@ export default (theme, { colorMode }) => `
   ${selectors.pages.page} a:before {
     font-size: ${theme.fontSizes.sm} !important;
     color: ${theme.colors.gray[500]} !important;
-    background-color: ${theme.colors.modes[colorMode].bg} !important;
-    border-color: ${theme.colors.modes[colorMode].border} !important;
+    background-color: ${theme.colors.current.bg} !important;
+    border-color: ${theme.colors.current.border} !important;
   }
 
   ${selectors.pages.selectedPage} span {
-    color: ${theme.colors.modes[colorMode].primary} !important;
+    color: ${theme.colors.current.primary} !important;
     font-weight: bold !important;
   }
 
   ${selectors.pages.selectedPage} a:before {
     color: ${theme.colors.white} !important;
-    background-color: ${theme.colors.modes[colorMode].primary} !important;
-    border-color: ${theme.colors.modes[colorMode].primary} !important;
+    background-color: ${theme.colors.current.primary} !important;
+    border-color: ${theme.colors.current.primary} !important;
   }
 `;

@@ -1,8 +1,9 @@
 import selectors from './selectors';
 
-export default (theme, { colorMode }) => `
-  ${selectors.background}, ${selectors.input.dropdown}, ${selectors.input.text} {
-    background-color: ${theme.colors.modes[colorMode].bg} !important
+export default (theme) => `
+  ${selectors.background}, ${selectors.input.dropdown}, ${selectors.input.text}, select {
+    background-color: ${theme.colors.current.bg} !important;
+    color: ${theme.colors.current.color};
   }
 
   ${selectors.wrapper} {
