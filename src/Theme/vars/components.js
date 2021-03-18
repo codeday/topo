@@ -17,11 +17,5 @@ const components = {
       bg: mode('white', 'gray.1100')(props),
     }),
   },
-  Chatra: {
-    baseStyle: (props) => ({
-      buttonText: 'gray.400',
-      buttonBg: mode('white', 'gray.1100')(props),
-    }),
-  },
 };
 export default components;
