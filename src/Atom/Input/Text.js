@@ -1,1 +1,1 @@
-export { Input as default } from '@chakra-ui/react';
+export { Input as default, InputGroup, InputLeftAddon, InputRightAddon } from '@chakra-ui/react';
