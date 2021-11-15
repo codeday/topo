@@ -1,0 +1,14 @@
+{
+  "internal": true,
+  "main": "../dist/cjs/Molecule/index.js",
+  "module": "../dist/esm/Molecule/index.js",
+  "types": "../dist/esm/Molecule/index.d.ts",
+  "typings": "../dist/esm/Molecule/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/Molecule/index.js",
+      "default": "./dist/esm/Molecule/index.js"
+    }
+  },
+  "sideEffects": false
+}

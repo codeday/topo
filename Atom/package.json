@@ -1,0 +1,14 @@
+{
+  "internal": true,
+  "main": "../dist/cjs/Atom/index.js",
+  "module": "../dist/esm/Atom/index.js",
+  "types": "../dist/esm/Atom/index.d.ts",
+  "typings": "../dist/esm/Atom/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/cjs/Atom/index.js",
+      "default": "./dist/esm/Atom/index.js"
+    }
+  },
+  "sideEffects": false
+}
