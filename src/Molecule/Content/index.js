@@ -10,7 +10,7 @@ const Content = pureRef(({ wide, full, ...props }, ref) => (
     marginLeft="auto"
     marginRight="auto"
     marginBottom={6}
-    maxWidth={(full && 'none') || (wide && 'containers.xl') || 'containers.lg'}
+    maxW={(full && 'none') || (wide && 'container.xl') || 'container.lg'}
     width="100%"
     ref={ref}
     {...props}

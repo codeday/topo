@@ -13,7 +13,7 @@ const IconBox = pureRef(({ children, ...props }, ref) => {
   const headerText = childrenOfType(children, HeaderText);
   const body = childrenOfType(children, Body);
   return (
-    <Box borderColor="current.border" borderWidth={1} borderRadius={3} padding={4} ref={ref} {...props}>
+    <Box borderWidth={1} borderRadius={3} padding={4} ref={ref} {...props}>
       {React.Children.map(wrapHtml(headerIcon), setChildProps(null, {
         fontSize: '5xl',
         marginBottom: 1,

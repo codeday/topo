@@ -1,6 +1,11 @@
 import selectors from './selectors';
 
 export default (theme) => `
+  ${selectors.background}, ${selectors.input.dropdown}, ${selectors.input.text}, select {
+    background-color: ${theme.colors.current.bg} !important;
+    color: ${theme.colors.current.color};
+  }
+
   ${selectors.wrapper} {
     max-width: none !important;
     margin-right: -4px;

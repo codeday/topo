@@ -1,14 +1,20 @@
 /* eslint-disable no-undef */
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Global, css } from '@emotion/react';
 import useSwr from 'swr';
 import Fathom from 'fathom-react';
 import { apiFetch } from 'topo/utils';
-import { extendTheme, ChakraProvider, ColorModeScript } from '@chakra-ui/react';
+import {
+  extendTheme,
+  ChakraProvider,
+  cookieStorageManager,
+  localStorageManager,
+} from '@chakra-ui/react';
 import vars from './vars';
 import Chatra from './ComponentProviders/Chatra';
 import Toasts from './ComponentProviders/Toasts';
+import { useColorMode, useColorModeValue } from '@chakra-ui/react'
 
 export const codedayTheme = extendTheme({
   ...vars,
@@ -17,6 +23,7 @@ export const codedayTheme = extendTheme({
 const customCss = css`
   @import url(https://f1.srnd.org/topo/fonts/all.css);
 `;
+
 
 const query = `{
   cms {
@@ -30,7 +37,7 @@ const query = `{
 }`;
 
 const Provider = ({
-  analyticsId, brandColor, withChat, programWebname, visibility, initialColorMode, children,
+  analyticsId, brandColor, withChat, programWebname, visibility, initialColorMode, cookies, children,
 }) => {
   const FathomComponent = analyticsId ? Fathom : Fragment;
 
@@ -61,7 +68,6 @@ const Provider = ({
   codedayTheme.config.initialColorMode = initialColorMode ? initialColorMode : codedayTheme.config.initialColorMode
   return (
     <>
-      <ColorModeScript initialColorMode={initialColorMode ? initialColorMode : codedayTheme.config.initialColorMode} />
       <ChakraProvider
         theme={{
           ...codedayTheme,
@@ -71,6 +77,11 @@ const Provider = ({
           strings,
         }}
         resetCSS
+        colorModeManager={
+          typeof cookies === "string"
+            ? cookieStorageManager(cookies)
+            : localStorageManager
+        }
       >
         <Global styles={customCss} />
         {withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" />}
@@ -101,4 +112,16 @@ Provider.defaultProps = {
   initialColorMode: null,
 };
 export default Provider;
-export { useColorMode, useColorModeValue } from '@chakra-ui/react';
+
+export {useColorMode, useColorModeValue}
+
+
+export function useCurrentColor(key) {
+  const { colors } = codedayTheme;
+  const [color, setColor] = useState('');
+  const { colorMode } = useColorMode();
+  useEffect(() => {
+    setColor(colors.modes[colorMode][key]);
+  });
+  return { color };
+}

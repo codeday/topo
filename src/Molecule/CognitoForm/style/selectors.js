@@ -1,4 +1,5 @@
 export default {
+  background: `.c-forms-form`,
   wrapper: `.cognito:not(.c-forms-actionBar)`,
   title: `.c-forms-heading h2`,
   titleSection: `.c-forms-form-title`,

@@ -1,3 +1,4 @@
+/* eslint-disable sonarjs/no-duplicate-string */
 import { mode } from '@chakra-ui/theme-tools';
 import theme from '@chakra-ui/theme';
 
@@ -9,10 +10,10 @@ const styles = {
       text: mode('black', 'whiteAlpha.900')(props),
       bg: mode('white', 'gray.1100')(props),
       background: mode('white', 'gray.1100')(props),
-      primary: mode('brand', 'whiteAlpha.900'),
-      border: mode('gray.200', 'whiteAlpha.300'),
-      borderColor: mode('gray.200', 'whiteAlpha.300'),
-      placeholder: mode('gray.600', 'whiteAlpha.400'),
+      primary: mode('brand', 'whiteAlpha.900')(props),
+      border: mode('gray.200', 'whiteAlpha.300')(props),
+      borderColor: mode('gray.200', 'whiteAlpha.300')(props),
+      placeholder: mode('gray.600', 'whiteAlpha.400')(props),
       transition: 'background-color 0.5s',
       lineHeight: 'base',
       fontFamily: 'body',

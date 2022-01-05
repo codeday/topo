@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "4.2.0",
+  "version": "4.6.0",
   "main": "index.js",
   "license": "Artistic-2.0",
   "scripts": {
@@ -23,7 +23,7 @@
     "@tylermenezes/cognitoforms-react": "^1.1.0",
     "fathom-react": "^1.0.1",
     "form-data": "^3.0.0",
-    "framer-motion": ">=3.0.0",
+    "framer-motion": "3",
     "graphql": "^15.4.0",
     "graphql-request": "^3.3.0",
     "react-dom": ">= 16.8",

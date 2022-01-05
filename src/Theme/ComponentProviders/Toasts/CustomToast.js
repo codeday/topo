@@ -24,8 +24,8 @@ export default function CustomToast({
     info: UiInfo,
   }[appearance || 'info'] || UiInfo;
 
-  const styles = useStyleConfig("Toast")
-  
+  const styles = useStyleConfig('Toast');
+
   return (
     <Box
       rounded="md"

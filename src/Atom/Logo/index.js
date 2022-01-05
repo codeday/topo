@@ -4,18 +4,31 @@ import Box from 'topo/Atom/Box';
 import Text from 'topo/Atom/Text';
 import { pureRef } from 'topo/_utils';
 import { withProps } from 'recompose';
+import { useColorModeValue } from '@chakra-ui/react';
 import * as Svgs from './svgs';
 
 const upperFirst = (string) => string.charAt(0).toUpperCase() + string.slice(1);
 
-const Lockup = pureRef(({
+const Lockup = ({
   logo, text, logoColor, textColor, color, ...props
-}, ref) => (
-  <Box d="inline" style={{ textDecoration: 'none' }} {...props} ref={ref}>
-    <Box color={logoColor || color || 'current.primary'} height="1.1em" d="inline">{logo}</Box>
-    <Box color={textColor || color || 'current.text'} height="1em" d="inline">{text}</Box>
+}) => (
+  <Box d="inline" style={{ textDecoration: 'none' }} {...props}>
+    <Box
+      color={logoColor || color || 'current.primary'}
+      height="1.1em"
+      d="inline"
+    >
+      {logo}
+    </Box>
+    <Box
+      color={textColor || color || useColorModeValue('black', 'white')}
+      height="1em"
+      d="inline"
+    >
+      {text}
+    </Box>
   </Box>
-));
+);
 Lockup.displayName = 'Lockup';
 Lockup.propTypes = {
   ...Lockup.propTypes,
@@ -64,6 +77,8 @@ Logo.propTypes = {
   program: PropTypes.string.isRequired,
   text: PropTypes.string,
   withText: PropTypes.bool,
+  logoColor: PropTypes.string,
+  textColor: PropTypes.string,
 };
 Logo.defaultProps = {
   ...Logo.defaultProps,
