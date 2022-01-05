@@ -2,7 +2,13 @@ import * as React from "react";
 
 function SvgEvangelist(props, svgRef) {
   return (
-    <svg viewBox="0 0 1000 1000" height="1em" ref={svgRef} {...props}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1000 1000"
+      height="1em"
+      ref={svgRef}
+      {...props}
+    >
       <defs>
         <style>{".evangelist_svg__a{fill:currentColor}"}</style>
       </defs>

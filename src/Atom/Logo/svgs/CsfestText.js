@@ -2,7 +2,13 @@ import * as React from "react";
 
 function SvgCsfestText(props, svgRef) {
   return (
-    <svg viewBox="0 0 7786.57 1050.35" height="1em" ref={svgRef} {...props}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 7786.57 1050.35"
+      height="1em"
+      ref={svgRef}
+      {...props}
+    >
       <defs>
         <style>{".csfest-text_svg__a{fill:currentColor}"}</style>
       </defs>

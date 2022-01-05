@@ -2,7 +2,13 @@ import * as React from "react";
 
 function SvgLabsText(props, svgRef) {
   return (
-    <svg viewBox="0 0 6406.37 1050.35" height="1em" ref={svgRef} {...props}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 6406.37 1050.35"
+      height="1em"
+      ref={svgRef}
+      {...props}
+    >
       <defs>
         <style>{".labs-text_svg__a{fill:currentColor}"}</style>
       </defs>

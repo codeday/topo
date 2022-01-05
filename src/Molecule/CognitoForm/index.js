@@ -10,7 +10,7 @@ import DataCollection from 'topo/Molecule/DataCollection';
 import style from './style/index';
 
 const CognitoForm = ({
-  formId, prefill, showTitle, onSubmit, onPageChange, onFirstPageChange, payment, fallback, accountId, hidePrivacy,
+  formId, prefill, showTitle, onSubmit, onPageChange, onFirstPageChange, payment, fallback, accountId, hidePrivacy, css,
 }) => {
   const theme = useTheme();
   const [hasFirstPageChange, setHasFirstPageChange] = useState(false);
@@ -21,7 +21,7 @@ const CognitoForm = ({
         accountId={accountId || theme.cognito.id}
         formId={formId}
         prefill={prefill}
-        css={style(theme, { showTitle })}
+        css={style(theme, { showTitle }) + `\n${css || ''}`}
         loading={(
           <Box textAlign="center">
             <Spinner /><br />
@@ -61,6 +61,7 @@ CognitoForm.propTypes = {
   fallback: PropTypes.bool,
   hidePrivacy: PropTypes.bool,
   accountId: PropTypes.string,
+  css: PropTypes.string.isOptional,
 };
 CognitoForm.defaultProps = {
   prefill: {},
@@ -72,6 +73,7 @@ CognitoForm.defaultProps = {
   fallback: false,
   hidePrivacy: false,
   accountId: null,
+  css: null,
 };
 
 export default CognitoForm;

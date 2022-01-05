@@ -2,7 +2,13 @@ import * as React from "react";
 
 function SvgClear(props, svgRef) {
   return (
-    <svg viewBox="0 0 1000 1000" height="1em" ref={svgRef} {...props}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox="0 0 1000 1000"
+      height="1em"
+      ref={svgRef}
+      {...props}
+    >
       <path
         d="M500 978c264 0 478-214 478-478S764 22 500 22 22 236 22 500s214 478 478 478z"
         fill="currentColor"

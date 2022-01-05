@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "4.0.5",
+  "version": "4.2.0",
   "main": "index.js",
   "license": "Artistic-2.0",
   "scripts": {
