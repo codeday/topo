@@ -4,4 +4,4 @@ export {
   NumberInputStepper,
   NumberIncrementStepper,
   NumberDecrementStepper,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";

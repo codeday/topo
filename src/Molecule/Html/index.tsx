@@ -7,8 +7,8 @@ import { useTheme } from "topo/utils";
 
 function Html({ children, ...props }: BoxProps) {
   const t = useTheme();
-  const bgColor = useColorModeValue(t.colors.gray[50], t.colors.gray[800])
-  const borderColor = useColorModeValue(t.colors.gray[100], t.colors.gray[900])
+  const bgColor = useColorModeValue(t.colors.gray[50], t.colors.gray[800]);
+  const borderColor = useColorModeValue(t.colors.gray[100], t.colors.gray[900]);
   const StyledBox = styled.div`
     h1,
     h2,

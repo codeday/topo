@@ -1,6 +1,9 @@
 import * as React from "react";
 
-function SvgCodecupText(props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>, svgRef: React.LegacyRef<SVGSVGElement> | undefined) {
+function SvgCodecupText(
+  props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
+  svgRef: React.LegacyRef<SVGSVGElement> | undefined
+) {
   return (
     <svg viewBox="0 0 4314.78 1050.35" height="1em" ref={svgRef} {...props}>
       <defs>

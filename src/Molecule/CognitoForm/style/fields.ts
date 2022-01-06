@@ -1,5 +1,5 @@
-import { Theme } from 'topo/Theme/vars';
-import selectors from './selectors';
+import { Theme } from "topo/Theme/vars";
+import selectors from "./selectors";
 
 export default (theme: any) => `
   ${selectors.placeholder} {

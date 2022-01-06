@@ -1,6 +1,9 @@
 import * as React from "react";
 
-function SvgCommunity(props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>, svgRef: React.LegacyRef<SVGSVGElement> | undefined) {
+function SvgCommunity(
+  props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
+  svgRef: React.LegacyRef<SVGSVGElement> | undefined
+) {
   return (
     <svg viewBox="0 0 1000 1000" height="1em" ref={svgRef} {...props}>
       <path

@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
-import { keyframes, css, jsx } from '@emotion/react';
-import { Box,  BoxProps } from 'topo/Atom';
-import { useColorModeValue } from '@chakra-ui/react';
+import { keyframes, css, jsx } from "@emotion/react";
+import { Box, BoxProps } from "topo/Atom";
+import { useColorModeValue } from "@chakra-ui/react";
 
 const load = keyframes`
   from {
@@ -18,7 +18,7 @@ const loadAnimation = css`
 
 export const Skelly = (props: BoxProps) => (
   <Box
-    grad={useColorModeValue('skelly', 'darkSkelly')}
+    grad={useColorModeValue("skelly", "darkSkelly")}
     height="1em"
     backgroundSize="800% 100%"
     marginBottom={1}
@@ -27,4 +27,4 @@ export const Skelly = (props: BoxProps) => (
     {...props}
   />
 );
-Skelly.displayName = 'Skelly';
+Skelly.displayName = "Skelly";

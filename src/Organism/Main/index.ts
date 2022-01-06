@@ -1,3 +1,3 @@
-import { makePureBox } from 'topo/_utils';
+import { makePureBox } from "topo/_utils";
 
-export const Main = makePureBox('Main', { role: 'main' });
+export const Main = makePureBox("Main", { role: "main" });

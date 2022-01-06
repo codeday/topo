@@ -52,4 +52,4 @@ const CopyText = forwardRef<CopyTextProps, "p">(
   }
 );
 CopyText.displayName = "CopyText";
-export default CopyText;
+export { CopyText, CopyTextProps };

@@ -43,7 +43,9 @@ export default function CustomToast({
       role="alert"
       aria-label="Notification"
       opacity={transitionState && ["entered"].includes(transitionState) ? 1 : 0}
-      transition={`all ${transitionDuration ? transitionDuration as number / 1000 : 0}s`}
+      transition={`all ${
+        transitionDuration ? (transitionDuration as number) / 1000 : 0
+      }s`}
       sx={styles}
     >
       <Grid templateColumns="1fr 12fr">

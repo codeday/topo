@@ -1,5 +1,5 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
-import Demo from '@codeday/topo/Theme/ComponentProviders/Toasts/Demo';
+import { Meta, Story, Canvas } from "@storybook/addon-docs/blocks";
+import Demo from "@codeday/topo/Theme/ComponentProviders/Toasts/Demo";
 
 <Meta title="Molecule/Toasts" />
 
@@ -14,13 +14,13 @@ import Demo from '@codeday/topo/Theme/ComponentProviders/Toasts/Demo';
 ## Usage
 
 ```jsx
-import { useToasts } from '@codeday/topo/utils';
+import { useToasts } from "@codeday/topo/utils";
 
 export default () => {
   const { addToast, success, error } = useToasts();
-  addToast('Hello, world.');
-  success('Your order was processed');
-  error('Critical error', { autoDismiss: false });
-  addToast('Don\'t forget to like and subscribe', { appearance: 'warning' });
-}
+  addToast("Hello, world.");
+  success("Your order was processed");
+  error("Critical error", { autoDismiss: false });
+  addToast("Don't forget to like and subscribe", { appearance: "warning" });
+};
 ```

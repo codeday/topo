@@ -1,1 +1,1 @@
-export { Switch as default } from '@chakra-ui/react';
+export { Switch as default } from "@chakra-ui/react";

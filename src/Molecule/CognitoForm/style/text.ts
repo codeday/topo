@@ -1,4 +1,4 @@
-import selectors from './selectors';
+import selectors from "./selectors";
 
 export default (theme: any) => `
   html {

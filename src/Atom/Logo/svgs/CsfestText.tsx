@@ -1,6 +1,9 @@
 import * as React from "react";
 
-function SvgCsfestText(props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>, svgRef: React.LegacyRef<SVGSVGElement> | undefined) {
+function SvgCsfestText(
+  props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
+  svgRef: React.LegacyRef<SVGSVGElement> | undefined
+) {
   return (
     <svg viewBox="0 0 7786.57 1050.35" height="1em" ref={svgRef} {...props}>
       <defs>

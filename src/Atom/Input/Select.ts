@@ -1,1 +1,1 @@
-export { Select as default } from '@chakra-ui/react';
+export { Select as default } from "@chakra-ui/react";

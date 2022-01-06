@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useReducer, useCallback } from "react"
-import { Announcement } from "@codeday/topo/Organism"
+import React, { useState, useEffect, useReducer, useCallback } from "react";
+import { Announcement } from "@codeday/topo/Organism";
 import X from "@codeday/topocons/Icon/UiX";
 import PropTypes from "prop-types";
 import useSwr from "swr";
@@ -17,9 +17,9 @@ const Index = () => {
         Reset Dismissed
       </Button>
     </Announcement>
-  )
-}
-export default Index
+  );
+};
+export default Index;
 
 const query = (date, visibility) => `{
   cms {
@@ -218,13 +218,11 @@ const fromIso = (s) => {
 export function useLocalStorage(key, initialValue) {
   const [hasValue, setHasValue] = useState(false);
   console.log(key);
-  const [value, setValue] = useState(
-    () => (
-      typeof window !== 'undefined'
-        // eslint-disable-next-line no-undef
-        ? (JSON.parse(window.localStorage.getItem(key || '')) || initialValue)
-        : initialValue
-    )
+  const [value, setValue] = useState(() =>
+    typeof window !== "undefined"
+      ? // eslint-disable-next-line no-undef
+        JSON.parse(window.localStorage.getItem(key || "")) || initialValue
+      : initialValue
   );
 
   const handleStorageUpdate = useCallback(
@@ -238,7 +236,7 @@ export function useLocalStorage(key, initialValue) {
 
   const setItem = (newValue) => {
     setValue(newValue);
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // eslint-disable-next-line no-undef
       window.localStorage.setItem(key, JSON.stringify(newValue));
     } else {
@@ -247,7 +245,7 @@ export function useLocalStorage(key, initialValue) {
   };
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // If the SSR set the state, update localStorage during hydration.
       if (hasValue) {
         setItem(value);
@@ -265,14 +263,14 @@ export function useLocalStorage(key, initialValue) {
 
   // Register the onUpdate handler
   useEffect(() => {
-    if (typeof window !== 'undefined') {
+    if (typeof window !== "undefined") {
       // eslint-disable-next-line no-undef
-      window.addEventListener('storage', handleStorageUpdate);
+      window.addEventListener("storage", handleStorageUpdate);
     }
     return () => {
-      if (typeof window !== 'undefined') {
+      if (typeof window !== "undefined") {
         // eslint-disable-next-line no-undef
-        window.removeEventListener('storage', handleStorageUpdate);
+        window.removeEventListener("storage", handleStorageUpdate);
       }
     };
   }, [handleStorageUpdate, typeof window]);

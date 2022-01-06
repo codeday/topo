@@ -3,4 +3,4 @@ export {
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,
-} from '@chakra-ui/react';
+} from "@chakra-ui/react";

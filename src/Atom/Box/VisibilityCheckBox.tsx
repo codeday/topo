@@ -37,7 +37,7 @@ const VisibilityCheckBoxInner = forwardRef<BoxProps, "div">(
 // VisibilityCheckBoxInner = forwardRef(VisibilityCheckBoxInner);
 
 // Wrapping this component with a check for client-side will prevent errors about useLayoutEffect on SSR
-export default forwardRef<BoxProps, "div">(
+export const VisibilityCheckBox = forwardRef<BoxProps, "div">(
   ({ children, ...props }, ref) => {
     return (
       <ClientSideOnlyBox>

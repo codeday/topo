@@ -1,1 +1,1 @@
-declare module "@codeday/topocons/*"
+declare module "@codeday/topocons/*";

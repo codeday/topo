@@ -59,4 +59,4 @@ const Code = forwardRef<CodeProps, "p">(({ children, ...props }, ref) => {
 });
 
 Code.displayName = "Code";
-export default Code;
+export { Code, CodeProps };

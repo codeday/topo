@@ -11,7 +11,7 @@ import { useTheme } from "topo/utils";
 
 import style from "./style/index";
 
-export interface CognitoFormProps {
+interface CognitoFormProps {
   formId: number | string;
   prefill?: any;
   showTitle?: boolean;
@@ -49,7 +49,7 @@ const CognitoForm = ({
         accountId={accountId || theme.cognito.id}
         formId={formId}
         prefill={prefill}
-        css={style(theme, { showTitle, colorMode }) + `\n${css || ''}`}
+        css={style(theme, { showTitle, colorMode }) + `\n${css || ""}`}
         loading={
           <Box textAlign="center">
             <Spinner />

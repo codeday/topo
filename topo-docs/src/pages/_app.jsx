@@ -31,7 +31,7 @@ export default function App(props) {
         ]}
         headerLogo={<CodeDay fontSize="2xl" withText text="Topo" />}
       >
-          <Component {...pageProps} />
+        <Component {...pageProps} />
       </DokzProvider>
     </ThemeProvider>
   );

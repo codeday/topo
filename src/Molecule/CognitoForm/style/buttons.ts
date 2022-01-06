@@ -1,8 +1,8 @@
-import selectors from './selectors';
+import selectors from "./selectors";
 
 export default (theme: any) => `
   /* All buttons */
-  ${Object.values(selectors.buttons).join(', ')} {
+  ${Object.values(selectors.buttons).join(", ")} {
     border-radius: ${theme.radii.sm} !important;
     font-size: ${theme.fontSizes.md} !important;
     font-family: ${theme.fonts.heading} !important;
@@ -11,7 +11,7 @@ export default (theme: any) => `
     min-width: ${theme.sizes[10]} !important;
   }
 
-  ${Object.values(selectors.buttons).join(':focus, ')}:focus {
+  ${Object.values(selectors.buttons).join(":focus, ")}:focus {
     box-shadow: ${theme.shadows.outline} !important;
   }
   /* Secondary buttons */

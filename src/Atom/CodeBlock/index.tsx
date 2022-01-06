@@ -3,13 +3,14 @@ import PropTypes from "prop-types";
 import { Box } from "topo/Atom";
 import { useTheme } from "topo/utils";
 import makeStyle from "./make-style";
-import {LightAsync as SyntaxHighlighter,
-  SyntaxHighlighterProps
+import {
+  LightAsync as SyntaxHighlighter,
+  SyntaxHighlighterProps,
 } from "react-syntax-highlighter";
 
 export const SH = ({ lang, numbers, ...props }: SyntaxHighlighterProps) => {
   const theme = useTheme();
-  console.log(typeof SyntaxHighlighter)
+  console.log(typeof SyntaxHighlighter);
   if (!SyntaxHighlighter) {
     return (
       <Box bg="red.500" color="white" fontWeight="bold" p={2}>

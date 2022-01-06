@@ -25,8 +25,8 @@ interface MailingListSubscribeProps extends BoxProps {
 function MailingListSubscribe({
   emailList,
   textList,
-  variant="solid",
-  colorScheme="green",
+  variant = "solid",
+  colorScheme = "green",
   ...props
 }: MailingListSubscribeProps) {
   const { success, error } = useToasts();

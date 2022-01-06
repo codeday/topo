@@ -130,7 +130,7 @@ interface SponsorBoxProps {
   level: SponsorshipLevel;
 }
 function SponsorBox({ level }: SponsorBoxProps) {
-  console.log(level)
+  console.log(level);
   return (
     <Box marginRight={3} w="275px">
       <Box
@@ -151,7 +151,11 @@ function SponsorBox({ level }: SponsorBoxProps) {
         roundedBottomLeft="lg"
         roundedBottomRight="lg"
       >
-        <Box backgroundColor={useColorModeValue(level.boxTint, "")} p={3} w="100%">
+        <Box
+          backgroundColor={useColorModeValue(level.boxTint, "")}
+          p={3}
+          w="100%"
+        >
           <strong>
             ${level.amount}/{level.amountInterval}
           </strong>

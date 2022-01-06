@@ -1,6 +1,4 @@
-
-
-import Document, { Html, Head, Main, NextScript } from 'next/document'
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
@@ -8,9 +6,9 @@ class MyDocument extends Document {
       <Html>
         <Head>
           <link
-            href='https://fonts.googleapis.com/css?family=Fira+Code&display=optional'
-            rel='stylesheet'
-            key='google-font-Fira'
+            href="https://fonts.googleapis.com/css?family=Fira+Code&display=optional"
+            rel="stylesheet"
+            key="google-font-Fira"
           />
         </Head>
         <body>
@@ -18,8 +16,8 @@ class MyDocument extends Document {
           <NextScript />
         </body>
       </Html>
-    )
+    );
   }
 }
 
-export default MyDocument
+export default MyDocument;

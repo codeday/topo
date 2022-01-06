@@ -34,7 +34,7 @@ const Header = ({
     <>
       <Box
         grad={
-          (((darkBackground && gradAmount) || gradAmount)) &&
+          ((darkBackground && gradAmount) || gradAmount) &&
           `${darkBackground ? "darken" : "lighten"}.${gradAmount || "sm"}.180`
         }
         as="nav"

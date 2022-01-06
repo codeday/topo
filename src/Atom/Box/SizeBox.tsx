@@ -10,7 +10,7 @@ export interface SizeBoxProps extends BoxProps {
   onSizeChanged?: (width: any, height: any) => null;
 }
 
-export default forwardRef<SizeBoxProps, "div">(
+export const SizeBox = forwardRef<SizeBoxProps, "div">(
   (
     {
       onWidthChanged = () => {},

@@ -1,6 +1,9 @@
 import * as React from "react";
 
-function SvgClearText(props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>, svgRef: React.LegacyRef<SVGSVGElement> | undefined) {
+function SvgClearText(
+  props: JSX.IntrinsicAttributes & React.SVGProps<SVGSVGElement>,
+  svgRef: React.LegacyRef<SVGSVGElement> | undefined
+) {
   return (
     <svg viewBox="0 0 2654.43 1050.35" height="1em" ref={svgRef} {...props}>
       <defs>

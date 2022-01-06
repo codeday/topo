@@ -63,7 +63,7 @@ const RatioBoxInner = forwardRef<RatioBoxProps, "div">(
   }
 );
 
-export default forwardRef<RatioBoxProps, "div">(
+export const RatioBox = forwardRef<RatioBoxProps, "div">(
   ({ auto = "h", autoDefault = "100%", children, ...props }, ref) => {
     const ssr = useSsr();
     if (ssr) {

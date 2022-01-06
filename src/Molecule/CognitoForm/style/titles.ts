@@ -1,4 +1,4 @@
-import selectors from './selectors';
+import selectors from "./selectors";
 
 export default (theme: any, { showTitle }: any) => `
   ${selectors.title} {
@@ -6,7 +6,7 @@ export default (theme: any, { showTitle }: any) => `
   }
 
   ${selectors.titleSection} {
-    display: ${showTitle ? 'block' : 'none'} !important;
+    display: ${showTitle ? "block" : "none"} !important;
     padding: 0 0 ${theme.space[2]} !important;
   }
 
