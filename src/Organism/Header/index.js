@@ -83,15 +83,15 @@ const Header = ({ underscore, children, gradAmount, darkBackground: overrideDark
             mb={4}
             borderBottomWidth={1}
           >
-            {Children.map(Children.toArray(logo[0]?.props?.children).filter((e) => e), (c) =>
-              cloneElement(c, {
+            {
+              cloneElement(logo[0], {
                 fontSize: '3xl',
                 d: 'block',
                 float: 'none',
                 p: 2,
                 role: 'menuitem',
               })
-            )}
+            }
           </Box>
           {Children.map(
             Children.toArray(menu[0]?.props?.children).filter((e) => e),
