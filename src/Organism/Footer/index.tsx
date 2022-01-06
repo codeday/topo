@@ -7,7 +7,8 @@ import {
   CopyText,
   Grid,
   Heading,
-  Item,
+  ListItem,
+  ListIcon,
   Link,
   List,
   Skelly,
@@ -15,6 +16,7 @@ import {
 } from "topo/Atom";
 import { Content } from "topo/Molecule";
 import { apiFetch, useString } from "topo/utils";
+import { Discord, Instagram, Linkedin, Twitter } from "./SocialLogos";
 
 export const CustomLinks = makePureBox("Custom Links");
 export const CustomText = makePureBox("CustomText");
@@ -44,28 +46,62 @@ const StandardLinks = () => {
     <List>
       {!links ? (
         <>
-          <Item>
+          <ListItem>
             <Skelly />
-          </Item>
-          <Item>
+          </ListItem>
+          <ListItem>
             <Skelly />
-          </Item>
-          <Item>
+          </ListItem>
+          <ListItem>
             <Skelly />
-          </Item>
+          </ListItem>
         </>
       ) : (
         links.map(({ title, link, sys }: any) => (
-          <Item key={sys.id}>
+          <ListItem key={sys.id}>
             <Link href={link} target="_blank" rel="noopener" key={link}>
               {title}
             </Link>
-          </Item>
+          </ListItem>
         ))
       )}
     </List>
   );
 };
+
+// const Socials = () => {
+//   // const { data, error } = useSwr(query, apiFetch, {
+//   //   revalidateOnFocus: false,
+//   //   revalidateOnReconnect: false,
+//   // });
+//   // const links: any = data?.cms?.sites?.items;
+
+//   return (
+//     <List>
+//       {!links ? (
+//         <>
+//           <ListItem>
+//             <Skelly />
+//           </ListItem>
+//           <ListItem>
+//             <Skelly />
+//           </ListItem>
+//           <ListItem>
+//             <Skelly />
+//           </ListItem>
+//         </>
+//       ) : (
+//         links.map(({ title, link, sys }: any) => (
+//           <ListItem key={sys.id}>
+//             <Link href={link} target="_blank" rel="noopener" key={link}>
+//               {title}
+//             </Link>
+//           </ListItem>
+//         ))
+//       )}
+//     </List>
+//   );
+// };
 
 const Footer = forwardRef(({ children }, ref) => {
   const cookiesLink = useString("legal.cookies", <Skelly />);

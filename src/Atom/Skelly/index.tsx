@@ -1,4 +1,4 @@
-/** @jsx jsx */
+/** @jsxImportSource @emotion/react */
 import { keyframes, css, jsx } from '@emotion/react';
 import { Box,  BoxProps } from 'topo/Atom';
 import { useColorModeValue } from '@chakra-ui/react';

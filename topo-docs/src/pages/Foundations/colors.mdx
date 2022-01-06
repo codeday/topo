@@ -1,0 +1,189 @@
+import { Playground } from "@nexite/dokz";
+import ColorPalette from "../../components/ColorPalette";
+import { Box, Flex } from "@codeday/topo/Atom";
+
+# Colors!
+
+Most of the time, you'll need one of these colors:
+
+<Playground>
+  <>
+    <Flex width="100%">
+      <Box
+        bg="black"
+        color="white"
+        height={16}
+        display="inline-block"
+        textAlign="center"
+        flexGrow={1}
+      >
+        black
+      </Box>
+      <Box
+        bg="white"
+        color="black"
+        height={16}
+        display="inline-block"
+        textAlign="center"
+        flexGrow={1}
+      >
+        white
+      </Box>
+      <Box
+        bg="brand"
+        height={16}
+        display="inline-block"
+        textAlign="center"
+        flexGrow={1}
+      >
+        brand
+      </Box>
+    </Flex>
+    <Box
+      bg="success.bg"
+      borderWidth={2}
+      borderColor="success.border"
+      color="success.text"
+      width="100%"
+      height={20}
+      textAlign="center"
+    >
+      success.bg, success.text, success.border
+    </Box>
+    <Box
+      bg="failure.bg"
+      borderWidth={2}
+      borderColor="failure.border"
+      color="failure.text"
+      width="100%"
+      height={20}
+      textAlign="center"
+    >
+      failure.bg, failure.text, failure.border
+    </Box>
+  </>
+</Playground>
+
+## Gray
+
+<Playground>
+  <ColorPalette color="gray"></ColorPalette>
+</Playground>
+
+## Red
+
+<Playground>
+  <ColorPalette color="red"></ColorPalette>
+</Playground>
+
+## Orange
+
+<Playground>
+  <ColorPalette color="orange"></ColorPalette>
+</Playground>
+
+## Yellow
+
+<Playground>
+  <ColorPalette color="yellow"></ColorPalette>
+</Playground>
+
+## Green
+
+<Playground>
+  <ColorPalette color="green"></ColorPalette>
+</Playground>
+
+## Teal
+
+<Playground>
+  <ColorPalette color="teal"></ColorPalette>
+</Playground>
+
+## Cyan
+
+<Playground>
+  <ColorPalette color="cyan"></ColorPalette>
+</Playground>
+
+## Blue
+
+<Playground>
+  <ColorPalette color="blue"></ColorPalette>
+</Playground>
+
+## Indigo
+
+<Playground>
+  <ColorPalette color="indigo"></ColorPalette>
+</Playground>
+
+## Purple
+
+<Playground>
+  <ColorPalette color="purple"></ColorPalette>
+</Playground>
+
+## Pink
+
+<Playground>
+  <ColorPalette color="pink"></ColorPalette>
+</Playground>
+
+## Gradients
+
+Gradients come in one shade. Rather than specifying the shade of a gradient, you specify its angle, e.g. `taffy.90`.
+Allowed angles are 0, 30, 45, 60, 90, 120, 135, 150, 180, 210, 240, 270, 300, or 330.
+
+<Playground>
+  <>
+    <Box
+      grad="twilight.30"
+      color="black"
+      width="100%"
+      height={16}
+      marginBottom={2}
+      display="inline-block"
+      fontSize="xl"
+      textAlign="center"
+    >
+      twlight
+    </Box>
+    <Box
+      grad="lemonlime.60"
+      color="black"
+      width="100%"
+      height={16}
+      marginBottom={2}
+      display="inline-block"
+      fontSize="xl"
+      textAlign="center"
+    >
+      lemonlime
+    </Box>
+    <Box
+      grad="peachy.45"
+      color="black"
+      width="100%"
+      height={16}
+      marginBottom={2}
+      display="inline-block"
+      fontSize="xl"
+      textAlign="center"
+    >
+      peachy
+    </Box>
+    <Box
+      grad="taffy.90"
+      color="black"
+      width="100%"
+      height={16}
+      marginBottom={2}
+      display="inline-block"
+      fontSize="xl"
+      textAlign="center"
+    >
+      taffy
+    </Box>
+  </>
+</Playground>

@@ -1,7 +1,7 @@
-import { Flex, Icon, forwardRef } from "@chakra-ui/react";
+import { Flex, Icon, forwardRef, useColorModeValue } from "@chakra-ui/react";
 import React from "react";
 import useSwr from "swr";
-import { Item, List, Skelly, Text } from "topo/Atom";
+import { ListItem, List, Skelly, Text } from "topo/Atom";
 import { Box, BoxProps } from "topo/Atom/Box";
 import { apiFetch } from "topo/utils";
 
@@ -16,6 +16,7 @@ interface SponsorshipPerk {
 }
 
 interface SponsorshipLevel {
+  borderColor: string;
   id: string;
   name: string;
   titleColor: string;
@@ -84,15 +85,15 @@ const Sponsorship = forwardRef(
           >
             {!levels ? (
               <>
-                <Item>
+                <ListItem>
                   <Skelly />
-                </Item>
-                <Item>
+                </ListItem>
+                <ListItem>
                   <Skelly />
-                </Item>
-                <Item>
+                </ListItem>
+                <ListItem>
                   <Skelly />
-                </Item>
+                </ListItem>
               </>
             ) : (
               Object.keys(levels).map((key, index) => (
@@ -129,6 +130,7 @@ interface SponsorBoxProps {
   level: SponsorshipLevel;
 }
 function SponsorBox({ level }: SponsorBoxProps) {
+  console.log(level)
   return (
     <Box marginRight={3} w="275px">
       <Box
@@ -145,11 +147,11 @@ function SponsorBox({ level }: SponsorBoxProps) {
       </Box>
       <Box
         borderWidth="2px"
-        borderColor="{level.borderColor}"
+        borderColor={useColorModeValue(level.borderColor, "")}
         roundedBottomLeft="lg"
         roundedBottomRight="lg"
       >
-        <Box backgroundColor={level.boxTint} p={3} w="100%">
+        <Box backgroundColor={useColorModeValue(level.boxTint, "")} p={3} w="100%">
           <strong>
             ${level.amount}/{level.amountInterval}
           </strong>
@@ -177,14 +179,17 @@ function PerksGroups({ items, isFirst }: any) {
       {Object.keys(items).map((key, index) => (
         <Box key={items[key].name} marginTop={5}>
           {isFirst ? (
-            <Text h="12px" fontWeight={1000}>
-              {items[key].name}
-            </Text>
+            <Text fontWeight={1000}>{items[key].name}</Text>
           ) : (
-            <Text h="12px"></Text>
+            <Text></Text>
           )}
 
-          <Box marginBottom={2} h="2px" w="90%" backgroundColor="#E7E7E5"></Box>
+          <Box
+            marginBottom={2}
+            h="2px"
+            w="90%"
+            backgroundColor={useColorModeValue("white", "gray.600")}
+          ></Box>
           <PerksList perks={items[key]} />
         </Box>
       ))}
@@ -219,12 +224,12 @@ function PerksList({ perks }: PerksList) {
         ))
       ) : (
         <>
-          <Item>
+          <ListItem>
             <Skelly />
-          </Item>
-          <Item>
+          </ListItem>
+          <ListItem>
             <Skelly />
-          </Item>
+          </ListItem>
         </>
       )}
       {perks ? (
@@ -248,12 +253,12 @@ function PerksList({ perks }: PerksList) {
         ))
       ) : (
         <>
-          <Item>
+          <ListItem>
             <Skelly />
-          </Item>
-          <Item>
+          </ListItem>
+          <ListItem>
             <Skelly />
-          </Item>
+          </ListItem>
         </>
       )}
     </List>

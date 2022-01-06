@@ -11,7 +11,7 @@ import { useTheme } from "topo/utils";
 
 import style from "./style/index";
 
-interface CognitoFormProps {
+export interface CognitoFormProps {
   formId: number | string;
   prefill?: any;
   showTitle?: boolean;
@@ -22,6 +22,7 @@ interface CognitoFormProps {
   fallback?: boolean;
   hidePrivacy?: boolean;
   accountId?: string;
+  css?: string;
 }
 
 const CognitoForm = ({
@@ -35,6 +36,7 @@ const CognitoForm = ({
   fallback,
   accountId,
   hidePrivacy,
+  css,
 }: CognitoFormProps) => {
   const theme = useTheme();
   const { colorMode } = useColorMode();
@@ -47,13 +49,13 @@ const CognitoForm = ({
         accountId={accountId || theme.cognito.id}
         formId={formId}
         prefill={prefill}
-        css={style(theme, { showTitle, colorMode })}
+        css={style(theme, { showTitle, colorMode }) + `\n${css || ''}`}
         loading={
           <Box textAlign="center">
             <Spinner />
             <br />
             {fallback && (
-              <Text color="current.textLight">
+              <Text>
                 Problems loading?{" "}
                 <Link
                   href={`https://services.cognitoforms.com/f/${theme.cognito.id}?id=${formId}`}

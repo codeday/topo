@@ -14,16 +14,13 @@ import React, { Fragment } from "react";
 import useSwr from "swr";
 import { apiFetch } from "topo/utils";
 
-import Chatra from './ComponentProviders/Chatra';
-import Toasts from './ComponentProviders/Toasts';
-import vars from "./vars";
-
-export const codedayTheme = extendTheme({
-  ...vars,
-});
+import Chatra from "./ComponentProviders/Chatra";
+import Toasts from "./ComponentProviders/Toasts";
+import codedayTheme from "./vars";
 
 const customCss = css`
   @import url(https://f1.srnd.org/topo/fonts/all.css);
+  @import url(https://use.typekit.net/erv1euo.css);
 `;
 
 const query = `{
@@ -73,18 +70,18 @@ const Provider = ({
     );
   }
 
-  if (brandColor && brandColor in codedayTheme.colors) {
-    codedayTheme.colors.brand = codedayTheme.colors[brandColor];
-    codedayTheme.colors.black = codedayTheme.colors.brand[1000];
-    codedayTheme.colors.modes.light.textLight = (codedayTheme.colors.brand
-      .desaturated || codedayTheme.colors.brand)[800];
-    codedayTheme.colors.modes.light.placeholder = (codedayTheme.colors.brand
-      .desaturated || codedayTheme.colors.brand)[600];
-    codedayTheme.colors.modes.light.border = (codedayTheme.colors.brand
-      .desaturated || codedayTheme.colors.brand)[200];
-    codedayTheme.colors.modes.light.borderColor = (codedayTheme.colors.brand
-      .desaturated || codedayTheme.colors.brand)[200];
-  }
+  // if (brandColor && brandColor in codedayTheme.colors) {
+  //   codedayTheme.colors.brand = codedayTheme.colors[brandColor];
+  //   codedayTheme.colors.black = codedayTheme.colors.brand[1000];
+  //   codedayTheme.colors.modes.light.textLight = (codedayTheme.colors.brand
+  //     .desaturated || codedayTheme.colors.brand)[800];
+  //   codedayTheme.colors.modes.light.placeholder = (codedayTheme.colors.brand
+  //     .desaturated || codedayTheme.colors.brand)[600];
+  //   codedayTheme.colors.modes.light.border = (codedayTheme.colors.brand
+  //     .desaturated || codedayTheme.colors.brand)[200];
+  //   codedayTheme.colors.modes.light.borderColor = (codedayTheme.colors.brand
+  //     .desaturated || codedayTheme.colors.brand)[200];
+  // }
   codedayTheme.config.initialColorMode = initialColorMode
     ? initialColorMode
     : codedayTheme.config.initialColorMode;
@@ -141,4 +138,10 @@ Provider.defaultProps = {
 };
 // export default Provider;
 
-export { useColorMode, useColorModeValue, Provider as ThemeProvider, ProviderProps as ThemeProviderProps };
+export {
+  useColorMode,
+  useColorModeValue,
+  Provider as ThemeProvider,
+  ProviderProps as ThemeProviderProps,
+};
+export { codedayTheme };

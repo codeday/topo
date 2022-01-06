@@ -20,7 +20,8 @@ export default forwardRef<SizeBoxProps, "div">(
     },
     ref
   ) => {
-    const boxRef = useRef(null);
+    // const boxRef = useRef<Element | null>(null);
+    const boxRef: React.MutableRefObject<any> = useRef(null);
     const [lastWidth, setLastWidth] = useState();
     const [lastHeight, setLastHeight] = useState();
 

@@ -20,6 +20,5 @@ const Theme = {
   },
 };
 
-// export default extendTheme({ Theme });
 export { Theme };
-export default Theme;
+export default extendTheme({ ...Theme });

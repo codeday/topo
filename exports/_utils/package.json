@@ -1,0 +1,14 @@
+{
+  "internal": true,
+  "main": "../dist/cjs/_utils.js",
+  "module": "../dist/esm/_utils.js",
+  "types": "../dist/esm/_utils.d.ts",
+  "exports": {
+    ".": {
+      "types": "./../dist/esm/_utils.d.ts",
+      "require": "./../dist/cjs/_utils.js",
+      "default": "./../dist/esm/_utils.js"
+    }
+  },
+  "sideEffects": false
+}

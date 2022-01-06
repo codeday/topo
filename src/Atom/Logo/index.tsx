@@ -4,18 +4,19 @@ import { Text } from "topo/Atom";
 import { pureRef } from "topo/_utils";
 import { withProps } from "recompose";
 import { useColorModeValue } from "@chakra-ui/react";
-import * as Svgs from "./svgs";
+// import * as Icons from "./svgs";
+import * as Icons from "./Icons";
 
 const upperFirst = (string: string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
 
-interface LockupProps {
+interface LockupProps extends BoxProps {
   text: React.ReactNode;
   logo: React.ReactNode;
   logoColor?: string;
 }
 
-interface LogoProps {
+export interface LogoProps extends BoxProps {
   text?: string;
   withText?: true;
 }
@@ -27,13 +28,9 @@ const Lockup = ({
   textColor,
   color,
   ...props
-}: LockupProps & BoxProps) => (
-  <Box d="inline" style={{ textDecoration: "none" }} {...props}>
-    <Box
-      color={logoColor || color || "current.primary"}
-      height="1.1em"
-      d="inline"
-    >
+}: LockupProps) => (
+  <Box d="inline" textDecoration="none" {...props}>
+    <Box color="brand" height="1.1em" d="inline">
       {logo}
     </Box>
     <Box
@@ -49,28 +46,31 @@ Lockup.displayName = "Lockup";
 
 export const Logo = pureRef<any, "div">(
   ({ program, withText, text, ...props }, ref) => {
-    const logoPart = React.createElement(Svgs[`${upperFirst(program)}`], {
-      style: { display: "inline" },
+    const logoPart = React.createElement(Icons[`${upperFirst(program)}`], {
+      display: "inline",
+      width: "auto",
     });
     let textPart = <></>;
     if (typeof text === "string") {
       textPart = (
         <Text
           d="inline"
-          fontSize="0.9em"
+          fontSize="0.94em"
           fontWeight="bold"
-          fontFamily="heading"
+          fontFamily="logo"
+          letterSpacing="tight"
           verticalAlign="middle"
           paddingLeft="2"
           position="relative"
-          top="0.05em"
+          top="-0.05em"
         >
           {text}
         </Text>
       );
     } else if (withText) {
-      textPart = React.createElement(Svgs[`${upperFirst(program)}Text`], {
-        style: { display: "inline" },
+      textPart = React.createElement(Icons[`${upperFirst(program)}Text`], {
+        display: "inline",
+        width: "auto",
       });
     }
 

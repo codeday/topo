@@ -1,0 +1,37 @@
+import { CodeDay, Text } from "@codeday/topo/Atom";
+import {
+  IconBox,
+  IconBoxIcon,
+  IconBoxText,
+  IconBoxBody,
+} from "@codeday/topo/Molecule";
+import { Playground } from "@nexite/dokz";
+
+# IconBox
+
+A rounded box showing an icon, header, and body content.
+
+It takes no props, but takes the following children:
+
+- `IconBoxIcon` - Container holding the icon to display.
+- `IconBoxText` - Container holding the title to display.
+- `IconBoxBody` - Container holding the text to display.
+
+Any of the children can be styled how you wish, however default styling (font, color, size) will be applied if you
+do not provide any.
+
+## Default Styling
+
+If you provide no custom styling, the box will be drawn as follows:
+
+<Playground>
+  <IconBox maxWidth={64}>
+    <IconBoxIcon>
+      <CodeDay />
+    </IconBoxIcon>
+    <IconBoxText>CodeDay</IconBoxText>
+    <IconBoxBody>
+      February 30-31, 2030, galaxy-wide. The best CodeDay yet.
+    </IconBoxBody>
+  </IconBox>
+</Playground>

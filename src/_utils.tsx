@@ -3,6 +3,7 @@ import {
   PropsOf,
   RightJoinProps,
   forwardRef as chakraForwardRef,
+  ComponentWithAs,
 } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import React, { ReactNode, forwardRef, useMemo } from "react";
@@ -90,7 +91,7 @@ export const makePureBox = (
   name: string | undefined,
   defaultProps?: BoxProps,
   Component?: typeof React.Component
-) => {
+): ComponentWithAs<"div", BoxProps> => {
   const DerivedBox = pureRef<BoxProps, "div">(
     (
       { children, ...props }: any,

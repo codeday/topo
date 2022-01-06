@@ -2,7 +2,7 @@
   "compilerOptions": {
     "outDir": "dist/esm",
     "module": "esnext",
-    "target": "es2020",
+    "target": "es6",
     "downlevelIteration": true,
     "lib": ["dom", "esnext"],
     "jsx": "react",

@@ -8,14 +8,14 @@ import {
 } from "topo/_utils";
 import { Box, BoxProps } from "topo/Atom/Box";
 
-export const HeaderIcon = makePureBox("HeaderIcon");
-export const HeaderText = makePureBox("HeaderText");
-export const Body = makePureBox("Body");
+export const IconBoxIcon = makePureBox("IconBoxIcon");
+export const IconBoxText = makePureBox("IconBoxText");
+export const IconBoxBody = makePureBox("Body");
 
 const IconBox = pureRef<BoxProps, "div">(({ children, ...props }, ref) => {
-  const headerIcon = childrenOfType(children, HeaderIcon);
-  const headerText = childrenOfType(children, HeaderText);
-  const body = childrenOfType(children, Body);
+  const headerIcon = childrenOfType(children, IconBoxIcon);
+  const headerText = childrenOfType(children, IconBoxText);
+  const body = childrenOfType(children, IconBoxBody);
   return (
     <Box borderWidth={1} borderRadius={3} padding={4} ref={ref} {...props}>
       {React.Children.map(

@@ -11,38 +11,69 @@
     "utils",
     "_utils"
   ],
+  "sideEffects": false,
   "main": "dist/cjs/index.js",
   "module": "dist/esm/index.js",
-  "types": "./dist/esm/index.d.ts",
-  "typings": "./dist/esm/index.d.ts",
-  "sideEffects": false,
+  "types": "dist/esm/index.d.ts",
+  "typesVersions": {
+    "*": {
+      "Atom": [
+        "dist/esm/Atom/index.d.ts"
+      ],
+      "Molecule": [
+        "dist/esm/Molecule/index.d.ts"
+      ],
+      "Organism": [
+        "dist/esm/Organism/index.d.ts"
+      ],
+      "Theme": [
+        "dist/esm/Theme/index.d.ts"
+      ],
+      "utils": [
+        "dist/esm/utils.d.ts"
+      ],
+      "_utils": [
+        "dist/esm/_utils.d.ts"
+      ],
+      "*": [
+        "dist/esm/index.d.ts"
+      ]
+    }
+  },
   "exports": {
     ".": {
+      "types": "./dist/esm/index.d.ts",
       "require": "./dist/cjs/index.js",
       "default": "./dist/esm/index.js"
     },
     "./Atom": {
+      "types": "./dist/esm/Atom/index.d.ts",
       "require": "./dist/cjs/Atom/index.js",
       "default": "./dist/esm/Atom/index.js"
     },
     "./Molecule": {
+      "types": "./dist/esm/Molecule/index.d.ts",
       "require": "./dist/cjs/Molecule/index.js",
       "default": "./dist/esm/Molecule/index.js"
     },
     "./Organism": {
+      "types": "./dist/esm/Organism/index.d.ts",
       "require": "./dist/cjs/Organism/index.js",
       "default": "./dist/esm/Organism/index.js"
     },
     "./Theme": {
+      "types": "./dist/esm/Theme/index.d.ts",
       "require": "./dist/cjs/Theme/index.js",
       "default": "./dist/esm/Theme/index.js"
     },
     "./utils": {
+      "types": "./dist/esm/utils.d.ts",
       "require": "./dist/cjs/utils.js",
       "default": "./dist/esm/utils.js"
     },
     "./_utils": {
-      "require": "./dist/cjs/_utilsjs",
+      "types": "./dist/esm/_utils.d.ts",
+      "require": "./dist/cjs/_utils.js",
       "default": "./dist/esm/_utils.js"
     }
   },
@@ -51,11 +82,14 @@
     "trace": "tsc --traceResolution",
     "build:esm": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs && tscpaths -p tsconfig.json -s ./src -o ./dist/cjs",
-    "yalc": "yalc publish"
+    "gen:theme-typings": "chakra-cli tokens ./src/Theme/vars/index.ts",
+    "postinstall": "yarn run gen:theme-typings"
   },
   "dependencies": {
     "@accessible/use-id": "^1.1.2",
-    "@chakra-ui/react": "^1.6.10",
+    "@chakra-ui/cli": "^1.6.0",
+    "@chakra-ui/react": "~1.6.10",
+    "@chakra-ui/styled-system": "^1.14.1",
     "@codeday/topocons": "^1.5.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
@@ -68,20 +102,22 @@
     "react-dom": "^17.0.2",
     "react-load-script": "^0.0.6",
     "react-pdf": "^5.5.0",
+    "react-syntax-highlighter": "^15.4.5",
     "react-toast-notifications": "^2.5.1",
     "recompose": "^0.30.0",
     "stylis": "~4.0.10",
     "swr": "^1.0.1"
   },
   "devDependencies": {
-    "@chakra-ui/cli": "^1.5.3",
     "@types/node": "^16.11.6",
     "@types/react": "^17.0.33",
     "@types/react-dom": "^17.0.10",
     "@types/react-pdf": "^5.0.9",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/recompose": "^0.30.9",
+    "concurrently": "^6.4.0",
+    "cross-env": "^7.0.3",
     "tscpaths": "^0.0.9",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   }
 }

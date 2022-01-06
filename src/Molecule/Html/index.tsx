@@ -1,3 +1,4 @@
+import { useColorModeValue } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import PropTypes from "prop-types";
 import React from "react";
@@ -6,6 +7,8 @@ import { useTheme } from "topo/utils";
 
 function Html({ children, ...props }: BoxProps) {
   const t = useTheme();
+  const bgColor = useColorModeValue(t.colors.gray[50], t.colors.gray[800])
+  const borderColor = useColorModeValue(t.colors.gray[100], t.colors.gray[900])
   const StyledBox = styled.div`
     h1,
     h2,
@@ -57,8 +60,8 @@ function Html({ children, ...props }: BoxProps) {
     *:not(pre) > code {
       padding: ${t.space[1]} ${t.space[2]};
       border-radius: 2px;
-      background-color: ${t.colors.gray[50]};
-      border-color: ${t.colors.gray[100]};
+      background-color: ${bgColor};
+      border-color: ${borderColor};
       border-width: 1px;
       font-size: 0.9em;
       margin-top: -0.2em;
@@ -68,8 +71,8 @@ function Html({ children, ...props }: BoxProps) {
     pre > code {
       padding: ${t.space[1]} ${t.space[2]};
       border-radius: 2px;
-      background-color: ${t.colors.gray[50]};
-      border-color: ${t.colors.gray[100]};
+      background-color: ${bgColor};
+      border-color: ${borderColor};
       border-width: 1px;
       display: block;
     }

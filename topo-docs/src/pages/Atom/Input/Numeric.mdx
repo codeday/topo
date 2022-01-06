@@ -1,0 +1,126 @@
+import {
+  Box,
+  NumberInput,
+  NumberInputField,
+  NumberInputStepper,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+} from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Number Input
+
+The `NumberInput` is similar to the [Input](/Atom/input) component but has controls to increase or decrease the value.
+
+## Import
+
+```js
+import { Checkbox } from "@codeday/topo/Atom";
+```
+
+## Example
+
+<Playground>
+  <Box p={3}>
+    <NumberInput>
+      <NumberInputField />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+  </Box>
+</Playground>
+
+## Setting the minimum and maximum value
+
+Use the `min` prop or the `max` prop to set a upper and lower limit for the input.
+
+<Playground>
+  <Box p={3}>
+    <NumberInput defaultValue={15} min={10} max={20}>
+      <NumberInputField />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+  </Box>
+</Playground>
+
+## Setting step size
+
+Use the `step` prop to set the step size each time you increment or decrement the value.
+
+<Playground>
+  <Box p={3}>
+    <NumberInput step={5} defaultValue={15} min={10} max={30}>
+      <NumberInputField />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+  </Box>
+</Playground>
+
+## Adjusting decimal places
+
+Use the `precision` prop to set number of decimal places to round to.
+
+<Playground>
+  <Box p={3}>
+    <NumberInput defaultValue={15} precision={2} step={0.2}>
+      <NumberInputField />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+  </Box>
+</Playground>
+
+## Clamp value when user blurs the input
+
+Use the prop `clampOnBlur` to round the value to the `min` or `max` on blur. By default this is `true`.
+
+> In this example, try to type a value greater than the max. It won't reset the value on blur.
+
+<Playground>
+  <Box p={3}>
+    <NumberInput defaultValue={15} max={30} clampValueOnBlur={false}>
+      <NumberInputField />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+  </Box>
+</Playground>
+
+## Allowing out of range values
+
+In some scenarios, you might not want to block out of range values. Pass the `keepWithinRange` and `clampValueOnBlur` props and set them to `false` to support this use case.
+
+> The NumberInput will be set `isInvalid` to `true` internally when the value is out of range. Out of range means that the `value` is great than `max` or less than `min`.
+
+<Playground>
+  <Box p={3}>
+    <NumberInput
+      defaultValue={15}
+      max={10}
+      keepWithinRange={false}
+      clampValueOnBlur={false}
+    >
+      <NumberInputField />
+      <NumberInputStepper>
+        <NumberIncrementStepper />
+        <NumberDecrementStepper />
+      </NumberInputStepper>
+    </NumberInput>
+  </Box>
+</Playground>
+
+## Special styling cases
+
+Check the [Chakra-UI](https://chakra-ui.com/docs/form/number-input) docs for live examples of styling `<NumberInput>`.

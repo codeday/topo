@@ -1,0 +1,38 @@
+import { Footer, CustomLinks, CustomText } from "@codeday/topo/Organism";
+import { Button, Link, List, ListItem } from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Footer
+
+## Import
+
+```js
+import { Footer, CustomLinks, CustomText } from "@codeday/topo/Organism";
+```
+
+## Default Footer
+
+<Playground>
+  <Footer />
+</Playground>
+
+## Customizing the Footer
+
+<Playground>
+  <Footer>
+    <CustomText>Help I'm trapped in a React factory.</CustomText>
+    <CustomLinks>
+      <List>
+        <ListItem>
+          <Link href="https://example.com">Register</Link>
+        </ListItem>
+        <ListItem>
+          <Link href="https://example.com">About</Link>
+        </ListItem>
+        <ListItem>
+          <Link href="https://example.com">Cat Pics</Link>
+        </ListItem>
+      </List>
+    </CustomLinks>
+  </Footer>
+</Playground>

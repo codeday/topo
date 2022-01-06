@@ -1,0 +1,37 @@
+import { Skelly, Box } from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Skelly
+
+![](https://f1.srnd.org/topo/stylebook/doot.gif)
+
+Doot doot Mr. Skeltal.
+
+## Import
+
+```js
+import { Skelly } from "@codeday/topo/Atom";
+```
+
+## Example
+
+By default Skelly will render a single full-width box at text-height. By stacking a few, we've got a paragraph:
+
+<Playground>
+  <Box p={5}>
+    <Skelly />
+    <Skelly />
+    <Skelly />
+    <Skelly />
+  </Box>
+</Playground>
+
+## Customizing
+
+Skelly composes Box, so you can pass it Box properties to make it fit your needs:
+
+<Playground>
+  <Box p={5}>
+    <Skelly width={16} height={16} borderRadius="full" />
+  </Box>
+</Playground>

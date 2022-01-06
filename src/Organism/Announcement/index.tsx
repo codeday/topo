@@ -4,8 +4,7 @@ import React, { useEffect, useReducer } from "react";
 import useSwr from "swr";
 import { Box, BoxProps, Button, Grid, Link, Text } from "topo/Atom";
 import { Content } from "topo/Molecule";
-import { useTheme } from "topo/utils";
-import { apiFetch, useLocalStorage } from "topo/utils";
+import { useTheme, apiFetch, useLocalStorage } from "topo/utils";
 
 const query = (date: string, visibility: any) => `{
   cms {

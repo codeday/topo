@@ -1,4 +1,4 @@
-import { forwardRef } from "@chakra-ui/react";
+import { forwardRef, useColorModeValue } from "@chakra-ui/react";
 import ArrowLeft from "@codeday/topocons/Icon/UiArrowLeft";
 import ArrowRight from "@codeday/topocons/Icon/UiArrowRight";
 import Download from "@codeday/topocons/Icon/UiDownload";
@@ -176,7 +176,7 @@ const Deck = forwardRef<DeckProps, "div">(({ src, allowDownload }, ref) => {
           target="_blank"
           borderRadius={`0 0 ${theme.radii.md} ${theme.radii.md}`}
           borderTop="none"
-          color="gray.600"
+          color={useColorModeValue("gray.600", "gray.300")}
         >
           <Download />
           &nbsp;Download PDF

@@ -1,0 +1,63 @@
+import {
+  Text,
+  CopyText,
+  Editable,
+  EditableInput,
+  EditablePreview,
+  Link,
+  Code,
+  Box,
+} from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Text
+
+<Playground>
+  <Box p={5}>
+    <Text as="div">
+      You can pass the <Code>bg</Code> prop to boxes to change their background
+      color.
+    </Text>
+  </Box>
+</Playground>
+
+## CopyText
+
+<Playground>
+  <Box p={5}>
+    <CopyText>Click me to copy!</CopyText>
+  </Box>
+</Playground>
+
+## Link
+
+<Playground>
+  <Box p={5}>
+    <Link href="https://www.codeday.org/">I am a link!</Link>
+  </Box>
+</Playground>
+
+## Editable
+
+<Playground>
+  <Box p={5}>
+    <Editable defaultValue="Edit me!">
+      <EditablePreview />
+      <EditableInput />
+    </Editable>
+  </Box>
+</Playground>
+
+## Import
+
+```js
+import {
+  Text,
+  CopyText,
+  Editable,
+  EditableInput,
+  EditablePreview,
+  Link,
+  Code,
+} from "@codeday/topo/Atom";
+```
