@@ -20,9 +20,9 @@ COPY topo-docs/ ./
 
 RUN yalc add @codeday/topo
 RUN yarn install
-COPY .git .git
+COPY .git /app/topo/.git
 RUN yarn build
-RUN rm -rf .git
+RUN rm -rf /app/topo/.git
 RUN yalc remove @codeday/topo
 RUN wget -O - https://gobinaries.com/tj/node-prune | sh
 RUN node-prune
