@@ -3,14 +3,18 @@ import PropTypes from "prop-types";
 import { Box } from "topo/Atom";
 import { useTheme } from "topo/utils";
 import makeStyle from "./make-style";
-import {
-  LightAsync as SyntaxHighlighter,
+import type {
+  LightAsync,
   SyntaxHighlighterProps,
 } from "react-syntax-highlighter";
 
+let SyntaxHighlighter: LightAsync | null = null;
+try {
+  ({ LightAsync: SyntaxHighlighter } = require('react-syntax-highlighter'));
+  // eslint-disable-next-line no-empty
+} catch (ex) { }
+
 export const SH = ({ lang, numbers, ...props }: SyntaxHighlighterProps) => {
-  const theme = useTheme();
-  console.log(typeof SyntaxHighlighter);
   if (!SyntaxHighlighter) {
     return (
       <Box bg="red.500" color="white" fontWeight="bold" p={2}>
@@ -19,8 +23,10 @@ export const SH = ({ lang, numbers, ...props }: SyntaxHighlighterProps) => {
       </Box>
     );
   }
+  const theme = useTheme();
 
   return (
+    // @ts-ignore
     <SyntaxHighlighter
       language={lang}
       showLineNumbers={numbers || false}

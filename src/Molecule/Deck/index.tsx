@@ -6,7 +6,6 @@ import PropTypes from "prop-types";
 /* eslint-disable global-require */
 /* eslint-disable import/no-extraneous-dependencies */
 import React, { useMemo, useRef, useState } from "react";
-// import { Document, Page, pdfjs } from "react-pdf";
 import { Box, Button, SizeBox, Spinner } from "topo/Atom";
 import { useTheme } from "topo/utils";
 
@@ -15,10 +14,9 @@ let Page: any;
 let pdfjs: any;
 try {
   ({ Document, Page, pdfjs } = require("react-pdf"));
+  pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
   // eslint-disable-next-line no-empty
 } catch (ex) {}
-
-pdfjs.GlobalWorkerOptions.workerSrc = `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjs.version}/pdf.worker.js`;
 
 interface DeckProps {
   src: string;
@@ -26,6 +24,15 @@ interface DeckProps {
 }
 
 const Deck = forwardRef<DeckProps, "div">(({ src, allowDownload }, ref) => {
+  // react-pdf is an optional dependency.
+  if (typeof pdfjs === "undefined") {
+    return (
+      <Box bg="red.500" color="white" fontWeight="bold" p={2}>
+        Optional dependency react-pdf must be installed to use Deck.
+      </Box>
+    );
+  }
+
   const [width, setWidth] = useState(300);
   const [height, setHeight] = useState(0);
   const [pageNumber, setPageNumber] = useState(1);
@@ -49,15 +56,6 @@ const Deck = forwardRef<DeckProps, "div">(({ src, allowDownload }, ref) => {
 
   // This will throw an error server-side.
   if (typeof window === "undefined") return <></>;
-
-  // react-pdf is an optional dependency.
-  if (typeof pdfjs === "undefined") {
-    return (
-      <Box bg="red.500" color="white" fontWeight="bold" p={2}>
-        Optional dependency react-pdf must be installed to use Deck.
-      </Box>
-    );
-  }
 
   return (
     <Box position="relative">
