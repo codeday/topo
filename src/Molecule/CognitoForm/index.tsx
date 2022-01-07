@@ -93,6 +93,7 @@ CognitoForm.propTypes = {
   fallback: PropTypes.bool,
   hidePrivacy: PropTypes.bool,
   accountId: PropTypes.string,
+  css: PropTypes.string,
 };
 CognitoForm.defaultProps = {
   prefill: {},

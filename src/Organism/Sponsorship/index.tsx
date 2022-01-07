@@ -130,7 +130,6 @@ interface SponsorBoxProps {
   level: SponsorshipLevel;
 }
 function SponsorBox({ level }: SponsorBoxProps) {
-  console.log(level);
   return (
     <Box marginRight={3} w="275px">
       <Box

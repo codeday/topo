@@ -17,7 +17,6 @@ const order = {
 
 export default function App(props) {
   const { Component, pageProps } = props;
-  console.log(codedayTheme.fonts.body);
   return (
     <ThemeProvider brandColor="red">
       <DokzProvider

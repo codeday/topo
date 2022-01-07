@@ -4,8 +4,9 @@ import { Text } from "topo/Atom";
 import { pureRef } from "topo/_utils";
 import { withProps } from "recompose";
 import { useColorModeValue } from "@chakra-ui/react";
-// import * as Icons from "./svgs";
 import * as Icons from "./Icons";
+
+// generate icons using https://www.npmjs.com/package/create-chakra-icons - create-chakra-icons  -o src/Atom/Logo/Icons.ts ./src/Atom/Logo/svgs --typescript
 
 const upperFirst = (string: string) =>
   string.charAt(0).toUpperCase() + string.slice(1);
