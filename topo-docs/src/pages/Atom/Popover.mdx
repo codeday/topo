@@ -1,0 +1,54 @@
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+  Box,
+  Button,
+} from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Popover
+
+Popover is a non-modal dialog that floats around a trigger. It is used to display contextual information to the user, and should be paired with a clickable trigger element.
+
+## Import
+
+```js
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+  PopoverHeader,
+  PopoverBody,
+  PopoverFooter,
+  PopoverArrow,
+  PopoverCloseButton,
+} from "@codeday/topo/Atom";
+```
+
+## Example
+
+<Playground>
+  <Box p={5}>
+    <Popover>
+      <PopoverTrigger>
+        <Button>Trigger</Button>
+      </PopoverTrigger>
+      <PopoverContent>
+        <PopoverArrow />
+        <PopoverCloseButton />
+        <PopoverHeader>Confirmation!</PopoverHeader>
+        <PopoverBody>Are you sure you want to have that milkshake?</PopoverBody>
+      </PopoverContent>
+    </Popover>
+  </Box>
+</Playground>
+
+## Special uses
+
+For specialized uses, check the [Chakra docs](https://chakra-ui.com/docs/overlay/popover)

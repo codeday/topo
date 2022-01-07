@@ -1,0 +1,39 @@
+import { CognitoForm } from "@codeday/topo/Molecule";
+import { Playground } from "@nexite/dokz";
+
+# Cognito Forms
+
+Cognito Forms is our form provider of choice, and this component will let you quickly embed a hosted form! It takes the
+following props:
+
+- `showTitle`: Shows the built-in form title. (Default is to hide it.)
+- `prefill`: Object (of `{FieldName: value, FieldName: value}`) to prefill the form with.
+- `onSubmit`: Function to run when the form is submitted.
+- `onPageChange`: Function to run when the page changes.
+- `onFirstPageChange`: Function to run on the first page change (analytics signal that the user has started the form).
+
+## Import
+
+```js
+import { CognitoForm } from "@codeday/topo/Molecule";
+```
+
+## Usage
+
+```jsx
+import { CognitoForm } from "@codeday/topo/Molecule";
+
+export default () => (
+  <MyPage>
+    <CognitoForm id={13} fallback />
+  </MyPage>
+);
+```
+
+## All Elements
+
+Below you can see an example of a Cognito Form with all the element types CognitoForms allows:
+
+<Playground>
+  <CognitoForm formId={61} showTitle={false} fallback />
+</Playground>

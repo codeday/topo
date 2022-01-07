@@ -1,0 +1,18 @@
+import { Deck } from "@codeday/topo/Molecule";
+import { Playground } from "@nexite/dokz";
+
+# Deck
+
+Used to show a PDF slide deck.
+
+Takes the following props:
+
+- `src` - The PDF file to load. (Only PDFs are supported.)
+- `allowDownload` - If set, the user can download the file.
+
+<Playground>
+  <Deck src="https://f1.srnd.org/topo/stylebook/bad-ppt.pdf" allowDownload />
+</Playground>
+
+(No matter whether `allowDownload` is set or not, this is not a secure way to prevent people from downloading a PDF.
+The PDF _will_ be downloadable.)

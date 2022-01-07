@@ -1,3 +1,6 @@
-node_modules/
-.circleci/
-dist/
+**/.env
+**/.env.*
+**/.next/
+**/.eslint*
+**/README.md
+**/node_modules

@@ -1,0 +1,85 @@
+import {
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
+  CodeDay,
+  CodeCup,
+  Labs,
+  Box,
+} from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# List
+
+It is what it sounds like...
+
+> Note that the `List` component doesn't have any bullet points, for that use the `UnorderedList` component.
+
+## Import
+
+```js
+import {
+  List,
+  ListItem,
+  ListIcon,
+  OrderedList,
+  UnorderedList,
+} from "@codeday/topo/Atom";
+```
+
+## Unordered List
+
+Bulleted list
+
+<Playground>
+  <Box p={3}>
+    <UnorderedList>
+      <ListItem>Lorem ipsum dolor sit amet</ListItem>
+      <ListItem>Consectetur adipiscing elit</ListItem>
+      <ListItem>Integer molestie lorem at massa</ListItem>
+      <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+    </UnorderedList>
+  </Box>
+</Playground>
+
+## Ordered List
+
+Numbered list
+
+<Playground>
+  <Box p={3}>
+    <OrderedList>
+      <ListItem>Lorem ipsum dolor sit amet</ListItem>
+      <ListItem>Consectetur adipiscing elit</ListItem>
+      <ListItem>Integer molestie lorem at massa</ListItem>
+      <ListItem>Facilisis in pretium nisl aliquet</ListItem>
+    </OrderedList>
+  </Box>
+</Playground>
+
+## Unstyled List with icon
+
+Add icons to the list items by using the `ListIcon` component. You can pass the
+name of the icon or use custom icons. The size of the icon is relative to the
+font size of the list item.
+
+<Playground>
+  <Box p={3}>
+    <List spacing={3}>
+      <ListItem>
+        <ListIcon as={CodeDay} color="green.500" />
+        CodeDay
+      </ListItem>
+      <ListItem>
+        <ListIcon as={CodeCup} color="green.500" />
+        CodeCup
+      </ListItem>
+      <ListItem>
+        <ListIcon as={Labs} color="green.500" />
+        Labs
+      </ListItem>
+    </List>
+  </Box>
+</Playground>

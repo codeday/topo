@@ -1,0 +1,123 @@
+import { Box, Radio, RadioGroup, Stack } from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Number Input
+
+The `NumberInput` is similar to the [Input](/Atom/input) component but has controls to increase or decrease the value.
+
+## Import
+
+```js
+import { Checkbox } from "@codeday/topo/Atom";
+```
+
+## Example
+
+<Playground>
+  <Box p={3}>
+    <RadioGroup defaultValue="1">
+      <Stack direction="row">
+        <Radio value="1">First</Radio>
+        <Radio value="2">Second</Radio>
+        <Radio value="3">Third</Radio>
+      </Stack>
+    </RadioGroup>
+  </Box>
+</Playground>
+
+## Radio with custom color
+
+You can override the `colorScheme` of the Radio to any color key specified in `theme.colors`.
+
+<Playground>
+  <Box p={3}>
+    <RadioGroup defaultValue="2">
+      <Stack spacing={5} direction="row">
+        <Radio colorScheme="red" value="1">
+          Radio
+        </Radio>
+        <Radio colorScheme="green" value="2">
+          Radio
+        </Radio>
+      </Stack>
+    </RadioGroup>
+  </Box>
+</Playground>
+
+## Radio sizes
+
+The checkbox comes with 3 sizes.
+
+<Playground>
+  <Box p={3}>
+    <Stack>
+      <Radio size="sm" name="1" colorScheme="red">
+        Radio
+      </Radio>
+      <Radio size="md" name="1" colorScheme="green">
+        Radio
+      </Radio>
+      <Radio size="lg" name="1" colorScheme="orange" defaultChecked>
+        Radio
+      </Radio>
+    </Stack>
+  </Box>
+</Playground>
+
+## Disabled radios
+
+<Playground>
+  <Box p={3}>
+    <RadioGroup defaultValue="1">
+      <Stack>
+        <Radio value="1" isDisabled>
+          Checked
+        </Radio>
+        <Radio value="2">Unchecked</Radio>
+        <Radio value="3">Unchecked</Radio>
+      </Stack>
+    </RadioGroup>
+  </Box>
+</Playground>
+
+## Horizontal alignment
+
+<Playground>
+  <Box p={3}>
+    <RadioGroup defaultValue="1">
+      <Stack spacing={4} direction="row">
+        <Radio value="1" isDisabled>
+          Radio 1
+        </Radio>
+        <Radio value="2">Radio 2</Radio>
+        <Radio value="3">Radio 3</Radio>
+      </Stack>
+    </RadioGroup>
+  </Box>
+</Playground>
+
+## Invalid radio
+
+<Playground>
+  <Box p={3}>
+    <Radio isInvalid>Radio</Radio>
+  </Box>
+</Playground>
+
+## Note about name prop
+
+Pass the `name` prop to the `RadioGroup` component rather than the `Radio` component. By default, the `name` prop of the RadioGroup takes precedence.
+
+```js
+// Do this ✅
+<RadioGroup name="form-name">
+  <Radio>Radio 1</Radio>
+  <Radio>Radio 2</Radio>
+</RadioGroup>
+
+// Don't do this ❌
+<RadioGroup >
+  <Radio name="form-name">Radio 1</Radio>
+  <Radio name="form-name">Radio 2</Radio>
+</RadioGroup>
+```

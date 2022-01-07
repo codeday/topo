@@ -1,0 +1,24 @@
+import { extendTheme } from "@chakra-ui/react";
+
+import colors from "./colors";
+import components from "./components";
+import fonts from "./fonts";
+import styles from "./styles";
+
+const Theme = {
+  colors,
+  fonts,
+  styles,
+  components,
+  cognito: {
+    // eslint-disable-next-line no-secrets/no-secrets
+    id: "7hYXr3TPxk6yIpJxjqVoFQ",
+  },
+  config: {
+    initialColorMode: "light",
+    useSystemColorMode: true,
+  },
+};
+
+export { Theme };
+export default extendTheme({ ...Theme });

@@ -1,0 +1,47 @@
+import { Announcement } from "@codeday/topo/Organism";
+import { Button } from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Announcement
+
+Automagically shows the latest currently applicable announcement.
+
+## Default Display
+
+<Playground>
+  <>
+    <Announcement />
+    <Button
+      onClick={() =>
+        window.localStorage.setItem("topoDismissedAnnouncements", "[]")
+      }
+    >
+      Reset Dismissed
+    </Button>
+  </>
+</Playground>
+
+## Dark Announcement
+
+You can set the `dark` property to render the banner for use on a dark page (or with a dark header).
+
+<Playground>
+  <>
+    <Announcement dark />
+    <Button
+      onClick={() =>
+        window.localStorage.setItem("topoDismissedAnnouncements", "[]")
+      }
+    >
+      Reset Dismissed
+    </Button>
+  </>
+</Playground>
+
+## Box
+
+You can set the `box` prop to make the announcement a box, for use in a sidebar etc.
+
+<Playground iframe>
+  <Announcement box maxWidth="sm" />
+</Playground>

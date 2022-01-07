@@ -1,0 +1,113 @@
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+  RadioGroup,
+  Stack,
+  Input,
+  Radio,
+  Box,
+  Select,
+  NumberIncrementStepper,
+  NumberDecrementStepper,
+  NumberInputStepper,
+  NumberInputField,
+  NumberInput,
+} from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# FormControl
+
+FormControl provides context such as `isInvalid`, `isDisabled`, and `isRequired`
+to form elements.
+
+It follows the [WAI specifications](https://www.w3.org/WAI/tutorials/forms/) for
+forms.
+
+## Import
+
+```js
+import {
+  FormControl,
+  FormLabel,
+  FormErrorMessage,
+  FormHelperText,
+} from "@codeday/topo/Atom";
+```
+
+## Usage
+
+<Playground>
+  <Box p={3}>
+    <FormControl id="email">
+      <FormLabel>Email address</FormLabel>
+      <Input type="email" />
+      <FormHelperText>We'll never share your email.</FormHelperText>
+    </FormControl>
+  </Box>
+</Playground>
+
+### Sample usage for a radio or checkbox group
+
+<Playground>
+  <Box p={3}>
+    <FormControl as="fieldset">
+      <FormLabel as="legend">Favorite Naruto Character</FormLabel>
+      <RadioGroup defaultValue="Itachi">
+        <Stack spacing="24px">
+          <Radio value="Sasuke">Sasuke</Radio>
+          <Radio value="Nagato">Nagato</Radio>
+          <Radio value="Itachi">Itachi</Radio>
+          <Radio value="Sage of the six Paths">Sage of the six Paths</Radio>
+        </Stack>
+      </RadioGroup>
+      <FormHelperText>Select only if you're a fan.</FormHelperText>
+    </FormControl>
+  </Box>
+</Playground>
+
+### Making a field required
+
+By passing the `isRequired` props, the `Input` field has `aria-required` set to
+`true`, and the `FormLabel` will show a red asterisk.
+
+<Playground>
+  <Box p={3}>
+    <FormControl id="first-name" isRequired>
+      <FormLabel>First name</FormLabel>
+      <Input placeholder="First name" />
+    </FormControl>
+  </Box>
+</Playground>
+
+### Select Example
+
+<Playground>
+  <Box p={3}>
+    <FormControl id="country">
+      <FormLabel>Country</FormLabel>
+      <Select placeholder="Select country">
+        <option>United Arab Emirates</option>
+        <option>Nigeria</option>
+      </Select>
+    </FormControl>
+  </Box>
+</Playground>
+
+### Number Input Example
+
+<Playground>
+  <Box p={3}>
+    <FormControl id="amount">
+      <FormLabel>Amount</FormLabel>
+      <NumberInput max={50} min={10}>
+        <NumberInputField />
+        <NumberInputStepper>
+          <NumberIncrementStepper />
+          <NumberDecrementStepper />
+        </NumberInputStepper>
+      </NumberInput>
+    </FormControl>
+  </Box>
+</Playground>

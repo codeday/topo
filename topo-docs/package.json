@@ -1,0 +1,28 @@
+{
+  "name": "topo-docs",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "~1.6.10",
+    "@codeday/topo": "file:.yalc/@codeday/topo",
+    "@emotion/react": "^11",
+    "@emotion/styled": "^11",
+    "@nexite/dokz": "latest",
+    "framer-motion": "^4",
+    "next": "^12.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-pdf": "^5.6.0",
+    "react-syntax-highlighter": "^15.4.5"
+  },
+  "devDependencies": {
+    "eslint": "<8.0.0",
+    "eslint-config-next": "^12.0.7"
+  }
+}

@@ -1,0 +1,40 @@
+import { Box } from "@codeday/topo/Atom";
+import { Collapse } from "@codeday/topo/Molecule";
+
+# Collapse
+
+Adds collapse trasition to any children.
+
+## Import
+
+```js
+import { Collapse } from "@codeday/topo/Molecule";
+```
+
+## Example
+
+Hooks don't work in dokz example code so here is code for an example, for live examples view the [Chakra docs](https://chakra-ui.com/docs/components/transitions#collapse-transition)
+
+```jsx
+function CollapseEx() {
+  const { isOpen, onToggle } = useDisclosure();
+
+  return (
+    <>
+      <Button onClick={onToggle}>Click Me</Button>
+      <Collapse in={isOpen} animateOpacity>
+        <Box
+          p="40px"
+          color="white"
+          mt="4"
+          bg="teal.500"
+          rounded="md"
+          shadow="md"
+        >
+          <Lorem count={1} />
+        </Box>
+      </Collapse>
+    </>
+  );
+}
+```

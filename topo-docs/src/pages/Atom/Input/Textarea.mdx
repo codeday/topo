@@ -1,0 +1,42 @@
+import { Box, Textarea } from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Textarea
+
+The `Textarea` component is your run-of-the-mill input.
+
+## Import
+
+```js
+import { Textarea } from "@codeday/topo/Atom";
+```
+
+## Example
+
+<Playground>
+  <Box p={3}>
+    <Textarea placeholder="Here is a sample placeholder" />
+  </Box>
+</Playground>
+
+### Resize behavior
+
+You can add `resize` prop to change the `Textarea` resize behavior.
+
+<Playground>
+  <Box p={3}>
+    <Textarea
+      mt={3}
+      mb={3}
+      resize="horizontal"
+      placeholder="I resize horizontally"
+    />
+    <Textarea
+      mt={3}
+      mb={3}
+      resize="vertical"
+      placeholder="I resize vertically"
+    />
+    <Textarea mt={3} mb={3} resize="none" placeholder="I don't resize :L" />
+  </Box>
+</Playground>

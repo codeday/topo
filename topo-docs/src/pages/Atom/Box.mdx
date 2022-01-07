@@ -1,0 +1,53 @@
+import { Code, Box } from "@codeday/topo/Atom";
+import { Playground } from "@nexite/dokz";
+
+# Box
+
+Don't think out of the box, because pretty much everything is a box in Topo.
+
+## Import
+
+```js
+import { Box } from "@codeday/topo/Atom";
+```
+
+## Just A Normal Box
+
+<Playground iframe>
+  <Box p={5}>
+    <Box>I am a box.</Box>
+  </Box>
+</Playground>
+
+## Fancy Box
+
+It's a good thing that everything's a box, because all boxes take all the standard Styled System props. (See the
+documentation page on Styled System for more info.)
+
+<Playground>
+  <Box grad="taffy.60" color="green.700" p={8} rounded="full">
+    i Am ThE PaRtY bOx
+  </Box>
+</Playground>
+
+## Boxes Can Be Anything (as prop)
+
+Boxes can actually render as any HTML element (or other React component) you prefer. Simply set `as` to the component
+you'd like to register:
+
+<Playground>
+  <Box p={5}>
+    <Box as="a" href="http://example.com/" target="_blank">
+      I am a box... <Code>&lt;a /&gt;</Code>?
+    </Box>
+  </Box>
+</Playground>
+
+Note that everything is CSS-reset, so when you make a box something else, it retains a complete lack of formatting.
+Usually you'll want to use another component directly. (This can be useful in components that compose Box, however.
+For example you could set `as={GatsbyLink}` on a `Link` component.)
+
+## More Helpful Boxes
+
+- The `Size` box has handlers for content size changes: `onWidthChanged`, `onHeightChanged`, and `onSizeChanged`.
+- The `GridBox` takes `templateColumns`/`templateRows` props and sets up a grid.

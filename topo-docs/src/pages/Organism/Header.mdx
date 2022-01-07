@@ -1,0 +1,86 @@
+import { Content } from "@codeday/topo/Molecule";
+import {
+  CodeDay,
+  Button,
+  Text,
+  Link,
+  ListItem,
+  Heading,
+  Box,
+} from "@codeday/topo/Atom";
+import { SiteLogo, Menu, Header } from "@codeday/topo/Organism";
+import { Playground } from "@nexite/dokz";
+
+# Header
+
+## Import
+
+```js
+import { Header, SiteLogo, Menu } from "@codeday/topo/Organism";
+```
+
+This represents a standard header for full websites. It takes the following props:
+
+- `darkBackground` Inverts the gradient, outline, and -- if possible -- text. See below for details.
+- `underscore`: Adds an underline to the menu. This defaults off but should _usually_ be on.
+- `gradAmount` (`null`, `"sm"`, or `"lg"`): Adds a weak or strong gradient behind the header to ensure text is readable
+  with an image background. Defaults to `sm`.
+
+## Usage
+
+```jsx
+import Header, { SiteLogo, Menu } from "@codeday/topo/Header";
+import { CodeDay } from "@codeday/topo/Logo";
+import Button from "@codeday/topo/Button";
+import Link from "@codeday/topo/Link";
+
+export default () => (
+  <MyPage>
+    <Header underscore>
+      <SiteLogo>
+        <CodeDay withText />
+      </SiteLogo>
+      <Menu>
+        <Link href="/about">About</Link>
+        <Button href="/register">Register</Button>
+      </Menu>
+    </Header>
+  </MyPage>
+);
+```
+
+## Default Header
+
+I present to you... the default header.
+
+<Playground>
+  <>
+    <Header underscore>
+      <SiteLogo>
+        <Link href="https://example.com" target="_blank">
+          <CodeDay withText />
+        </Link>
+      </SiteLogo>
+      <Menu>
+        <Button as="a" href="https://example.com" target="_blank">
+          About
+        </Button>
+        <Button as="a" href="https://example.com" target="_blank">
+          Contact
+        </Button>
+        <Button
+          as="a"
+          href="https://example.com"
+          colorScheme="green"
+          target="_blank"
+        >
+          Register Now
+        </Button>
+      </Menu>
+    </Header>
+    <Content>
+      <Heading>Welcome to ZomboCom</Heading>
+      <Text>The impossible is unknown at ZomboCom</Text>
+    </Content>
+  </>
+</Playground>
