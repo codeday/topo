@@ -13,5 +13,5 @@ export * from "./VisibilityCheckBox";
 
 export * from "./RatioBox";
 
-export { default as Box } from "./Box";
-export * from "./Box";
+export { default as Box } from "./box";
+export * from "./box";

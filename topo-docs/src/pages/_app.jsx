@@ -1,9 +1,7 @@
 import { DokzProvider, GithubLink, ColorModeSwitch } from "@nexite/dokz";
 import React from "react";
 import { ThemeProvider, codedayTheme } from "@codeday/topo/Theme";
-import { CodeDay, Button, Box } from "@codeday/topo/Atom";
-import { useTheme } from "@codeday/topo/utils";
-import { Announcement } from "@codeday/topo/Organism";
+import { CodeDay } from "@codeday/topo/Atom";
 
 const order = {
   "index.mdx": true,
@@ -29,6 +27,8 @@ export default function App(props) {
           <GithubLink key="0" url="https://github.com/codeday/topo" />,
           <ColorModeSwitch key="1" />,
         ]}
+        githubUrl="codeday/topo"
+        branch="master"
         headerLogo={<CodeDay fontSize="2xl" withText text="Topo" />}
       >
         <Component {...pageProps} />

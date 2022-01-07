@@ -1,0 +1,6 @@
+**/.env
+**/.env.*
+**/.next/
+**/.eslint*
+**/README.md
+**/node_modules
