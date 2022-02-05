@@ -1,6 +1,6 @@
 import {
   Box,
-  Input,
+  TextInput,
   Stack,
   InputGroup,
   InputLeftAddon,
@@ -11,21 +11,21 @@ import {
 } from "@codeday/topo/Atom";
 import { Playground } from "@nexite/dokz";
 
-# Input
+# TextInput
 
-The `Input` component is your run-of-the-mill input.
+The `TextInput` component is your run-of-the-mill input.
 
 ## Import
 
 ```js
-import { Input } from "@codeday/topo/Atom";
+import { TextInput } from "@codeday/topo/Atom";
 ```
 
 `import` with extras
 
 ```js
 import {
-  Input,
+  TextInput,
   InputGroup,
   InputLeftAddon,
   InputRightAddon,
@@ -38,7 +38,7 @@ import {
 
 <Playground>
   <Box p={3}>
-    <Input placeholder="Basic usage" />
+    <TextInput placeholder="Basic usage" />
   </Box>
 </Playground>
 
@@ -54,10 +54,10 @@ The `Input` component comes in four sizes. The default is `md`.
 <Playground>
   <Box p={3}>
     <Stack spacing={3}>
-      <Input placeholder="extra small size" size="xs" />
-      <Input placeholder="small size" size="sm" />
-      <Input placeholder="medium size" size="md" />
-      <Input placeholder="large size" size="lg" />
+      <TextInput placeholder="extra small size" size="xs" />
+      <TextInput placeholder="small size" size="sm" />
+      <TextInput placeholder="medium size" size="md" />
+      <TextInput placeholder="large size" size="lg" />
     </Stack>
   </Box>
 </Playground>
@@ -70,10 +70,10 @@ The input component comes in 4 variants: `outline`, `unstyled`, `flushed`, and
 <Playground>
   <Box p={3}>
     <Stack spacing={3}>
-      <Input variant="outline" placeholder="Outline" />
-      <Input variant="filled" placeholder="Filled" />
-      <Input variant="flushed" placeholder="Flushed" />
-      <Input variant="unstyled" placeholder="Unstyled" />
+      <TextInput variant="outline" placeholder="Outline" />
+      <TextInput variant="filled" placeholder="Filled" />
+      <TextInput variant="flushed" placeholder="Flushed" />
+      <TextInput variant="unstyled" placeholder="Unstyled" />
     </Stack>
   </Box>
 </Playground>
@@ -89,12 +89,12 @@ component by using the `InputGroup`, `InputLeftAddon`, and
     <Stack spacing={4}>
       <InputGroup>
         <InputLeftAddon children="+234" />
-        <Input type="tel" placeholder="phone number" />
+        <TextInput type="tel" placeholder="phone number" />
       </InputGroup>
       {/* If you add the size prop to `InputGroup`, it'll pass it to all its children. */}
       <InputGroup size="sm">
         <InputLeftAddon children="https://" />
-        <Input placeholder="mysite" />
+        <TextInput placeholder="mysite" />
         <InputRightAddon children=".com" />
       </InputGroup>
     </Stack>
@@ -116,7 +116,7 @@ focused the input.
     <Stack spacing={4}>
       <InputGroup>
         <InputLeftElement pointerEvents="none" children={<CodeDay />} />
-        <Input type="tel" placeholder="Phone number" />
+        <TextInput type="tel" placeholder="Phone number" />
       </InputGroup>
       <InputGroup>
         <InputLeftElement
@@ -125,7 +125,7 @@ focused the input.
           fontSize="1.2em"
           children="$"
         />
-        <Input placeholder="Enter amount" />
+        <TextInput placeholder="Enter amount" />
         <InputRightElement children={<CodeDay />} />
       </InputGroup>
     </Stack>

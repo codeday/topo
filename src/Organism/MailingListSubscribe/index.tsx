@@ -1,7 +1,6 @@
 import FormData from "form-data";
-import PropTypes from "prop-types";
 import React, { useState } from "react";
-import { Box, BoxProps, Button, Grid, Input, Text } from "topo/Atom";
+import { Box, BoxProps, Button, Grid, TextInput } from "topo/Atom";
 import { useToasts } from "topo/utils";
 
 async function submitEmail(list: any, email: any) {
@@ -36,7 +35,7 @@ function MailingListSubscribe({
   return (
     <Box {...props}>
       <Grid templateColumns="1fr min-content">
-        <Input
+        <TextInput
           placeholder={[
             ...(emailList ? ["email"] : []),
             ...(textList ? ["phone"] : []),

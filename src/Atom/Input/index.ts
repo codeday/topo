@@ -23,8 +23,8 @@ export * from "./Select";
 export { default as Switch } from "./Switch";
 export * from "./Switch";
 
-export { default as Input } from "./Text";
-export * from "./Text";
+export { default as TextInput } from "./TextInput";
+export * from "./TextInput";
 
 export { default as Textarea } from "./Textarea";
 export * from "./Textarea";

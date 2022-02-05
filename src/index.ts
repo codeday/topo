@@ -1,8 +1,6 @@
-// if we want to use this import structure
-
-import * as Organism from "./Organism";
-export { Menu as ButtomMenu } from "./Atom";
-export * from "./Atom";
-export * from "./Molecule";
-export * from "./Theme";
-export default { ...Organism };
+export * as Atom from "./Atom"
+export * as Organism from "./Organism";
+export * as Molecule from "./Molecule";
+export * as Theme from "./Theme";
+export * as utils from "./utils";
+export * as _utils from "./_utils";

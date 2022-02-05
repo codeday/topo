@@ -5,7 +5,7 @@ import {
   FormHelperText,
   RadioGroup,
   Stack,
-  Input,
+  TextInput,
   Radio,
   Box,
   Select,
@@ -42,7 +42,7 @@ import {
   <Box p={3}>
     <FormControl id="email">
       <FormLabel>Email address</FormLabel>
-      <Input type="email" />
+      <TextInput type="email" />
       <FormHelperText>We'll never share your email.</FormHelperText>
     </FormControl>
   </Box>
@@ -69,14 +69,14 @@ import {
 
 ### Making a field required
 
-By passing the `isRequired` props, the `Input` field has `aria-required` set to
+By passing the `isRequired` props, the `TextInput` field has `aria-required` set to
 `true`, and the `FormLabel` will show a red asterisk.
 
 <Playground>
   <Box p={3}>
     <FormControl id="first-name" isRequired>
       <FormLabel>First name</FormLabel>
-      <Input placeholder="First name" />
+      <TextInput placeholder="First name" />
     </FormControl>
   </Box>
 </Playground>

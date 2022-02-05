@@ -7,6 +7,7 @@ export default (theme: any) => `
 
   * {
     font-family: ${theme.fonts.body} !important;
+    color: ${theme.colors.current.text} !important;
   }
 
   h2 {

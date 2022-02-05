@@ -70,8 +70,8 @@ const Provider = ({
     );
   }
 
-  // if (brandColor && brandColor in codedayTheme.colors) {
-  //   codedayTheme.colors.brand = codedayTheme.colors[brandColor];
+  if (brandColor && brandColor in codedayTheme.colors) {
+    codedayTheme.colors.brand = codedayTheme.colors[brandColor][600];
   //   codedayTheme.colors.black = codedayTheme.colors.brand[1000];
   //   codedayTheme.colors.modes.light.textLight = (codedayTheme.colors.brand
   //     .desaturated || codedayTheme.colors.brand)[800];
@@ -81,7 +81,7 @@ const Provider = ({
   //     .desaturated || codedayTheme.colors.brand)[200];
   //   codedayTheme.colors.modes.light.borderColor = (codedayTheme.colors.brand
   //     .desaturated || codedayTheme.colors.brand)[200];
-  // }
+  }
   codedayTheme.config.initialColorMode = initialColorMode
     ? initialColorMode
     : codedayTheme.config.initialColorMode;

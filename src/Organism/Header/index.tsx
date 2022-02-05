@@ -15,6 +15,7 @@ interface HeaderProps extends BoxProps {
   gradAmount?: any;
   noPadding?: boolean;
   noGrad?: boolean;
+  darkBackground?: boolean;
 }
 
 const Header = ({
@@ -23,9 +24,9 @@ const Header = ({
   gradAmount,
   noPadding,
   noGrad,
+  darkBackground = useColorModeValue(false, true),
   ...props
 }: HeaderProps) => {
-  const darkBackground = useColorModeValue(false, true);
   const [hamburgerOpen, setHamburgerOpen] = useState(false);
   const childrenWithProps = React.Children.map(children, setChildProps({}));
   const logo = childrenOfType(childrenWithProps, SiteLogo);
@@ -107,12 +108,12 @@ const Header = ({
         <Box textAlign="center" p={4}>
           <Box pb={4} mb={4} borderBottomWidth={1}>
             {cloneElement(logo[0] as React.ReactElement<any>, {
-                  fontSize: "3xl",
-                  d: "block",
-                  float: "none",
-                  p: 2,
-                  role: "menuitem",
-                })}
+              fontSize: "3xl",
+              d: "block",
+              float: "none",
+              p: 2,
+              role: "menuitem",
+            })}
           </Box>
           {Children.map(
             Children.toArray(
