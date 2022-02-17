@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "6.0.4",
+  "version": "6.0.5",
   "license": "Artistic-2.0",
   "files": [
     "dist",
@@ -83,8 +83,7 @@
     "build:esm": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs && tscpaths -p tsconfig.json -s ./src -o ./dist/cjs",
     "gen:theme-typings": "chakra-cli tokens ./src/Theme/vars/index.ts",
-    "logos": "create-chakra-icons  -o src/Atom/Logo/Icons.ts ./src/Atom/Logo/svgs --typescript",
-    "postinstall": "yarn run gen:theme-typings"
+    "logos": "create-chakra-icons  -o src/Atom/Logo/Icons.ts ./src/Atom/Logo/svgs --typescript"
   },
   "dependencies": {
     "@accessible/use-id": "^1.1.2",
