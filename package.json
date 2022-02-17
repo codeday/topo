@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "5.0.1",
+  "version": "6.0.1",
   "license": "Artistic-2.0",
   "files": [
     "dist",
@@ -102,14 +102,9 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-load-script": "^0.0.6",
-    "react-toast-notifications": "^2.5.1",
     "recompose": "^0.30.0",
     "stylis": "~4.0.10",
     "swr": "^1.0.1"
-  },
-  "peerDependencies": {
-    "react-pdf": "^5.5.0",
-    "react-syntax-highlighter": "^15.4.5"
   },
   "devDependencies": {
     "@types/node": "^16.11.6",

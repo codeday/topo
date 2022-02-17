@@ -1,10 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { GraphQLClient } from "graphql-request";
-import { useTheme } from "@chakra-ui/react";
-import {
-  Options,
-  useToasts as useToastsNative,
-} from "react-toast-notifications";
+import { useTheme, useToast as useToastNative, UseToastOptions } from "@chakra-ui/react";
 
 export { useClipboard, useDisclosure } from "@chakra-ui/react";
 // @ts-ignore
@@ -24,19 +20,18 @@ export const apiFetch = (query: any, variables: any, headers: any) => {
 };
 
 export function useToasts() {
-  const { addToast, ...builtins } = useToastsNative();
+  const toast = useToastNative();
   return {
-    addToast,
-    info: (children: React.ReactNode, opts?: Options | undefined) =>
-      addToast(children, { appearance: "info", ...opts }),
-    success: (children: React.ReactNode, opts?: Options | undefined) =>
-      addToast(children, { appearance: "success", ...opts }),
-    warning: (children: React.ReactNode, opts?: Options | undefined) =>
-      addToast(children, { appearance: "warning", ...opts }),
-    error: (children: React.ReactNode, opts?: Options | undefined) =>
-      addToast(children, { appearance: "error", ...opts }),
-    ...builtins,
-  };
+    addToast: toast,
+    info: (title: string, description?: string, options?: UseToastOptions) =>
+      toast({ title, description, status: 'info', ...options }),
+    success: (title: string, description?: string, options?: UseToastOptions) =>
+      toast({ title, description, status: 'info', ...options }),
+    warning: (title: string, description?: string, options?: UseToastOptions) =>
+      toast({ title, description, status: 'info', ...options }),
+    error: (title: string, description?: string, options?: UseToastOptions) =>
+      toast({ title, description, status: 'info', ...options }),
+  }
 }
 
 export function useString(key: string | number, initialValue: any) {
