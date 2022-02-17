@@ -9,8 +9,9 @@ import { Global, css } from "@emotion/react";
 // @ts-ignore
 import Fathom from "fathom-react";
 import PropTypes from "prop-types";
+import get from 'lodash.get';
 /* eslint-disable no-undef */
-import React, { Fragment } from "react";
+import React, { Fragment, createContext, useContext } from "react";
 import useSwr from "swr";
 import { apiFetch } from "topo/utils";
 
@@ -69,8 +70,26 @@ const query = `{
         value
       }
     }
+    sites(where: { type: "Public", display_contains_all: "Footer" }) {
+      items {
+        sys {
+          id
+        }
+        title
+        link
+      }
+    }
   }
 }`;
+
+const QueryContext = createContext({});
+
+export const QueryProvider = QueryContext.Provider;
+export function useQuery<T = any>(key?: string, def?: T): T | undefined {
+  const obj = useContext(QueryContext);
+  if (!key) return (obj as unknown) as T;
+  return get(obj, key, def || null);
+}
 
 interface ProviderProps {
   analyticsId?: string;
@@ -142,16 +161,18 @@ const Provider = ({
       >
         <Global styles={customCss} />
         {withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" />}
-        {analyticsId ? (
-          <FathomComponent
-            {...(analyticsId && {
-              customDomain: "polarbear.codeday.org",
-              siteId: analyticsId,
-            })}
-          >
-            {children}
-          </FathomComponent>
-        ) : children}
+        <QueryProvider value={data}>
+          {analyticsId ? (
+            <FathomComponent
+              {...(analyticsId && {
+                customDomain: "polarbear.codeday.org",
+                siteId: analyticsId,
+              })}
+            >
+              {children}
+            </FathomComponent>
+          ) : children}
+        </QueryProvider>
       </ChakraProvider>
     </>
   );

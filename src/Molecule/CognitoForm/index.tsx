@@ -43,6 +43,16 @@ const CognitoForm = ({
   theme.colors.current = theme.colors.modes[colorMode];
   const [hasFirstPageChange, setHasFirstPageChange] = useState(false);
 
+  const [forceReload, setForceReload] = useState(0);
+  const [showFallback, setShowFallback] = useState(false);
+  const typeofWindow = typeof window;
+
+  useEffect(() => {
+    if (typeofWindow === 'undefined') return () => { };
+    const timeout = setTimeout(() => setShowFallback(true), 3000);
+    return () => clearTimeout(timeout);
+  }, [typeofWindow, setShowFallback, showFallback]);
+
   return (
     <>
       <Form
@@ -50,11 +60,12 @@ const CognitoForm = ({
         formId={formId}
         prefill={prefill}
         css={style(theme, { showTitle, colorMode }) + `\n${css || ""}`}
+        key={forceReload}
         loading={
           <Box textAlign="center">
             <Spinner />
             <br />
-            {fallback && (
+            {showFallback && (fallback ? (
               <Text>
                 Problems loading?{" "}
                 <Link
@@ -64,7 +75,11 @@ const CognitoForm = ({
                   Open in new tab.
                 </Link>
               </Text>
-            )}
+            ) : (
+              <Link onClick={() => { setForceReload(Math.random()); setShowFallback(false); }}>
+                Not loading? Click to retry.
+              </Link>
+            ))}
           </Box>
         }
         onSubmit={onSubmit}

@@ -33,7 +33,6 @@ const query = (date: string, visibility: any) => `{
         }
       }
     }
-
   }
 }`;
 
@@ -54,7 +53,11 @@ interface AnnouncementProps extends BoxProps {
 function Announcement({ dark, box, ...props }: AnnouncementProps) {
   const { visibility, programWebname } = useTheme();
   const [date, updateDate] = useReducer(getDate, getDate());
-  const { data } = useSwr(query(date, visibility), apiFetch);
+  const { data } = useSwr(query(date, visibility), apiFetch, {
+    revalidateOnFocus: false,
+    revalidateIfStale: false,
+    revalidateOnReconnect: false,
+  });
   const [dismissedMessages, setDismissedMessages] = useLocalStorage(
     "topoDismissedAnnouncements",
     []
