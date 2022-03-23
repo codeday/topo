@@ -3,12 +3,11 @@ import React, { useState } from "react";
 import { Box, BoxProps, Button, Grid, TextInput } from "topo/Atom";
 import { useToasts } from "topo/utils";
 
-async function submitEmail(list: any, email: any) {
+async function submitEmail(list: any, email: any, fields?: Record<string, string>) {
   const form = new FormData();
-  form.append("name", email);
-  form.append("email", email);
-  form.append("list", list);
-  return fetch("https://email.srnd.org/subscribe", {
+  form.append("field_0", email);
+  Object.keys(fields || {}).forEach((k) => form.append(k, fields![k]));
+  return fetch(`https://eomail1.com/form/${list}`, {
     method: "POST",
     body: form as any,
   });
@@ -19,11 +18,13 @@ interface MailingListSubscribeProps extends BoxProps {
   colorScheme?: string;
   textList?: any;
   variant?: string;
+  fields?: Record<string, string>;
 }
 
 function MailingListSubscribe({
   emailList,
   textList,
+  fields,
   variant = "solid",
   colorScheme = "green",
   ...props
@@ -53,7 +54,7 @@ function MailingListSubscribe({
           onClick={() => {
             // TODO: Support for phone lists
             setIsSubmitting(true);
-            submitEmail(emailList, input)
+            submitEmail(emailList, input, fields)
               .then(() => {
                 success(`You're subscribed!`);
                 setInput("");
