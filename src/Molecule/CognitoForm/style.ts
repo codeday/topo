@@ -39,6 +39,8 @@ export default ({ theme, showTitle, colorMode, formId }: any): string => `
   #${formId} .el-button { font-weight: bold !important; }
   #${formId} .cog-col.is-error::before { opacity: 0; }
   #${formId} .cog-page-progress--steps a::before { border-color: initial; }
+  #${formId} .cog-page__navigation { padding-top: 0 !important; padding-bottom: var(--gutter); }
+  #${formId} .cog-body { margin-top: 0! important; }
 
   #${formId} .cog-cognito {
     --form__width: 100%;
@@ -82,6 +84,11 @@ export default ({ theme, showTitle, colorMode, formId }: any): string => `
     --button-secondary__border-width: 0;
     --input__border-radius: ${theme.radii.md};
     --input-focus__box-shadow: rgb(171, 216, 255) 0px 0px 0px 1px;
+    --input__border-style: solid;
+    --input__border-width-top: 1px;
+    --input__border-width-bottom: 1px;
+    --input__border-width-left: 1px;
+    --input__border-width-right: 1px;
 
     --negative: ${theme.colors.red[800]};
     --negative-reverse: ${theme.colors.red[50]};

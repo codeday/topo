@@ -160,6 +160,7 @@ const Provider = ({
         }
       >
         <Global styles={customCss} />
+        <script src="https://www.cognitoforms.com/f/seamless.js" defer />
         {withChat && <Chatra chatraId="5wsfeENwi3WqHrn3n" />}
         <QueryProvider value={data}>
           {analyticsId ? (

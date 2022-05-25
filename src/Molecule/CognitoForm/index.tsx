@@ -47,11 +47,9 @@ const CognitoForm = ({
 
   useEffect(() => {
     if (typeofWindow === 'undefined') return () => { };
-    const timeout = setTimeout(() => setShowFallback(true), 9000);
+    const timeout = setTimeout(() => setShowFallback(true), 15 * 1000);
     return () => clearTimeout(timeout);
   }, [typeofWindow, setShowFallback, showFallback]);
-
-  console.log(theme);
 
   return (
     <>

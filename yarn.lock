@@ -919,10 +919,10 @@
   resolved "https://registry.yarnpkg.com/@tsconfig/node16/-/node16-1.0.2.tgz#423c77877d0569db20e1fc80885ac4118314010e"
   integrity sha512-eZxlbI8GZscaGS7kkc/trHTT5xgrjH3/1n2JDwusC9iahPKWMRvRjJSAN5mCXviuTGQ/lHnhvv8Q1YTpnfz9gA==
 
-"@tylermenezes/cognitoforms-react@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@tylermenezes/cognitoforms-react/-/cognitoforms-react-2.0.5.tgz#f3f954da865b1d8874253e3f79e5fbb8ea2c71bf"
-  integrity sha512-RWmHZ5xa8C/ZaQKjAb4E0hU0l7hqqCn0d89GlOOU3kylNnxaoK7/418w0apYAbTRROpP1ANNAxo8QS6DEF4ZSg==
+"@tylermenezes/cognitoforms-react@^2.0.13":
+  version "2.0.13"
+  resolved "https://registry.yarnpkg.com/@tylermenezes/cognitoforms-react/-/cognitoforms-react-2.0.13.tgz#417f17d2070ae57d1159d8f29bb6a466b68e74be"
+  integrity sha512-Xj0y9fksjMKJkaggUdHYh/qvRVJnwL89PJt5LYKmV6snQX60YfnRMt2ce1R+d+P2seDHWLOpozz6zqK96KKZxg==
   dependencies:
     prop-types "^15.7.2"
 
