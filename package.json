@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "6.0.7",
+  "version": "7.0.1",
   "license": "Artistic-2.0",
   "files": [
     "dist",
@@ -93,7 +93,7 @@
     "@codeday/topocons": "^1.5.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@tylermenezes/cognitoforms-react": "^1.1.0",
+    "@tylermenezes/cognitoforms-react": "^2.0.5",
     "fathom-react": "^1.0.1",
     "framer-motion": "^4",
     "graphql": "^16.0.1",

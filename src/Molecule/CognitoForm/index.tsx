@@ -9,15 +9,15 @@ import { DataCollection } from "topo/Molecule";
 import { useColorMode } from "topo/Theme";
 import { useTheme } from "topo/utils";
 
-import style from "./style/index";
+import style from "./style";
 
 interface CognitoFormProps {
   formId: number | string;
   prefill?: any;
   showTitle?: boolean;
-  onSubmit?: (e: any) => null;
-  onPageChange?: (e: any) => null;
-  onFirstPageChange?: (e: any) => null;
+  onSubmit?: () => any;
+  onPageChange?: () => any;
+  onFirstPageChange?: () => any;
   payment?: boolean;
   fallback?: boolean;
   hidePrivacy?: boolean;
@@ -29,11 +29,10 @@ const CognitoForm = ({
   formId,
   prefill,
   showTitle,
-  onSubmit = (e) => null,
-  onPageChange = (e) => null,
-  onFirstPageChange = (e) => null,
+  onSubmit = () => null,
+  onPageChange = () => null,
+  onFirstPageChange = () => null,
   payment,
-  fallback,
   accountId,
   hidePrivacy,
   css,
@@ -43,15 +42,16 @@ const CognitoForm = ({
   theme.colors.current = theme.colors.modes[colorMode];
   const [hasFirstPageChange, setHasFirstPageChange] = useState(false);
 
-  const [forceReload, setForceReload] = useState(0);
   const [showFallback, setShowFallback] = useState(false);
   const typeofWindow = typeof window;
 
   useEffect(() => {
     if (typeofWindow === 'undefined') return () => { };
-    const timeout = setTimeout(() => setShowFallback(true), 3000);
+    const timeout = setTimeout(() => setShowFallback(true), 9000);
     return () => clearTimeout(timeout);
   }, [typeofWindow, setShowFallback, showFallback]);
+
+  console.log(theme);
 
   return (
     <>
@@ -59,13 +59,12 @@ const CognitoForm = ({
         accountId={accountId || theme.cognito.id}
         formId={formId}
         prefill={prefill}
-        css={style(theme, { showTitle, colorMode }) + `\n${css || ""}`}
-        key={forceReload}
+        css={(formId) => style({ theme, showTitle, colorMode, formId }) + `\n${css || ""}`}
         loading={
           <Box textAlign="center">
             <Spinner />
             <br />
-            {showFallback && (fallback ? (
+            {showFallback && (
               <Text>
                 Problems loading?{" "}
                 <Link
@@ -75,20 +74,14 @@ const CognitoForm = ({
                   Open in new tab.
                 </Link>
               </Text>
-            ) : (
-              <Link onClick={() => { setForceReload(Math.random()); setShowFallback(false); }}>
-                Not loading? Click to retry.
-              </Link>
-            ))}
+            )}
           </Box>
         }
         onSubmit={onSubmit}
-        marginLeft="-3px"
-        marginRight="-3px"
-        onPageChange={(e: any) => {
-          onPageChange(e);
+        onPageChange={() => {
+          onPageChange();
           if (!hasFirstPageChange) {
-            onFirstPageChange(e);
+            onFirstPageChange();
             setHasFirstPageChange(true);
           }
         }}
