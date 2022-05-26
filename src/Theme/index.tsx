@@ -1,10 +1,11 @@
 import {
   ChakraProvider,
   cookieStorageManager,
-  extendTheme,
   localStorageManager,
+  useColorMode,
+  useColorModeValue,
+  ColorModeScript,
 } from "@chakra-ui/react";
-import { useColorMode, useColorModeValue } from "@chakra-ui/react";
 import { Global, css } from "@emotion/react";
 // @ts-ignore
 import Fathom from "fathom-react";
@@ -198,12 +199,21 @@ Provider.defaultProps = {
   visibility: "Public",
   initialColorMode: null,
 };
-// export default Provider;
+
+function getServerSideProps({ req }: any) {
+  return {
+    props: {
+      cookies: req.headers.cookie ?? '',
+    },
+  }
+}
 
 export {
   useColorMode,
   useColorModeValue,
   Provider as ThemeProvider,
   ProviderProps as ThemeProviderProps,
+  getServerSideProps,
+  ColorModeScript,
+  codedayTheme,
 };
-export { codedayTheme };
