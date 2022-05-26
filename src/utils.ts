@@ -2,7 +2,7 @@ import { useState, useEffect, useCallback } from "react";
 import { GraphQLClient } from "graphql-request";
 import { useTheme, useToast as useToastNative, UseToastOptions } from "@chakra-ui/react";
 
-export { useClipboard, useDisclosure } from "@chakra-ui/react";
+export { useClipboard, useDisclosure, ColorModeScript } from "@chakra-ui/react";
 // @ts-ignore
 export { useFathom as useAnalytics } from "fathom-react";
 export { useTheme };
