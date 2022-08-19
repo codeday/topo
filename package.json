@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "7.0.12",
+  "version": "7.1.0",
   "license": "Artistic-2.0",
   "files": [
     "dist",
