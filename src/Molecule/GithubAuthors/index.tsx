@@ -20,6 +20,8 @@ export interface GithubAuthorsProps extends ChakraProps {
   repository: string
   branch?: string
   path: string
+  title: string
+  titlePlural: string
 }
 
 interface ContributorInfo {
@@ -29,7 +31,7 @@ interface ContributorInfo {
   }
 }
 
-export default function GithubAuthors({ owner, repository, branch, path,...props }: GithubAuthorsProps) {
+export function GithubAuthors({ owner, repository, branch, path, title, titlePlural,...props }: GithubAuthorsProps) {
   const [authors, setAuthors] = useState<ContributorInfo[]>([]);
   const [loading, setLoading] = useState(true);
 
@@ -48,7 +50,7 @@ export default function GithubAuthors({ owner, repository, branch, path,...props
 
   return (
     <Box {...props}>
-      <Text d="inline-block">Author{authors.length > 1 ? 's' : ''}:</Text>
+      <Text d="inline-block">{authors.length !== 1 ? (titlePlural || 'Authors:') : (title || 'Author:')}</Text>
       {authors.filter((a) => a?.account?.name).slice(0,5).map((a) => (
         <Box d="inline-block" pl={2}>
           <Image d="inline" h="1em" rounded="full" alt="" mr={1} bgColor="white" src={a.account!.picture} />

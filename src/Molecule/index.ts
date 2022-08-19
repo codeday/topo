@@ -5,3 +5,4 @@ export * from "./DataCollection";
 export * from "./Html";
 export * from "./IconBox";
 export * from "./Slides";
+export * from "./GithubAuthors";
