@@ -55,10 +55,11 @@ const StandardLinks = () => {
 export interface FooterProps extends ChakraProps {
   repository?: string
   owner?: string
+  branch?: string
   children: ReactNode
 }
 
-const Footer = forwardRef(({ children, repository, owner, ...props }: FooterProps, ref) => {
+const Footer = forwardRef(({ children, repository, owner, branch, ...props }: FooterProps, ref) => {
   const cookiesLink = useString("legal.cookies", <Skelly />);
   const ccpaLink = useString("legal.ccpa", <Skelly />);
   const ecoLink = useString("eco.link", <Skelly />);
@@ -78,6 +79,7 @@ const Footer = forwardRef(({ children, repository, owner, ...props }: FooterProp
           <GithubAuthors
             repository={repository}
             owner={owner}
+            branch={branch}
             title="This site is maintained by"
           />
         </Box>
