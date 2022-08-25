@@ -1,5 +1,5 @@
 import Eco from "@codeday/topocons/Icon/Eco";
-import React, { forwardRef } from "react";
+import React, { forwardRef, ReactNode } from "react";
 import useSwr from "swr";
 import { childrenOfType, makePureBox } from "topo/_utils";
 import {
@@ -13,10 +13,11 @@ import {
   Skelly,
   Text,
 } from "topo/Atom";
-import { Content } from "topo/Molecule";
+import { Content, GithubAuthors } from "topo/Molecule";
 import { apiFetch, useString } from "topo/utils";
 import { Discord, Instagram, Linkedin, Twitter } from "./SocialLogos";
 import { useQuery } from "topo/Theme";
+import { ChakraProps } from "@chakra-ui/react";
 
 export const CustomLinks = makePureBox("Custom Links");
 export const CustomText = makePureBox("CustomText");
@@ -51,7 +52,13 @@ const StandardLinks = () => {
   );
 };
 
-const Footer = forwardRef(({ children }, ref) => {
+export interface FooterProps extends ChakraProps {
+  repository?: string
+  owner?: string
+  children: ReactNode
+}
+
+const Footer = forwardRef(({ children, repository, owner, ...props }: FooterProps, ref) => {
   const cookiesLink = useString("legal.cookies", <Skelly />);
   const ccpaLink = useString("legal.ccpa", <Skelly />);
   const ecoLink = useString("eco.link", <Skelly />);
@@ -60,12 +67,26 @@ const Footer = forwardRef(({ children }, ref) => {
   const customText = childrenOfType(children, CustomText);
 
   return (
-    <Content ref={ref as React.MutableRefObject<any>} role="contentinfo">
+    <Content ref={ref as React.MutableRefObject<any>} role="contentinfo" {...props}>
+      {repository && (
+        <Box mb={4}>
+          <Text fontFamily="monospace" color="current.textLight">
+            Made with 💖 by robots running our{' '}
+            <Link href="https://github.com/codeday" target="_blank">open-source software</Link> and{' '}
+            <Link href="https://graph.codeday.org/" target="_blank">GraphQL APIs</Link>.
+          </Text>
+          <GithubAuthors
+            repository={repository}
+            owner={owner}
+            title="This site is maintained by"
+          />
+        </Box>
+      )}
       <Grid
         templateColumns={{ base: "1fr", md: "6fr 3fr 3fr" }}
         color="current.textLight"
       >
-        <Box gridRow={{ base: 3, md: 1 }} marginTop={{ base: 6, md: 0 }}>
+        <Box fontFamily="monospace" gridRow={{ base: 3, md: 1 }} marginTop={{ base: 6, md: 0 }}>
           <Box>
             {customText.length > 0 ? (
               customText
