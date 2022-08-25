@@ -2,6 +2,7 @@ import X from "@codeday/topocons/Icon/UiX";
 import PropTypes from "prop-types";
 import React, { useEffect, useReducer } from "react";
 import useSwr from "swr";
+import { useColorMode } from "@chakra-ui/react";
 import { Box, BoxProps, Button, Grid, Link, Text } from "topo/Atom";
 import { Content } from "topo/Molecule";
 import { useTheme, apiFetch, useLocalStorage } from "topo/utils";
@@ -47,10 +48,10 @@ const fromIso = (s: string) => {
   return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
 };
 interface AnnouncementProps extends BoxProps {
-  dark?: boolean;
   box?: boolean;
 }
-function Announcement({ dark, box, ...props }: AnnouncementProps) {
+function Announcement({ box, ...props }: AnnouncementProps) {
+  const { colorMode } = useColorMode();
   const { visibility, programWebname } = useTheme();
   const [date, updateDate] = useReducer(getDate, getDate());
   const { data } = useSwr(query(date, visibility), apiFetch, {
@@ -62,6 +63,8 @@ function Announcement({ dark, box, ...props }: AnnouncementProps) {
     "topoDismissedAnnouncements",
     []
   );
+
+  const dark = colorMode === 'dark';
 
   const items = data?.cms?.announcements?.items;
   const sortedItems =
@@ -198,11 +201,9 @@ function Announcement({ dark, box, ...props }: AnnouncementProps) {
   );
 }
 Announcement.propTypes = {
-  dark: PropTypes.bool,
   box: PropTypes.bool,
 };
 Announcement.defaultProps = {
-  dark: false,
   box: false,
 };
 
