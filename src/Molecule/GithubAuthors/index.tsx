@@ -46,7 +46,8 @@ export function GithubAuthors({ owner, repository, branch, path, title, titlePlu
       const resp = await apiFetch(GITHUB_AUTHORS_QUERY, { owner, repository, branch, path }, {});
       const respA = (resp?.github?.contributors || [])
         .filter((a: ContributorInfo) => a.account?.name)
-        .sort((a: ContributorInfo) => { if (a.account!.username === 'tylermenezes') return 1; return 0; });
+        .filter((a: ContributorInfo) => (a.account!.username !== 'tylermenezes') || (resp!.github!.contributors.length <= 2))
+        .sort((a: ContributorInfo) => { if (a.account!.username === 'tylermenezes') return 1; return -1; });
       setAuthors(respA);
       setLoading(false);
     })();
