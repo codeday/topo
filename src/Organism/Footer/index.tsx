@@ -98,7 +98,7 @@ const Footer = forwardRef(({ children, repository, owner, branch, ...props }: Fo
                 CodeDay.
                 <br />A 501(c)(3) nonprofit.{" "}
                 <CopyText label="EIN: ">26-4742589</CopyText>.<br />
-                <Link href="tel:18886077763">(888) 607-7763</Link>
+                <Link href="tel:18886077763">+1 (888) 607-7763</Link> / <Link href="https://api.whatsapp.com/send?phone=9102071171033">+91 020-711-71033</Link>
               </Text>
             )}
           </Box>
