@@ -63,15 +63,31 @@ const customCss = css`
   }
 `;
 
-const query = `{
+const STRINGS = [
+  'legal.cookies',
+  'legal.ccpa',
+  'legal.data.pii',
+  'legal.data.payment',
+  'eco.link',
+  'common.more-info',
+  'resources',
+  'custom-links',
+  'copyright',
+  'nonprofit',
+  'maintained-by',
+  'made-with-love',
+];
+
+const query = `query PageQuery ($locale: String!, $stringKeys: [String!]!, $localizationConfig: String!) {
   cms {
-    strings {
+    strings (locale: $locale, where: { key_in: $stringKeys } ) {
       items {
         key
         value
       }
     }
-    sites(where: { type: "Public", display_contains_all: "Footer" }) {
+
+    sites(where: { type: "Public", display_contains_all: "Footer" }, locale: $locale) {
       items {
         sys {
           id
@@ -79,6 +95,11 @@ const query = `{
         title
         link
       }
+    }
+
+    localizationConfig(id: $localizationConfig, locale: $locale) {
+      contactDefaultType
+      contactDefaultValue
     }
   }
 }`;
@@ -101,6 +122,8 @@ interface ProviderProps {
   initialColorMode: string;
   cookies?: any;
   children?: React.ReactNode;
+  locale?: string;
+  localizationConfig?: string;
 }
 
 const Provider = ({
@@ -112,11 +135,13 @@ const Provider = ({
   initialColorMode,
   cookies,
   children,
+  locale,
+  localizationConfig,
 }: ProviderProps) => {
   const FathomComponent = analyticsId ? Fathom : Fragment;
 
   // Fetch translation strings
-  const { data } = useSwr(query, apiFetch, {
+  const { data } = useSwr([query, { locale: locale ?? 'en-US', stringKeys: STRINGS, localizationConfig: localizationConfig ?? '2guv6EfbM9qu5y5ER52pVN' }], apiFetch, {
     revalidateOnFocus: false,
     revalidateOnReconnect: false,
   });

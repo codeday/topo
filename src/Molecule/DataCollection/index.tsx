@@ -11,7 +11,7 @@ const MessageIcons = {
   payment: SecureIcon,
 };
 interface DataCollectionProps {
-  message: string;
+  message: 'pii' | 'payment';
 }
 function DataCollection({ message }: DataCollectionProps) {
   const { fontSizes } = useTheme();

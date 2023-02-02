@@ -63,6 +63,14 @@ const Footer = forwardRef(({ children, repository, owner, branch, ...props }: Fo
   const cookiesLink = useString("legal.cookies", <Skelly />);
   const ccpaLink = useString("legal.ccpa", <Skelly />);
   const ecoLink = useString("eco.link", <Skelly />);
+  const resourcesHeading = useString('resources', <Skelly />);
+  const customHeading = useString('custom-links', <Skelly />);
+  const copyright = useString('copyright', <>&copy; CodeDay</>);
+  const nonprofit = useString('nonprofit', '');
+  const maintainedBy = useString('maintained-by', 'This site is maintained by');
+  const madeWithLove = useString('made-with-love', <Skelly />);
+
+  const localizationContact = useQuery<{ contactDefaultType: string, contactDefaultValue: string } | undefined>('cms.localizationConfig');
 
   const customLinks = childrenOfType(children, CustomLinks);
   const customText = childrenOfType(children, CustomText);
@@ -72,15 +80,13 @@ const Footer = forwardRef(({ children, repository, owner, branch, ...props }: Fo
       {repository && (
         <Box mb={4}>
           <Text fontFamily="monospace" color="current.textLight">
-            Made with 💖 by robots running our{' '}
-            <Link href="https://github.com/codeday" target="_blank">open-source software</Link> and{' '}
-            <Link href="https://graph.codeday.org/" target="_blank">GraphQL APIs</Link>.
+            {madeWithLove}
           </Text>
           <GithubAuthors
             repository={repository}
             owner={owner}
             branch={branch}
-            title="This site is maintained by"
+            title={maintainedBy}
           />
         </Box>
       )}
@@ -94,11 +100,20 @@ const Footer = forwardRef(({ children, repository, owner, branch, ...props }: Fo
               customText
             ) : (
               <Text>
-                Copyright &copy; 2009 &ndash; {new Date().getFullYear()}{" "}
-                CodeDay.
-                <br />A 501(c)(3) nonprofit.{" "}
+                {typeof copyright === 'string' ? copyright.replace('{currentYear}', new Date().getFullYear().toString()) : copyright}
+                <br />{nonprofit}{" "}
                 <CopyText label="EIN: ">26-4742589</CopyText>.<br />
-                <Link href="tel:18886077763">+1 (888) 607-7763</Link> / <Link href="https://api.whatsapp.com/send?phone=9102071171033">+91 020-711-71033</Link>
+                {localizationContact && (
+                  localizationContact.contactDefaultValue === 'whatsapp' ? (
+                    <Link href={`https://api.whatsapp.com/send?phone=${localizationContact.contactDefaultValue.replace(/[^0-9]/g, '')}`}>
+                      {localizationContact.contactDefaultValue}
+                    </Link>
+                  ) : (
+                    <Link href={`tel:${localizationContact.contactDefaultValue.replace(/[^0-9]/g, '')}`}>
+                      {localizationContact.contactDefaultValue}
+                    </Link>
+                  )
+                )}
               </Text>
             )}
           </Box>
@@ -130,14 +145,14 @@ const Footer = forwardRef(({ children, repository, owner, branch, ...props }: Fo
         >
           {customLinks.length > 0 && (
             <Heading as="h2" fontSize="xl">
-              More
+              {customHeading}
             </Heading>
           )}
           {customLinks}
         </Box>
         <Box>
           <Heading as="h2" fontSize="xl">
-            Resources
+            {resourcesHeading}
           </Heading>
           <StandardLinks />
         </Box>
