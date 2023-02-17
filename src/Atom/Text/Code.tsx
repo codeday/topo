@@ -5,6 +5,7 @@ import {
   useColorMode,
   TextProps,
   forwardRef,
+  ComponentWithAs,
 } from "@chakra-ui/react";
 import Text from "./Text";
 import { BoxProps } from "../Box";
@@ -35,7 +36,7 @@ interface CodeProps {
 //   fontSize: "0.9em",
 // })(Text);
 
-const Code = forwardRef<CodeProps, "p">(({ children, ...props }, ref) => {
+const Code: ComponentWithAs<"p", CodeProps> = forwardRef<CodeProps, "p">(({ children, ...props }, ref) => {
   const bg = useColorModeValue("gray.50", "gray.800");
   const borderColor = useColorModeValue("gray.100", "gray.800");
   return (

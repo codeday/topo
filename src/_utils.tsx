@@ -36,7 +36,7 @@ export const debounce = (
 
 export const reactChildrenMapRecursive = (
   children: React.ReactNode,
-  fn: (child: React.ReactNode) => void
+  fn: (child: React.ReactNode) => React.ReactNode
 ): React.ReactNode =>
   React.Children.map(children, (child) => {
     if (!React.isValidElement(child)) {
@@ -44,8 +44,11 @@ export const reactChildrenMapRecursive = (
     }
 
     if (child.props.children) {
+      //@ts-ignore
       return fn(
+        //@ts-ignore
         React.cloneElement(child, {
+      //@ts-ignore
           children: reactChildrenMapRecursive(child.props.children, fn),
         })
       );

@@ -1,9 +1,9 @@
 import React from "react";
 import {
-  forwardRef,
-  Box as ChakraBox,
-  BoxProps as ChakraBoxProps,
-  ChakraProps,
+    forwardRef,
+    Box as ChakraBox,
+    BoxProps as ChakraBoxProps,
+    ChakraProps, ComponentWithAs,
 } from "@chakra-ui/react";
 import { useTheme } from "topo/utils";
 import { dereferenceDottedString } from "topo/_utils";
@@ -13,7 +13,7 @@ export interface BoxProps extends ChakraBoxProps {
   visuallyHidden?: boolean;
 }
 
-export default forwardRef<BoxProps, "div">(
+const Box: ComponentWithAs<"div", BoxProps> = forwardRef<BoxProps, "div">(
   ({ grad, visuallyHidden, ...props }, ref) => {
     const theme = useTheme();
     const hiddenProps = {
@@ -36,3 +36,4 @@ export default forwardRef<BoxProps, "div">(
     );
   }
 );
+export default Box

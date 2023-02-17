@@ -9,15 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@chakra-ui/react": "~1.6.10",
+    "@chakra-ui/react": "^2.5.1",
     "@codeday/topo": "file:.yalc/@codeday/topo",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@nexite/dokz": "latest",
     "framer-motion": "^4",
     "next": "^12.0.0",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "react-pdf": "^5.6.0",
     "react-syntax-highlighter": "^15.4.5"
   },

@@ -2,14 +2,14 @@ import React from "react";
 import { withProps } from "recompose";
 import { pureRef } from "topo/_utils";
 
-import { Box, Heading, HeadingProps } from "@chakra-ui/react";
+import { Box, ComponentWithAs, Heading, HeadingProps } from "@chakra-ui/react";
 
 import { BoxProps } from "../Box";
 
 export interface TextProps extends BoxProps {
   bold?: boolean;
 }
-export const Text = pureRef<TextProps, "p">(({ bold, ...props }, ref) => (
+export const Text: ComponentWithAs<"p", TextProps> = pureRef<TextProps, "p">(({ bold, ...props }, ref) => (
   <Box fontWeight={bold ? "bold" : {}} {...props} ref={ref} />
 ));
 const P = pureRef<TextProps, "p">(({ as, bold, ...rest }, ref) => (

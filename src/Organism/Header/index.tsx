@@ -57,14 +57,14 @@ const Header = ({
             <Box
               float="right"
               textAlign="right"
-              d={{ base: "none", lg: "block" }}
+              display={{ base: "none", lg: "block" }}
             >
               {menu}
             </Box>
             <Box
               float="right"
               textAlign="right"
-              d={{ base: "block", lg: "none" }}
+              display={{ base: "block", lg: "none" }}
               fontSize="xl"
               color={darkBackground ? "whiteAlpha.800" : "current.textColor"}
             >
@@ -86,7 +86,7 @@ const Header = ({
       {/* Hamburger Menu */}
       <Box
         as="nav"
-        d={hamburgerOpen ? "block" : "none"}
+        display={hamburgerOpen ? "block" : "none"}
         position="fixed"
         top="0"
         right="0"

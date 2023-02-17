@@ -2,7 +2,7 @@
 import React, { useRef, useEffect, useState, useMemo } from "react";
 import { debounce } from "topo/_utils";
 import { Box, BoxProps } from "topo/Atom";
-import { forwardRef } from "@chakra-ui/react";
+import {ComponentWithAs, forwardRef } from "@chakra-ui/react";
 
 export interface SizeBoxProps extends BoxProps {
   onWidthChanged?: (width: any) => null;
@@ -10,7 +10,7 @@ export interface SizeBoxProps extends BoxProps {
   onSizeChanged?: (width: any, height: any) => null;
 }
 
-export const SizeBox = forwardRef<SizeBoxProps, "div">(
+export const SizeBox: ComponentWithAs<"div", SizeBoxProps> = forwardRef<SizeBoxProps, "div">(
   (
     {
       onWidthChanged = () => {},

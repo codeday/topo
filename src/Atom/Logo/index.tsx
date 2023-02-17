@@ -3,7 +3,7 @@ import { Box, BoxProps } from "topo/Atom";
 import { Text } from "topo/Atom";
 import { pureRef } from "topo/_utils";
 import { withProps } from "recompose";
-import { useColorModeValue } from "@chakra-ui/react";
+import {ComponentWithAs, useColorModeValue } from "@chakra-ui/react";
 import * as Icons from "./Icons";
 
 // generate icons using https://www.npmjs.com/package/create-chakra-icons - create-chakra-icons  -o src/Atom/Logo/Icons.ts ./src/Atom/Logo/svgs --typescript
@@ -30,14 +30,14 @@ const Lockup = ({
   color,
   ...props
 }: LockupProps) => (
-  <Box d="inline" textDecoration="none" {...props}>
-    <Box color="brand" height="1.1em" d="inline">
+  <Box display="inline" textDecoration="none" {...props}>
+    <Box color="brand" height="1.1em" display="inline">
       {logo}
     </Box>
     <Box
       color={textColor || color || useColorModeValue("black", "white")}
       height="1em"
-      d="inline"
+      display="inline"
     >
       {text}
     </Box>
@@ -45,7 +45,7 @@ const Lockup = ({
 );
 Lockup.displayName = "Lockup";
 
-export const Logo = pureRef<any, "div">(
+export const Logo: ComponentWithAs<"div", any> = pureRef<any, "div">(
   ({ program, withText, text, ...props }, ref) => {
     const logoPart = React.createElement(Icons[`${upperFirst(program)}`], {
       display: "inline",
@@ -55,7 +55,7 @@ export const Logo = pureRef<any, "div">(
     if (typeof text === "string") {
       textPart = (
         <Text
-          d="inline"
+          display="inline"
           fontSize="0.94em"
           fontWeight="bold"
           fontFamily="logo"

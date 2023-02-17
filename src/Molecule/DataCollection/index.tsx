@@ -30,7 +30,7 @@ function DataCollection({ message }: DataCollectionProps) {
         gap={4}
         alignItems="center"
       >
-        <Box d={{ base: "none", md: "block" }} fontSize="2xl">
+        <Box display={{ base: "none", md: "block" }} fontSize="2xl">
           <MessageIcon
             style={{ position: "relative", top: "-2px", fill: "currentColor" }}
           />

@@ -1,4 +1,4 @@
-import { forwardRef } from "@chakra-ui/react";
+import {ComponentWithAs, forwardRef } from "@chakra-ui/react";
 import PropTypes from "prop-types";
 import React, { useEffect, useReducer } from "react";
 import { Box, BoxProps } from "topo/Atom/Box";
@@ -7,7 +7,7 @@ interface SlidesProps extends BoxProps {
   duration?: number;
 }
 
-const Slides = forwardRef<SlidesProps, "div">(
+const Slides: ComponentWithAs<"div", SlidesProps> = forwardRef<SlidesProps, "div">(
   ({ duration = 15, transitionDuration = 1, children, ...props }, ref) => {
     const [visibleIndex, nextSlide] = useReducer(
       (lastIndex) => (lastIndex + 1) % React.Children.count(children),

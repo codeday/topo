@@ -6,7 +6,7 @@ import React, {
   useImperativeHandle,
 } from "react";
 import { Box, BoxProps, ClientSideOnlyBox } from "topo/Atom";
-import { forwardRef } from "@chakra-ui/react";
+import {ComponentWithAs, forwardRef } from "@chakra-ui/react";
 
 const VisibilityCheckBoxInner = forwardRef<BoxProps, "div">(
   ({ children, ...props }, forwardedRef) => {
@@ -37,7 +37,7 @@ const VisibilityCheckBoxInner = forwardRef<BoxProps, "div">(
 // VisibilityCheckBoxInner = forwardRef(VisibilityCheckBoxInner);
 
 // Wrapping this component with a check for client-side will prevent errors about useLayoutEffect on SSR
-export const VisibilityCheckBox = forwardRef<BoxProps, "div">(
+export const VisibilityCheckBox: ComponentWithAs<"div", BoxProps> = forwardRef<BoxProps, "div">(
   ({ children, ...props }, ref) => {
     return (
       <ClientSideOnlyBox>

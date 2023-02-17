@@ -5,7 +5,7 @@ const components = {
   Popover: {
     baseStyle: (props: Dict | StyleFunctionProps) => ({
       content: {
-        bg: mode("white", "gray.1100")(props),
+        bg: mode("white","gray.1100")(props),
       },
       arrow: {
         bg: mode("white", "gray.1100")(props),
