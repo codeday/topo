@@ -581,7 +581,7 @@
     "@chakra-ui/react-context" "2.0.7"
     "@chakra-ui/shared-utils" "2.0.5"
 
-"@chakra-ui/layout@2.1.16":
+"@chakra-ui/layout@2.1.16", "@chakra-ui/layout@^2.1.16":
   version "2.1.16"
   resolved "https://registry.yarnpkg.com/@chakra-ui/layout/-/layout-2.1.16.tgz#9d90f25cf9f0537d19cd36a417f7ddc1461e8591"
   integrity sha512-QFS3feozIGsvB0H74lUocev55aRF26eNrdmhfJifwikZAiq+zzZAMdBdNU9UJhHClnMOU8/iGZ0MF7ti4zQS1A==
@@ -1154,10 +1154,11 @@
   integrity sha512-WWULIiucYRBIewHKFA7BssQ2ABLHLVd9lrUo3N3SZgR0u4ZRDDVEUNOy+r+9ruDze8+36dGbN9wsN1IdELtdOw==
 
 "@codeday/topo@file:.yalc/@codeday/topo":
-  version "8.0.3"
+  version "9.0.0"
   dependencies:
     "@accessible/use-id" "^1.1.2"
     "@chakra-ui/cli" "^2.3.0"
+    "@chakra-ui/layout" "^2.1.16"
     "@chakra-ui/react" "^2.5.1"
     "@chakra-ui/styled-system" "^2.6.1"
     "@codeday/topocons" "^1.5.0"
