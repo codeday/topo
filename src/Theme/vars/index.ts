@@ -15,7 +15,7 @@ const Theme = {
     id: "7hYXr3TPxk6yIpJxjqVoFQ",
   },
   config: {
-    initialColorMode: "light",
+    initialColorMode: "system",
     useSystemColorMode: true,
   },
 };

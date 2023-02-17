@@ -52,7 +52,7 @@ export function GithubAuthors({ owner, repository, branch, path, title, titlePlu
     })();
   }, [owner, repository, branch, path]);
 
-  if (loading && repository) return <Box {...props}><Text d="inline">&nbsp;</Text></Box>
+  if (loading && repository) return <Box {...props}><Text display="inline">&nbsp;</Text></Box>
   if (!repository || (!authors || authors.length === 0)) return <></>;
 
   const exceedsMax = authors.length > displayMax;
@@ -66,15 +66,15 @@ export function GithubAuthors({ owner, repository, branch, path, title, titlePlu
       color="current.textLight"
       {...props}
     >
-      <Text d="inline-block">{authors.length !== 1 ? (titlePlural || title || 'Authors:') : (title || 'Author:')}</Text>
+      <Text display="inline-block">{authors.length !== 1 ? (titlePlural || title || 'Authors:') : (title || 'Author:')}</Text>
       {authors.slice(0, displayMax).map((a, i) => {
         const secondToLast = i === authors.length - 2;
         const last = i === authors.length - 1;
         const displayComma = (!last && authors.length > 2) || exceedsMax;
         const displayAnd = (secondToLast && !exceedsMax) || (last && exceedsMax);
         return (
-          <Box d="inline-block" pl={2}>
-            <Image d="inline" h="1em" rounded="full" alt="" mr={1} bgColor="white" src={a.account!.picture} />
+          <Box display="inline-block" pl={2}>
+            <Image display="inline" h="1em" rounded="full" alt="" mr={1} bgColor="white" src={a.account!.picture} />
             {a.account!.name}{displayComma && ','}{displayAnd && ' and'}{' '}
           </Box>
         );

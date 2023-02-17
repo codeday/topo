@@ -1,6 +1,6 @@
 import {
   ChakraProvider,
-  cookieStorageManager,
+  createCookieStorageManager,
   localStorageManager,
   useColorMode,
   useColorModeValue,
@@ -110,7 +110,7 @@ export const QueryProvider = QueryContext.Provider;
 export function useQuery<T = any>(key?: string, def?: T): T | undefined {
   const obj = useContext(QueryContext);
   if (!key) return (obj as unknown) as T;
-  return get(obj, key, def || null);
+  return get(obj, key, def || undefined);
 }
 
 interface ProviderProps {
@@ -181,7 +181,7 @@ const Provider = ({
         resetCSS
         colorModeManager={
           typeof cookies === "string"
-            ? cookieStorageManager(cookies)
+            ? createCookieStorageManager(cookies)
             : localStorageManager
         }
       >

@@ -49,6 +49,7 @@ export function useLocalStorage(key: string, initialValue: any) {
   );
 
   const handleStorageUpdate = useCallback(
+    //@ts-ignore
     (event) => {
       if (event.key === key && event.newValue !== value) {
         setValue(JSON.parse(event.newValue) || initialValue);

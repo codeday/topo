@@ -117,7 +117,7 @@ function Announcement({ box, ...props }: AnnouncementProps) {
         borderRadius={4}
         p={4}
         m={0}
-        d="block"
+        display="block"
         as={item.link ? "a" : "div"}
         href={item.link}
         target={item.link ? "_blank" : null}
@@ -138,7 +138,7 @@ function Announcement({ box, ...props }: AnnouncementProps) {
 
   const Close = (
     <Box
-      d="inline"
+      display="inline"
       position="relative"
       top="-2px"
       paddingRight={2}
@@ -159,7 +159,7 @@ function Announcement({ box, ...props }: AnnouncementProps) {
       color={`${baseColor}.${dark ? 600 : 800}`}
       p={2}
       m={0}
-      d="block"
+      display="block"
       as={item.link ? "a" : "div"}
       href={item.link}
       target={item.link ? "_blank" : null}
@@ -167,11 +167,11 @@ function Announcement({ box, ...props }: AnnouncementProps) {
       {...props}
     >
       <Content wide mb={0}>
-        <Box d={{ base: "none", lg: "block" }} mb={0}>
+        <Box display={{ base: "none", lg: "block" }} mb={0}>
           <Grid templateColumns="4fr 1fr" alignItems="center">
             <Box>
               {Close}
-              <Text mb={0} d="inline">
+              <Text mb={0} display="inline">
                 {item.oneline}
               </Text>
             </Box>
@@ -183,14 +183,14 @@ function Announcement({ box, ...props }: AnnouncementProps) {
           </Grid>
         </Box>
         <Box
-          d={{ base: "none", md: "block", lg: "none" }}
+          display={{ base: "none", md: "block", lg: "none" }}
           mb={0}
           textAlign="center"
         >
           {Close}
           {item.oneline}
         </Box>
-        <Box d={{ base: "block", md: "none" }} mb={0}>
+        <Box display={{ base: "block", md: "none" }} mb={0}>
           <Grid templateColumns="1fr 5fr" alignItems="center">
             <Box>{Close} </Box>
             <Box textAlign="center">{item.title}</Box>
