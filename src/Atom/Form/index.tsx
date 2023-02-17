@@ -5,9 +5,10 @@ import {
   FormControlProps,
   FormLabelProps,
   forwardRef,
+  ComponentWithAs,
 } from "@chakra-ui/react";
 
-const ComposedFormControl = forwardRef<FormControlProps, "div">(
+const ComposedFormControl: ComponentWithAs<"div", FormControlProps> = forwardRef<FormControlProps, "div">(
   (props: FormControlProps, ref) => (
     <FormControl marginBottom={4} marginTop={4} ref={ref} {...props} />
   )

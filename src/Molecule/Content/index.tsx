@@ -1,13 +1,14 @@
 import React from "react";
 import { pureRef } from "topo/_utils";
 import { Box, BoxProps } from "topo/Atom/Box";
+import { ComponentWithAs } from "@chakra-ui/react";
 
 interface ContentProps extends BoxProps {
   wide?: boolean;
   full?: boolean;
 }
 
-const Content = pureRef<ContentProps, "div">(
+const Content: ComponentWithAs<"div", ContentProps> = pureRef<ContentProps, "div">(
   ({ wide, full, ...props }, ref) => (
     <Box
       paddingLeft={3}

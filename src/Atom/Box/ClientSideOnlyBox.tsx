@@ -2,9 +2,9 @@
 import React from "react";
 import { Box, BoxProps } from "topo/Atom";
 import { useSsr } from "topo/utils";
-import { forwardRef } from "@chakra-ui/react";
+import {ComponentWithAs, forwardRef} from "@chakra-ui/react";
 
-export const ClientSideOnlyBox = forwardRef<BoxProps, "div">(
+export const ClientSideOnlyBox: ComponentWithAs<"div", BoxProps> = forwardRef<BoxProps, "div">(
   ({ children, ...props }, ref) => {
     const isSsr = useSsr();
     return isSsr ? null : (

@@ -12,15 +12,16 @@ import {
   List,
   Skelly,
   Text,
+  BoxProps,
 } from "topo/Atom";
 import { Content, GithubAuthors } from "topo/Molecule";
 import { apiFetch, useString } from "topo/utils";
 import { Discord, Instagram, Linkedin, Twitter } from "./SocialLogos";
 import { useQuery } from "topo/Theme";
-import { ChakraProps } from "@chakra-ui/react";
+import { ChakraProps, ComponentWithAs } from "@chakra-ui/react";
 
-export const CustomLinks = makePureBox("Custom Links");
-export const CustomText = makePureBox("CustomText");
+export const CustomLinks: ComponentWithAs<"div", BoxProps> = makePureBox("Custom Links");
+export const CustomText: ComponentWithAs<"div", BoxProps> = makePureBox("CustomText");
 
 const StandardLinks = () => {
   const links = useQuery<{ sys: { id: string }, link: string, title: string }[] | undefined>('cms.sites.items');

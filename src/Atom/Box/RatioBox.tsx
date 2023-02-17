@@ -6,7 +6,7 @@ import React, {
 } from "react";
 import { Box, BoxProps } from "topo/Atom";
 import { useSsr } from "topo/utils";
-import { forwardRef } from "@chakra-ui/react";
+import {ComponentWithAs, forwardRef} from "@chakra-ui/react";
 
 export interface RatioBoxProps extends BoxProps {
   auto?: "w" | "h";
@@ -63,7 +63,7 @@ const RatioBoxInner = forwardRef<RatioBoxProps, "div">(
   }
 );
 
-export const RatioBox = forwardRef<RatioBoxProps, "div">(
+export const RatioBox: ComponentWithAs<"div", RatioBoxProps> = forwardRef<RatioBoxProps, "div">(
   ({ auto = "h", autoDefault = "100%", children, ...props }, ref) => {
     const ssr = useSsr();
     if (ssr) {

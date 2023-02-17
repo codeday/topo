@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "8.0.3",
+  "version": "9.0.0",
   "license": "Artistic-2.0",
   "files": [
     "dist",
@@ -90,6 +90,7 @@
     "@chakra-ui/cli": "^2.3.0",
     "@chakra-ui/react": "^2.5.1",
     "@chakra-ui/styled-system": "^2.6.1",
+    "@codeday/topo": "file:.yalc/@codeday/topo",
     "@codeday/topocons": "^1.5.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
