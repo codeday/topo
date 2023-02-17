@@ -90,7 +90,6 @@
     "@chakra-ui/cli": "^2.3.0",
     "@chakra-ui/react": "^2.5.1",
     "@chakra-ui/styled-system": "^2.6.1",
-    "@codeday/topo": "file:.yalc/@codeday/topo",
     "@codeday/topocons": "^1.5.0",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
