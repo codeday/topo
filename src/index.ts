@@ -4,3 +4,4 @@ export * as Molecule from "./Molecule";
 export * as Theme from "./Theme";
 export * as utils from "./utils";
 export * as _utils from "./_utils";
+export * Atom from "./Alert"
