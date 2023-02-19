@@ -3,4 +3,4 @@ export {
   AlertIcon,
   AlertTitle,
   AlertDescription,
-} from '@chakra-ui/react'
+} from '@chakra-ui/react';
