@@ -1,0 +1,14 @@
+# Updating to version 9
+Topo version 9 updated `chakra-ui` from version 1 to 2.
+
+This has a number of breaking changes, which are fully documented in the [Chakra UI v2 migration guide](https://chakra-ui.com/getting-started/migration), however the ones most likely to be relevant for topo use are:
+
+## Update your dependencies
+* Ensure any `@chakra-ui` packages used are version `^2.0.0`
+* Ensure `react` and `react-dom` are both `^18.0.0` - see the react 18 migration guide [here](https://reactjs.org/blog/2022/03/08/react-18-upgrade-guide.html)
+
+## Deprecated features
+* Removal of `d` style prop - usage of `d` should be replaced with `display`
+* Removal of `isFullWidth` from `Button`, `Input` (exported in topo as `TextInput`), `NumberInput`, `Radio`, `Checkbox`, and `Select`. Use `width="full"` or `width="100%"` instead.
+* Removal of `defaultIsChecked` prop from `Checkbox`. Use `defaultChecked` instead.
+* Removal of `area` prop from `Grid`. You can now pass this to `GridItem`.
