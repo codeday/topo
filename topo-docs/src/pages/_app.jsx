@@ -5,6 +5,7 @@ import { CodeDay } from "@codeday/topo/Atom";
 
 const order = {
   "index.mdx": true,
+  MigrationGuides: true,
   Foundations: {
     properties: true,
     colors: true,
