@@ -22,7 +22,7 @@ import codedayTheme from "./vars";
 const customCss = css`
   @font-face{
     font-family:'Sofia Pro';
-    src:url('https://f1.codeday.org/topo/fonts/SofiaPro-Bold.woff2') format('woff2'),url('https://f1.codeday.org/topo/fonts/SofiaPro-Bold.woff') format('woff'),url('Shttps://f1.codeday.org/topo/fonts/ofiaPro-Bold.ttf') format('truetype');
+    src:url('https://f1.codeday.org/topo/fonts/SofiaPro-Bold.woff2') format('woff2'),url('https://f1.codeday.org/topo/fonts/SofiaPro-Bold.woff') format('woff'),url('https://f1.codeday.org/topo/fonts/SofiaPro-Bold.ttf') format('truetype');
     font-weight:700;
     font-style:normal;
     font-display: swap;
