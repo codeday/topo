@@ -1,7 +1,5 @@
-import UiMenu from "@codeday/topocons/Icon/UiMenu";
-import UiX from "@codeday/topocons/Icon/UiX";
-import PropTypes from "prop-types";
 import React, { Children, cloneElement, useState } from "react";
+import { UiX, UiMenu } from "@codeday/topocons";
 import { childrenOfType, setChildProps } from "topo/_utils";
 import { Box, BoxProps } from "topo/Atom/Box";
 import { Content } from "topo/Molecule";

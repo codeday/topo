@@ -1,17 +1,15 @@
-import PromiseIcon from "@codeday/topocons/Icon/Promise";
-import SecureIcon from "@codeday/topocons/Icon/Secure";
-import InfoIcon from "@codeday/topocons/Icon/UiInfo";
+import { Promise, Secure, UiInfo } from "@codeday/topocons";
 import PropTypes from "prop-types";
 import React from "react";
 import { Box, Grid, Link, Skelly } from "topo/Atom";
 import { useString, useTheme } from "topo/utils";
 
 const MessageIcons = {
-  pii: PromiseIcon,
-  payment: SecureIcon,
+  pii: Promise,
+  payment: Secure,
 };
 interface DataCollectionProps {
-  message: 'pii' | 'payment';
+  message: "pii" | "payment";
 }
 function DataCollection({ message }: DataCollectionProps) {
   const { fontSizes } = useTheme();
@@ -21,7 +19,7 @@ function DataCollection({ message }: DataCollectionProps) {
   );
   const moreInfo = useString(`common.more-info`, "More Info");
 
-  const MessageIcon = MessageIcons[message] || InfoIcon;
+  const MessageIcon = MessageIcons[message] || UiInfo;
 
   return (
     <Box color="current.textLight">

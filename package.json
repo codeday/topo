@@ -12,77 +12,78 @@
     "_utils"
   ],
   "sideEffects": false,
-  "main": "dist/cjs/index.js",
-  "module": "dist/esm/index.js",
-  "types": "dist/esm/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
       "Atom": [
-        "dist/esm/Atom/index.d.ts"
+        "dist/Atom/index.d.ts"
       ],
       "Molecule": [
-        "dist/esm/Molecule/index.d.ts"
+        "dist/Molecule/index.d.ts"
       ],
       "Organism": [
-        "dist/esm/Organism/index.d.ts"
+        "dist/Organism/index.d.ts"
       ],
       "Theme": [
-        "dist/esm/Theme/index.d.ts"
+        "dist/Theme/index.d.ts"
       ],
       "utils": [
-        "dist/esm/utils.d.ts"
+        "dist/utils.d.ts"
       ],
       "_utils": [
-        "dist/esm/_utils.d.ts"
+        "dist/_utils.d.ts"
       ],
       "*": [
-        "dist/esm/index.d.ts"
+        "dist/index.d.ts"
       ]
     }
   },
   "exports": {
     ".": {
-      "types": "./dist/esm/index.d.ts",
-      "require": "./dist/cjs/index.js",
-      "default": "./dist/esm/index.js"
+      "types": "./dist/index.d.ts",
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs"
     },
     "./Atom": {
-      "types": "./dist/esm/Atom/index.d.ts",
-      "require": "./dist/cjs/Atom/index.js",
-      "default": "./dist/esm/Atom/index.js"
+      "types": "./dist/Atom/index.d.ts",
+      "require": "./dist/Atom/index.js",
+      "import": "./dist/Atom/index.mjs"
     },
     "./Molecule": {
-      "types": "./dist/esm/Molecule/index.d.ts",
-      "require": "./dist/cjs/Molecule/index.js",
-      "default": "./dist/esm/Molecule/index.js"
+      "types": "./dist/Molecule/index.d.ts",
+      "require": "./dist/Molecule/index.js",
+      "import": "./dist/Molecule/index.mjs"
     },
     "./Organism": {
-      "types": "./dist/esm/Organism/index.d.ts",
-      "require": "./dist/cjs/Organism/index.js",
-      "default": "./dist/esm/Organism/index.js"
+      "types": "./dist/Organism/index.d.ts",
+      "require": "./dist/Organism/index.js",
+      "import": "./dist/Organism/index.mjs"
     },
     "./Theme": {
-      "types": "./dist/esm/Theme/index.d.ts",
-      "require": "./dist/cjs/Theme/index.js",
-      "default": "./dist/esm/Theme/index.js"
+      "types": "./dist/Theme/index.d.ts",
+      "require": "./dist/Theme/index.js",
+      "import": "./dist/Theme/index.mjs"
     },
     "./utils": {
-      "types": "./dist/esm/utils.d.ts",
-      "require": "./dist/cjs/utils.js",
-      "default": "./dist/esm/utils.js"
+      "types": "./dist/utils.d.ts",
+      "require": "./dist/utils.js",
+      "import": "./dist/utils.mjs"
     },
     "./_utils": {
-      "types": "./dist/esm/_utils.d.ts",
-      "require": "./dist/cjs/_utils.js",
-      "default": "./dist/esm/_utils.js"
+      "types": "./dist/_utils.d.ts",
+      "require": "./dist/_utils.js",
+      "import": "./dist/_utils.mjs"
     }
   },
   "scripts": {
-    "build": "yarn build:esm && yarn build:cjs",
+    "build": "NODE_OPTIONS='--max-old-space-size=8192' yarn tsup --dts",
+    "build:fast": "yarn tsup src",
     "trace": "tsc --traceResolution",
     "build:esm": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs && tscpaths -p tsconfig.json -s ./src -o ./dist/cjs",
-    "gen:theme-typings": "chakra-cli tokens ./src/Theme/vars/index.ts",
+    "gen:theme-typings": "chakra-cli tokens ./src/Theme/vars/index.tsx",
     "logos": "create-chakra-icons  -o src/Atom/Logo/Icons.ts ./src/Atom/Logo/svgs --typescript",
     "prepare": "yarn build"
   },
@@ -91,7 +92,7 @@
     "@chakra-ui/cli": "^2.3.0",
     "@chakra-ui/react": "^2.5.1",
     "@chakra-ui/styled-system": "^2.6.1",
-    "@codeday/topocons": "^1.5.0",
+    "@codeday/topocons": "^2.0.1",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@tylermenezes/cognitoforms-react": "^2.0.13",
@@ -119,6 +120,20 @@
     "create-chakra-icons": "^1.0.3-dev.0",
     "cross-env": "^7.0.3",
     "tscpaths": "^0.0.9",
+    "tsup": "^6.6.3",
     "typescript": "^4.5.2"
+  },
+  "tsup": {
+    "entry": [
+      "src/**/*.ts",
+      "src/**/*.tsx",
+      "!src/**/*.svg"
+    ],
+    "clean": true,
+    "target": "es2019",
+    "format": [
+      "cjs",
+      "esm"
+    ]
   }
 }

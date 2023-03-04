@@ -1,4 +1,4 @@
-import X from "@codeday/topocons/Icon/UiX";
+import { UiX as X } from "@codeday/topocons";
 import PropTypes from "prop-types";
 import React, { useEffect, useReducer } from "react";
 import useSwr from "swr";
@@ -64,7 +64,7 @@ function Announcement({ box, ...props }: AnnouncementProps) {
     []
   );
 
-  const dark = colorMode === 'dark';
+  const dark = colorMode === "dark";
 
   const items = data?.cms?.announcements?.items;
   const sortedItems =
