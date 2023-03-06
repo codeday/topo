@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
 import { reactChildrenMapRecursive } from "topo/_utils";
-import { Box, BoxProps } from "topo/Atom/Box";
+import { Box, type BoxProps } from "topo/Atom/Box";
 
 export default function SiteLogo({ children, ...props }: BoxProps) {
   return (

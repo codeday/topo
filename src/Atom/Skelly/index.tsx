@@ -1,6 +1,6 @@
-/** @jsxImportSource @emotion/react */
-import { keyframes, css, jsx } from "@emotion/react";
-import { Box, BoxProps } from "topo/Atom";
+import React from "react"
+import { keyframes, css } from "@emotion/react";
+import { Box, type BoxProps } from "topo/Atom";
 import { useColorModeValue } from "@chakra-ui/react";
 
 const load = keyframes`

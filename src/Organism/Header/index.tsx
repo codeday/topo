@@ -1,7 +1,7 @@
 import React, { Children, cloneElement, useState } from "react";
 import { UiX, UiMenu } from "@codeday/topocons";
 import { childrenOfType, setChildProps } from "topo/_utils";
-import { Box, BoxProps } from "topo/Atom/Box";
+import { Box, type BoxProps } from "topo/Atom/Box";
 import { Content } from "topo/Molecule";
 import { useColorModeValue } from "topo/Theme";
 
@@ -143,4 +143,4 @@ const Header = ({
     </>
   );
 };
-export { SiteLogo, Menu, Header, HeaderProps };
+export { SiteLogo, Menu, Header, type HeaderProps };

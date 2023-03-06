@@ -1,8 +1,8 @@
 /* eslint-disable no-undef */
 import React, { useRef, useEffect, useState, useMemo } from "react";
 import { debounce } from "topo/_utils";
-import { Box, BoxProps } from "topo/Atom";
-import {ComponentWithAs, forwardRef } from "@chakra-ui/react";
+import { Box, type BoxProps } from "topo/Atom";
+import {type ComponentWithAs, forwardRef } from "@chakra-ui/react";
 
 export interface SizeBoxProps extends BoxProps {
   onWidthChanged?: (width: any) => null;

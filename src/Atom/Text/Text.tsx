@@ -2,9 +2,9 @@ import React from "react";
 import { withProps } from "recompose";
 import { pureRef } from "topo/_utils";
 
-import { Box, ComponentWithAs, Heading, HeadingProps } from "@chakra-ui/react";
+import { Box, type ComponentWithAs, Heading, type HeadingProps } from "@chakra-ui/react";
 
-import { BoxProps } from "../Box";
+import { type BoxProps } from "../Box";
 
 export interface TextProps extends BoxProps {
   bold?: boolean;

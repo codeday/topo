@@ -1,9 +1,8 @@
 import { UiX as X } from "@codeday/topocons";
-import PropTypes from "prop-types";
 import React, { useEffect, useReducer } from "react";
 import useSwr from "swr";
 import { useColorMode } from "@chakra-ui/react";
-import { Box, BoxProps, Button, Grid, Link, Text } from "topo/Atom";
+import { Box, type BoxProps, Button, Grid, Link, Text } from "topo/Atom";
 import { Content } from "topo/Molecule";
 import { useTheme, apiFetch, useLocalStorage } from "topo/utils";
 
@@ -44,7 +43,7 @@ const getDate = () => {
 };
 
 const fromIso = (s: string) => {
-  var b = s.split(/\D+/).map((obj) => Number(obj));
+  const b = s.split(/\D+/).map((obj) => Number(obj));
   return new Date(Date.UTC(b[0], --b[1], b[2], b[3], b[4], b[5], b[6]));
 };
 interface AnnouncementProps extends BoxProps {
@@ -200,11 +199,5 @@ function Announcement({ box, ...props }: AnnouncementProps) {
     </Box>
   );
 }
-Announcement.propTypes = {
-  box: PropTypes.bool,
-};
-Announcement.defaultProps = {
-  box: false,
-};
 
-export { Announcement, AnnouncementProps };
+export { Announcement, type AnnouncementProps };

@@ -1,13 +1,12 @@
 import {
-  As,
-  PropsOf,
-  RightJoinProps,
-  forwardRef as chakraForwardRef,
-  ComponentWithAs,
+  type As,
+  type PropsOf,
+  type RightJoinProps,
+  forwardRef,
+  type ComponentWithAs,
 } from "@chakra-ui/react";
-import PropTypes from "prop-types";
-import React, { ReactNode, forwardRef, useMemo } from "react";
-import { Box, BoxProps } from "topo/Atom";
+import React, { ReactNode, useMemo } from "react";
+import { Box, type BoxProps } from "topo/Atom";
 interface IPrototype {
   prototype: any;
 }
@@ -48,7 +47,7 @@ export const reactChildrenMapRecursive = (
       return fn(
         //@ts-ignore
         React.cloneElement(child, {
-      //@ts-ignore
+          //@ts-ignore
           children: reactChildrenMapRecursive(child.props.children, fn),
         })
       );
@@ -86,7 +85,7 @@ export const pureRef = <T extends object, P extends As>(
     }
   >
 ) =>
-  chakraForwardRef<T, P>((props, ref) =>
+  forwardRef<T, P>((props, ref) =>
     useMemo(() => Component(props, ref), [props, ref])
   );
 

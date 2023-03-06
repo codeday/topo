@@ -4,9 +4,9 @@ import React, {
   useLayoutEffect,
   useRef,
 } from "react";
-import { Box, BoxProps } from "topo/Atom";
+import { Box, type BoxProps } from "topo/Atom";
 import { useSsr } from "topo/utils";
-import {ComponentWithAs, forwardRef} from "@chakra-ui/react";
+import {type ComponentWithAs, forwardRef} from "@chakra-ui/react";
 
 export interface RatioBoxProps extends BoxProps {
   auto?: "w" | "h";

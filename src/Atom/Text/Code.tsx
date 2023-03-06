@@ -1,14 +1,10 @@
 import React from "react";
-import { withProps } from "recompose";
 import {
   useColorModeValue,
-  useColorMode,
-  TextProps,
   forwardRef,
-  ComponentWithAs,
+  type ComponentWithAs,
 } from "@chakra-ui/react";
 import Text from "./Text";
-import { BoxProps } from "../Box";
 
 interface CodeProps {
   fontFamily: string;
@@ -22,19 +18,6 @@ interface CodeProps {
   borderWidth: number;
   fontSize: string;
 }
-
-// const Code = withProps<CodeProps, TextProps>({
-//   fontFamily: "mono",
-//   p: 2,
-//   paddingTop: 1,
-//   paddingBottom: 1,
-//   rounded: "sm",
-//   display: "inline",
-//   bg: "gray.50",
-//   borderColor: "gray.100",
-//   borderWidth: 1,
-//   fontSize: "0.9em",
-// })(Text);
 
 const Code: ComponentWithAs<"p", CodeProps> = forwardRef<CodeProps, "p">(({ children, ...props }, ref) => {
   const bg = useColorModeValue("gray.50", "gray.800");
@@ -60,4 +43,4 @@ const Code: ComponentWithAs<"p", CodeProps> = forwardRef<CodeProps, "p">(({ chil
 });
 
 Code.displayName = "Code";
-export { Code, CodeProps };
+export { Code, type CodeProps };

@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "9.1.1",
+  "version": "9.1.2",
   "license": "Artistic-2.0",
   "files": [
     "dist",
@@ -12,79 +12,75 @@
     "_utils"
   ],
   "sideEffects": false,
-  "main": "dist/index.js",
-  "module": "dist/index.mjs",
-  "types": "dist/index.d.ts",
   "typesVersions": {
     "*": {
       "Atom": [
-        "dist/Atom/index.d.ts"
+        "dist/esm/Atom/index.d.ts"
       ],
       "Molecule": [
-        "dist/Molecule/index.d.ts"
+        "dist/esm/Molecule/index.d.ts"
       ],
       "Organism": [
-        "dist/Organism/index.d.ts"
+        "dist/esm/Organism/index.d.ts"
       ],
       "Theme": [
-        "dist/Theme/index.d.ts"
+        "dist/esm/Theme/index.d.ts"
       ],
       "utils": [
-        "dist/utils.d.ts"
+        "dist/esm/utils.d.ts"
       ],
       "_utils": [
-        "dist/_utils.d.ts"
+        "dist/esm/_utils.d.ts"
       ],
       "*": [
-        "dist/index.d.ts"
+        "dist/esm/index.d.ts"
       ]
     }
   },
   "exports": {
     ".": {
-      "types": "./dist/index.d.ts",
-      "require": "./dist/index.js",
-      "import": "./dist/index.mjs"
+      "types": "./dist/esm/index.d.ts",
+      "require": "./dist/cjs/index.js",
+      "import": "./dist/esm/index.js"
     },
     "./Atom": {
-      "types": "./dist/Atom/index.d.ts",
-      "require": "./dist/Atom/index.js",
-      "import": "./dist/Atom/index.mjs"
+      "types": "./dist/esm/Atom/index.d.ts",
+      "require": "./dist/cjs/Atom/index.js",
+      "import": "./dist/esm/Atom/index.js"
     },
     "./Molecule": {
-      "types": "./dist/Molecule/index.d.ts",
-      "require": "./dist/Molecule/index.js",
-      "import": "./dist/Molecule/index.mjs"
+      "types": "./dist/esm/Molecule/index.d.ts",
+      "require": "./dist/cjs/Molecule/index.js",
+      "import": "./dist/esm/Molecule/index.js"
     },
     "./Organism": {
-      "types": "./dist/Organism/index.d.ts",
-      "require": "./dist/Organism/index.js",
-      "import": "./dist/Organism/index.mjs"
+      "types": "./dist/esm/Organism/index.d.ts",
+      "require": "./dist/cjs/Organism/index.js",
+      "import": "./dist/esm/Organism/index.js"
     },
     "./Theme": {
-      "types": "./dist/Theme/index.d.ts",
-      "require": "./dist/Theme/index.js",
-      "import": "./dist/Theme/index.mjs"
+      "types": "./dist/esm/Theme/index.d.ts",
+      "require": "./dist/cjs/Theme/index.js",
+      "import": "./dist/esm/Theme/index.js"
     },
     "./utils": {
-      "types": "./dist/utils.d.ts",
-      "require": "./dist/utils.js",
-      "import": "./dist/utils.mjs"
+      "types": "./dist/esm/utils.d.ts",
+      "require": "./dist/cjs/utils.js",
+      "import": "./dist/esm/utils.js"
     },
     "./_utils": {
-      "types": "./dist/_utils.d.ts",
-      "require": "./dist/_utils.js",
-      "import": "./dist/_utils.mjs"
+      "types": "./dist/esm/_utils.d.ts",
+      "require": "./dist/cjs/_utils.js",
+      "import": "./dist/esm/_utils.js"
     }
   },
   "scripts": {
-    "build": "NODE_OPTIONS='--max-old-space-size=8192' yarn tsup --dts",
-    "build:fast": "yarn tsup src",
+    "build": "yarn build:esm && yarn build:cjs",
     "trace": "tsc --traceResolution",
     "build:esm": "tsc --project tsconfig.json && tscpaths -p tsconfig.json -s ./src -o ./dist/esm",
     "build:cjs": "tsc --module commonjs --outDir dist/cjs && tscpaths -p tsconfig.json -s ./src -o ./dist/cjs",
     "gen:theme-typings": "chakra-cli tokens ./src/Theme/vars/index.tsx",
-    "logos": "create-chakra-icons  -o src/Atom/Logo/Icons.ts ./src/Atom/Logo/svgs --typescript",
+    "logos": "create-chakra-icons  -o src/Atom/Logo/Icons.tsx ./src/Atom/Logo/svgs --typescript",
     "prepare": "yarn build"
   },
   "dependencies": {
@@ -92,7 +88,7 @@
     "@chakra-ui/cli": "^2.3.0",
     "@chakra-ui/react": "^2.5.1",
     "@chakra-ui/styled-system": "^2.6.1",
-    "@codeday/topocons": "^2.0.1",
+    "@codeday/topocons": "^2.0.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@tylermenezes/cognitoforms-react": "^2.0.13",
@@ -116,20 +112,23 @@
     "@types/react-pdf": "^5.0.9",
     "@types/react-syntax-highlighter": "^13.5.2",
     "@types/recompose": "^0.30.9",
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
     "concurrently": "^6.4.0",
     "create-chakra-icons": "^1.0.3-dev.0",
     "cross-env": "^7.0.3",
+    "esbuild-ts-paths": "^1.1.3",
+    "eslint": "^8.35.0",
     "tscpaths": "^0.0.9",
     "tsup": "^6.6.3",
     "typescript": "^4.5.2"
   },
   "tsup": {
     "entry": [
-      "src/**/*.ts",
-      "src/**/*.tsx",
       "!src/**/*.svg"
     ],
     "clean": true,
+    "treeshake": true,
     "target": "es2019",
     "format": [
       "cjs",

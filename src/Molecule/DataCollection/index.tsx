@@ -1,5 +1,4 @@
 import { Promise, Secure, UiInfo } from "@codeday/topocons";
-import PropTypes from "prop-types";
 import React from "react";
 import { Box, Grid, Link, Skelly } from "topo/Atom";
 import { useString, useTheme } from "topo/utils";
@@ -44,8 +43,5 @@ function DataCollection({ message }: DataCollectionProps) {
     </Box>
   );
 }
-DataCollection.propTypes = {
-  message: PropTypes.string.isRequired,
-};
 
-export { DataCollection, DataCollectionProps };
+export { DataCollection, type DataCollectionProps };

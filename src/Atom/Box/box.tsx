@@ -1,14 +1,15 @@
 import React from "react";
 import {
-    forwardRef,
-    Box as ChakraBox,
-    BoxProps as ChakraBoxProps,
-    ChakraProps, ComponentWithAs,
+  forwardRef,
+  Box as ChakraBox,
+  type BoxProps as ChakraBoxProps,
+  ChakraProps,
+  type ComponentWithAs,
 } from "@chakra-ui/react";
 import { useTheme } from "topo/utils";
 import { dereferenceDottedString } from "topo/_utils";
 
-export interface BoxProps extends ChakraBoxProps {
+interface BoxProps extends ChakraBoxProps {
   grad?: string;
   visuallyHidden?: boolean;
 }
@@ -36,4 +37,4 @@ const Box: ComponentWithAs<"div", BoxProps> = forwardRef<BoxProps, "div">(
     );
   }
 );
-export default Box
+export { Box, type BoxProps };

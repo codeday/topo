@@ -1,13 +1,13 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "dist/esm",
     "module": "esnext",
     "target": "es2019",
     "downlevelIteration": true,
     "lib": ["dom", "esnext"],
     "jsx": "react",
+    "isolatedModules": true,
     "declaration": true,
-    "emitDeclarationOnly": true,
     "moduleResolution": "node",
     "noUnusedLocals": false,
     "noUnusedParameters": false,

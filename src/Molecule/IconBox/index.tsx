@@ -6,8 +6,8 @@ import {
   setChildProps,
   wrapHtml,
 } from "topo/_utils";
-import { Box, BoxProps } from "topo/Atom/Box";
-import {ComponentWithAs} from "@chakra-ui/react";
+import { Box, type BoxProps } from "topo/Atom/Box";
+import {type ComponentWithAs} from "@chakra-ui/react";
 
 export const IconBoxIcon = makePureBox("IconBoxIcon");
 export const IconBoxText = makePureBox("IconBoxText");

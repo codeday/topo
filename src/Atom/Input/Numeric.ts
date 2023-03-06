@@ -1,5 +1,5 @@
 export {
-  NumberInput as default,
+  NumberInput,
   NumberInputField,
   NumberInputStepper,
   NumberIncrementStepper,

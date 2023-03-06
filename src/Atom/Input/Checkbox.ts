@@ -1,1 +1,1 @@
-export { Checkbox as default, CheckboxGroup } from "@chakra-ui/react";
+export { Checkbox, CheckboxGroup } from "@chakra-ui/react";

@@ -1,5 +1,5 @@
 export {
-  Input as default,
+  Input as TextInput,
   InputLeftAddon,
   InputRightAddon,
   InputRightElement,

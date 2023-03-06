@@ -1,9 +1,9 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import useId from "@accessible/use-id";
-import {ComponentWithAs, forwardRef} from "@chakra-ui/react";
+import {type ComponentWithAs, forwardRef} from "@chakra-ui/react";
 
-import Text, { TextProps } from "./Text";
+import Text, { type TextProps } from "./Text";
 
 interface CopyTextProps extends TextProps {
   label: string;
@@ -52,4 +52,4 @@ const CopyText: ComponentWithAs<"p", CopyTextProps> = forwardRef<CopyTextProps, 
   }
 );
 CopyText.displayName = "CopyText";
-export { CopyText, CopyTextProps };
+export { CopyText, type CopyTextProps };

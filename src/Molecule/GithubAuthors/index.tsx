@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Image, Text, Box } from 'topo/Atom';
 import { apiFetch } from 'topo/utils';
-import { ChakraProps } from '@chakra-ui/react';
+import { type ChakraProps } from '@chakra-ui/react';
 
 const GITHUB_AUTHORS_QUERY = `
 query GithubAuthorsQuery($owner: String, $repository: String!, $path: String, $branch: String) {

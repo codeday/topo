@@ -5,8 +5,8 @@ import React, {
   useLayoutEffect,
   useImperativeHandle,
 } from "react";
-import { Box, BoxProps, ClientSideOnlyBox } from "topo/Atom";
-import {ComponentWithAs, forwardRef } from "@chakra-ui/react";
+import { Box, type BoxProps, ClientSideOnlyBox } from "topo/Atom";
+import {type ComponentWithAs, forwardRef } from "@chakra-ui/react";
 
 const VisibilityCheckBoxInner = forwardRef<BoxProps, "div">(
   ({ children, ...props }, forwardedRef) => {

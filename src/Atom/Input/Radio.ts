@@ -1,6 +1,6 @@
 export {
   RadioGroup,
-  Radio as default,
+  Radio,
   Stack,
   HStack,
   VStack,

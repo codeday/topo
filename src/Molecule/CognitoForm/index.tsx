@@ -1,6 +1,5 @@
 // @ts-ignore
 import Form from "@tylermenezes/cognitoforms-react";
-import PropTypes from "prop-types";
 /* eslint-disable no-secrets/no-secrets */
 /* eslint-disable no-undef */
 import React, { useEffect, useState } from "react";
@@ -88,29 +87,5 @@ const CognitoForm = ({
     </>
   );
 };
-CognitoForm.propTypes = {
-  formId: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  prefill: PropTypes.object,
-  showTitle: PropTypes.bool,
-  onSubmit: PropTypes.func,
-  onPageChange: PropTypes.func,
-  onFirstPageChange: PropTypes.func,
-  payment: PropTypes.bool,
-  fallback: PropTypes.bool,
-  hidePrivacy: PropTypes.bool,
-  accountId: PropTypes.string,
-  css: PropTypes.string,
-};
-CognitoForm.defaultProps = {
-  prefill: {},
-  showTitle: false,
-  onSubmit: () => {},
-  onPageChange: () => {},
-  onFirstPageChange: () => {},
-  payment: false,
-  fallback: false,
-  hidePrivacy: false,
-  accountId: null,
-};
 
-export { CognitoForm, CognitoFormProps };
+export { CognitoForm, type CognitoFormProps };

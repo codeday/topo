@@ -2,10 +2,10 @@ import React from "react";
 import {
   FormControl,
   FormLabel,
-  FormControlProps,
-  FormLabelProps,
+  type FormControlProps,
+  type FormLabelProps,
   forwardRef,
-  ComponentWithAs,
+  type ComponentWithAs,
 } from "@chakra-ui/react";
 
 const ComposedFormControl: ComponentWithAs<"div", FormControlProps> = forwardRef<FormControlProps, "div">(

@@ -1,5 +1,5 @@
-import { WithCSSVar } from "@chakra-ui/styled-system";
-import { Dict } from "@chakra-ui/utils";
+import { type WithCSSVar } from "@chakra-ui/styled-system";
+import { type Dict } from "@chakra-ui/utils";
 
 /* eslint-disable global-require */
 /*export default (...args: any[]) =>

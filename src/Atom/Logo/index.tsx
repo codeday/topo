@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, BoxProps } from "topo/Atom";
+import { Box, type BoxProps } from "topo/Atom";
 import { Text } from "topo/Atom";
 import { pureRef } from "topo/_utils";
 import { withProps } from "recompose";
-import {ComponentWithAs, useColorModeValue } from "@chakra-ui/react";
+import {type ComponentWithAs, useColorModeValue } from "@chakra-ui/react";
 import * as Icons from "./Icons";
 
 // generate icons using https://www.npmjs.com/package/create-chakra-icons - create-chakra-icons  -o src/Atom/Logo/Icons.ts ./src/Atom/Logo/svgs --typescript

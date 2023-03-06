@@ -1,5 +1,5 @@
 export {
-  Slider as default,
+  Slider,
   SliderTrack,
   SliderFilledTrack,
   SliderThumb,

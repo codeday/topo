@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import { Box, BoxProps } from "topo/Atom";
 import { withProps } from "recompose";
 
@@ -28,4 +27,4 @@ const StatusDot = withProps<any, StatusDotProps>((props: StatusDotProps) => ({
 
 StatusDot.displayName = "StatusDot";
 
-export { StatusDot, StatusDotProps };
+export { StatusDot, type StatusDotProps };

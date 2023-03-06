@@ -1,4 +1,4 @@
-import { Colors, theme } from "@chakra-ui/theme";
+import { type Colors, theme } from "@chakra-ui/theme";
 
 const linearGrad = (from: string, to: string, deg: number) =>
   `linear-gradient(${deg}deg, ${from} 0%, ${to} 100%)`;

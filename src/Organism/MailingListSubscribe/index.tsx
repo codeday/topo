@@ -1,9 +1,13 @@
 import FormData from "form-data";
 import React, { useState } from "react";
-import { Box, BoxProps, Button, Grid, TextInput } from "topo/Atom";
+import { Box, type BoxProps, Button, Grid, TextInput } from "topo/Atom";
 import { useToasts } from "topo/utils";
 
-async function submitEmail(list: any, email: any, fields?: Record<string, string>) {
+async function submitEmail(
+  list: any,
+  email: any,
+  fields?: Record<string, string>
+) {
   const form = new FormData();
   form.append("field_0", email);
   Object.keys(fields || {}).forEach((k) => form.append(k, fields![k]));
@@ -42,7 +46,7 @@ function MailingListSubscribe({
             ...(textList ? ["phone"] : []),
           ].join(" or ")}
           value={input || undefined}
-          onChange={(e) => setInput(e.target.value)}
+          onChange={(e: any) => setInput(e.target.value)}
           borderTopRightRadius={0}
           borderBottomRightRadius={0}
           borderRightWidth={0}
@@ -77,4 +81,4 @@ function MailingListSubscribe({
     </Box>
   );
 }
-export { MailingListSubscribe, MailingListSubscribeProps };
+export { MailingListSubscribe, type MailingListSubscribeProps };

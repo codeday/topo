@@ -1,5 +1,5 @@
-import { mode, StyleFunctionProps } from "@chakra-ui/theme-tools";
-import { Dict } from "@chakra-ui/utils";
+import { mode, type StyleFunctionProps } from "@chakra-ui/theme-tools";
+import { type Dict } from "@chakra-ui/utils";
 
 const components = {
   Popover: {

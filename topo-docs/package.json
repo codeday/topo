@@ -11,6 +11,7 @@
   "dependencies": {
     "@chakra-ui/react": "^2.5.1",
     "@codeday/topo": "file:.yalc/@codeday/topo",
+    "@codeday/topocons": "file:.yalc/@codeday/topocons",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "@nexite/dokz": "latest",

@@ -1,5 +1,5 @@
 import React from "react";
-import { Icon, IconProps } from "@chakra-ui/react";
+import { Icon, type IconProps } from "@chakra-ui/react";
 
 const Discord = ({ color }: IconProps) => {
   return (

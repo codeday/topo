@@ -1,5 +1,5 @@
 import { Eco } from "@codeday/topocons";
-import React, { forwardRef, ReactNode } from "react";
+import React, { forwardRef, type ReactNode } from "react";
 import { childrenOfType, makePureBox } from "topo/_utils";
 import {
   Box,
@@ -11,12 +11,12 @@ import {
   List,
   Skelly,
   Text,
-  BoxProps,
+  type BoxProps,
 } from "topo/Atom";
 import { Content, GithubAuthors } from "topo/Molecule";
 import { useString } from "topo/utils";
 import { useQuery } from "topo/Theme";
-import { ChakraProps, ComponentWithAs } from "@chakra-ui/react";
+import { type ChakraProps, type ComponentWithAs } from "@chakra-ui/react";
 
 export const CustomLinks: ComponentWithAs<"div", BoxProps> =
   makePureBox("Custom Links");

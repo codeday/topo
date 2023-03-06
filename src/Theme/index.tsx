@@ -237,7 +237,7 @@ export {
   useColorMode,
   useColorModeValue,
   Provider as ThemeProvider,
-  ProviderProps as ThemeProviderProps,
+  type ProviderProps as ThemeProviderProps,
   getServerSideProps,
   ColorModeScript,
   codedayTheme,

@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from "react";
 import { GraphQLClient } from "graphql-request";
-import {ToastId, useTheme, useToast as useToastNative, UseToastOptions, CreateToastFnReturn} from "@chakra-ui/react";
+import {type ToastId, useTheme, useToast as useToastNative, type UseToastOptions, type CreateToastFnReturn} from "@chakra-ui/react";
 
 export { useClipboard, useDisclosure, ColorModeScript } from "@chakra-ui/react";
 // @ts-ignore

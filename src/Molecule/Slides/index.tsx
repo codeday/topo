@@ -1,7 +1,6 @@
-import {ComponentWithAs, forwardRef } from "@chakra-ui/react";
-import PropTypes from "prop-types";
+import {type ComponentWithAs, forwardRef } from "@chakra-ui/react";
 import React, { useEffect, useReducer } from "react";
-import { Box, BoxProps } from "topo/Atom/Box";
+import { Box, type BoxProps } from "topo/Atom/Box";
 
 interface SlidesProps extends BoxProps {
   duration?: number;
@@ -51,4 +50,4 @@ Slides.displayName = "Slides";
 //   transitionDuration: 1,
 //   children: null,
 // };
-export { Slides, SlidesProps };
+export { Slides, type SlidesProps };
