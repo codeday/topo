@@ -1,8 +1,8 @@
 import React from "react";
 import { withProps } from "recompose";
-import { Link, type LinkProps } from "@chakra-ui/react";
+import { Link as ChakraLink, type LinkProps } from "@chakra-ui/react";
 
-export default withProps<any, LinkProps>({
+export const Link = withProps<any, LinkProps>({
   textDecoration: "underline",
-})(Link);
+})(ChakraLink);
 export type { LinkProps };

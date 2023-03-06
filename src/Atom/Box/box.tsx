@@ -3,7 +3,6 @@ import {
   forwardRef,
   Box as ChakraBox,
   type BoxProps as ChakraBoxProps,
-  ChakraProps,
   type ComponentWithAs,
 } from "@chakra-ui/react";
 import { useTheme } from "topo/utils";

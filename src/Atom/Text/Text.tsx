@@ -12,7 +12,7 @@ export interface TextProps extends BoxProps {
 export const Text: ComponentWithAs<"p", TextProps> = pureRef<TextProps, "p">(({ bold, ...props }, ref) => (
   <Box fontWeight={bold ? "bold" : {}} {...props} ref={ref} />
 ));
-const P = pureRef<TextProps, "p">(({ as, bold, ...rest }, ref) => (
+export const P = pureRef<TextProps, "p">(({ as, bold, ...rest }, ref) => (
   <Box
     marginBottom={(as as string) === "p" ? 4 : {}}
     fontWeight={bold ? "bold" : {}}
@@ -21,8 +21,6 @@ const P = pureRef<TextProps, "p">(({ as, bold, ...rest }, ref) => (
     ref={ref}
   />
 ));
-
-export default P;
 
 export const H1 = withProps<HeadingProps, HeadingProps>({
   as: "h1",
