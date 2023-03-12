@@ -107,7 +107,7 @@ const Header = ({
           <Box pb={4} mb={4} borderBottomWidth={1}>
             {cloneElement(logo[0] as React.ReactElement<any>, {
               fontSize: "3xl",
-              d: "block",
+              display: "block",
               float: "none",
               p: 2,
               role: "menuitem",
@@ -130,7 +130,7 @@ const Header = ({
               >
                 {cloneElement(c as React.ReactElement<any>, {
                   fontSize: "xl",
-                  d: "block",
+                  display: "block",
                   float: "none",
                   p: 2,
                   role: "menuitem",
