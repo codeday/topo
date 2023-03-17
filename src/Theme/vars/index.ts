@@ -2,6 +2,7 @@ import { extendTheme } from "@chakra-ui/react";
 
 import colors from "./colors";
 import components from "./components";
+import { extensions } from "./extensions";
 import fonts from "./fonts";
 import styles from "./styles";
 
@@ -21,4 +22,4 @@ const Theme = {
 };
 
 export { Theme };
-export default extendTheme({ ...Theme });
+export default extendTheme(...extensions, { ...Theme });
