@@ -1,15 +1,9 @@
 {
   "name": "@codeday/topo",
-  "version": "9.2.2",
+  "version": "9.2.4",
   "license": "Artistic-2.0",
   "files": [
-    "dist",
-    "Atom",
-    "Molecule",
-    "Organism",
-    "Theme",
-    "utils",
-    "_utils"
+    "dist"
   ],
   "sideEffects": false,
   "typesVersions": {
@@ -34,6 +28,9 @@
       ],
       "*": [
         "dist/esm/index.d.ts"
+      ],
+      "Next": [
+        "dist/esm/Next/index.d.ts"
       ]
     }
   },
@@ -72,6 +69,15 @@
       "types": "./dist/esm/_utils.d.ts",
       "require": "./dist/cjs/_utils.js",
       "import": "./dist/esm/_utils.js"
+    },
+    "./Next/Atom": {
+      "require": "./dist/cjs/Next/Atom/index.js",
+      "import": "./dist/esm/Next/Atom/index.js"
+    },
+    "./Next": {
+      "types": "./dist/esm/Next/index.d.ts",
+      "require": "./dist/cjs/Next/index.js",
+      "import": "./dist/esm/Next/index.js"
     }
   },
   "scripts": {
@@ -85,7 +91,6 @@
   },
   "dependencies": {
     "@accessible/use-id": "^1.1.2",
-    "@chakra-ui/next-js": "^2.0.1",
     "@chakra-ui/react": "^2.5.1",
     "@chakra-ui/styled-system": "^2.6.1",
     "@codeday/topocons": "^2.0.2",
@@ -97,14 +102,14 @@
     "graphql": "^16.0.1",
     "graphql-request": "^3.6.1",
     "lodash.get": "^4.4.2",
-    "react": "^18.0.0",
-    "react-dom": "^18.0.0",
     "react-load-script": "^0.0.6",
     "recompose": "^0.30.0",
     "stylis": "~4.0.10",
     "swr": "^1.0.1"
   },
   "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
     "next": "^12.0.0 || ^13.0.0"
   },
   "devDependencies": {

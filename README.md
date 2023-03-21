@@ -1,11 +1,31 @@
 # @codeday/topo
 The CodeDay design system.
 
+## to use with NextJs wrap your Next config with useTopo
+
+```js
+const { withTopo } = require('@codeday/topo/Next');
+
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = withTopo({
+  /* config options here */
+})
+
+module.exports = nextConfig
+```
+
+this will replace default links with NextJs links wherever possible
+
+## Docs
 To run the docs run 
 ```
 docker build -t topo .
 docker run -p 3000:3000 topo
 ```
+
+## Upgrading
 
 To bulk-update most of the imports from a project using the old version of topo the new import structure, here are a few helpful regular expressions:
 
