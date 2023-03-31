@@ -1,21 +1,7 @@
 import FormData from "form-data";
 import React, { useState } from "react";
 import { Box, type BoxProps, Button, Grid, TextInput } from "topo/Atom";
-import { useToasts } from "topo/utils";
-
-async function submitEmail(
-  list: any,
-  email: any,
-  fields?: Record<string, string>
-) {
-  const form = new FormData();
-  form.append("field_0", email);
-  Object.keys(fields || {}).forEach((k) => form.append(k, fields![k]));
-  return fetch(`https://eomail1.com/form/${list}`, {
-    method: "POST",
-    body: form as any,
-  });
-}
+import { apiFetch, useToasts } from "topo/utils";
 
 interface MailingListSubscribeProps extends BoxProps {
   emailList?: string;
@@ -55,22 +41,20 @@ function MailingListSubscribe({
           variant={variant || "solid"}
           colorScheme={colorScheme || "green"}
           isLoading={isSubmitting}
-          onClick={() => {
+          onClick={async () => {
             // TODO: Support for phone lists
             setIsSubmitting(true);
-            submitEmail(emailList, input, fields)
-              .then(() => {
-                success(`You're subscribed!`);
-                setInput("");
-              })
-              .catch(() => {
-                error(
-                  `Sorry, we couldn't complete your subscription, please try again.`
-                );
-              })
-              .finally(() => {
-                setIsSubmitting(false);
-              });
+            try {
+              await apiFetch(
+                'mutation SubscribeEmail ($list: String!, $email: String!) { email { subscribe(list: $list, email: $email) } }',
+                { list: emailList, email: input },
+                {}
+              );
+              success(`We've added you to the list!`);
+            } catch (ex) {
+              error(`Sorry, we couldn't complete your subscription. Please try again.`);
+            }
+            setIsSubmitting(false);
           }}
           borderTopLeftRadius={0}
           borderBottomLeftRadius={0}
