@@ -1,6 +1,6 @@
 import {
   ChakraProvider,
-  createCookieStorageManager,
+  cookieStorageManagerSSR,
   localStorageManager,
 } from "@chakra-ui/react";
 import { Global, css } from "@emotion/react";
@@ -108,6 +108,7 @@ interface ProviderProps {
   programWebname?: string;
   visibility?: string;
   initialColorMode: string;
+  useSystemColorMode: boolean;
   cookies?: any;
   children?: React.ReactNode;
   locale?: string;
@@ -121,6 +122,7 @@ const Provider = ({
   programWebname,
   visibility = "public",
   initialColorMode,
+  useSystemColorMode,
   cookies,
   children,
   locale,
@@ -153,9 +155,8 @@ const Provider = ({
   //   codedayTheme.colors.modes.light.borderColor = (codedayTheme.colors.brand
   //     .desaturated || codedayTheme.colors.brand)[200];
   }
-  codedayTheme.config.initialColorMode = initialColorMode
-    ? initialColorMode
-    : codedayTheme.config.initialColorMode;
+  codedayTheme.config.initialColorMode = initialColorMode ?? codedayTheme.config.initialColorMode;
+  codedayTheme.config.useSystemColorMode = typeof useSystemColorMode !== undefined ?  useSystemColorMode : codedayTheme.config.initialColorMode
   return (
     <>
       <ChakraProvider
@@ -169,7 +170,7 @@ const Provider = ({
         resetCSS
         colorModeManager={
           typeof cookies === "string"
-            ? createCookieStorageManager(cookies)
+            ? cookieStorageManagerSSR(cookies)
             : localStorageManager
         }
       >
