@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "9.2.4",
+  "version": "9.2.5",
   "license": "Artistic-2.0",
   "files": [
     "dist"
@@ -96,21 +96,21 @@
     "@codeday/topocons": "^2.0.2",
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
-    "@tylermenezes/cognitoforms-react": "^2.0.13",
+    "@tylermenezes/cognitoforms-react": "^2.1.0",
     "fathom-react": "^1.0.1",
     "framer-motion": ">=4.0.0",
     "graphql": "^16.0.1",
     "graphql-request": "^3.6.1",
     "lodash.get": "^4.4.2",
     "react-load-script": "^0.0.6",
-    "recompose": "^0.30.0",
+    "recompose": "npm:react-recompose@^0.33.0",
     "stylis": "~4.0.10",
     "swr": "^1.0.1"
   },
   "peerDependencies": {
+    "next": "^12.0.0 || ^13.0.0",
     "react": "^18.0.0",
-    "react-dom": "^18.0.0",
-    "next": "^12.0.0 || ^13.0.0"
+    "react-dom": "^18.0.0"
   },
   "devDependencies": {
     "@chakra-ui/cli": "^2.3.0",
@@ -120,7 +120,7 @@
     "@types/react-dom": "^18.0.0",
     "@types/react-pdf": "^5.0.9",
     "@types/react-syntax-highlighter": "^13.5.2",
-    "@types/recompose": "^0.30.9",
+    "@types/recompose": "^0.30.10",
     "@typescript-eslint/eslint-plugin": "^5.54.0",
     "@typescript-eslint/parser": "^5.54.0",
     "concurrently": "^6.4.0",
@@ -129,6 +129,8 @@
     "esbuild-ts-paths": "^1.1.3",
     "eslint": "^8.35.0",
     "next": "^12.0.0 || ^13.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "tscpaths": "^0.0.9",
     "tsup": "^6.6.3",
     "typescript": "^4.5.2"

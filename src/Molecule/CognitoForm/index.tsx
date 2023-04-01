@@ -1,4 +1,3 @@
-// @ts-ignore
 import Form from "@tylermenezes/cognitoforms-react";
 /* eslint-disable no-secrets/no-secrets */
 /* eslint-disable no-undef */
