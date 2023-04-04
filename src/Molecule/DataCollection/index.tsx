@@ -34,7 +34,7 @@ function DataCollection({ message }: DataCollectionProps) {
         </Box>
         <Box fontSize="sm">
           {renderedText} (
-          <Link href="https://www.srnd.org/privacy" target="_blank">
+          <Link href="https://www.codeday.org/privacy" target="_blank">
             {moreInfo}
           </Link>
           )

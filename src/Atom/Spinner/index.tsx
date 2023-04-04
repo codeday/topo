@@ -12,7 +12,7 @@ const smilSupport = () =>
 export const Spinner = forwardRef((_, ref) => (
   <img
     ref={ref as React.MutableRefObject<any>}
-    src={`https://f1.srnd.org/topo/loading.${smilSupport() ? "svg" : "gif"}`}
+    src={`https://f1.codeday.org/topo/loading.${smilSupport() ? "svg" : "gif"}`}
     alt="(loading...)"
     style={{ display: "inline-block" }}
   />
