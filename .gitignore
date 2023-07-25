@@ -19,3 +19,5 @@ yarn-error.log
 .vscode
 topo-docs/yalc.lock
 package-lock.json
+.idea
+storybook-static

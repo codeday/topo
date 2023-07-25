@@ -1,6 +1,6 @@
 {
   "name": "@codeday/topo",
-  "version": "9.2.7",
+  "version": "9.2.8",
   "license": "Artistic-2.0",
   "files": [
     "dist"

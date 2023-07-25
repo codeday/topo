@@ -2,6 +2,7 @@ import React from "react"
 import { keyframes, css } from "@emotion/react";
 import { Box, type BoxProps } from "topo/Atom";
 import { useColorModeValue } from "@chakra-ui/react";
+export { Skeleton, SkeletonCircle, SkeletonText } from '@chakra-ui/react'
 
 const load = keyframes`
   from {
