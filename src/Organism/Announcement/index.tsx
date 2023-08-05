@@ -36,8 +36,19 @@ const query = (date: string, visibility: any) => `{
   }
 }`;
 
+
+// From https://stackoverflow.com/a/21739514
+function roundTimeQuarterHour(time: Date) {
+  var timeToReturn = new Date(time);
+
+  timeToReturn.setMilliseconds(Math.round(timeToReturn.getMilliseconds() / 1000) * 1000);
+  timeToReturn.setSeconds(Math.round(timeToReturn.getSeconds() / 60) * 60);
+  timeToReturn.setMinutes(Math.round(timeToReturn.getMinutes() / 15) * 15);
+  return timeToReturn;
+}
+
 const getDate = () => {
-  const d = new Date();
+  const d = roundTimeQuarterHour(new Date());
   d.setUTCHours(d.getUTCHours() - 7);
   return d.toISOString();
 };
@@ -96,7 +107,7 @@ function Announcement({ box, ...props }: AnnouncementProps) {
   const item = sortedItems ? sortedItems[0] : null;
 
   useEffect(() => {
-    const interval = setInterval(() => updateDate(), 60000);
+    const interval = setInterval(() => updateDate(), 15 * 60 * 1000);
     return () => clearInterval(interval);
   });
 
