@@ -7,16 +7,16 @@ import {
 import { P as Text } from "./Text";
 
 interface CodeProps {
-  fontFamily: string;
-  p: number;
-  paddingTop: number;
-  paddingBottom: number;
-  rounded: string;
-  display: string;
-  bg: string;
-  borderColor: string;
-  borderWidth: number;
-  fontSize: string;
+  fontFamily?: string;
+  p?: number;
+  paddingTop?: number;
+  paddingBottom?: number;
+  rounded?: string;
+  display?: string;
+  bg?: string;
+  borderColor?: string;
+  borderWidth?: number;
+  fontSize?: string;
 }
 
 const Code: ComponentWithAs<"p", CodeProps> = forwardRef<CodeProps, "p">(
