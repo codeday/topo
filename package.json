@@ -99,7 +99,7 @@
     "@tylermenezes/cognitoforms-react": "^2.1.0",
     "fathom-react": "^1.0.1",
     "framer-motion": ">=4.0.0",
-    "graphql": "^16.0.1",
+    "graphql": "^16.8.1",
     "graphql-request": "^3.6.1",
     "lodash.get": "^4.4.2",
     "react-load-script": "^0.0.6",
